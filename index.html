@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Analytics (Preserved) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MCXMFE92D"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -8,158 +9,296 @@
     gtag('js', new Date());
     gtag('config', 'G-7MCXMFE92D');
   </script> 
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Segun Falade - SaaS Copywriter helping startups turn curious visitors into converted users.">
   <title>Segun Falade | SaaS Copywriter</title>
+
+  <!-- Importing "Plus Jakarta Sans" for the SaaS Header look and "Inter" for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
+      /* Brand Colors */
       --primary-color: #009966;
       --secondary-color: #3366CC;
-      --text-dark: #2d3436;
-      --text-light: #636e72;
-      --bg-color: #F0FBF8;
+      --accent-gradient: linear-gradient(135deg, #009966 0%, #3366CC 100%);
+      
+      /* Tech/SaaS Palette */
+      --text-main: #0f172a;   /* Very dark blue/slate */
+      --text-muted: #475569;  /* Slate grey */
+      --bg-color: #ffffff;
+      --grid-color: #e2e8f0;  /* Light grey for grid */
+      
+      /* Spacing */
+      --container-width: 680px;
     }
 
     body {
-      font-family: 'Inter', 'Segoe UI', sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0 auto;
-      padding: 3rem 1.5rem;
-      background: var(--bg-color);
-      color: var(--text-dark);
-      max-width: 600px;
+      padding: 0;
+      background-color: var(--bg-color);
+      /* SaaS Grid Background Pattern */
+      background-image: 
+        radial-gradient(at 80% 0%, rgba(51, 102, 204, 0.1) 0px, transparent 50%),
+        linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+      background-size: 100% 100%, 40px 40px, 40px 40px;
+      color: var(--text-main);
       line-height: 1.6;
-    }
-
-    header {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
+    }
+
+    /* Layout Container */
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Top Left Profile Styling */
+    header {
+      display: flex;
       align-items: center;
-      text-align: center;
-      margin-bottom: 2rem;
+      gap: 1rem;
+      margin-bottom: 4rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid transparent; /* Placeholder for potential sticky nav */
+    }
+
+    .profile-wrap {
+      position: relative;
     }
 
     .logo {
-      width: 100px;
-      height: 100px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid white;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: 2px solid white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .identity {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    .role {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Main Copy Styling */
+    .hero {
+      margin-bottom: 3rem;
+    }
+
+    .preheader {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       margin-bottom: 1rem;
+      display: inline-block;
+      background: rgba(51, 102, 204, 0.1);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
     }
 
     h1 {
-      font-size: 2rem;
-      margin: 0.5rem 0;
-      color: var(--text-dark);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.5rem;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      margin: 0 0 1.5rem 0;
     }
 
-    .subheading {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--primary-color);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 1.5rem;
+    /* The Signature Phrase Styling */
+    .signature-phrase {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      /* Fallback for old browsers */
+      color: var(--primary-color); 
     }
 
     .description {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      margin-bottom: 2.5rem;
-      text-align: center;
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 95%;
     }
 
+    /* Buttons / Links */
     .button-container {
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
+      gap: 1rem;
     }
 
     .link-button {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 1rem;
-      background: var(--secondary-color);
-      color: white;
+      background: white;
+      color: var(--text-main);
       text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 12px;
+      font-weight: 600;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      position: relative;
+      overflow: hidden;
     }
 
-    .link-button:hover {
-      background: #254A99;
+    /* Primary CTA Style */
+    .link-button.primary {
+      background: var(--text-main);
+      color: white;
+      border: 1px solid var(--text-main);
+    }
+
+    .link-button.primary:hover {
+      background: #1e293b;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(51, 102, 204, 0.3);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
     }
 
-    /* Footer & Social Icons Styling */
+    /* Secondary CTA Style */
+    .link-button.secondary:hover {
+      border-color: var(--secondary-color);
+      color: var(--secondary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(51, 102, 204, 0.08);
+    }
+
+    /* Footer */
     footer {
       text-align: center;
+      margin-top: auto; /* Pushes footer to bottom */
+      padding: 3rem 1.5rem;
       font-size: 0.85rem;
-      color: var(--text-light);
-      margin-top: 4rem;
-      padding: 2rem 1.5rem;
-      border-top: 1px solid #d1e8e2;
+      color: #94a3b8;
     }
 
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 24px;
       margin-bottom: 1.5rem;
     }
 
     .social-icon {
-      fill: var(--text-light);
-      transition: fill 0.3s ease, transform 0.2s ease;
+      fill: #64748b;
       width: 24px;
       height: 24px;
+      transition: all 0.3s ease;
     }
 
     .social-icon:hover {
       fill: var(--secondary-color);
       transform: scale(1.1);
     }
+
+    /* Mobile Adjustments */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      header {
+        margin-bottom: 2.5rem;
+      }
+      .container {
+        padding: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="https://copyinteractive.github.io/assets/profile.png" alt="Segun Falade" class="logo">
-    <h1>Segun Falade</h1>
-    <div class="subheading">SaaS Copywriter</div>
-  </header>
+  <div class="container">
+    
+    <!-- Top Left Aligned Header -->
+    <header>
+      <div class="profile-wrap">
+        <img src="https://copyinteractive.github.io/assets/profile.png" alt="Segun Falade" class="logo">
+      </div>
+      <div class="identity">
+        <span class="name">Segun Falade</span>
+        <span class="role">SaaS Copywriter</span>
+      </div>
+    </header>
 
-  <section class="description">
-    <p>
-      I help SaaS brands bridge the gap between complex features and user needs. By crafting messaging that resonates with your audience's true pain points, I help you build deeper connections, reduce churn, and drive higher <strong>MRR</strong>.
-    </p>
-  </section>
+    <!-- New Hero Section -->
+    <main class="hero">
+      <div class="preheader">Dear B2B SaaS Startups...</div>
+      
+      <h1>
+        Take Your Page Visitors and Free Users From <br />
+        <span class="signature-phrase">Curious 2 Converted</span>
+      </h1>
+      
+      <p class="description">
+        I help you bridge the gap between complex features and what your user needs. It's not just enough to get them curious about your product... you also need to build a journey that turns them into a converted lead. I produce messaging that achieves just that.
+      </p>
+    </main>
 
-  <nav class="button-container">
-    <a href="https://www.canva.com/design/DAG6_flilIk/-uBKMjKdwWj4i-hXNELD4g/view?utm_content=DAG6_flilIk&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8bcff8982c" class="link-button" target="_blank">📄 My Portfolio</a>
-    <a href="mailto:segun.faladey@gmail.com" class="link-button">📬 Contact Me</a>
-    <a href="#" class="link-button">📈 Case Studies</a>
-    <a href="#" class="link-button">📚 Resources</a>
-    <a href="https://curious2converted.substack.com" class="link-button" target="_blank" rel="noopener noreferrer">✍️ Latest Content</a>
-  </nav>
-
-  <footer>
-    <div class="social-links">
-      <a href="https://linkedin.com/in/segunfaladey" target="_blank" aria-label="LinkedIn">
-        <svg class="social-icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+    <!-- Navigation / Links -->
+    <nav class="button-container">
+      <a href="https://www.canva.com/design/DAG6_flilIk/-uBKMjKdwWj4i-hXNELD4g/view?utm_content=DAG6_flilIk&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8bcff8982c" class="link-button primary" target="_blank">
+        📄 View My Portfolio
       </a>
-      <a href="https://x.com/shegston" target="_blank" aria-label="X (formerly Twitter)">
-        <svg class="social-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      <a href="mailto:segun.faladey@gmail.com" class="link-button secondary">
+        📬 Contact Me
       </a>
-    </div>
-    © 2026 Segun Falade
-  </footer>
+      <a href="#" class="link-button secondary">
+        📈 Case Studies
+      </a>
+      <a href="#" class="link-button secondary">
+        📚 Resources
+      </a>
+      <a href="https://curious2converted.substack.com" class="link-button secondary" target="_blank" rel="noopener noreferrer">
+        ✍️ Latest Content
+      </a>
+    </nav>
 
+    <!-- Footer -->
+    <footer>
+      <div class="social-links">
+        <a href="https://linkedin.com/in/segunfaladey" target="_blank" aria-label="LinkedIn">
+          <svg class="social-icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <a href="https://x.com/shegston" target="_blank" aria-label="X (formerly Twitter)">
+          <svg class="social-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+      © 2026 Segun Falade
+    </footer>
+
+  </div>
 </body>
 </html>
