@@ -15,10 +15,10 @@
   <meta name="description" content="Segun Falade - SaaS Copywriter helping startups turn curious visitors into converted users.">
   <title>Segun Falade | SaaS Copywriter</title>
 
-  <!-- Favicon added here -->
+  <!-- Favicon -->
   <link rel="icon" href="https://copyinteractive.github.io/assets/profile.png" type="image/png">
 
-  <!-- Importing "Plus Jakarta Sans" for the SaaS Header look and "Inter" for body -->
+  <!-- Importing "Plus Jakarta Sans" and "Inter" -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
@@ -31,13 +31,13 @@
       --accent-gradient: linear-gradient(135deg, #009966 0%, #3366CC 100%);
       
       /* Tech/SaaS Palette */
-      --text-main: #0f172a;   /* Very dark blue/slate */
-      --text-muted: #475569;  /* Slate grey */
+      --text-main: #0f172a;   
+      --text-muted: #475569;  
       --bg-color: #ffffff;
-      --grid-color: #e2e8f0;  /* Light grey for grid */
+      --grid-color: #e2e8f0;  
       
       /* Spacing */
-      --container-width: 680px;
+      --container-width: 720px;
     }
 
     body {
@@ -58,7 +58,6 @@
       flex-direction: column;
     }
 
-    /* Layout Container */
     .container {
       max-width: var(--container-width);
       margin: 0 auto;
@@ -67,23 +66,25 @@
       box-sizing: border-box;
     }
 
-    /* Top Left Profile Styling */
+    /* --- HEADER (Split Layout) --- */
     header {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 1rem;
       margin-bottom: 4rem;
       padding-bottom: 1rem;
-      border-bottom: 1px solid transparent; /* Placeholder for potential sticky nav */
-    }
-
-    .profile-wrap {
       position: relative;
     }
 
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
     .logo {
-      width: 56px;
-      height: 56px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid white;
@@ -109,14 +110,90 @@
       font-weight: 500;
     }
 
-    /* Main Copy Styling */
+    /* --- TOP RIGHT BUTTON & DROPDOWN --- */
+    .header-right {
+      position: relative;
+    }
+
+    .projects-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .projects-btn:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+      transform: translateY(-1px);
+    }
+
+    .projects-btn svg {
+      transition: transform 0.2s;
+    }
+
+    .projects-btn.open svg {
+      transform: rotate(180deg);
+    }
+
+    /* Dropdown Styling */
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      width: 220px;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+      padding: 0.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 50;
+    }
+
+    .dropdown-menu.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.15s;
+    }
+
+    .dropdown-item:hover {
+      background: #f1f5f9;
+      color: var(--text-main);
+    }
+
+    /* --- HERO & MAIN CTA --- */
     .hero {
       margin-bottom: 3rem;
     }
 
     h1 {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 2.5rem;
+      font-size: 2.75rem; /* Slightly larger for impact */
       line-height: 1.15;
       font-weight: 800;
       letter-spacing: -0.02em;
@@ -124,13 +201,11 @@
       margin: 0 0 1.5rem 0;
     }
 
-    /* The Signature Phrase Styling */
     .signature-phrase {
       background: var(--accent-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      /* Fallback for old browsers */
       color: var(--primary-color); 
     }
 
@@ -138,58 +213,41 @@
       font-size: 1.125rem;
       color: var(--text-muted);
       max-width: 95%;
+      margin-bottom: 2.5rem;
     }
 
-    /* Buttons / Links */
-    .button-container {
+    /* The Main CTA Button */
+    .cta-wrapper {
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      justify-content: flex-start;
     }
 
-    .link-button {
-      display: flex;
+    .contact-btn-main {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      background: white;
-      color: var(--text-main);
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: 600;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Primary CTA Style */
-    .link-button.primary {
+      gap: 0.75rem;
+      padding: 1rem 2.5rem;
       background: var(--text-main);
       color: white;
-      border: 1px solid var(--text-main);
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+      transition: all 0.2s ease;
     }
 
-    .link-button.primary:hover {
+    .contact-btn-main:hover {
       background: #1e293b;
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
-    }
-
-    /* Secondary CTA Style */
-    .link-button.secondary:hover {
-      border-color: var(--secondary-color);
-      color: var(--secondary-color);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(51, 102, 204, 0.08);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
     }
 
     /* Footer */
     footer {
       text-align: center;
-      margin-top: auto; /* Pushes footer to bottom */
+      margin-top: auto;
       padding: 3rem 1.5rem;
       font-size: 0.85rem;
       color: #94a3b8;
@@ -216,15 +274,10 @@
 
     /* Mobile Adjustments */
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-      header {
-        margin-bottom: 2.5rem;
-      }
-      .container {
-        padding: 1.5rem;
-      }
+      h1 { font-size: 2rem; }
+      header { margin-bottom: 2.5rem; }
+      .container { padding: 1.5rem; }
+      .contact-btn-main { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -232,18 +285,47 @@
 
   <div class="container">
     
-    <!-- Top Left Aligned Header -->
+    <!-- Split Header -->
     <header>
-      <div class="profile-wrap">
-        <img src="https://copyinteractive.github.io/assets/profile.png" alt="Segun Falade" class="logo">
+      <div class="header-left">
+        <div class="profile-wrap">
+          <img src="https://copyinteractive.github.io/assets/profile.png" alt="Segun Falade" class="logo">
+        </div>
+        <div class="identity">
+          <span class="name">Segun Falade</span>
+          <span class="role">SaaS Copywriter</span>
+        </div>
       </div>
-      <div class="identity">
-        <span class="name">Segun Falade</span>
-        <span class="role">SaaS Copywriter</span>
+
+      <div class="header-right">
+        <!-- Toggle Button -->
+        <button class="projects-btn" id="projectsBtn" onclick="toggleDropdown()" aria-expanded="false">
+          My Projects
+          <!-- Chevron Icon -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+
+        <!-- Dropdown Menu containing all other links -->
+        <div class="dropdown-menu" id="projectsDropdown">
+          <a href="https://www.canva.com/design/DAG6_flilIk/-uBKMjKdwWj4i-hXNELD4g/view?utm_content=DAG6_flilIk&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8bcff8982c" class="dropdown-item" target="_blank">
+            📄 Portfolio
+          </a>
+          <a href="#" class="dropdown-item">
+            📈 Case Studies
+          </a>
+          <a href="#" class="dropdown-item">
+            📚 Resources
+          </a>
+          <a href="https://curious2converted.substack.com" class="dropdown-item" target="_blank" rel="noopener noreferrer">
+            ✍️ Latest Content
+          </a>
+        </div>
       </div>
     </header>
 
-    <!-- New Hero Section -->
+    <!-- Main Content Area -->
     <main class="hero">
       
       <h1>
@@ -253,26 +335,14 @@
       <p class="description">
         Getting them to your landing page is one thing - making them see why you're the solution they need... is another. Let me connect the dots, and help you turn browsers "just checking" into paying subscribers
       </p>
-    </main>
 
-    <!-- Navigation / Links -->
-    <nav class="button-container">
-      <a href="https://www.canva.com/design/DAG6_flilIk/-uBKMjKdwWj4i-hXNELD4g/view?utm_content=DAG6_flilIk&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8bcff8982c" class="link-button primary" target="_blank">
-        📄 View My Portfolio
-      </a>
-      <a href="mailto:segun.faladey@gmail.com" class="link-button secondary">
-        📬 Contact Me
-      </a>
-      <a href="#" class="link-button secondary">
-        📈 Case Studies
-      </a>
-      <a href="#" class="link-button secondary">
-        📚 Resources
-      </a>
-      <a href="https://curious2converted.substack.com" class="link-button secondary" target="_blank" rel="noopener noreferrer">
-        ✍️ Latest Content
-      </a>
-    </nav>
+      <!-- Primary Call to Action -->
+      <div class="cta-wrapper">
+        <a href="https://calendly.com/segunfalade/discovery-call" class="contact-btn-main" target="_blank" rel="noopener noreferrer">
+          📬 Contact Me
+        </a>
+      </div>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -288,5 +358,31 @@
     </footer>
 
   </div>
+
+  <script>
+    // Simple script to toggle the dropdown
+    function toggleDropdown() {
+      const dropdown = document.getElementById('projectsDropdown');
+      const btn = document.getElementById('projectsBtn');
+      dropdown.classList.toggle('active');
+      btn.classList.toggle('open');
+      
+      // Update aria attribute for accessibility
+      const isExpanded = dropdown.classList.contains('active');
+      btn.setAttribute('aria-expanded', isExpanded);
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('projectsDropdown');
+      const btn = document.getElementById('projectsBtn');
+      
+      if (!btn.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
 </body>
 </html>
