@@ -56,6 +56,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden; /* Prevents horizontal scroll on mobile */
     }
 
     .container {
@@ -89,6 +90,7 @@
       object-fit: cover;
       border: 2px solid white;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
     }
 
     .identity {
@@ -130,6 +132,7 @@
       cursor: pointer;
       transition: all 0.2s ease;
       box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      white-space: nowrap;
     }
 
     .projects-btn:hover {
@@ -193,7 +196,7 @@
 
     h1 {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 2.75rem; /* Slightly larger for impact */
+      font-size: 2.75rem; 
       line-height: 1.15;
       font-weight: 800;
       letter-spacing: -0.02em;
@@ -207,6 +210,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       color: var(--primary-color); 
+      display: inline-block; /* Prevents awkward breaks on small screens */
     }
 
     .description {
@@ -236,6 +240,7 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
       transition: all 0.2s ease;
+      box-sizing: border-box;
     }
 
     .contact-btn-main:hover {
@@ -248,7 +253,7 @@
     footer {
       text-align: center;
       margin-top: auto;
-      padding: 3rem 1.5rem;
+      padding: 3rem 1.5rem 2rem;
       font-size: 0.85rem;
       color: #94a3b8;
     }
@@ -272,12 +277,58 @@
       transform: scale(1.1);
     }
 
-    /* Mobile Adjustments */
+    /* --- MOBILE RESPONSIVENESS --- */
     @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      header { margin-bottom: 2.5rem; }
-      .container { padding: 1.5rem; }
-      .contact-btn-main { width: 100%; justify-content: center; }
+      .container { 
+        padding: 1.5rem 1.25rem; 
+      }
+      
+      header { 
+        margin-bottom: 3rem; 
+      }
+      
+      .logo {
+        width: 44px;
+        height: 44px;
+      }
+      
+      .name {
+        font-size: 1rem;
+      }
+      
+      .projects-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+      }
+      
+      h1 { 
+        font-size: 2rem; 
+      }
+      
+      .description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        max-width: 100%;
+      }
+      
+      .contact-btn-main { 
+        width: 100%; 
+        justify-content: center; 
+      }
+    }
+
+    /* Extra small screens (e.g. iPhone SE) */
+    @media (max-width: 380px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+      
+      .dropdown-menu {
+        right: auto;
+        left: 0; /* Align to the left when the button stacks */
+      }
     }
   </style>
 </head>
