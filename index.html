@@ -270,6 +270,49 @@
       margin-bottom: 48px;
     }
 
+    .name-input-wrapper {
+      margin-bottom: 24px;
+      max-width: 340px;
+    }
+
+    .name-input {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .name-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 1px var(--gold);
+    }
+
+    .name-input::placeholder {
+      color: rgba(240,237,232,0.3);
+    }
+
+    .name-input.error {
+      border-color: var(--red);
+      box-shadow: 0 0 0 1px var(--red);
+    }
+
+    .error-msg {
+      color: var(--red);
+      font-size: 13px;
+      margin-top: 8px;
+      display: none;
+    }
+
+    .error-msg.show {
+      display: block;
+    }
+
     .meta-item {
       display: flex;
       flex-direction: column;
@@ -786,6 +829,12 @@
             <span class="meta-value">Instant scoring + breakdown</span>
           </div>
         </div>
+        
+        <div class="name-input-wrapper">
+          <input type="text" id="user-name" class="name-input" placeholder="Your first name" autocomplete="given-name">
+          <div id="name-error" class="error-msg">Please enter your first name to begin the audit.</div>
+        </div>
+        
         <button class="btn-primary" onclick="startQuiz()">Start the audit <span class="arrow">→</span></button>
       </div>
 
@@ -846,7 +895,7 @@
     const questions = [
       {
         text: "When someone lands on your homepage for the first time, what does your headline communicate?",
-        sub: "Be honest — what would a cold visitor actually read?",
+        sub: "Be honest... what would a cold visitor actually read?",
         options: [
           { text: "What our platform does — features, capabilities, or technology.", score: 0 },
           { text: "A broad claim like 'transforming real estate' or 'next-generation platform.'", score: 0 },
@@ -936,7 +985,7 @@
       },
       {
         text: "How would you describe the language your brand uses across its marketing?",
-        sub: "Read your homepage copy as if you were a cold, skeptical buyer.",
+        sub: "Read your homepage copy as if you were a cold, skeptical buyer{name_comma}.",
         options: [
           { text: "It uses industry standard terms — 'innovative,' 'seamless,' 'end-to-end,' 'cutting-edge.'", score: 0 },
           { text: "It's clear but generic — accurate but not distinctive.", score: 1 },
@@ -948,10 +997,36 @@
 
     let current = 0;
     let answers = new Array(questions.length).fill(null);
+    let userName = '';
+
+    function personalize(text) {
+      if (!text) return text;
+      if (userName) {
+        return text.replace('{name_comma}', `, ${userName}`);
+      } else {
+        return text.replace('{name_comma}', '');
+      }
+    }
 
     function startQuiz() {
-      showScreen('screen-quiz');
-      renderQuestion();
+      const nameField = document.getElementById('user-name');
+      const errorMsg = document.getElementById('name-error');
+
+      if (nameField && nameField.value.trim()) {
+        userName = nameField.value.trim();
+        // Capitalize the first letter just in case they typed in lowercase
+        userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+        
+        nameField.classList.remove('error');
+        errorMsg.classList.remove('show');
+        
+        showScreen('screen-quiz');
+        renderQuestion();
+      } else {
+        nameField.classList.add('error');
+        errorMsg.classList.add('show');
+        nameField.focus();
+      }
     }
 
     function showScreen(id) {
@@ -972,7 +1047,7 @@
       const keys = ['A','B','C','D'];
       document.getElementById('q-counter').textContent = `Question ${current + 1} of ${questions.length}`;
       document.getElementById('q-text').textContent = q.text;
-      document.getElementById('q-sub').textContent = q.sub;
+      document.getElementById('q-sub').textContent = personalize(q.sub);
       const optWrap = document.getElementById('q-options');
       optWrap.innerHTML = '';
       q.options.forEach((opt, i) => {
@@ -1020,8 +1095,8 @@
         tier = 'Critical Gap';
         tierColor = '#e05252';
         tierBg = 'rgba(224,82,82,0.1)';
-        headline = 'Your messaging is actively losing you deals.';
-        summary = 'Based on your answers, there are significant trust gaps in how your brand communicates — gaps that are showing up as slow sales cycles, low demo conversions, and leads that go quiet. This isn\'t a product problem. It\'s a messaging problem. And the cost is real.';
+        headline = userName ? `${userName}, your messaging is actively losing you deals.` : 'Your messaging is actively losing you deals.';
+        summary = userName ? `Based on your answers, there are significant trust gaps in how your brand communicates — gaps that are showing up as slow sales cycles, low demo conversions, and leads that go quiet. This isn't a product problem. It's a messaging problem. And the cost is real.` : 'Based on your answers, there are significant trust gaps in how your brand communicates — gaps that are showing up as slow sales cycles, low demo conversions, and leads that go quiet. This isn\'t a product problem. It\'s a messaging problem. And the cost is real.';
         breakdowns = [
           { icon: '⚠', label: 'Buyer Clarity', text: 'Your messaging isn\'t specific enough to make the right buyer feel seen. When no one feels addressed, no one moves.' },
           { icon: '⚠', label: 'Trust Architecture', text: 'Your copy is explaining the product without resolving the fear around it. In trust-heavy industries, that gap kills deals.' },
@@ -1034,8 +1109,8 @@
         tier = 'Significant Gaps';
         tierColor = '#e09952';
         tierBg = 'rgba(224,153,82,0.1)';
-        headline = 'Your messaging has the right instincts — but critical gaps remain.';
-        summary = 'You\'ve done some things right. But based on your answers, there are specific places where your messaging is letting down an otherwise strong product. The leads you\'re losing to silence aren\'t rejecting you — they\'re hitting friction points your copy isn\'t resolving.';
+        headline = userName ? `${userName}, your messaging has the right instincts — but critical gaps remain.` : 'Your messaging has the right instincts — but critical gaps remain.';
+        summary = userName ? `You've done some things right. But based on your answers, there are specific places where your messaging is letting down an otherwise strong product. The leads you're losing to silence aren't rejecting you — they're hitting friction points your copy isn't resolving.` : 'You\'ve done some things right. But based on your answers, there are specific places where your messaging is letting down an otherwise strong product. The leads you\'re losing to silence aren\'t rejecting you — they\'re hitting friction points your copy isn\'t resolving.';
         breakdowns = [
           { icon: '◐', label: 'Buyer Specificity', text: 'Your ICP is defined but your messaging doesn\'t always speak directly to them. Generic language is slipping in where specific language should be.' },
           { icon: '◐', label: 'Trust Signals', text: 'You have proof but it may not be specific enough. Claimed trust and earned trust are different things in high-stakes markets.' },
@@ -1048,8 +1123,8 @@
         tier = 'Strong Foundation';
         tierColor = '#52c4a0';
         tierBg = 'rgba(82,196,160,0.1)';
-        headline = 'Your messaging is working — here\'s how to make it compound.';
-        summary = 'You\'re ahead of most brands in your category. Your messaging shows clarity, specificity, and awareness of how trust-first buyers actually think. The opportunity now is to systematise what\'s working and eliminate the remaining inconsistencies before they become costly.';
+        headline = userName ? `${userName}, your messaging is working — here's how to make it compound.` : 'Your messaging is working — here\'s how to make it compound.';
+        summary = userName ? `You're ahead of most brands in your category. Your messaging shows clarity, specificity, and awareness of how trust-first buyers actually think. The opportunity now is to systematise what's working and eliminate the remaining inconsistencies before they become costly.` : 'You\'re ahead of most brands in your category. Your messaging shows clarity, specificity, and awareness of how trust-first buyers actually think. The opportunity now is to systematise what\'s working and eliminate the remaining inconsistencies before they become costly.';
         breakdowns = [
           { icon: '✓', label: 'Buyer Clarity', text: 'You know who you\'re writing for. That specificity is the foundation everything else builds on.' },
           { icon: '✓', label: 'Trust Architecture', text: 'Your copy is doing meaningful trust work — not just claiming credibility but demonstrating it.' },
@@ -1115,6 +1190,13 @@
       current = 0;
       answers = new Array(questions.length).fill(null);
       document.getElementById('progress-bar').style.width = '0%';
+      
+      const nameField = document.getElementById('user-name');
+      nameField.value = '';
+      nameField.classList.remove('error');
+      document.getElementById('name-error').classList.remove('show');
+      
+      userName = '';
       showScreen('screen-intro');
     }
   </script>
