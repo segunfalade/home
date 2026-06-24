@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jane Mercer — Copy Strategist for Midlifers & Skeptics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Base ──────────────────────────────────────────── */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    body{font-family:"Inter",system-ui,-apple-system,sans-serif;color:#44403c;background:#f5f0eb;line-height:1.6}
+    ::selection{background:#fde68a;color:#92400e}
+    h1,h2,h3{font-weight:600;line-height:1.15}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    /* ── Navigation ────────────────────────────────────────────── */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:all .4s}
+    .nav.scrolled{background:rgba(245,240,235,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(214,211,209,.6);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+    .nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:20px 24px}
+    .nav-logo{font-family:"Playfair Display",Georgia,serif;font-size:1.25rem;font-weight:600;color:#1c1917}
+    .nav-logo span{color:#d97706}
+    .nav-links{display:flex;align-items:center;gap:32px}
+    .nav-links a{font-size:.8125rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:#57534e;transition:color .2s}
+    .nav-links a:hover{color:#b45309}
+    .nav-cta{background:#d97706;color:#fff;padding:10px 24px;border-radius:9999px;font-size:.875rem;font-weight:500;transition:all .2s}
+    .nav-cta:hover{background:#b45309;box-shadow:0 8px 24px rgba(217,119,6,.25)}
+    .nav-toggle{display:none;width:40px;height:40px;align-items:center;justify-content:center;border:1px solid #d6d3d1;border-radius:50%;background:none;cursor:pointer}
+    .nav-toggle svg{width:20px;height:20px;color:#57534e}
+    .mobile-menu{overflow:hidden;transition:max-height .4s;max-height:0;background:#f5f0eb;border-bottom:1px solid #e7e5e4}
+    .mobile-menu.open{max-height:400px}
+    .mobile-menu-inner{padding:8px 24px 24px;display:flex;flex-direction:column;gap:4px}
+    .mobile-menu-inner a{display:block;padding:12px 0;font-weight:500;color:#57534e;font-size:.9375rem}
+    .mobile-menu-inner a:hover{color:#b45309}
+    .mobile-menu-inner .nav-cta{text-align:center;margin-top:8px}
+    /* ── Sections ──────────────────────────────────────────────── */
+    section{padding:96px 24px}
+    .section-inner{max-width:1120px;margin:0 auto}
+    .section-inner-sm{max-width:896px;margin:0 auto}
+    /* ── Hero ──────────────────────────────────────────────────── */
+    .hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,#fafaf9,#fff,#fef3c7);position:relative;overflow:hidden;padding-top:120px}
+    .hero-dots{position:absolute;inset:0;opacity:.03;pointer-events:none;background-image:radial-gradient(circle at 1px 1px,#92400e 1px,transparent 0);background-size:40px 40px}
+    .hero-eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#b45309;margin-bottom:32px;animation:fadeInUp .7s ease-out both}
+    .hero h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(3rem,6vw,5.5rem);color:#1c1917;animation:fadeInUp .7s .1s ease-out both}
+    .hero h1 em{color:#d97706}
+    .hero p{font-size:1.2rem;color:#78716c;max-width:42rem;margin-top:24px;animation:fadeInUp .7s .2s ease-out both}
+    .hero-btns{display:flex;flex-wrap:wrap;gap:16px;margin-top:32px;animation:fadeInUp .7s .3s ease-out both}
+    .btn{display:inline-block;padding:14px 32px;border-radius:9999px;font-size:1.05rem;font-weight:500;transition:all .25s;cursor:pointer}
+    .btn-primary{background:#d97706;color:#fff;border:none}
+    .btn-primary:hover{background:#b45309;box-shadow:0 12px 32px rgba(217,119,6,.3);transform:translateY(-1px)}
+    .btn-outline{border:2px solid #d6d3d1;color:#57534e;background:transparent}
+    .btn-outline:hover{border-color:#f59e0b;color:#b45309}
+    .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;padding-top:48px;margin-top:48px;border-top:1px solid rgba(214,211,209,.6);animation:fadeInUp .7s .4s ease-out both}
+    .stat{text-align:center}
+    .stat-value{font-family:"Playfair Display",Georgia,serif;font-size:2.5rem;color:#d97706}
+    .stat-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:#78716c;margin-top:6px}
+    /* ── Section Headings ──────────────────────────────────────── */
+    .sec-eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#b45309;margin-bottom:16px}
+    .sec-title{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.25rem,4vw,3.5rem);color:#1c1917;margin-bottom:16px}
+    .sec-subtitle{font-size:1.1rem;color:#78716c;max-width:42rem;line-height:1.7}
+    .sec-header{margin-bottom:64px}
+    /* ── Case Studies ──────────────────────────────────────────── */
+    .cases-list{display:flex;flex-direction:column;gap:0}
+    .case{border-left:2px solid #e7e5e4;padding:24px 0 24px 32px;transition:all .4s;cursor:pointer}
+    .case:hover{border-left-color:#f59e0b}
+    .case.open{border-left-color:#f59e0b;background:rgba(250,250,249,.8);margin-left:-16px;margin-right:-16px;padding-left:48px;padding-right:48px;border-radius:0 8px 8px 0}
+    .case-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .case-num{font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#b45309;margin-bottom:6px}
+    .case-brand{font-family:"Playfair Display",Georgia,serif;font-size:1.75rem;color:#1c1917}
+    .case-tagline{font-family:"Playfair Display",Georgia,serif;font-size:1.05rem;font-style:italic;color:#a8a29e;margin-top:4px}
+    .case-result{display:inline-block;background:#fef3c7;color:#92400e;padding:6px 16px;border-radius:9999px;font-size:.875rem;font-weight:500;white-space:nowrap}
+    .case-expand{width:40px;height:40px;border-radius:50%;border:1px solid #d6d3d1;background:none;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#a8a29e;transition:all .2s;flex-shrink:0}
+    .case-expand:hover{border-color:#f59e0b;color:#d97706}
+    .case-expand svg{width:20px;height:20px;transition:transform .3s}
+    .case.open .case-expand svg{transform:rotate(45deg)}
+    .case-body{display:grid;grid-template-rows:0fr;transition:all .5s;overflow:hidden}
+    .case.open .case-body{grid-template-rows:1fr;margin-top:24px}
+    .case-body-inner{overflow:hidden}
+    .case-body-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-bottom:8px}
+    .case-body-grid h4{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#a8a29e;margin-bottom:8px}
+    .case-body-grid p{color:#57534e;line-height:1.7}
+    /* ── Philosophy ────────────────────────────────────────────── */
+    .philosophy{background:#1c1917;color:#fff;position:relative;overflow:hidden}
+    .philosophy-dots{position:absolute;inset:0;opacity:.1;pointer-events:none;background-image:radial-gradient(circle at 1px 1px,#fbbf24 1px,transparent 0);background-size:48px 48px}
+    .philosophy .sec-eyebrow{color:#fcd34d}
+    .philosophy .sec-title{color:#fff}
+    .philosophy .sec-subtitle{color:#d6d3d1}
+    .phil-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+    .phil-card .phil-num{font-family:"Playfair Display",Georgia,serif;font-size:1.75rem;color:rgba(245,158,11,.5)}
+    .phil-card h3{font-family:"Playfair Display",Georgia,serif;font-size:1.15rem;color:#fff;margin-top:6px}
+    .phil-card p{color:#a8a29e;font-size:.875rem;line-height:1.7;margin-top:10px}
+    /* ── Testimonials ──────────────────────────────────────────── */
+    .testimonials{background:#f5f0eb}
+    .testimonial-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .testimonial{background:#fff;border:1px solid #e7e5e4;border-radius:12px;padding:36px;transition:box-shadow .3s}
+    .testimonial:hover{box-shadow:0 4px 20px rgba(0,0,0,.06)}
+    .testimonial q{font-family:"Playfair Display",Georgia,serif;font-size:1.05rem;font-style:italic;color:#57534e;line-height:1.7;quotes:none}
+    .testimonial q::before{content:open-quote;font-size:3rem;color:#fcd34d;display:block;line-height:1;margin-bottom:8px}
+    .testimonial q::after{content:close-quote;display:none}
+    .testimonial-author{display:flex;align-items:center;gap:14px;margin-top:22px}
+    .testimonial-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:.8rem;flex-shrink:0}
+    .testimonial-name{font-weight:600;color:#1c1917}
+    .testimonial-role{font-size:.85rem;color:#78716c}
+    /* ── About ─────────────────────────────────────────────────── */
+    .about{background:#fafaf9;border-top:1px solid #e7e5e4;border-bottom:1px solid #e7e5e4}
+    .about-grid{display:grid;grid-template-columns:2fr 3fr;gap:48px;align-items:start}
+    .about-visual{aspect-ratio:3/4;border-radius:16px;background:linear-gradient(135deg,#fcd34d,#f59e0b,#ea580c);position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.1)}
+    .about-visual-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:32px}
+    .about-visual-quote{font-family:"Playfair Display",Georgia,serif;color:rgba(255,255,255,.85);font-size:1.1rem;line-height:1.6;font-style:italic;text-align:center}
+    .about-visual-quote .big-quote{font-size:3.5rem;color:rgba(255,255,255,.5);display:block;margin-bottom:12px;line-height:1}
+    .about-copy p{color:#57534e;line-height:1.75;margin-bottom:16px}
+    .about-copy p.strong{font-weight:500;color:#1c1917}
+    .skill-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .skill-tag{border:1px solid #d6d3d1;border-radius:9999px;padding:6px 16px;font-size:.75rem;color:#57534e}
+    /* ── Contact ───────────────────────────────────────────────── */
+    .contact{background:linear-gradient(135deg,#d97706,#b45309,#ea580c);color:#fff;position:relative;overflow:hidden;text-align:center}
+    .contact-dots{position:absolute;inset:0;opacity:.1;pointer-events:none;background-image:radial-gradient(circle at 1px 1px,#fff 1px,transparent 0);background-size:36px 36px}
+    .contact .sec-eyebrow{color:#fde68a}
+    .contact .sec-title{color:#fff}
+    .contact p{color:#e7e5e4;font-size:1.1rem;max-width:36rem;margin:0 auto;line-height:1.7}
+    .contact-form{margin:32px auto 0;max-width:560px;text-align:left;display:flex;flex-direction:column;gap:20px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .form-group{display:flex;flex-direction:column;gap:6px}
+    .form-group label{font-size:.85rem;font-weight:500;color:#fef3c7}
+    .form-group input,.form-group textarea{width:100%;padding:12px 16px;border-radius:12px;border:1px solid rgba(251,191,36,.35);background:rgba(255,255,255,.1);color:#fff;font-family:inherit;font-size:.95rem;resize:vertical;backdrop-filter:blur(4px);transition:all .2s}
+    .form-group input:focus,.form-group textarea:focus{outline:none;box-shadow:0 0 0 2px rgba(255,255,255,.25)}
+    .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(253,230,138,.45)}
+    .btn-submit{width:100%;padding:16px;border-radius:9999px;background:#fff;color:#b45309;font-size:1.1rem;font-weight:600;border:none;cursor:pointer;font-family:inherit;transition:all .2s}
+    .btn-submit:hover{background:#fffbeb;box-shadow:0 12px 32px rgba(0,0,0,.2);transform:translateY(-1px)}
+    .contact-note{font-size:.8rem;color:rgba(253,230,138,.65);margin-top:8px;text-align:center}
+    /* ── Footer ────────────────────────────────────────────────── */
+    footer{background:#1c1917;color:#a8a29e;padding:48px 24px}
+    .footer-inner{max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    .footer-logo{font-family:"Playfair Display",Georgia,serif;font-size:1.2rem;font-weight:600;color:#fff}
+    .footer-logo span{color:#f59e0b}
+    .footer-links{display:flex;gap:24px}
+    .footer-links a{font-size:.85rem;color:#a8a29e;transition:color .2s}
+    .footer-links a:hover{color:#f59e0b}
+    .footer-copy{font-size:.85rem}
+    /* ── Animations ────────────────────────────────────────────── */
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    /* ── Responsive ────────────────────────────────────────────── */
+    @media(max-width:768px){
+      .nav-links{display:none}
+      .nav-toggle{display:flex}
+      .hero-stats{grid-template-columns:repeat(2,1fr);gap:24px}
+      .stat-value{font-size:2rem}
+      .phil-grid{grid-template-columns:1fr;gap:28px}
+      .testimonial-grid{grid-template-columns:1fr}
+      .about-grid{grid-template-columns:1fr}
+      .about-visual{aspect-ratio:16/9}
+      .case.open{padding-left:32px;padding-right:24px}
+      .case-body-grid{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr}
+      .case-head{flex-direction:column}
+      .case-result{margin-top:8px}
+      section{padding:64px 20px}
+    }
+    @media(max-width:480px){
+      .hero-btns{flex-direction:column}
+      .btn{text-align:center;width:100%}
+      .footer-inner{flex-direction:column;text-align:center}
+    }
+  </style>
+</head>
+<body>
+  <!-- ── Navigation ────────────────────────────────────────────── -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Jane&nbsp;<span>Mercer</span></a>
+      <nav class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#testimonials">Praise</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-cta">Work with me</a>
+      </nav>
+      <button class="nav-toggle" id="menuToggle" aria-label="Toggle menu">
+        <svg id="menuIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-inner">
+        <a href="#work" onclick="closeMenu()">Work</a>
+        <a href="#philosophy" onclick="closeMenu()">Philosophy</a>
+        <a href="#testimonials" onclick="closeMenu()">Praise</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#contact" class="nav-cta" onclick="closeMenu()">Work with me</a>
+      </div>
+    </div>
+  </header>
+  <!-- ── Hero ──────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-dots"></div>
+    <div class="section-inner">
+      <p class="hero-eyebrow">Copy Strategist for the Skeptical Generation</p>
+      <h1>Words that win over<br><em>midlifers</em> and skeptics alike.</h1>
+      <p>I help brands earn trust from the people who trust the least — midlife consumers and skeptical prospects who've seen every marketing trick in the book.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary">Let's talk strategy</a>
+        <a href="#work" class="btn btn-outline">See my work ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-value">12+</div>
+          <div class="stat-label">Years writing</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">40+</div>
+          <div class="stat-label">Brands served</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">3.2×</div>
+          <div class="stat-label">Avg. conversion lift</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">94%</div>
+          <div class="stat-label">Client return rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ── Work / Case Studies ───────────────────────────────────── -->
+  <section id="work">
+    <div class="section-inner-sm reveal">
+      <div class="sec-header">
+        <p class="sec-eyebrow">Selected case studies</p>
+        <h2 class="sec-title">Copy that converts the unconvertible.</h2>
+        <p class="sec-subtitle">Each case below involved a brand struggling to reach a skeptical, midlife audience. Here's what changed.</p>
+      </div>
+    </div>
+    <div class="section-inner-sm reveal">
+      <!-- Case 1 -->
+      <div class="case" onclick="toggleCase(this)">
+        <div class="case-head">
+          <div>
+            <p class="case-num">01</p>
+            <h3 class="case-brand">Vitality &amp; Co.</h3>
+            <p class="case-tagline">From 'another supplement brand' to trusted wellness partner</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <span class="case-result">↑ 142% conversions</span>
+            <button class="case-expand" onclick="event.stopPropagation();toggleCase(this.closest('.case'))">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-body-inner">
+            <div class="case-body-grid">
+              <div>
+                <h4>The Challenge</h4>
+                <p>A DTC supplement brand targeting women 45+ was blending in with thousands of competitors. Their messaging was clinical and impersonal — exactly the kind of language this audience ignores. Midlife women research before they buy, and the brand's copy wasn't passing the credibility test.</p>
+              </div>
+              <div>
+                <h4>The Solution</h4>
+                <p>I repositioned the brand around lived experience rather than science claims. Instead of 'clinically proven formulas,' we led with 'For the body you're in now.' Long-form landing pages addressed the specific health anxieties of perimenopausal and post-menopausal women with warmth, candor, and zero condescension.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Case 2 -->
+      <div class="case" onclick="toggleCase(this)">
+        <div class="case-head">
+          <div>
+            <p class="case-num">02</p>
+            <h3 class="case-brand">Halcyon Wealth</h3>
+            <p class="case-tagline">Making retirement planning feel less like a root canal</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <span class="case-result">↑ 3.1× demo requests</span>
+            <button class="case-expand" onclick="event.stopPropagation();toggleCase(this.closest('.case'))">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-body-inner">
+            <div class="case-body-grid">
+              <div>
+                <h4>The Challenge</h4>
+                <p>A financial advisory firm wanted to attract pre-retirees (55-65) but was hemorrhaging leads. Their copy was stiff, jargon-heavy, and read like a compliance document. This audience — skeptical of financial services after 2008 — bounced within seconds.</p>
+              </div>
+              <div>
+                <h4>The Solution</h4>
+                <p>I used the 'skeptic's framework' — leading with the objection rather than hiding from it. Headlines like 'Yes, we charge fees. Here's exactly why that's better for you.' I humanized the advisors with narrative bios that told stories instead of listing credentials. Email sequences were rewritten to feel like advice from a trusted friend rather than a sales funnel.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Case 3 -->
+      <div class="case" onclick="toggleCase(this)">
+        <div class="case-head">
+          <div>
+            <p class="case-num">03</p>
+            <h3 class="case-brand">Lark &amp; Loom</h3>
+            <p class="case-tagline">Turning 'I'm too old for this brand' into 'This brand gets me'</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <span class="case-result">↑ 89% repeat purchases</span>
+            <button class="case-expand" onclick="event.stopPropagation();toggleCase(this.closest('.case'))">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-body-inner">
+            <div class="case-body-grid">
+              <div>
+                <h4>The Challenge</h4>
+                <p>A home goods brand had beautiful products but was accidentally repelling its ideal customer — women 50+ — through copy that read like it was written for a 28-year-old. Words like 'obsessed,' 'game-changer,' and 'I'm screaming' made the actual buyer feel invisible.</p>
+              </div>
+              <div>
+                <h4>The Solution</h4>
+                <p>We didn't age the brand down or up — we widened the lens. Campaign copy and product stories started featuring multigenerational narratives. The tone shifted from hype to heritage. Email welcome sequences were rewritten to feel like a letter from a friend who has great taste, not a brand trying to be cool.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Case 4 -->
+      <div class="case" onclick="toggleCase(this)">
+        <div class="case-head">
+          <div>
+            <p class="case-num">04</p>
+            <h3 class="case-brand">Peregrine Travel</h3>
+            <p class="case-tagline">Selling adventure to people who've heard every pitch</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <span class="case-result">↑ 217% booked trips</span>
+            <button class="case-expand" onclick="event.stopPropagation();toggleCase(this.closest('.case'))">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-body-inner">
+            <div class="case-body-grid">
+              <div>
+                <h4>The Challenge</h4>
+                <p>A boutique travel company specializing in trips for 50+ travelers was struggling with a scattershot message. Their copy swung between 'bucket list' clichés and overly formal descriptions that bored the very people who had the time and money to travel.</p>
+              </div>
+              <div>
+                <h4>The Solution</h4>
+                <p>I developed a voice that balanced aspiration with practicality — because this audience wants to climb Machu Picchu but also wants to know about the bathroom situation. Trip descriptions now lead with the emotional payoff and follow with transparent logistics. Testimonials were woven into the copy itself, not buried on a separate page.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ── Philosophy ────────────────────────────────────────────── -->
+  <section class="philosophy" id="philosophy">
+    <div class="philosophy-dots"></div>
+    <div class="section-inner-sm" style="position:relative;z-index:1">
+      <div class="sec-header reveal">
+        <p class="sec-eyebrow">The approach</p>
+        <h2 class="sec-title">Trust is earned in the margins.</h2>
+        <p class="sec-subtitle">Skeptical audiences don't respond to urgency, scarcity, or social proof. They respond to resonance — the quiet feeling of being understood.</p>
+      </div>
+      <div class="phil-grid">
+        <div class="phil-card reveal">
+          <p class="phil-num">01</p>
+          <h3>Lead with the objection</h3>
+          <p>Before you convince, you must acknowledge. I open with the thing they're already thinking — the doubt, the suspicion, the 'yeah, but.' When you name the elephant, you earn the right to speak.</p>
+        </div>
+        <div class="phil-card reveal">
+          <p class="phil-num">02</p>
+          <h3>Write for the 2 a.m. Google</h3>
+          <p>Midlifers don't impulse-buy at 10 a.m. They research at midnight, comparing options in a dozen tabs. My copy meets them there — with depth, candor, and the patience to answer questions they haven't yet formed.</p>
+        </div>
+        <div class="phil-card reveal">
+          <p class="phil-num">03</p>
+          <h3>Never condescend</h3>
+          <p>This audience has been marketed to for decades. They can smell a script from a mile away. I write with the assumption that the reader is at least as smart as I am — because they usually are.</p>
+        </div>
+        <div class="phil-card reveal">
+          <p class="phil-num">04</p>
+          <h3>Clarity over cleverness</h3>
+          <p>The skeptical mind is scanning for bullshit. A pun that would delight a 22-year-old triggers a 55-year-old's defenses. I choose precision over wit, warmth over flash, and honesty over hype — every time.</p>
+        </div>
+        <div class="phil-card reveal">
+          <p class="phil-num">05</p>
+          <h3>The long game beats the quick win</h3>
+          <p>Conversion isn't a moment — it's a relationship built across six touchpoints. I structure copy ecosystems so each piece does its job without the reader feeling 'funneled.'</p>
+        </div>
+        <div class="phil-card reveal">
+          <p class="phil-num">06</p>
+          <h3>Respect the lived experience</h3>
+          <p>Midlife consumers bring decades of experience to every decision. They've been burned, delighted, disappointed, and surprised. My copy honors that history instead of pretending it doesn't exist.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ── Testimonials ──────────────────────────────────────────── -->
+  <section class="testimonials" id="testimonials">
+    <div class="section-inner-sm">
+      <div class="sec-header reveal">
+        <p class="sec-eyebrow">What clients say</p>
+        <h2 class="sec-title">Don't take my word for it.</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial reveal">
+          <q>We'd been through three copywriters who all wrote like marketers. Jane wrote like a human being. Our open rates went from 18% to 41% in the first month, and — more importantly — our subscribers started replying. Actual replies. From actual humans.</q>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MC</div>
+            <div>
+              <p class="testimonial-name">Meredith Chao</p>
+              <p class="testimonial-role">CMO, Vitality &amp; Co.</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial reveal">
+          <q>I was skeptical. Professionally skeptical — I'm a financial advisor. I assumed a copywriter would gussy up our website with jargon and call it done. Jane did the opposite. She stripped everything back, found the truth in what we do, and put it in words so plain and persuasive that our conversion rate tripled.</q>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">DH</div>
+            <div>
+              <p class="testimonial-name">David Hartley</p>
+              <p class="testimonial-role">Founder, Halcyon Wealth</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial reveal">
+          <q>Our brand had a voice problem we didn't even know we had. Jane interviewed ten of our customers — all women over 50 — and came back with language that made me emotional reading it. She put words to feelings our customers hadn't articulated themselves. That's not copywriting. That's translation.</q>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SR</div>
+            <div>
+              <p class="testimonial-name">Sonia Reyes</p>
+              <p class="testimonial-role">Creative Director, Lark &amp; Loom</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial reveal">
+          <q>Jane did something remarkable: she made our trip descriptions feel like the trip itself. Our bookings from the 55+ demographic jumped 217% in six months. But the stat I care about most? Our repeat booking rate went from 12% to 34%. That's trust, built in words.</q>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">TA</div>
+            <div>
+              <p class="testimonial-name">Thomas Alder</p>
+              <p class="testimonial-role">CEO, Peregrine Travel</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ── About ─────────────────────────────────────────────────── -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-visual-overlay">
+            <p class="about-visual-quote"><span class="big-quote">&ldquo;</span>The best copy doesn't feel like copy. It feels like someone finally said the thing you've been thinking.</p>
+          </div>
+        </div>
+        <div class="about-copy reveal">
+          <p class="sec-eyebrow">About Jane</p>
+          <h2 class="sec-title">I write copy for the people marketers forgot.</h2>
+          <div style="margin-top:24px">
+            <p>Twelve years ago, I was a brand manager at a DTC company watching our midlife customers bounce — not because the product was wrong, but because the words were. The copy was written by 26-year-olds for 26-year-olds, and our actual customer (48, skeptical, savvy) felt like she was reading a language she didn't speak.</p>
+            <p>That was the beginning of everything. I started studying what makes skeptical audiences lean in instead of click away. I read the research on persuasion resistance. I conducted hundreds of customer interviews with people who'd been marketed to for 40+ years and had developed what I now call "the immune response" — the ability to detect and dismiss marketing in under three seconds.</p>
+            <p>Today, I work with brands who are serious about earning trust from the most discerning audiences. My clients range from supplement startups to financial advisors to travel companies — united by a shared problem: they're selling to people who've seen it all.</p>
+            <p class="strong">I'm based in Portland, Oregon. I work with a small, curated roster of clients at a time. If that sounds like the kind of collaboration you're looking for, I'd love to hear from you.</p>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Positioning strategy</span>
+            <span class="skill-tag">Voice &amp; tone development</span>
+            <span class="skill-tag">Landing pages</span>
+            <span class="skill-tag">Email sequences</span>
+            <span class="skill-tag">Brand naming</span>
+            <span class="skill-tag">Customer research</span>
+            <span class="skill-tag">Sales pages</span>
+            <span class="skill-tag">Editorial strategy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ── Contact ───────────────────────────────────────────────── -->
+  <section class="contact" id="contact">
+    <div class="contact-dots"></div>
+    <div class="section-inner-sm" style="position:relative;z-index:1">
+      <div class="reveal">
+        <p class="sec-eyebrow">Let's collaborate</p>
+        <h2 class="sec-title">Your customers are skeptical.<br><em>Your copy shouldn't be why.</em></h2>
+        <p style="margin-top:16px;">If your brand sells to midlifers, skeptics, or anyone who's been marketed to for decades — and you're ready for copy that actually converts them — let's talk.</p>
+      </div>
+      <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@company.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell me about your audience — and the problem</label>
+          <textarea id="message" rows="4" placeholder="Who are you trying to reach, and what's not working right now?" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send message</button>
+        <p class="contact-note">I typically respond within 24 hours. No pitch decks required — just tell me what's going on.</p>
+      </form>
+    </div>
+  </section>
+  <!-- ── Footer ────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-logo">Jane&nbsp;<span>Mercer</span></p>
+      <p class="footer-copy">&copy; 2026 Jane Mercer Copy Strategy. Built with care. <span style="color:#78716c">Portland, OR</span></p>
+      <div class="footer-links">
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+        <a href="#">Email</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // ── Sticky nav ──────────────────────────────────────────────────
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+    // ── Mobile menu ─────────────────────────────────────────────────
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    let menuOpen = false;
+    menuToggle.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      menuIcon.innerHTML = menuOpen
+        ? '<path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/>'
+        : '<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>';
+    });
+    function closeMenu() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>';
+    }
+    // ── Case study toggles ──────────────────────────────────────────
+    function toggleCase(el) {
+      const wasOpen = el.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.case.open').forEach(c => c.classList.remove('open'));
+      // Open clicked (unless it was already open)
+      if (!wasOpen) el.classList.add('open');
+    }
+    // ── Scroll reveal ───────────────────────────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // ── Form handler ────────────────────────────────────────────────
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.btn-submit');
+      const original = btn.textContent;
+      btn.textContent = 'Message sent! (demo)';
+      btn.style.background = '#10b981';
+      btn.style.color = '#fff';
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.style.background = '';
+        btn.style.color = '';
+        e.target.reset();
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
