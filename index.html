@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Analytics (Preserved) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MCXMFE92D"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,20 +12,18 @@
   
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Segun Falade - Copy Strategist helping startups turn curious visitors into converted users.">
-  <title>Segun Falade | Copy Strategist</title>
+  <meta name="description" content="Segun Falade - Copy Strategist helping brands turn skeptical visitors into trusting buyers.">
+  <title>Segun Falade | The Trust Gap Diagnostic</title>
 
   <!-- Favicon -->
   <link rel="icon" href="https://copyinteractive.github.io/assets/profile.png" type="image/png">
 
-  <!-- Importing "DM Serif Display" and "DM Sans" for the Audit design -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* Original Audit Colors */
       --bg: #0a0a0f;
       --surface: #111118;
       --surface2: #1a1a24;
@@ -39,8 +37,6 @@
       --amber: #e09952;
       --green: #52c4a0;
       --radius: 4px;
-      
-      /* Spacing */
       --container-width: 720px;
     }
 
@@ -59,7 +55,6 @@
       flex-direction: column;
     }
 
-    /* Grain overlay */
     body::before {
       content: '';
       position: fixed;
@@ -79,10 +74,9 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      z-index: 1; /* Above grain */
+      z-index: 1;
     }
 
-    /* --- PROGRESS BAR --- */
     #progress-bar-wrap {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -97,7 +91,6 @@
       transition: width 0.4s ease;
     }
 
-    /* --- HEADER (Dark Theme Adjusted) --- */
     header {
       display: flex;
       justify-content: space-between;
@@ -141,10 +134,7 @@
       font-weight: 400;
     }
 
-    /* --- TOP RIGHT BUTTON & DROPDOWN --- */
-    .header-right {
-      position: relative;
-    }
+    .header-right { position: relative; }
 
     .projects-btn {
       display: flex;
@@ -168,13 +158,8 @@
       border-color: rgba(201,168,76,0.3);
     }
 
-    .projects-btn svg {
-      transition: transform 0.2s;
-    }
-
-    .projects-btn.open svg {
-      transform: rotate(180deg);
-    }
+    .projects-btn svg { transition: transform 0.2s; }
+    .projects-btn.open svg { transform: rotate(180deg); }
 
     .dropdown-menu {
       position: absolute;
@@ -215,7 +200,6 @@
       color: var(--white);
     }
 
-    /* --- AUDIT SCREENS (Original Design) --- */
     main {
       flex-grow: 1;
       display: flex;
@@ -233,7 +217,6 @@
     }
     .screen.active { display: flex; }
 
-    /* Intro screen */
     .intro-eyebrow {
       font-size: 11px;
       letter-spacing: 0.2em;
@@ -308,10 +291,7 @@
       margin-top: 8px;
       display: none;
     }
-
-    .error-msg.show {
-      display: block;
-    }
+    .error-msg.show { display: block; }
 
     .meta-item {
       display: flex;
@@ -332,7 +312,6 @@
       font-weight: 500;
     }
 
-    /* Buttons */
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -356,10 +335,7 @@
       transform: translateY(-1px);
     }
 
-    .btn-primary .arrow {
-      transition: transform 0.2s ease;
-    }
-
+    .btn-primary .arrow { transition: transform 0.2s ease; }
     .btn-primary:hover .arrow { transform: translateX(4px); }
 
     .btn-secondary {
@@ -380,7 +356,6 @@
 
     .btn-secondary:hover { color: var(--white); }
 
-    /* Question screen */
     .question-counter {
       font-size: 11px;
       letter-spacing: 0.2em;
@@ -405,7 +380,6 @@
       line-height: 1.6;
     }
 
-    /* Options */
     .options {
       display: flex;
       flex-direction: column;
@@ -442,7 +416,6 @@
       border-color: var(--gold);
       background: var(--surface2);
     }
-
     .option.selected::before { opacity: 1; }
 
     .option-key {
@@ -486,14 +459,12 @@
       position: relative;
     }
 
-    /* Navigation */
     .nav-row {
       display: flex;
       align-items: center;
       gap: 16px;
     }
 
-    /* Divider */
     .divider {
       width: 40px;
       height: 1px;
@@ -501,10 +472,7 @@
       margin-bottom: 32px;
     }
 
-    /* Results screen */
-    .score-display {
-      margin-bottom: 48px;
-    }
+    .score-display { margin-bottom: 48px; }
 
     .score-ring-wrap {
       position: relative;
@@ -513,9 +481,7 @@
       margin-bottom: 32px;
     }
 
-    .score-ring-wrap svg {
-      transform: rotate(-90deg);
-    }
+    .score-ring-wrap svg { transform: rotate(-90deg); }
 
     .score-ring-text {
       position: absolute;
@@ -572,7 +538,6 @@
       margin-bottom: 40px;
     }
 
-    /* Breakdown */
     .breakdown-title {
       font-size: 11px;
       text-transform: uppercase;
@@ -617,7 +582,6 @@
       margin-bottom: 2px;
     }
 
-    /* CTA block */
     .cta-block {
       padding: 32px;
       background: var(--surface);
@@ -690,7 +654,6 @@
 
     .retake-link:hover { color: var(--white); }
 
-    /* Signature */
     .signature {
       margin-top: 48px;
       padding-top: 24px;
@@ -709,7 +672,6 @@
       background: var(--gold);
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 3rem 0 2rem;
@@ -738,7 +700,6 @@
       transform: scale(1.1);
     }
 
-    /* Animation */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -753,7 +714,6 @@
     .screen.active > *:nth-child(6) { animation-delay: 0.30s; }
     .screen.active > *:nth-child(7) { animation-delay: 0.36s; }
 
-    /* --- MOBILE RESPONSIVENESS --- */
     @media (max-width: 600px) {
       .container { padding: 1.5rem 1rem; }
       header { margin-bottom: 1.5rem; }
@@ -762,9 +722,43 @@
       .name { font-size: 0.95rem; }
       .role { font-size: 0.75rem; }
       .projects-btn { padding: 0.4rem 0.6rem; font-size: 0.8rem; gap: 0.3rem; }
-      
       .intro-meta { flex-direction: column; gap: 16px; }
       .btn-primary, .btn-cta { width: 100%; justify-content: center; }
+    }
+
+    /* Insight screens (interstitial between questions) */
+    .insight-screen {
+      min-height: auto;
+    }
+    .insight-screen .insight-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .insight-screen .divider {
+      margin-bottom: 24px;
+    }
+    .insight-screen p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .insight-screen p strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+    .insight-screen p.emph {
+      color: var(--white);
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(20px, 3vw, 28px);
+      line-height: 1.35;
+    }
+    .insight-screen .btn-primary {
+      margin-top: 16px;
     }
   </style>
 </head>
@@ -774,7 +768,6 @@
 
   <div class="container">
     
-    <!-- Split Header -->
     <header>
       <div class="header-left">
         <div class="profile-wrap">
@@ -787,15 +780,12 @@
       </div>
 
       <div class="header-right">
-        <!-- Toggle Button -->
         <button class="projects-btn" id="projectsBtn" onclick="toggleDropdown()" aria-expanded="false">
           My Projects
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M6 9l6 6 6-6"/>
           </svg>
         </button>
-
-        <!-- Dropdown Menu -->
         <div class="dropdown-menu" id="projectsDropdown">
           <a href="https://www.canva.com/design/DAG6_flilIk/-uBKMjKdwWj4i-hXNELD4g/view?utm_content=DAG6_flilIk&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8bcff8982c" class="dropdown-item" target="_blank">
             📄 Portfolio
@@ -809,12 +799,11 @@
       </div>
     </header>
 
-    <!-- Main Content Area: The Audit -->
     <main>
       <!-- INTRO SCREEN -->
       <div class="screen active" id="screen-intro">
-        <h1 class="intro-title">Is your messaging growing your business — <em>or quietly killing it?</em></h1>
-        <p class="intro-body">Most PropTech and FinTech brands have a messaging problem they don't know about. This 10-question diagnostic is designed to find it — and show you exactly what it's costing you.</p>
+        <h1 class="intro-title">Where is your brand losing trust <em>before it gets the sale?</em></h1>
+        <p class="intro-body">Most businesses chasing skeptical buyers have a traffic problem they blame — but a trust problem they don't see. This diagnostic finds where your messaging is leaking credibility, and what it's costing you.</p>
         <div class="intro-meta">
           <div class="meta-item">
             <span class="meta-label">Questions</span>
@@ -826,16 +815,60 @@
           </div>
           <div class="meta-item">
             <span class="meta-label">Result</span>
-            <span class="meta-value">Instant scoring + breakdown</span>
+            <span class="meta-value">Instant score + personalised breakdown</span>
           </div>
         </div>
         
         <div class="name-input-wrapper">
           <input type="text" id="user-name" class="name-input" placeholder="Your first name" autocomplete="given-name">
-          <div id="name-error" class="error-msg">Please enter your first name to begin the audit.</div>
+          <div id="name-error" class="error-msg">Please enter your first name to begin the diagnostic.</div>
         </div>
         
-        <button class="btn-primary" onclick="startQuiz()">Start the audit <span class="arrow">→</span></button>
+        <button class="btn-primary" onclick="startQuiz()">Begin diagnostic <span class="arrow">→</span></button>
+      </div>
+
+      <!-- INSIGHT SCREEN: After Q1 response -->
+      <div class="screen insight-screen" id="screen-insight-1">
+        <p class="intro-eyebrow">What that tells us</p>
+        <div class="divider"></div>
+        <p>That's the situation most brand owners describe — often right before they start changing headlines, pricing, and design, hoping something finally sticks.</p>
+        <p>But here's what almost nobody tells you:</p>
+        <p class="emph">People don't buy because they understand you. People buy because they feel understood.</p>
+        <p>Most brands are talking to buyers who don't exist — because they treat every visitor as a blank slate, not as someone carrying baggage from past purchases, past disappointments, and past pitches.</p>
+        <p>Let's see how that shows up in your messaging.</p>
+        <button class="btn-primary" onclick="showScreen('screen-quiz'); renderQuestion();">Continue <span class="arrow">→</span></button>
+      </div>
+
+      <!-- INSIGHT SCREEN: After Q3 response -->
+      <div class="screen insight-screen" id="screen-insight-2">
+        <p class="intro-eyebrow">Notice something</p>
+        <div class="divider"></div>
+        <p>Many websites ask for commitment before they've earned confidence.</p>
+        <p class="emph">That's where buyers quietly disappear.</p>
+        <p>It's not that the offer is wrong. It's that your message arrived before your prospect was ready to hear it.</p>
+        <p>Every skeptical buyer has invisible questions. Until those questions are answered, nothing else matters. Let's find out if your copy is answering them.</p>
+        <button class="btn-primary" onclick="showScreen('screen-quiz'); renderQuestion();">Continue <span class="arrow">→</span></button>
+      </div>
+
+      <!-- INSIGHT SCREEN: After Q5 response -->
+      <div class="screen insight-screen" id="screen-insight-3">
+        <p class="intro-eyebrow">Let's pause on that</p>
+        <div class="divider"></div>
+        <p>There's a pattern emerging.</p>
+        <p>Most brands keep throwing better offers across the trust gap — new headlines, new testimonials, new pricing pages — while skeptical buyers are still asking one question nobody has answered:</p>
+        <p class="emph">"Can I trust you?"</p>
+        <p>Until that question is answered, price doesn't matter. Features don't matter. Even a perfect offer struggles. Let's go one level deeper.</p>
+        <button class="btn-primary" onclick="showScreen('screen-quiz'); renderQuestion();">Continue <span class="arrow">→</span></button>
+      </div>
+
+      <!-- INSIGHT SCREEN: After Q7 response -->
+      <div class="screen insight-screen" id="screen-insight-4">
+        <p class="intro-eyebrow">Here's the gap</p>
+        <div class="divider"></div>
+        <p class="emph">The distance between "this sounds interesting" and "I trust this enough to buy."</p>
+        <p>That's the Trust Gap. Most brands never see it — they just keep throwing better offers across it, wondering why nothing improves.</p>
+        <p>Two more questions will tell us exactly where your gap is widest.</p>
+        <button class="btn-primary" onclick="showScreen('screen-quiz'); renderQuestion();">Continue <span class="arrow">→</span></button>
       </div>
 
       <!-- QUESTION SCREENS -->
@@ -856,7 +889,6 @@
       </div>
     </main>
 
-    <!-- Footer -->
     <footer>
       <div class="social-links">
         <a href="https://linkedin.com/in/segunfaladey" target="_blank" aria-label="LinkedIn">
@@ -872,7 +904,7 @@
   </div>
 
   <script>
-    // --- DROPDOWN LOGIC ---
+    // ─── DROPDOWN ───
     function toggleDropdown() {
       const dropdown = document.getElementById('projectsDropdown');
       const btn = document.getElementById('projectsBtn');
@@ -891,106 +923,106 @@
       }
     });
 
-    // --- AUDIT LOGIC (Original Implementation) ---
+    // ─── QUESTIONS (tailored for skeptical buyers / midlifers) ───
     const questions = [
       {
-        text: "When someone lands on your homepage for the first time, what does your headline communicate?",
-        sub: "Be honest... what would a cold visitor actually read?",
+        text: "When a skeptical buyer lands on your website, what's the first thing your messaging does?",
+        sub: "Think about the first 5 seconds — what does your copy actually communicate?",
         options: [
-          { text: "What our platform does — features, capabilities, or technology.", score: 0 },
-          { text: "A broad claim like 'transforming real estate' or 'next-generation platform.'", score: 0 },
-          { text: "A specific outcome for a specific type of buyer.", score: 2 },
-          { text: "The problem our buyer is dealing with right now.", score: 3 }
+          { text: "It explains what we do — our features, our technology, our solution.", score: 0 },
+          { text: "It makes a broad promise — 'transform your [x]' or 'the best way to [y].'", score: 0 },
+          { text: "It names the exact problem the buyer is feeling right now.", score: 2 },
+          { text: "It acknowledges the buyer's skepticism before offering anything.", score: 3 }
         ]
       },
       {
-        text: "How clearly does your messaging speak to one specific type of buyer?",
-        sub: "Think about your homepage, ads, and pitch deck.",
+        text: "Does your copy acknowledge that your buyer has been disappointed before?",
+        sub: "Skeptical buyers carry baggage from past purchases. Does your messaging speak to that?",
         options: [
-          { text: "We speak broadly — our product works for many different buyer types.", score: 0 },
-          { text: "We have a general target audience but our messaging could apply to anyone.", score: 1 },
-          { text: "We have a defined ICP but our copy doesn't always reflect it.", score: 2 },
-          { text: "Every word of our messaging is written for one specific buyer in one specific situation.", score: 3 }
+          { text: "No — we focus on what's great about our product and avoid negativity.", score: 0 },
+          { text: "We have some trust signals (logos, reviews) but don't address past disappointment directly.", score: 1 },
+          { text: "We acknowledge objections indirectly but haven't built them into our narrative.", score: 2 },
+          { text: "Yes — our messaging names the disappointment and shows why this time is different.", score: 3 }
         ]
       },
       {
-        text: "Does your messaging address the fear your buyer has before they decide to trust you?",
-        sub: "In PropTech and FinTech, buyers arrive suspicious. Does your copy acknowledge that?",
+        text: "How does your homepage make a visitor feel within the first 10 seconds?",
+        sub: "Before they've read anything — what's the emotional tone?",
         options: [
-          { text: "No — we lead with features and let the product speak for itself.", score: 0 },
-          { text: "We have a trust signals section (reviews, logos, certifications) but nothing more.", score: 1 },
-          { text: "We address some objections but haven't mapped the full fear landscape.", score: 2 },
-          { text: "Yes — our messaging directly names the buyer's hesitation and resolves it before we pitch.", score: 3 }
+          { text: "Excited — we focus on the potential and the upside.", score: 0 },
+          { text: "Informed — we get straight to facts and features.", score: 1 },
+          { text: "Curious — we hint at something valuable but don't reveal everything.", score: 2 },
+          { text: "Understood — they feel like someone finally gets their situation.", score: 3 }
         ]
       },
       {
-        text: "How specific is the social proof on your website or pitch materials?",
-        sub: "Vague proof is no proof in a trust-scarce market.",
+        text: "If your ideal buyer read your headline aloud to a friend — what would they say?",
+        sub: "Be honest — does it sound like every other brand, or does it stop them?",
         options: [
-          { text: "We use phrases like 'trusted by thousands' or 'industry-leading platform.'", score: 0 },
-          { text: "We have logos and star ratings but no stories or specific results.", score: 1 },
-          { text: "We have some case studies but they lack specific numbers or named outcomes.", score: 2 },
-          { text: "We have named clients, specific results, and before/after narratives.", score: 3 }
+          { text: "\"It's another [industry] company.\" — generic and forgettable.", score: 0 },
+          { text: "\"They help with [thing].\" — clear but not compelling.", score: 1 },
+          { text: "\"They're talking about that exact problem I have.\" — specific and resonant.", score: 2 },
+          { text: "\"Wait, how did they know that's exactly what I'm dealing with?\" — painfully specific.", score: 3 }
         ]
       },
       {
-        text: "If a competitor removed your logo from your homepage — would a visitor know it was yours?",
-        sub: "This is a differentiation test.",
+        text: "How do you handle the moment a visitor asks themselves, 'Can I trust this?'",
+        sub: "That question arrives within seconds — often before they've read a full paragraph.",
         options: [
-          { text: "Honestly, no — our messaging sounds similar to others in our category.", score: 0 },
-          { text: "Probably not — we follow industry conventions to stay familiar.", score: 1 },
-          { text: "Somewhat — we have a distinct tone but our value proposition is generic.", score: 2 },
-          { text: "Yes — our positioning, language, and perspective are unmistakably ours.", score: 3 }
+          { text: "We don't — we assume the product's quality speaks for itself.", score: 0 },
+          { text: "We have a separate 'trust' page or section with badges and certifications.", score: 1 },
+          { text: "We sprinkle proof throughout the page but haven't structured it as a trust narrative.", score: 2 },
+          { text: "Trust is baked into every section — credentials, stories, and specifics all answer that question before it's consciously asked.", score: 3 }
         ]
       },
       {
-        text: "When a high-intent lead goes quiet after a demo, what's your team's first assumption?",
-        sub: "What you blame reveals what you believe.",
+        text: "What happens when someone reads your website and doesn't buy immediately?",
+        sub: "What does your messaging leave them with?",
         options: [
-          { text: "They weren't ready — timing or budget issue.", score: 0 },
-          { text: "The market is tough right now.", score: 0 },
-          { text: "Something in the demo didn't land well.", score: 1 },
-          { text: "There's a gap between what our messaging promised and what the demo delivered.", score: 3 }
+          { text: "They probably leave and we hope they come back — we don't have a follow-up system.", score: 0 },
+          { text: "We have a retargeting ad but nothing that deepens trust between visits.", score: 1 },
+          { text: "We have email nurture but it's mostly product features, not trust-building content.", score: 2 },
+          { text: "We have a sequence designed to answer the next trust question at each stage of hesitation.", score: 3 }
         ]
       },
       {
-        text: "Does your messaging make the return on investment easy to see — without the buyer having to work it out?",
-        sub: "KPMG research confirms ROI clarity is the #1 barrier to PropTech adoption.",
+        text: "Does your messaging give skeptical buyers a 'safe way in' — before asking for commitment?",
+        sub: "A low-risk step that proves value without requiring a purchase.",
         options: [
-          { text: "We describe features and let the buyer calculate the ROI themselves.", score: 0 },
-          { text: "We mention benefits but in general terms — 'save time,' 'reduce costs.'", score: 1 },
-          { text: "We use some numbers but haven't built a clear before/after value narrative.", score: 2 },
-          { text: "We show a specific cost of the problem, a specific outcome, and the payback period.", score: 3 }
+          { text: "No — our primary CTA is to buy, book a call, or get a quote.", score: 0 },
+          { text: "We have a lead magnet but it's gated behind a form with multiple fields.", score: 1 },
+          { text: "We offer something useful upfront — but it's not specifically designed for skeptics.", score: 2 },
+          { text: "Yes — we offer a low-friction, high-value proof point that directly answers their biggest doubt.", score: 3 }
         ]
       },
       {
-        text: "How consistent is your core message across all touchpoints?",
-        sub: "Ad → landing page → sales call → demo → follow-up email.",
+        text: "When a midlife buyer evaluates your offer — what do they feel?",
+        sub: "Midlife buyers make different purchase decisions. Every purchase feels bigger, more expensive, harder to reverse.",
         options: [
-          { text: "Each team owns their part — marketing, sales, and product tell different stories.", score: 0 },
-          { text: "There's some alignment but the language shifts between channels.", score: 1 },
-          { text: "We have brand guidelines but haven't built a unified messaging architecture.", score: 2 },
-          { text: "One core narrative runs through every touchpoint — the story never breaks.", score: 3 }
+          { text: "We've never thought about it — our messaging treats all buyers the same.", score: 0 },
+          { text: "We assume they feel the same excitement as a younger buyer discovering something new.", score: 1 },
+          { text: "We know they evaluate differently but haven't adapted our messaging for it.", score: 2 },
+          { text: "We speak to the weight of the decision — and show why this choice is safe and worth making.", score: 3 }
         ]
       },
       {
-        text: "After a deal closes, how does your communication maintain trust with the new customer?",
-        sub: "In trust-heavy industries, silence after the sale reads as abandonment — or worse.",
+        text: "How much of your copy is about what YOU do — versus what YOUR BUYER is going through?",
+        sub: "Count the paragraphs honestly.",
         options: [
-          { text: "We have an onboarding sequence but go quiet after setup.", score: 0 },
-          { text: "We send product updates occasionally but nothing strategic.", score: 1 },
-          { text: "We have some check-ins but no proactive trust-building content.", score: 2 },
-          { text: "We send milestone updates, proof points, and progress communications without being asked.", score: 3 }
+          { text: "80%+ is about us — our product, our features, our difference.", score: 0 },
+          { text: "About 60/40 — mostly us with some nods to the buyer's situation.", score: 1 },
+          { text: "About 50/50 — we balance our story with the buyer's struggle.", score: 2 },
+          { text: "80%+ is about the buyer — their fear, their frustration, their desired outcome.", score: 3 }
         ]
       },
       {
-        text: "How would you describe the language your brand uses across its marketing?",
-        sub: "Read your homepage copy as if you were a cold, skeptical buyer{name_comma}.",
+        text: "When someone finishes reading your website — what's the dominant feeling they're left with?",
+        sub: "Skeptical buyers remember feelings longer than facts.",
         options: [
-          { text: "It uses industry standard terms — 'innovative,' 'seamless,' 'end-to-end,' 'cutting-edge.'", score: 0 },
-          { text: "It's clear but generic — accurate but not distinctive.", score: 1 },
-          { text: "It's mostly specific but still has some filler phrases we haven't replaced.", score: 2 },
-          { text: "Every word was chosen to speak directly to a specific buyer fear or outcome.", score: 3 }
+          { text: "Informed — they understand what we do.", score: 0 },
+          { text: "Impressed — our product sounds impressive.", score: 1 },
+          { text: "Curious — they're interested but still unsure.", score: 2 },
+          { text: "Safe — they feel like this is a brand they can trust.", score: 3 }
         ]
       }
     ];
@@ -998,14 +1030,12 @@
     let current = 0;
     let answers = new Array(questions.length).fill(null);
     let userName = '';
+    let insightQueue = []; // screens to show between questions
 
     function personalize(text) {
       if (!text) return text;
-      if (userName) {
-        return text.replace('{name_comma}', `, ${userName}`);
-      } else {
-        return text.replace('{name_comma}', '');
-      }
+      if (userName) return text.replace('{name_comma}', `, ${userName}`);
+      else return text.replace('{name_comma}', '');
     }
 
     function startQuiz() {
@@ -1014,12 +1044,18 @@
 
       if (nameField && nameField.value.trim()) {
         userName = nameField.value.trim();
-        // Capitalize the first letter just in case they typed in lowercase
         userName = userName.charAt(0).toUpperCase() + userName.slice(1);
         
         nameField.classList.remove('error');
         errorMsg.classList.remove('show');
-        
+
+        // Build the insight queue: which questions trigger which insight screen
+        // Insight after Q1 -> screen-insight-1
+        // Insight after Q3 -> screen-insight-2
+        // Insight after Q5 -> screen-insight-3
+        // Insight after Q7 -> screen-insight-4
+        insightQueue = [1, 3, 5, 7]; // 0-indexed: after questions 1, 3, 5, 7
+
         showScreen('screen-quiz');
         renderQuestion();
       } else {
@@ -1032,8 +1068,10 @@
     function showScreen(id) {
       document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
       const el = document.getElementById(id);
-      el.classList.add('active');
-      window.scrollTo(0, 0);
+      if (el) {
+        el.classList.add('active');
+        window.scrollTo(0, 0);
+      }
     }
 
     function updateProgress() {
@@ -1063,17 +1101,29 @@
 
     function selectOption(i) {
       answers[current] = i;
-      const allOptions = document.querySelectorAll('.option');
+      const allOptions = document.querySelectorAll('#screen-quiz .option');
       allOptions.forEach((el, idx) => {
         el.classList.toggle('selected', idx === i);
         el.style.pointerEvents = 'none';
       });
       allOptions[i].classList.add('confirming');
+
       setTimeout(() => {
-        if (current < questions.length - 1) {
+        // Check if we need to show an insight screen after this question
+        const insightIdx = insightQueue.indexOf(current);
+        if (insightIdx !== -1 && current < questions.length - 1) {
+          // Show the corresponding insight screen
+          const insightIds = ['screen-insight-1', 'screen-insight-2', 'screen-insight-3', 'screen-insight-4'];
+          showScreen(insightIds[insightIdx]);
+          // Reset pointer events on options for next question
+          document.querySelectorAll('#screen-quiz .option').forEach(el => { el.style.pointerEvents = ''; });
+          current++; // Advance to next question so when they click Continue, it renders the next one
+        } else if (current < questions.length - 1) {
           current++;
           renderQuestion();
         } else {
+          // Reset pointer events
+          document.querySelectorAll('#screen-quiz .option').forEach(el => { el.style.pointerEvents = ''; });
           showResults();
         }
       }, 600);
@@ -1083,6 +1133,7 @@
       if (current > 0) { current--; renderQuestion(); }
     }
 
+    // ─── RESULTS ───
     function showResults() {
       document.getElementById('progress-bar').style.width = '100%';
       const total = answers.reduce((sum, a, qi) => sum + (a !== null ? questions[qi].options[a].score : 0), 0);
@@ -1092,47 +1143,47 @@
       let tier, tierColor, tierBg, headline, summary, breakdowns, ctaTitle, ctaBody;
 
       if (pct <= 40) {
-        tier = 'Critical Gap';
+        tier = 'Critical Trust Gap';
         tierColor = '#e05252';
         tierBg = 'rgba(224,82,82,0.1)';
-        headline = userName ? `${userName}, your messaging is actively losing you deals.` : 'Your messaging is actively losing you deals.';
-        summary = userName ? `Based on your answers, there are significant trust gaps in how your brand communicates — gaps that are showing up as slow sales cycles, low demo conversions, and leads that go quiet. This isn't a product problem. It's a messaging problem. And the cost is real.` : 'Based on your answers, there are significant trust gaps in how your brand communicates — gaps that are showing up as slow sales cycles, low demo conversions, and leads that go quiet. This isn\'t a product problem. It\'s a messaging problem. And the cost is real.';
+        headline = userName ? `${userName}, your messaging is losing trust before it gets a chance to sell.` : 'Your messaging is losing trust before it gets a chance to sell.';
+        summary = userName ? `Based on your answers, there are significant gaps in how your messaging builds trust with skeptical buyers. Your copy is likely explaining your product without resolving the doubts that keep prospects frozen. This isn't a traffic problem — it's a trust architecture problem. And it's costing you conversions you'll never see.` : 'Based on your answers, there are significant gaps in how your messaging builds trust with skeptical buyers. Your copy is likely explaining your product without resolving the doubts that keep prospects frozen. This isn\'t a traffic problem — it\'s a trust architecture problem. And it\'s costing you conversions you\'ll never see.';
         breakdowns = [
-          { icon: '⚠', label: 'Buyer Clarity', text: 'Your messaging isn\'t specific enough to make the right buyer feel seen. When no one feels addressed, no one moves.' },
-          { icon: '⚠', label: 'Trust Architecture', text: 'Your copy is explaining the product without resolving the fear around it. In trust-heavy industries, that gap kills deals.' },
-          { icon: '⚠', label: 'Differentiation', text: 'Your brand likely sounds similar to competitors. Generic language doesn\'t lose you deals loudly — it loses them silently.' },
-          { icon: '⚠', label: 'ROI Clarity', text: 'Buyers can\'t picture what they get back. KPMG confirms this is the #1 adoption barrier in PropTech.' }
+          { icon: '⚠', label: 'Buyer Empathy', text: 'Your messaging speaks about the buyer more than it speaks to them. Skeptical audiences need to feel understood before they\'ll consider what you offer.' },
+          { icon: '⚠', label: 'Trust Architecture', text: 'Trust isn\'t a section on your website — it\'s a thread that runs through every sentence. Currently, that thread is missing or broken.' },
+          { icon: '⚠', label: 'Objection Resolution', text: 'The questions skeptics ask silently — "Can I trust this?" "Is this for me?" "What\'s the catch?" — may not be addressed anywhere in your copy.' },
+          { icon: '⚠', label: 'Decision Weight', text: 'For midlife buyers especially, purchases feel heavier. Your messaging may not be acknowledging that weight, making it feel riskier than it is.' }
         ];
-        ctaTitle = 'This is fixable — but it needs attention now.';
-        ctaBody = 'A <strong>tailored messaging audit</strong> will identify exactly where your copy is losing buyers, what it\'s costing you in pipeline, and the specific changes that will close the gap. This isn\'t a generic review — it\'s a line-by-line diagnostic of your website, flows, and core messaging.';
+        ctaTitle = 'The gap is real — but it\'s fixable.';
+        ctaBody = 'A <strong>Trust Gap Protocol audit</strong> will map exactly where your messaging is losing skeptical buyers, which objections remain unanswered, and what needs to change to turn hesitation into conviction. This isn\'t generic advice — it\'s a line-by-line rebuild of your trust narrative.';
       } else if (pct <= 70) {
         tier = 'Significant Gaps';
         tierColor = '#e09952';
         tierBg = 'rgba(224,153,82,0.1)';
-        headline = userName ? `${userName}, your messaging has the right instincts — but critical gaps remain.` : 'Your messaging has the right instincts — but critical gaps remain.';
-        summary = userName ? `You've done some things right. But based on your answers, there are specific places where your messaging is letting down an otherwise strong product. The leads you're losing to silence aren't rejecting you — they're hitting friction points your copy isn't resolving.` : 'You\'ve done some things right. But based on your answers, there are specific places where your messaging is letting down an otherwise strong product. The leads you\'re losing to silence aren\'t rejecting you — they\'re hitting friction points your copy isn\'t resolving.';
+        headline = userName ? `${userName}, you have the right instincts — but trust gaps are still costing you.` : 'You have the right instincts — but trust gaps are still costing you.';
+        summary = userName ? `You're doing some things right. But based on your answers, there are specific places where your messaging is letting skeptical buyers slip through. The leads you're losing to silence aren't rejecting your offer — they're hitting friction points your copy isn't resolving. The good news: these are usually the easiest gaps to close.` : 'You\'re doing some things right. But based on your answers, there are specific places where your messaging is letting skeptical buyers slip through. The leads you\'re losing to silence aren\'t rejecting your offer — they\'re hitting friction points your copy isn\'t resolving. The good news: these are usually the easiest gaps to close.';
         breakdowns = [
-          { icon: '◐', label: 'Buyer Specificity', text: 'Your ICP is defined but your messaging doesn\'t always speak directly to them. Generic language is slipping in where specific language should be.' },
-          { icon: '◐', label: 'Trust Signals', text: 'You have proof but it may not be specific enough. Claimed trust and earned trust are different things in high-stakes markets.' },
-          { icon: '◐', label: 'Message Consistency', text: 'There\'s likely a gap between how marketing describes the product and how sales pitches it. That inconsistency registers as risk.' },
-          { icon: '◐', label: 'Post-Sale Communication', text: 'The trust work doesn\'t stop at conversion. Silence after the sale is a retention and referral problem waiting to happen.' }
+          { icon: '◐', label: 'Empathy Depth', text: 'Your messaging shows some awareness of the buyer\'s situation, but may not go deep enough to make a skeptical reader feel truly seen.' },
+          { icon: '◐', label: 'Trust Signals', text: 'You have proof elements but they may lack the specificity needed to overcome deep skepticism. Vague trust = no trust.' },
+          { icon: '◐', label: 'Objection Handling', text: 'Some objections are addressed, but the ones that matter most to skeptical buyers — risk, regret, being wrong — may still be unanswered.' },
+          { icon: '◐', label: 'Midlife Messaging', text: 'Your copy may treat all buyers the same, missing the distinct decision-making dynamics of midlife buyers who evaluate purchases differently.' }
         ];
         ctaTitle = 'You\'re closer than you think — but close isn\'t closed.';
-        ctaBody = 'A <strong>targeted messaging audit</strong> will pinpoint the specific gaps that are costing you pipeline, and map out the exact changes that will sharpen your conversion at every stage. Most clients see the problem clearly within the first session.';
+        ctaBody = 'A <strong>targeted Trust Gap Protocol audit</strong> will pinpoint the specific gaps that are costing you conversions and map out the exact changes that will turn skeptical visitors into trusting buyers. Most clients see the problem clearly within the first session.';
       } else {
-        tier = 'Strong Foundation';
+        tier = 'Strong Trust Foundation';
         tierColor = '#52c4a0';
         tierBg = 'rgba(82,196,160,0.1)';
         headline = userName ? `${userName}, your messaging is working — here's how to make it compound.` : 'Your messaging is working — here\'s how to make it compound.';
-        summary = userName ? `You're ahead of most brands in your category. Your messaging shows clarity, specificity, and awareness of how trust-first buyers actually think. The opportunity now is to systematise what's working and eliminate the remaining inconsistencies before they become costly.` : 'You\'re ahead of most brands in your category. Your messaging shows clarity, specificity, and awareness of how trust-first buyers actually think. The opportunity now is to systematise what\'s working and eliminate the remaining inconsistencies before they become costly.';
+        summary = userName ? `You're ahead of most brands selling to skeptical audiences. Your messaging shows empathy, specificity, and an understanding of how trust-first buyers actually decide. The opportunity now is to systematise what's working and eliminate the last inconsistencies before they become costly gaps.` : 'You\'re ahead of most brands selling to skeptical audiences. Your messaging shows empathy, specificity, and an understanding of how trust-first buyers actually decide. The opportunity now is to systematise what\'s working and eliminate the last inconsistencies before they become costly gaps.';
         breakdowns = [
-          { icon: '✓', label: 'Buyer Clarity', text: 'You know who you\'re writing for. That specificity is the foundation everything else builds on.' },
-          { icon: '✓', label: 'Trust Architecture', text: 'Your copy is doing meaningful trust work — not just claiming credibility but demonstrating it.' },
-          { icon: '◐', label: 'Consistency', text: 'Even strong messaging can drift between touchpoints. Worth auditing whether your story holds end-to-end.' },
-          { icon: '◐', label: 'Compounding', text: 'The brands that pull away from the pack don\'t just have good messaging — they have a system that keeps improving it.' }
+          { icon: '✓', label: 'Buyer Empathy', text: 'You understand who you\'re writing for — and more importantly, you write in a way that makes them feel understood. That\'s the foundation of trust.' },
+          { icon: '✓', label: 'Trust Architecture', text: 'Your copy is doing meaningful trust work — not just claiming credibility, but demonstrating it through specificity and empathy.' },
+          { icon: '◐', label: 'Consistency', text: 'Even strong messaging can drift between touchpoints. Worth auditing whether your trust narrative holds up across every stage of the journey.' },
+          { icon: '◐', label: 'Compounding', text: 'The brands that pull away don\'t just have good messaging — they have a system that keeps building trust at every interaction.' }
         ];
         ctaTitle = 'Don\'t let strong messaging plateau.';
-        ctaBody = 'A <strong>strategic messaging review</strong> will identify the specific gaps between where your copy is now and where it could be — and build the architecture that lets your messaging compound as your brand grows.';
+        ctaBody = 'A <strong>strategic Trust Gap Protocol review</strong> will identify the specific opportunities between where your copy is now and where it could be — and build the architecture that lets your trust narrative compound as your brand grows.';
       }
 
       const ringCircumference = 2 * Math.PI * 54;
@@ -1150,7 +1201,7 @@
             </svg>
             <div class="score-ring-text">
               <span class="score-number" style="color:${tierColor}">${pct}%</span>
-              <span class="score-label">Score</span>
+              <span class="score-label">Trust Readiness</span>
             </div>
           </div>
           <div class="result-tier" style="background:${tierBg}; color:${tierColor}">
@@ -1175,10 +1226,10 @@
           <p class="cta-block-body">${ctaBody}</p>
           <a class="btn-cta" href="https://calendly.com/segunfalade/discovery-call" target="_blank">Book a free audit call →</a>
         </div>
-        <button class="retake-link" onclick="retake()">Retake the audit</button>
+        <button class="retake-link" onclick="retake()">Retake the diagnostic</button>
         <div class="signature">
           <span class="sig-dot"></span>
-          <span>Segun Falade &nbsp;·&nbsp; Copy Strategist for PropTech &amp; FinTech</span>
+          <span>Segun Falade &nbsp;·&nbsp; Copy Strategist for Trust-First Brands</span>
         </div>
       `;
 
@@ -1197,8 +1248,12 @@
       document.getElementById('name-error').classList.remove('show');
       
       userName = '';
+      insightQueue = [1, 3, 5, 7];
       showScreen('screen-intro');
     }
+
+    // ─── Override: When "Continue" is clicked on an insight screen, it should re-render the next question ───
+    // We already advance `current` before showing the insight, so renderQuestion() will show the correct next question.
   </script>
 </body>
 </html>
