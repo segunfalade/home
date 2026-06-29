@@ -1,441 +1,1259 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Strategic copy that converts skeptical prospects and midlife audiences. Specializing in authentic messaging for discerning buyers." />
-    <meta name="keywords" content="copywriting, copy strategy, midlife marketing, brand messaging, conversion copywriting" />
-    <title>Copy Strategy for Midlife Brands | Expert Copywriting</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
-    <style>
-        .smooth-scroll {
-            scroll-behavior: smooth;
-        }
-    </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MCXMFE92D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7MCXMFE92D');
+  </script> 
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Segun Falade - Copy Strategist helping brands turn skeptical visitors into trusting buyers.">
+  <title>Segun Falade | The Trust Gap Diagnostic</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://copyinteractive.github.io/assets/profile.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --surface2: #1a1a24;
+      --border: rgba(255,255,255,0.08);
+      --gold: #c9a84c;
+      --gold-light: #e8c96a;
+      --gold-dim: rgba(201,168,76,0.15);
+      --white: #f0ede8;
+      --muted: rgba(240,237,232,0.45);
+      --red: #e05252;
+      --amber: #e09952;
+      --green: #52c4a0;
+      --radius: 4px;
+      --container-width: 720px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.4;
+    }
+
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      width: 100%;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 1;
+    }
+
+    #progress-bar-wrap {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: rgba(255,255,255,0.06);
+      z-index: 100;
+    }
+    #progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      position: relative;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .identity {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .name {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .role {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .header-right { position: relative; }
+
+    .projects-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--white);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .projects-btn:hover {
+      background: var(--surface2);
+      border-color: rgba(201,168,76,0.3);
+    }
+
+    .projects-btn svg { transition: transform 0.2s; }
+    .projects-btn.open svg { transform: rotate(180deg); }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      width: 220px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      padding: 0.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 50;
+    }
+
+    .dropdown-menu.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      border-radius: 4px;
+      transition: all 0.15s;
+    }
+
+    .dropdown-item:hover {
+      background: var(--surface2);
+      color: var(--white);
+    }
+
+    main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .screen {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem 0 4rem;
+      max-width: 680px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .screen.active { display: flex; }
+
+    .intro-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+      font-weight: 500;
+    }
+
+    .intro-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(32px, 6vw, 52px);
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .intro-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .intro-body {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 48px;
+      max-width: 520px;
+    }
+
+    .intro-meta {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    .name-input-wrapper {
+      margin-bottom: 24px;
+      max-width: 340px;
+    }
+
+    .name-input {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .name-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 1px var(--gold);
+    }
+
+    .name-input::placeholder {
+      color: rgba(240,237,232,0.3);
+    }
+
+    .name-input.error {
+      border-color: var(--red);
+      box-shadow: 0 0 0 1px var(--red);
+    }
+
+    .error-msg {
+      color: var(--red);
+      font-size: 13px;
+      margin-top: 8px;
+      display: none;
+    }
+    .error-msg.show { display: block; }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .meta-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+
+    .meta-value {
+      font-size: 14px;
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--gold);
+      color: #0a0a0f;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 16px 32px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary .arrow { transition: transform 0.2s ease; }
+    .btn-primary:hover .arrow { transform: translateX(4px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--muted);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      padding: 12px 0;
+      border: none;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      margin-top: 12px;
+    }
+
+    .btn-secondary:hover { color: var(--white); }
+
+    .question-counter {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .question-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(22px, 4vw, 34px);
+      line-height: 1.25;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .question-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .option::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gold-dim);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .option:hover::before { opacity: 1; }
+    .option:hover { border-color: rgba(201,168,76,0.3); }
+
+    .option.selected {
+      border-color: var(--gold);
+      background: var(--surface2);
+    }
+    .option.selected::before { opacity: 1; }
+
+    .option-key {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      transition: all 0.2s ease;
+      margin-top: 1px;
+    }
+
+    .option.selected .option-key {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #0a0a0f;
+    }
+
+    @keyframes optionBlink {
+      0%   { opacity: 1; }
+      25%  { opacity: 0.3; }
+      50%  { opacity: 1; }
+      75%  { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+
+    .option.confirming {
+      animation: optionBlink 0.5s ease;
+      pointer-events: none;
+    }
+
+    .option-text {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--white);
+      position: relative;
+    }
+
+    .nav-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 32px;
+    }
+
+    .score-display { margin-bottom: 48px; }
+
+    .score-ring-wrap {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin-bottom: 32px;
+    }
+
+    .score-ring-wrap svg { transform: rotate(-90deg); }
+
+    .score-ring-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+    }
+
+    .score-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px;
+      line-height: 1;
+    }
+
+    .score-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+
+    .result-tier {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      margin-bottom: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .tier-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .result-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(24px, 4vw, 36px);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .result-summary {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .breakdown-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .breakdown-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+
+    .breakdown-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .breakdown-icon {
+      font-size: 16px;
+      min-width: 20px;
+      margin-top: 1px;
+    }
+
+    .breakdown-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .breakdown-text strong {
+      color: var(--white);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .cta-block {
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid rgba(201,168,76,0.25);
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    .cta-block-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .cta-block-body {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .cta-block-body strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: #0a0a0f;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 15px 28px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-cta:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .retake-link {
+      font-size: 13px;
+      color: var(--muted);
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      background: none;
+      border: none;
+      padding: 0;
+      transition: color 0.2s;
+    }
+
+    .retake-link:hover { color: var(--white); }
+
+    .signature {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sig-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-icon {
+      fill: var(--muted);
+      width: 24px;
+      height: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+      fill: var(--gold);
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .screen.active > * { animation: fadeUp 0.4s ease forwards; }
+    .screen.active > *:nth-child(1) { animation-delay: 0.0s; }
+    .screen.active > *:nth-child(2) { animation-delay: 0.06s; }
+    .screen.active > *:nth-child(3) { animation-delay: 0.12s; }
+    .screen.active > *:nth-child(4) { animation-delay: 0.18s; }
+    .screen.active > *:nth-child(5) { animation-delay: 0.24s; }
+    .screen.active > *:nth-child(6) { animation-delay: 0.30s; }
+    .screen.active > *:nth-child(7) { animation-delay: 0.36s; }
+
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem; }
+      header { margin-bottom: 1.5rem; }
+      .header-left { gap: 0.6rem; }
+      .logo { width: 40px; height: 40px; }
+      .name { font-size: 0.95rem; }
+      .role { font-size: 0.75rem; }
+      .projects-btn { padding: 0.4rem 0.6rem; font-size: 0.8rem; gap: 0.3rem; }
+      .intro-meta { flex-direction: column; gap: 16px; }
+      .btn-primary, .btn-cta { width: 100%; justify-content: center; }
+    }
+
+    /* Insight screens (interstitial between questions) */
+    .insight-screen {
+      min-height: auto;
+    }
+    .insight-screen .insight-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .insight-screen .divider {
+      margin-bottom: 24px;
+    }
+    .insight-screen p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .insight-screen p strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+    .insight-screen p.emph {
+      color: var(--white);
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(20px, 3vw, 28px);
+      line-height: 1.35;
+    }
+    .insight-screen .btn-primary {
+      margin-top: 16px;
+    }
+  </style>
 </head>
-<body class="smooth-scroll">
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">
-        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between py-4">
-                <div class="flex items-center gap-2">
-                    <div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-slate-900 to-slate-700">
-                        <span class="text-lg font-bold text-white">C</span>
-                    </div>
-                    <span class="hidden text-lg font-semibold text-slate-900 sm:inline">Copy Strategy</span>
-                </div>
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex gap-8">
-                    <a href="#about" class="text-sm text-slate-600 hover:text-slate-900 transition">About</a>
-                    <a href="#work" class="text-sm text-slate-600 hover:text-slate-900 transition">Work</a>
-                    <a href="#services" class="text-sm text-slate-600 hover:text-slate-900 transition">Services</a>
-                    <a href="#contact" class="text-sm font-medium text-white bg-slate-900 hover:bg-slate-800 px-4 py-2 rounded-lg transition">Get Started</a>
-                </div>
-                <!-- Mobile Menu Button -->
-                <button id="menuBtn" class="md:hidden p-2 text-slate-600 hover:text-slate-900">
-                    <svg id="menuIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="hidden border-t border-slate-200 py-4 md:hidden space-y-4">
-                <a href="#about" class="block px-4 py-2 text-slate-600 hover:bg-slate-50 rounded transition">About</a>
-                <a href="#work" class="block px-4 py-2 text-slate-600 hover:bg-slate-50 rounded transition">Work</a>
-                <a href="#services" class="block px-4 py-2 text-slate-600 hover:bg-slate-50 rounded transition">Services</a>
-                <a href="#contact" class="block px-4 py-2 font-medium text-white bg-slate-900 rounded transition">Get Started</a>
-            </div>
+<body>
+
+  <div id="progress-bar-wrap"><div id="progress-bar"></div></div>
+
+  <div class="container">
+    
+    <header>
+      <div class="header-left">
+        <div class="profile-wrap">
+          <img src="https://copyinteractive.github.io/assets/profile.png" alt="Segun Falade" class="logo">
         </div>
-    </nav>
-    <!-- Hero Section -->
-    <section class="relative px-4 py-20 sm:py-32 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-slate-100 opacity-40 blur-3xl"></div>
+        <div class="identity">
+          <span class="name">Segun Falade</span>
+          <span class="role">Copy Strategist</span>
         </div>
-        <div class="relative mx-auto max-w-4xl text-center">
-            <div class="inline-block mb-6 px-4 py-2 bg-slate-100 rounded-full border border-slate-200">
-                <span class="text-sm font-medium text-slate-700">Strategic Copy for Discerning Audiences</span>
-            </div>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
-                Copy That Converts<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-400">
-                    the Skeptical
-                </span>
-            </h1>
-            <p class="text-lg sm:text-xl text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Midlife audiences demand authenticity. They see through hype. You need copy that respects their intelligence, addresses their real concerns, and converts them into loyal customers.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-3 rounded-lg font-medium hover:bg-slate-800 transition">
-                    Start Your Project
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
-                <a href="#work" class="inline-flex items-center justify-center gap-2 border border-slate-300 text-slate-900 px-8 py-3 rounded-lg font-medium hover:bg-slate-50 transition">
-                    See Case Studies
-                </a>
-            </div>
-            <div class="grid grid-cols-3 gap-4 text-sm max-w-md mx-auto">
-                <div>
-                    <div class="text-2xl font-bold text-slate-900">50+</div>
-                    <div class="text-slate-600">Brands Transformed</div>
-                </div>
-                <div>
-                    <div class="text-2xl font-bold text-slate-900">3.2x</div>
-                    <div class="text-slate-600">Avg ROI Increase</div>
-                </div>
-                <div>
-                    <div class="text-2xl font-bold text-slate-900">$147M+</div>
-                    <div class="text-slate-600">Revenue Generated</div>
-                </div>
-            </div>
+      </div>
+
+      <div class="header-right">
+        <button class="projects-btn" id="projectsBtn" onclick="toggleDropdown()" aria-expanded="false">
+          My Projects
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        <div class="dropdown-menu" id="projectsDropdown">
+          <a href="https://www.canva.com/design/DAG6_flilIk/-uBKMjKdwWj4i-hXNELD4g/view?utm_content=DAG6_flilIk&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8bcff8982c" class="dropdown-item" target="_blank">
+            📄 Portfolio
+          </a>
+          <a href="#" class="dropdown-item">📈 Case Studies</a>
+          <a href="#" class="dropdown-item">📚 Resources</a>
+          <a href="https://curious2converted.substack.com" class="dropdown-item" target="_blank" rel="noopener noreferrer">
+            ✍️ Latest Content
+          </a>
         </div>
-    </section>
-    <!-- About Section -->
-    <section id="about" class="px-4 py-20 sm:py-32 bg-white">
-        <div class="mx-auto max-w-4xl">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Why Skeptical Prospects Matter</h2>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        Midlife audiences—typically ages 40-70—represent the most valuable customer demographic. They have:
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-start gap-3">
-                            <svg class="text-slate-900 mt-1 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                            </svg>
-                            <span class="text-slate-700">Established budgets and decision-making authority</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg class="text-slate-900 mt-1 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                            </svg>
-                            <span class="text-slate-700">Built-in skepticism from years of marketing exposure</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg class="text-slate-900 mt-1 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                            </svg>
-                            <span class="text-slate-700">Higher lifetime value and brand loyalty</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg class="text-slate-900 mt-1 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                            </svg>
-                            <span class="text-slate-700">Demand for authenticity and proven results</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg class="text-slate-900 mt-1 flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                            </svg>
-                            <span class="text-slate-700">Strong peer influence and referral networks</span>
-                        </li>
-                    </ul>
-                    <p class="text-slate-600 leading-relaxed">
-                        Most copy is written to manipulate. That doesn't work on skeptical audiences. They need truth.
-                    </p>
-                </div>
-                <div class="bg-slate-50 p-8 rounded-lg border border-slate-200">
-                    <h3 class="text-2xl font-bold text-slate-900 mb-6">My Approach</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <h4 class="font-semibold text-slate-900 mb-2">🎯 Research First</h4>
-                            <p class="text-slate-600 text-sm">Deep dive into your audience psychology, pain points, and objections</p>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-slate-900 mb-2">💡 Authentic Positioning</h4>
-                            <p class="text-slate-600 text-sm">Uncover what makes your brand genuinely different and worth buying</p>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-slate-900 mb-2">📊 Data-Driven Strategy</h4>
-                            <p class="text-slate-600 text-sm">Every word serves conversion goals backed by psychology and testing</p>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-slate-900 mb-2">🔄 Iterative Optimization</h4>
-                            <p class="text-slate-600 text-sm">Continuously test and refine for maximum impact and ROI</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- INTRO SCREEN -->
+      <div class="screen active" id="screen-intro">
+        <h1 class="intro-title">Where is your brand losing trust <em>before it gets the sale?</em></h1>
+        <p class="intro-body">Most businesses chasing skeptical buyers have a traffic problem they blame — but a trust problem they don't see. This diagnostic finds where your messaging is leaking credibility, and what it's costing you.</p>
+        <div class="intro-meta">
+          <div class="meta-item">
+            <span class="meta-label">Questions</span>
+            <span class="meta-value">10</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Time</span>
+            <span class="meta-value">Under 3 minutes</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Result</span>
+            <span class="meta-value">Instant score + personalised breakdown</span>
+          </div>
         </div>
-    </section>
-    <!-- Case Studies Section -->
-    <section id="work" class="px-4 py-20 sm:py-32 bg-slate-50">
-        <div class="mx-auto max-w-5xl">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Proven Results</h2>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-                    Strategic copy that moves the needle for sophisticated audiences
-                </p>
-            </div>
-            <div class="space-y-8">
-                <!-- Case Study 1 -->
-                <div class="bg-white rounded-lg border border-slate-200 p-8 hover:shadow-lg transition">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <div class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-2">Conversion Optimization</div>
-                            <h3 class="text-2xl font-bold text-slate-900">B2B SaaS Platform</h3>
-                        </div>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-6 mb-6">
-                        <div>
-                            <p class="text-sm text-slate-600 font-semibold mb-2">Challenge</p>
-                            <p class="text-slate-700">Technical software, skeptical decision-makers who worry about complexity and ROI</p>
-                        </div>
-                        <div>
-                            <p class="text-sm text-slate-600 font-semibold mb-2">Strategy</p>
-                            <p class="text-slate-700">Stripped away jargon, focused on tangible business outcomes and implementation ease. Emphasize proven results from similar midlife professionals.</p>
-                        </div>
-                        <div>
-                            <p class="text-sm text-slate-600 font-semibold mb-2">Result</p>
-                            <p class="text-slate-900 font-semibold text-lg">+47% conversion rate, $2.3M additional revenue in first 6 months</p>
-                        </div>
-                    </div>
-                    <div class="border-t pt-6">
-                        <p class="text-slate-600 italic mb-3">"The copy spoke directly to my concerns without condescension. Finally felt like someone understood our business."</p>
-                        <p class="text-sm font-medium text-slate-700">— CFO, Fortune 500 Company</p>
-                    </div>
-                </div>
-                <!-- Case Study 2 -->
-                <div class="bg-white rounded-lg border border-slate-200 p-8 hover:shadow-lg transition">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <div class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-2">Brand Positioning</div>
-                            <h3 class="text-2xl font-bold text-slate-900">Luxury Wellness Brand</h3>
-                        </div>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-6 mb-6">
-                        <div>
-                            <p class="text-sm text-slate-600 font-semibold mb-2">Challenge</p>
-                            <p class="text-slate-700">High-end market with affluent, discerning customers who distrust marketing hype</p>
-                        </div>
-                        <div>
-                            <p class="text-sm text-slate-600 font-semibold mb-2">Strategy</p>
-                            <p class="text-slate-700">Authentic storytelling rooted in science and real customer experiences. No empty promises—just honest value propositions.</p>
-                        </div>
-                        <div>
-                            <p class="text-sm text-slate-600 font-semibold mb-2">Result</p>
-                            <p class="text-slate-900 font-semibold text-lg">156% increase in qualified leads, 62% improvement in customer lifetime value</p>
-                        </div>
-                    </div>
-                    <div class="border-t pt-6">
-                        <p class="text-slate-600 italic mb-3">"This brand finally sounds like it respects my intelligence. I actually want to buy this."</p>
-                        <p class="text-sm font-medium text-slate-700">— Client, Age 52</p>
-                    </div>
-                </div>
-                <!-- Case Study 3 -->
-                <div class="bg-white rounded-lg border border-slate-200 p-8 hover:shadow-lg transition">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <div class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-2">Messaging Strategy</div>
-                            <h3 class="text-2xl font-bold text-slate-900">Executive Coaching Program</h3>
-                        </div>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-6 mb-6">
-                        <div>
-                            <p class="text-sm text-slate-600 font-semibold mb-2">Challenge</p>
-                            <p class="text-slate-700">Attracting seasoned professionals skeptical of coaching industry claims</p>
-                        </div>
-                        <div>
-                            <p class="text-sm text-slate-600 font-semibold mb-2">Strategy</p>
-                            <p class="text-slate-700">Positioned as peer mentorship rather than "fixing" problems. Emphasized discretion, exclusivity, and legitimate transformation.</p>
-                        </div>
-                        <div>
-                            <p class="text-sm text-slate-600 font-semibold mb-2">Result</p>
-                            <p class="text-slate-900 font-semibold text-lg">3.2x ROI on ad spend, sold out 2 cohorts in 8 weeks</p>
-                        </div>
-                    </div>
-                    <div class="border-t pt-6">
-                        <p class="text-slate-600 italic mb-3">"This sounds like someone who gets the executive world. Not another coach selling dreams."</p>
-                        <p class="text-sm font-medium text-slate-700">— Program Director</p>
-                    </div>
-                </div>
-            </div>
+        
+        <div class="name-input-wrapper">
+          <input type="text" id="user-name" class="name-input" placeholder="Your first name" autocomplete="given-name">
+          <div id="name-error" class="error-msg">Please enter your first name to begin the diagnostic.</div>
         </div>
-    </section>
-    <!-- Services Section -->
-    <section id="services" class="px-4 py-20 sm:py-32 bg-white">
-        <div class="mx-auto max-w-5xl">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Services</h2>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-                    Strategic copy solutions tailored to your business goals
-                </p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="border border-slate-200 rounded-lg p-6 hover:border-slate-400 hover:shadow-md transition">
-                    <div class="text-3xl mb-4">🎯</div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-3">Brand Voice & Messaging Strategy</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Develop a distinctive brand voice that resonates with skeptical, intelligent audiences. Create messaging frameworks that convert.</p>
-                </div>
-                <div class="border border-slate-200 rounded-lg p-6 hover:border-slate-400 hover:shadow-md transition">
-                    <div class="text-3xl mb-4">📄</div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-3">Sales Page & Landing Page Copy</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">High-converting copy that addresses objections before they form. Built for midlife audiences who demand authenticity.</p>
-                </div>
-                <div class="border border-slate-200 rounded-lg p-6 hover:border-slate-400 hover:shadow-md transition">
-                    <div class="text-3xl mb-4">✉️</div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-3">Email Sequences & Nurture Campaigns</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Strategic email copy that builds trust and credibility through value, not hype. Perfect for warm audiences.</p>
-                </div>
-                <div class="border border-slate-200 rounded-lg p-6 hover:border-slate-400 hover:shadow-md transition">
-                    <div class="text-3xl mb-4">🔍</div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-3">Website Copy Audits & Optimization</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Identify where your copy is losing skeptical prospects and optimize for higher conversions.</p>
-                </div>
-                <div class="border border-slate-200 rounded-lg p-6 hover:border-slate-400 hover:shadow-md transition">
-                    <div class="text-3xl mb-4">📚</div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-3">Content Strategy for Authority</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Position yourself or your brand as the trusted expert through strategic content that serves your audience.</p>
-                </div>
-                <div class="border border-slate-200 rounded-lg p-6 hover:border-slate-400 hover:shadow-md transition">
-                    <div class="text-3xl mb-4">📢</div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-3">Ad Copy & Campaign Strategy</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Ads that attract the right people without cheap tricks. Focused on qualified leads, not vanity metrics.</p>
-                </div>
-            </div>
+        
+        <button class="btn-primary" onclick="startQuiz()">Begin diagnostic <span class="arrow">→</span></button>
+      </div>
+
+      <!-- INSIGHT SCREEN: After Q1 response -->
+      <div class="screen insight-screen" id="screen-insight-1">
+        <p class="intro-eyebrow">What that tells us</p>
+        <div class="divider"></div>
+        <p>That's the situation most brand owners describe — often right before they start changing headlines, pricing, and design, hoping something finally sticks.</p>
+        <p>But here's what almost nobody tells you:</p>
+        <p class="emph">People don't buy because they understand you. People buy because they feel understood.</p>
+        <p>Most brands are talking to buyers who don't exist — because they treat every visitor as a blank slate, not as someone carrying baggage from past purchases, past disappointments, and past pitches.</p>
+        <p>Let's see how that shows up in your messaging.</p>
+        <button class="btn-primary" onclick="showScreen('screen-quiz'); renderQuestion();">Continue <span class="arrow">→</span></button>
+      </div>
+
+      <!-- INSIGHT SCREEN: After Q3 response -->
+      <div class="screen insight-screen" id="screen-insight-2">
+        <p class="intro-eyebrow">Notice something</p>
+        <div class="divider"></div>
+        <p>Many websites ask for commitment before they've earned confidence.</p>
+        <p class="emph">That's where buyers quietly disappear.</p>
+        <p>It's not that the offer is wrong. It's that your message arrived before your prospect was ready to hear it.</p>
+        <p>Every skeptical buyer has invisible questions. Until those questions are answered, nothing else matters. Let's find out if your copy is answering them.</p>
+        <button class="btn-primary" onclick="showScreen('screen-quiz'); renderQuestion();">Continue <span class="arrow">→</span></button>
+      </div>
+
+      <!-- INSIGHT SCREEN: After Q5 response -->
+      <div class="screen insight-screen" id="screen-insight-3">
+        <p class="intro-eyebrow">Let's pause on that</p>
+        <div class="divider"></div>
+        <p>There's a pattern emerging.</p>
+        <p>Most brands keep throwing better offers across the trust gap — new headlines, new testimonials, new pricing pages — while skeptical buyers are still asking one question nobody has answered:</p>
+        <p class="emph">"Can I trust you?"</p>
+        <p>Until that question is answered, price doesn't matter. Features don't matter. Even a perfect offer struggles. Let's go one level deeper.</p>
+        <button class="btn-primary" onclick="showScreen('screen-quiz'); renderQuestion();">Continue <span class="arrow">→</span></button>
+      </div>
+
+      <!-- INSIGHT SCREEN: After Q7 response -->
+      <div class="screen insight-screen" id="screen-insight-4">
+        <p class="intro-eyebrow">Here's the gap</p>
+        <div class="divider"></div>
+        <p class="emph">The distance between "this sounds interesting" and "I trust this enough to buy."</p>
+        <p>That's the Trust Gap. Most brands never see it — they just keep throwing better offers across it, wondering why nothing improves.</p>
+        <p>Two more questions will tell us exactly where your gap is widest.</p>
+        <button class="btn-primary" onclick="showScreen('screen-quiz'); renderQuestion();">Continue <span class="arrow">→</span></button>
+      </div>
+
+      <!-- QUESTION SCREENS -->
+      <div class="screen" id="screen-quiz">
+        <p class="question-counter" id="q-counter">Question 1 of 10</p>
+        <div class="divider"></div>
+        <h2 class="question-text" id="q-text"></h2>
+        <p class="question-sub" id="q-sub"></p>
+        <div class="options" id="q-options"></div>
+        <div class="nav-row">
+          <button class="btn-secondary" id="btn-back" onclick="prevQuestion()">← Back</button>
         </div>
-    </section>
-    <!-- Benefits Section -->
-    <section class="px-4 py-20 sm:py-32 bg-slate-900 text-white">
-        <div class="mx-auto max-w-4xl">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-center">What You Get</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="flex items-start gap-4">
-                    <div class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-slate-700 mt-1 flex-shrink-0">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                    </div>
-                    <p class="text-lg">Copy that converts skeptics into customers</p>
-                </div>
-                <div class="flex items-start gap-4">
-                    <div class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-slate-700 mt-1 flex-shrink-0">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                    </div>
-                    <p class="text-lg">Messaging that respects your audience intelligence</p>
-                </div>
-                <div class="flex items-start gap-4">
-                    <div class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-slate-700 mt-1 flex-shrink-0">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                    </div>
-                    <p class="text-lg">Strategy rooted in psychology and real data</p>
-                </div>
-                <div class="flex items-start gap-4">
-                    <div class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-slate-700 mt-1 flex-shrink-0">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                    </div>
-                    <p class="text-lg">Authentic positioning without hype or manipulation</p>
-                </div>
-                <div class="flex items-start gap-4">
-                    <div class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-slate-700 mt-1 flex-shrink-0">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                    </div>
-                    <p class="text-lg">Higher quality leads and better customer fit</p>
-                </div>
-                <div class="flex items-start gap-4">
-                    <div class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-slate-700 mt-1 flex-shrink-0">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                    </div>
-                    <p class="text-lg">Increased lifetime customer value</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- CTA Section -->
-    <section id="contact" class="px-4 py-20 sm:py-32 bg-white">
-        <div class="mx-auto max-w-2xl text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Ready to Transform Your Copy?</h2>
-            <p class="text-lg text-slate-600 mb-8">
-                Let's talk about how strategic copy can convert your skeptical prospects into customers.
-            </p>
-            <div class="bg-slate-50 border border-slate-200 rounded-lg p-8 mb-8">
-                <p class="text-slate-600 mb-4">
-                    <strong>Get Started in 3 Steps:</strong>
-                </p>
-                <ol class="text-left space-y-3 text-slate-700 inline-block">
-                    <li class="flex items-center gap-3">
-                        <span class="font-bold text-slate-900">1.</span>
-                        <span>Schedule a free 20-minute strategy call</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="font-bold text-slate-900">2.</span>
-                        <span>Share your goals, audience, and current results</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="font-bold text-slate-900">3.</span>
-                        <span>Receive a custom proposal and get started</span>
-                    </li>
-                </ol>
-            </div>
-            <button onclick="alert('Add your scheduling link here (Calendly, Acuity, etc.)')" class="bg-slate-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-slate-800 transition text-lg">
-                Schedule Your Free Strategy Call
-            </button>
-            <p class="text-slate-500 text-sm mt-6">
-                Based in [Your Location] • Available for 1:1 projects and retainers
-            </p>
-        </div>
-    </section>
-    <!-- Footer -->
-    <footer class="border-t border-slate-200 px-4 py-12 bg-slate-50">
-        <div class="mx-auto max-w-5xl text-center text-slate-600 text-sm">
-            <p>© 2024 Copy Strategy Portfolio. Designed for brands that value authenticity.</p>
-        </div>
+      </div>
+
+      <!-- RESULTS SCREEN -->
+      <div class="screen" id="screen-result">
+        <div id="result-content"></div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="social-links">
+        <a href="https://linkedin.com/in/segunfaladey" target="_blank" aria-label="LinkedIn">
+          <svg class="social-icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <a href="https://x.com/shegston" target="_blank" aria-label="X (formerly Twitter)">
+          <svg class="social-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+      © 2026 Segun Falade
     </footer>
-    <script>
-        // Mobile menu toggle
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        menuBtn.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-        });
-        // Close mobile menu when a link is clicked
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            });
-        });
-    </script>
+
+  </div>
+
+  <script>
+    // ─── DROPDOWN ───
+    function toggleDropdown() {
+      const dropdown = document.getElementById('projectsDropdown');
+      const btn = document.getElementById('projectsBtn');
+      dropdown.classList.toggle('active');
+      btn.classList.toggle('open');
+      btn.setAttribute('aria-expanded', dropdown.classList.contains('active'));
+    }
+
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('projectsDropdown');
+      const btn = document.getElementById('projectsBtn');
+      if (!btn.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // ─── QUESTIONS (tailored for skeptical buyers / midlifers) ───
+    const questions = [
+      {
+        text: "When a skeptical buyer lands on your website, what's the first thing your messaging does?",
+        sub: "Think about the first 5 seconds — what does your copy actually communicate?",
+        options: [
+          { text: "It explains what we do — our features, our technology, our solution.", score: 0 },
+          { text: "It makes a broad promise — 'transform your [x]' or 'the best way to [y].'", score: 0 },
+          { text: "It names the exact problem the buyer is feeling right now.", score: 2 },
+          { text: "It acknowledges the buyer's skepticism before offering anything.", score: 3 }
+        ]
+      },
+      {
+        text: "Does your copy acknowledge that your buyer has been disappointed before?",
+        sub: "Skeptical buyers carry baggage from past purchases. Does your messaging speak to that?",
+        options: [
+          { text: "No — we focus on what's great about our product and avoid negativity.", score: 0 },
+          { text: "We have some trust signals (logos, reviews) but don't address past disappointment directly.", score: 1 },
+          { text: "We acknowledge objections indirectly but haven't built them into our narrative.", score: 2 },
+          { text: "Yes — our messaging names the disappointment and shows why this time is different.", score: 3 }
+        ]
+      },
+      {
+        text: "How does your homepage make a visitor feel within the first 10 seconds?",
+        sub: "Before they've read anything — what's the emotional tone?",
+        options: [
+          { text: "Excited — we focus on the potential and the upside.", score: 0 },
+          { text: "Informed — we get straight to facts and features.", score: 1 },
+          { text: "Curious — we hint at something valuable but don't reveal everything.", score: 2 },
+          { text: "Understood — they feel like someone finally gets their situation.", score: 3 }
+        ]
+      },
+      {
+        text: "If your ideal buyer read your headline aloud to a friend — what would they say?",
+        sub: "Be honest — does it sound like every other brand, or does it stop them?",
+        options: [
+          { text: "\"It's another [industry] company.\" — generic and forgettable.", score: 0 },
+          { text: "\"They help with [thing].\" — clear but not compelling.", score: 1 },
+          { text: "\"They're talking about that exact problem I have.\" — specific and resonant.", score: 2 },
+          { text: "\"Wait, how did they know that's exactly what I'm dealing with?\" — painfully specific.", score: 3 }
+        ]
+      },
+      {
+        text: "How do you handle the moment a visitor asks themselves, 'Can I trust this?'",
+        sub: "That question arrives within seconds — often before they've read a full paragraph.",
+        options: [
+          { text: "We don't — we assume the product's quality speaks for itself.", score: 0 },
+          { text: "We have a separate 'trust' page or section with badges and certifications.", score: 1 },
+          { text: "We sprinkle proof throughout the page but haven't structured it as a trust narrative.", score: 2 },
+          { text: "Trust is baked into every section — credentials, stories, and specifics all answer that question before it's consciously asked.", score: 3 }
+        ]
+      },
+      {
+        text: "What happens when someone reads your website and doesn't buy immediately?",
+        sub: "What does your messaging leave them with?",
+        options: [
+          { text: "They probably leave and we hope they come back — we don't have a follow-up system.", score: 0 },
+          { text: "We have a retargeting ad but nothing that deepens trust between visits.", score: 1 },
+          { text: "We have email nurture but it's mostly product features, not trust-building content.", score: 2 },
+          { text: "We have a sequence designed to answer the next trust question at each stage of hesitation.", score: 3 }
+        ]
+      },
+      {
+        text: "Does your messaging give skeptical buyers a 'safe way in' — before asking for commitment?",
+        sub: "A low-risk step that proves value without requiring a purchase.",
+        options: [
+          { text: "No — our primary CTA is to buy, book a call, or get a quote.", score: 0 },
+          { text: "We have a lead magnet but it's gated behind a form with multiple fields.", score: 1 },
+          { text: "We offer something useful upfront — but it's not specifically designed for skeptics.", score: 2 },
+          { text: "Yes — we offer a low-friction, high-value proof point that directly answers their biggest doubt.", score: 3 }
+        ]
+      },
+      {
+        text: "When a midlife buyer evaluates your offer — what do they feel?",
+        sub: "Midlife buyers make different purchase decisions. Every purchase feels bigger, more expensive, harder to reverse.",
+        options: [
+          { text: "We've never thought about it — our messaging treats all buyers the same.", score: 0 },
+          { text: "We assume they feel the same excitement as a younger buyer discovering something new.", score: 1 },
+          { text: "We know they evaluate differently but haven't adapted our messaging for it.", score: 2 },
+          { text: "We speak to the weight of the decision — and show why this choice is safe and worth making.", score: 3 }
+        ]
+      },
+      {
+        text: "How much of your copy is about what YOU do — versus what YOUR BUYER is going through?",
+        sub: "Count the paragraphs honestly.",
+        options: [
+          { text: "80%+ is about us — our product, our features, our difference.", score: 0 },
+          { text: "About 60/40 — mostly us with some nods to the buyer's situation.", score: 1 },
+          { text: "About 50/50 — we balance our story with the buyer's struggle.", score: 2 },
+          { text: "80%+ is about the buyer — their fear, their frustration, their desired outcome.", score: 3 }
+        ]
+      },
+      {
+        text: "When someone finishes reading your website — what's the dominant feeling they're left with?",
+        sub: "Skeptical buyers remember feelings longer than facts.",
+        options: [
+          { text: "Informed — they understand what we do.", score: 0 },
+          { text: "Impressed — our product sounds impressive.", score: 1 },
+          { text: "Curious — they're interested but still unsure.", score: 2 },
+          { text: "Safe — they feel like this is a brand they can trust.", score: 3 }
+        ]
+      }
+    ];
+
+    let current = 0;
+    let answers = new Array(questions.length).fill(null);
+    let userName = '';
+    let insightQueue = []; // screens to show between questions
+
+    function personalize(text) {
+      if (!text) return text;
+      if (userName) return text.replace('{name_comma}', `, ${userName}`);
+      else return text.replace('{name_comma}', '');
+    }
+
+    function startQuiz() {
+      const nameField = document.getElementById('user-name');
+      const errorMsg = document.getElementById('name-error');
+
+      if (nameField && nameField.value.trim()) {
+        userName = nameField.value.trim();
+        userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+        
+        nameField.classList.remove('error');
+        errorMsg.classList.remove('show');
+
+        // Build the insight queue: which questions trigger which insight screen
+        // Insight after Q1 -> screen-insight-1
+        // Insight after Q3 -> screen-insight-2
+        // Insight after Q5 -> screen-insight-3
+        // Insight after Q7 -> screen-insight-4
+        insightQueue = [1, 3, 5, 7]; // 0-indexed: after questions 1, 3, 5, 7
+
+        showScreen('screen-quiz');
+        renderQuestion();
+      } else {
+        nameField.classList.add('error');
+        errorMsg.classList.add('show');
+        nameField.focus();
+      }
+    }
+
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.add('active');
+        window.scrollTo(0, 0);
+      }
+    }
+
+    function updateProgress() {
+      const answered = answers.filter(a => a !== null).length;
+      const pct = (answered / questions.length) * 100;
+      document.getElementById('progress-bar').style.width = pct + '%';
+    }
+
+    function renderQuestion() {
+      const q = questions[current];
+      const keys = ['A','B','C','D'];
+      document.getElementById('q-counter').textContent = `Question ${current + 1} of ${questions.length}`;
+      document.getElementById('q-text').textContent = q.text;
+      document.getElementById('q-sub').textContent = personalize(q.sub);
+      const optWrap = document.getElementById('q-options');
+      optWrap.innerHTML = '';
+      q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = 'option' + (answers[current] === i ? ' selected' : '');
+        div.innerHTML = `<span class="option-key">${keys[i]}</span><span class="option-text">${opt.text}</span>`;
+        div.onclick = () => selectOption(i);
+        optWrap.appendChild(div);
+      });
+      document.getElementById('btn-back').style.display = current === 0 ? 'none' : 'inline-flex';
+      updateProgress();
+    }
+
+    function selectOption(i) {
+      answers[current] = i;
+      const allOptions = document.querySelectorAll('#screen-quiz .option');
+      allOptions.forEach((el, idx) => {
+        el.classList.toggle('selected', idx === i);
+        el.style.pointerEvents = 'none';
+      });
+      allOptions[i].classList.add('confirming');
+
+      setTimeout(() => {
+        // Check if we need to show an insight screen after this question
+        const insightIdx = insightQueue.indexOf(current);
+        if (insightIdx !== -1 && current < questions.length - 1) {
+          // Show the corresponding insight screen
+          const insightIds = ['screen-insight-1', 'screen-insight-2', 'screen-insight-3', 'screen-insight-4'];
+          showScreen(insightIds[insightIdx]);
+          // Reset pointer events on options for next question
+          document.querySelectorAll('#screen-quiz .option').forEach(el => { el.style.pointerEvents = ''; });
+          current++; // Advance to next question so when they click Continue, it renders the next one
+        } else if (current < questions.length - 1) {
+          current++;
+          renderQuestion();
+        } else {
+          // Reset pointer events
+          document.querySelectorAll('#screen-quiz .option').forEach(el => { el.style.pointerEvents = ''; });
+          showResults();
+        }
+      }, 600);
+    }
+
+    function prevQuestion() {
+      if (current > 0) { current--; renderQuestion(); }
+    }
+
+    // ─── RESULTS ───
+    function showResults() {
+      document.getElementById('progress-bar').style.width = '100%';
+      const total = answers.reduce((sum, a, qi) => sum + (a !== null ? questions[qi].options[a].score : 0), 0);
+      const max = questions.length * 3;
+      const pct = Math.round((total / max) * 100);
+
+      let tier, tierColor, tierBg, headline, summary, breakdowns, ctaTitle, ctaBody;
+
+      if (pct <= 40) {
+        tier = 'Critical Trust Gap';
+        tierColor = '#e05252';
+        tierBg = 'rgba(224,82,82,0.1)';
+        headline = userName ? `${userName}, your messaging is losing trust before it gets a chance to sell.` : 'Your messaging is losing trust before it gets a chance to sell.';
+        summary = userName ? `Based on your answers, there are significant gaps in how your messaging builds trust with skeptical buyers. Your copy is likely explaining your product without resolving the doubts that keep prospects frozen. This isn't a traffic problem — it's a trust architecture problem. And it's costing you conversions you'll never see.` : 'Based on your answers, there are significant gaps in how your messaging builds trust with skeptical buyers. Your copy is likely explaining your product without resolving the doubts that keep prospects frozen. This isn\'t a traffic problem — it\'s a trust architecture problem. And it\'s costing you conversions you\'ll never see.';
+        breakdowns = [
+          { icon: '⚠', label: 'Buyer Empathy', text: 'Your messaging speaks about the buyer more than it speaks to them. Skeptical audiences need to feel understood before they\'ll consider what you offer.' },
+          { icon: '⚠', label: 'Trust Architecture', text: 'Trust isn\'t a section on your website — it\'s a thread that runs through every sentence. Currently, that thread is missing or broken.' },
+          { icon: '⚠', label: 'Objection Resolution', text: 'The questions skeptics ask silently — "Can I trust this?" "Is this for me?" "What\'s the catch?" — may not be addressed anywhere in your copy.' },
+          { icon: '⚠', label: 'Decision Weight', text: 'For midlife buyers especially, purchases feel heavier. Your messaging may not be acknowledging that weight, making it feel riskier than it is.' }
+        ];
+        ctaTitle = 'The gap is real — but it\'s fixable.';
+        ctaBody = 'A <strong>Trust Gap Protocol audit</strong> will map exactly where your messaging is losing skeptical buyers, which objections remain unanswered, and what needs to change to turn hesitation into conviction. This isn\'t generic advice — it\'s a line-by-line rebuild of your trust narrative.';
+      } else if (pct <= 70) {
+        tier = 'Significant Gaps';
+        tierColor = '#e09952';
+        tierBg = 'rgba(224,153,82,0.1)';
+        headline = userName ? `${userName}, you have the right instincts — but trust gaps are still costing you.` : 'You have the right instincts — but trust gaps are still costing you.';
+        summary = userName ? `You're doing some things right. But based on your answers, there are specific places where your messaging is letting skeptical buyers slip through. The leads you're losing to silence aren't rejecting your offer — they're hitting friction points your copy isn't resolving. The good news: these are usually the easiest gaps to close.` : 'You\'re doing some things right. But based on your answers, there are specific places where your messaging is letting skeptical buyers slip through. The leads you\'re losing to silence aren\'t rejecting your offer — they\'re hitting friction points your copy isn\'t resolving. The good news: these are usually the easiest gaps to close.';
+        breakdowns = [
+          { icon: '◐', label: 'Empathy Depth', text: 'Your messaging shows some awareness of the buyer\'s situation, but may not go deep enough to make a skeptical reader feel truly seen.' },
+          { icon: '◐', label: 'Trust Signals', text: 'You have proof elements but they may lack the specificity needed to overcome deep skepticism. Vague trust = no trust.' },
+          { icon: '◐', label: 'Objection Handling', text: 'Some objections are addressed, but the ones that matter most to skeptical buyers — risk, regret, being wrong — may still be unanswered.' },
+          { icon: '◐', label: 'Midlife Messaging', text: 'Your copy may treat all buyers the same, missing the distinct decision-making dynamics of midlife buyers who evaluate purchases differently.' }
+        ];
+        ctaTitle = 'You\'re closer than you think — but close isn\'t closed.';
+        ctaBody = 'A <strong>targeted Trust Gap Protocol audit</strong> will pinpoint the specific gaps that are costing you conversions and map out the exact changes that will turn skeptical visitors into trusting buyers. Most clients see the problem clearly within the first session.';
+      } else {
+        tier = 'Strong Trust Foundation';
+        tierColor = '#52c4a0';
+        tierBg = 'rgba(82,196,160,0.1)';
+        headline = userName ? `${userName}, your messaging is working — here's how to make it compound.` : 'Your messaging is working — here\'s how to make it compound.';
+        summary = userName ? `You're ahead of most brands selling to skeptical audiences. Your messaging shows empathy, specificity, and an understanding of how trust-first buyers actually decide. The opportunity now is to systematise what's working and eliminate the last inconsistencies before they become costly gaps.` : 'You\'re ahead of most brands selling to skeptical audiences. Your messaging shows empathy, specificity, and an understanding of how trust-first buyers actually decide. The opportunity now is to systematise what\'s working and eliminate the last inconsistencies before they become costly gaps.';
+        breakdowns = [
+          { icon: '✓', label: 'Buyer Empathy', text: 'You understand who you\'re writing for — and more importantly, you write in a way that makes them feel understood. That\'s the foundation of trust.' },
+          { icon: '✓', label: 'Trust Architecture', text: 'Your copy is doing meaningful trust work — not just claiming credibility, but demonstrating it through specificity and empathy.' },
+          { icon: '◐', label: 'Consistency', text: 'Even strong messaging can drift between touchpoints. Worth auditing whether your trust narrative holds up across every stage of the journey.' },
+          { icon: '◐', label: 'Compounding', text: 'The brands that pull away don\'t just have good messaging — they have a system that keeps building trust at every interaction.' }
+        ];
+        ctaTitle = 'Don\'t let strong messaging plateau.';
+        ctaBody = 'A <strong>strategic Trust Gap Protocol review</strong> will identify the specific opportunities between where your copy is now and where it could be — and build the architecture that lets your trust narrative compound as your brand grows.';
+      }
+
+      const ringCircumference = 2 * Math.PI * 54;
+      const ringOffset = ringCircumference - (pct / 100) * ringCircumference;
+
+      const html = `
+        <p class="intro-eyebrow">Your Results</p>
+        <div class="score-display">
+          <div class="score-ring-wrap">
+            <svg width="140" height="140" viewBox="0 0 140 140">
+              <circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8"/>
+              <circle cx="70" cy="70" r="54" fill="none" stroke="${tierColor}" stroke-width="8"
+                stroke-dasharray="${ringCircumference}" stroke-dashoffset="${ringOffset}"
+                stroke-linecap="round" style="transition: stroke-dashoffset 1s ease;"/>
+            </svg>
+            <div class="score-ring-text">
+              <span class="score-number" style="color:${tierColor}">${pct}%</span>
+              <span class="score-label">Trust Readiness</span>
+            </div>
+          </div>
+          <div class="result-tier" style="background:${tierBg}; color:${tierColor}">
+            <span class="tier-dot" style="background:${tierColor}"></span>
+            ${tier}
+          </div>
+        </div>
+        <div class="divider"></div>
+        <h2 class="result-headline">${headline}</h2>
+        <p class="result-summary">${summary}</p>
+        <p class="breakdown-title">What your answers reveal</p>
+        <div class="breakdown-list">
+          ${breakdowns.map(b => `
+            <div class="breakdown-item">
+              <span class="breakdown-icon">${b.icon}</span>
+              <div class="breakdown-text"><strong>${b.label}</strong>${b.text}</div>
+            </div>
+          `).join('')}
+        </div>
+        <div class="cta-block">
+          <h3 class="cta-block-title">${ctaTitle}</h3>
+          <p class="cta-block-body">${ctaBody}</p>
+          <a class="btn-cta" href="https://calendly.com/segunfalade/discovery-call" target="_blank">Book a free audit call →</a>
+        </div>
+        <button class="retake-link" onclick="retake()">Retake the diagnostic</button>
+        <div class="signature">
+          <span class="sig-dot"></span>
+          <span>Segun Falade &nbsp;·&nbsp; Copy Strategist for Trust-First Brands</span>
+        </div>
+      `;
+
+      document.getElementById('result-content').innerHTML = html;
+      showScreen('screen-result');
+    }
+
+    function retake() {
+      current = 0;
+      answers = new Array(questions.length).fill(null);
+      document.getElementById('progress-bar').style.width = '0%';
+      
+      const nameField = document.getElementById('user-name');
+      nameField.value = '';
+      nameField.classList.remove('error');
+      document.getElementById('name-error').classList.remove('show');
+      
+      userName = '';
+      insightQueue = [1, 3, 5, 7];
+      showScreen('screen-intro');
+    }
+
+    // ─── Override: When "Continue" is clicked on an insight screen, it should re-render the next question ───
+    // We already advance `current` before showing the insight, so renderQuestion() will show the correct next question.
+  </script>
 </body>
 </html>
