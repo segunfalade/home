@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Trust Gap Protocol — Diagnostic Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#16130f;
+    --paper:#f4efe6;
+    --paper-2:#ebe3d5;
+    --line:#d8ceba;
+    --accent:#b8452f;      /* clay */
+    --accent-deep:#7c2a1c;
+    --gold:#a8842c;
+    --sage:#4e6152;
+    --blue:#2f4858;
+    --shadow:rgba(22,19,15,.14);
+    --sev-1:#4e6152;
+    --sev-2:#a8842c;
+    --sev-3:#b8452f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Newsreader",Georgia,serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--accent);color:#fff}
+  .mono{font-family:"IBM Plex Mono",monospace}
+  .display{font-family:"Fraunces",serif;font-optical-sizing:auto}
+
+  /* ---------- grain / backdrop ---------- */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- top bar ---------- */
+  header{
+    position:sticky;top:0;z-index:40;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px clamp(18px,4vw,54px);
+    background:rgba(244,239,230,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex;align-items:baseline;gap:12px}
+  .brand .mark{
+    font-family:"Fraunces";font-weight:600;font-size:1.15rem;letter-spacing:-.01em;
+  }
+  .brand .mark b{color:var(--accent)}
+  .brand .tag{font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--sage)}
+  nav a{
+    font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;
+    color:var(--ink);margin-left:26px;position:relative;padding-bottom:3px;
+  }
+  nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--accent);transition:width .3s ease}
+  nav a:hover::after{width:100%}
+  @media(max-width:720px){nav a{display:none}nav a.cta{display:inline}}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;z-index:2;
+    padding:clamp(48px,9vw,120px) clamp(18px,4vw,54px) clamp(40px,6vw,80px);
+    max-width:1300px;margin:0 auto;
+    display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,72px);align-items:end;
+  }
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .kicker{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:"IBM Plex Mono";font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent-deep);margin-bottom:22px;
+  }
+  .kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+  .hero h1{
+    font-family:"Fraunces";font-weight:400;font-size:clamp(2.6rem,7vw,5.4rem);
+    line-height:.98;letter-spacing:-.02em;
+  }
+  .hero h1 em{font-style:italic;color:var(--accent)}
+  .hero h1 .thin{font-weight:300}
+  .hero .lede{
+    margin-top:24px;font-size:clamp(1.05rem,1.6vw,1.28rem);max-width:38ch;color:#3a352d;
+  }
+  .hero-side{
+    border-left:1px solid var(--line);padding-left:clamp(20px,3vw,40px);
+  }
+  .stat{margin-bottom:26px}
+  .stat .num{font-family:"Fraunces";font-size:clamp(2.2rem,4vw,3rem);line-height:1;color:var(--accent-deep)}
+  .stat .lbl{font-family:"IBM Plex Mono";font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-top:6px}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:none;
+    font-family:"IBM Plex Mono";font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+    padding:15px 26px;border-radius:2px;transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+  }
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 12px 26px var(--shadow)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
+  .btn .arw{transition:transform .25s ease}
+  .btn:hover .arw{transform:translateX(4px)}
+
+  /* ---------- section frame ---------- */
+  section.block{position:relative;z-index:2;max-width:1300px;margin:0 auto;padding:clamp(40px,7vw,90px) clamp(18px,4vw,54px)}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:36px;border-bottom:1px solid var(--line);padding-bottom:18px}
+  .sec-head h2{font-family:"Fraunces";font-weight:400;font-size:clamp(1.7rem,3.6vw,2.7rem);letter-spacing:-.01em}
+  .sec-head .idx{font-family:"IBM Plex Mono";font-size:.72rem;letter-spacing:.2em;color:var(--sage)}
+
+  /* ---------- analyzer ---------- */
+  .analyzer{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,44px)}
+  @media(max-width:900px){.analyzer{grid-template-columns:1fr}}
+  .panel{background:#fbf8f1;border:1px solid var(--line);border-radius:4px;padding:clamp(20px,3vw,32px);box-shadow:0 1px 0 #fff inset}
+  .panel h3{font-family:"Fraunces";font-size:1.25rem;font-weight:500;margin-bottom:6px}
+  .panel p.hint{font-size:.92rem;color:#5b5346;margin-bottom:18px}
+  .field-label{font-family:"IBM Plex Mono";font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);display:block;margin:16px 0 7px}
+  input[type=text],textarea{
+    width:100%;font-family:"Newsreader",serif;font-size:1rem;color:var(--ink);
+    background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:12px 14px;resize:vertical;
+    transition:border-color .2s ease,box-shadow .2s ease;
+  }
+  input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(184,69,47,.12)}
+  textarea{min-height:230px;line-height:1.7}
+  .row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:20px}
+  .seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .chip{
+    font-family:"IBM Plex Mono";font-size:.68rem;letter-spacing:.05em;padding:7px 13px;border:1px solid var(--line);
+    border-radius:100px;cursor:pointer;background:var(--paper);transition:all .2s ease;user-select:none;
+  }
+  .chip:hover{border-color:var(--accent)}
+  .chip.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .meta{font-family:"IBM Plex Mono";font-size:.66rem;color:var(--sage);margin-top:10px}
+  .samples{font-family:"IBM Plex Mono";font-size:.68rem}
+  .samples a{color:var(--accent-deep);cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+
+  /* ---------- results ---------- */
+  #results{position:relative;z-index:2;max-width:1300px;margin:0 auto;padding:0 clamp(18px,4vw,54px) clamp(50px,8vw,110px)}
+  .empty{opacity:.55;font-style:italic;text-align:center;padding:60px 0;font-size:1.05rem}
+  .score-hero{
+    display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,48px);align-items:center;
+    background:var(--ink);color:var(--paper);border-radius:6px;padding:clamp(26px,4vw,44px);margin-bottom:36px;
+    box-shadow:0 24px 60px -20px var(--shadow);
+  }
+  @media(max-width:640px){.score-hero{grid-template-columns:1fr;text-align:center}}
+  .gauge{position:relative;width:150px;height:150px;margin:0 auto}
+  .gauge svg{transform:rotate(-90deg)}
+  .gauge .val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .gauge .val b{font-family:"Fraunces";font-size:2.6rem;line-height:1}
+  .gauge .val span{font-family:"IBM Plex Mono";font-size:.6rem;letter-spacing:.18em;opacity:.7;margin-top:4px}
+  .score-hero h3{font-family:"Fraunces";font-weight:400;font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:8px;line-height:1.1}
+  .score-hero p{opacity:.82;max-width:52ch}
+  .score-hero .leak{margin-top:16px;display:inline-flex;gap:10px;align-items:baseline;font-family:"IBM Plex Mono";font-size:.72rem;letter-spacing:.1em;color:#e9c7bd;border-top:1px solid rgba(255,255,255,.18);padding-top:14px}
+  .score-hero .leak b{font-family:"Fraunces";font-size:1.5rem;color:#fff}
+
+  .summary-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px}
+  .pill{font-family:"IBM Plex Mono";font-size:.7rem;letter-spacing:.08em;padding:8px 14px;border-radius:100px;border:1px solid var(--line);background:#fbf8f1}
+  .pill b{font-family:"Fraunces";font-size:1rem;margin-right:6px}
+  .pill.crit b{color:var(--sev-3)}
+  .pill.mod b{color:var(--sev-2)}
+  .pill.clean b{color:var(--sev-1)}
+
+  .gap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px}
+  .gcard{
+    background:#fbf8f1;border:1px solid var(--line);border-radius:5px;padding:22px 22px 20px;position:relative;overflow:hidden;
+    opacity:0;transform:translateY(18px);transition:transform .5s ease,box-shadow .3s ease;
+  }
+  .gcard.in{opacity:1;transform:none}
+  .gcard:hover{box-shadow:0 16px 34px -18px var(--shadow)}
+  .gcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--sev-1)}
+  .gcard[data-sev="2"]::before{background:var(--sev-2)}
+  .gcard[data-sev="3"]::before{background:var(--sev-3)}
+  .gcard .gtop{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
+  .gcard h4{font-family:"Fraunces";font-weight:500;font-size:1.18rem;line-height:1.15}
+  .gcard .num{font-family:"IBM Plex Mono";font-size:.66rem;color:var(--sage);letter-spacing:.1em}
+  .sev-badge{font-family:"IBM Plex Mono";font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border-radius:100px;white-space:nowrap}
+  .sev-badge[data-s="1"]{background:rgba(78,97,82,.14);color:var(--sev-1)}
+  .sev-badge[data-s="2"]{background:rgba(168,132,44,.16);color:#836619}
+  .sev-badge[data-s="3"]{background:rgba(184,69,47,.14);color:var(--sev-3)}
+  .gcard .diag{font-size:.95rem;color:#3a352d;margin-bottom:12px}
+  .gcard .found{font-family:"IBM Plex Mono";font-size:.72rem;color:#5b5346;background:var(--paper-2);border-radius:3px;padding:9px 11px;margin-bottom:12px}
+  .gcard .found b{color:var(--accent-deep)}
+  .gcard .fix{font-size:.9rem;border-top:1px dashed var(--line);padding-top:11px}
+  .gcard .fix .lab{font-family:"IBM Plex Mono";font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);display:block;margin-bottom:4px}
+  .stars{color:var(--gold);font-size:.75rem;letter-spacing:1px;margin-left:4px}
+
+  /* ---------- protocol reference ---------- */
+  .ref-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px;background:var(--line);border:1px solid var(--line);border-radius:5px;overflow:hidden}
+  .ref{background:var(--paper);padding:20px;transition:background .25s ease,transform .25s ease;cursor:default}
+  .ref:hover{background:#fbf8f1}
+  .ref .rn{font-family:"IBM Plex Mono";font-size:.66rem;color:var(--accent);letter-spacing:.1em}
+  .ref h4{font-family:"Fraunces";font-weight:500;font-size:1.08rem;margin:6px 0 8px}
+  .ref p{font-size:.88rem;color:#4b453b}
+
+  footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:34px clamp(18px,4vw,54px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:"IBM Plex Mono";font-size:.7rem;letter-spacing:.08em;color:var(--sage)}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  .marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink);color:var(--paper);position:relative;z-index:2}
+  .marquee div{display:inline-block;white-space:nowrap;font-family:"IBM Plex Mono";font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;padding:12px 0;animation:scroll 32s linear infinite}
+  .marquee span{margin:0 26px;opacity:.72}
+  .marquee span b{color:var(--accent);opacity:1}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="mark display">Trust<b>Gap</b>&nbsp;Protocol</span>
+    <span class="tag">Diagnostic Engine</span>
+  </div>
+  <nav>
+    <a href="#analyze">Analyze</a>
+    <a href="#protocol">The 17 Gaps</a>
+    <a href="#how">Method</a>
+    <a href="#analyze" class="cta">Run Diagnostic →</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <span class="kicker"><span class="dot"></span>Messaging forensics for coaches, consultants & creators</span>
+    <h1 class="display">The gap between <em>who you are</em> <span class="thin">and what your page</span> <em>lets them feel.</em></h1>
+    <p class="lede">Paste a brand's website copy. The Protocol reads it the way a skeptical buyer does — and shows you exactly where trust leaks out before the sale.</p>
+    <div class="row">
+      <a href="#analyze" class="btn btn-primary">Run a diagnostic<span class="arw">→</span></a>
+      <a href="#protocol" class="btn btn-ghost">See all 17 gaps</a>
+    </div>
+  </div>
+  <div class="hero-side">
+    <div class="stat"><div class="num display">17</div><div class="lbl">Trust gaps detected</div></div>
+    <div class="stat"><div class="num display">~68%</div><div class="lbl">of visitors leave undecided</div></div>
+    <div class="stat"><div class="num display">0s→8s</div><div class="lbl">window to earn belief</div></div>
+  </div>
+</section>
+
+<div class="marquee"><div>
+  <span><b>01</b> Consistency</span><span><b>04</b> Belief</span><span><b>07</b> Proof</span><span><b>09</b> Timing</span><span><b>12</b> Journey</span><span><b>14</b> The Premature Ask</span><span><b>16</b> The Curriculum Trap</span><span><b>17</b> The Trust Cliff</span>
+  <span><b>01</b> Consistency</span><span><b>04</b> Belief</span><span><b>07</b> Proof</span><span><b>09</b> Timing</span><span><b>12</b> Journey</span><span><b>14</b> The Premature Ask</span><span><b>16</b> The Curriculum Trap</span><span><b>17</b> The Trust Cliff</span>
+</div></div>
+
+<!-- ANALYZER -->
+<section class="block" id="analyze">
+  <div class="sec-head reveal">
+    <h2 class="display">Run the diagnostic</h2>
+    <span class="idx">STEP 01 / INPUT</span>
+  </div>
+
+  <div class="analyzer">
+    <div class="panel reveal">
+      <h3 class="display">Supply the website content</h3>
+      <p class="hint">Paste the copy in reading order — top of the page first. The more of the funnel you include, the sharper the read.</p>
+
+      <label class="field-label">Brand / page name</label>
+      <input type="text" id="brandName" placeholder="e.g. Nova Coaching — Homepage" />
+
+      <label class="field-label">Buyer sophistication (Stage)</label>
+      <div class="seg" id="stageSeg">
+        <span class="chip" data-stage="1">Stage 1 · New to problem</span>
+        <span class="chip" data-stage="2">Stage 2 · Comparing</span>
+        <span class="chip active" data-stage="3">Stage 3 · Skeptical</span>
+        <span class="chip" data-stage="4">Stage 4 · Been burned</span>
+      </div>
+
+      <label class="field-label">Website / funnel copy</label>
+      <textarea id="copyInput" placeholder="Paste headline, subhead, body, offer, pricing and CTA copy here — in order..."></textarea>
+      <div class="meta"><span id="wordCount">0 words</span> · in reading order</div>
+
+      <div class="row">
+        <button class="btn btn-primary" id="runBtn">Analyze for gaps<span class="arw">→</span></button>
+        <button class="btn btn-ghost" id="clearBtn">Clear</button>
+      </div>
+      <div class="samples" style="margin-top:16px">Load an example: 
+        <a data-sample="coach">coach homepage</a> · 
+        <a data-sample="program">program page</a>
+      </div>
+    </div>
+
+    <div class="panel reveal" style="background:var(--paper-2)">
+      <h3 class="display">How the engine reads</h3>
+      <p class="hint">The Protocol scans your copy for linguistic signals mapped to each of the 17 gaps — then weighs them against the buyer stage you selected.</p>
+      <ol style="list-style:none;counter-reset:s">
+        <li style="counter-increment:s;position:relative;padding:12px 0 12px 42px;border-bottom:1px solid var(--line)"><span class="mono" style="position:absolute;left:0;top:12px;color:var(--accent);font-size:.85rem">01</span><b class="display">Sequence read.</b> Where does the CTA land vs. where belief is built?</li>
+        <li style="counter-increment:s;position:relative;padding:12px 0 12px 42px;border-bottom:1px solid var(--line)"><span class="mono" style="position:absolute;left:0;top:12px;color:var(--accent);font-size:.85rem">02</span><b class="display">Register read.</b> Does the voice hold — or break at pricing?</li>
+        <li style="counter-increment:s;position:relative;padding:12px 0 12px 42px;border-bottom:1px solid var(--line)"><span class="mono" style="position:absolute;left:0;top:12px;color:var(--accent);font-size:.85rem">03</span><b class="display">Evidence read.</b> Are strong claims backed before they're made?</li>
+        <li style="counter-increment:s;position:relative;padding:12px 0 12px 42px"><span class="mono" style="position:absolute;left:0;top:12px;color:var(--accent);font-size:.85rem">04</span><b class="display">Stage match.</b> Is the promise language calibrated to who's arriving?</li>
+      </ol>
+      <p class="hint" style="margin-top:18px;font-style:italic">Runs entirely in your browser. Nothing you paste leaves the page.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<div id="results">
+  <div class="sec-head reveal" style="margin-bottom:24px">
+    <h2 class="display">The diagnosis</h2>
+    <span class="idx">STEP 02 / REPORT</span>
+  </div>
+  <div class="empty" id="emptyState">Your report will appear here once you run a diagnostic. →</div>
+  <div id="report" style="display:none"></div>
+</div>
+
+<!-- PROTOCOL REFERENCE -->
+<section class="block" id="protocol">
+  <div class="sec-head reveal">
+    <h2 class="display">The 17 Trust Gaps</h2>
+    <span class="idx">REFERENCE</span>
+  </div>
+  <div class="ref-grid reveal" id="refGrid"></div>
+</section>
+
+<!-- METHOD -->
+<section class="block" id="how">
+  <div class="sec-head reveal">
+    <h2 class="display">Why gaps cost you buyers</h2>
+    <span class="idx">METHOD</span>
+  </div>
+  <div class="reveal" style="max-width:60ch;font-size:1.15rem;color:#3a352d">
+    <p style="margin-bottom:18px">A skeptical buyer doesn't leave because your offer is bad. They leave because a page asked them to <em class="display" style="color:var(--accent)">feel confident before it earned the right to</em>. Every gap is a small moment of hesitation — and hesitation compounds.</p>
+    <p>The Trust Gap Protocol names those moments so they stop being invisible. You can't fix a leak you can't see. This tool makes them visible.</p>
+  </div>
+</section>
+
+<footer>
+  <span>© <span id="yr"></span> Trust Gap Protocol · Messaging Forensics</span>
+  <span>Built as a static diagnostic · Runs offline in your browser</span>
+</footer>
+
+<script>
+/* ============================================================
+   THE 17 GAPS — definitions + detection heuristics
+   ============================================================ */
+const GAPS = [
+  {n:1,name:"The Consistency Gap",stars:5,
+   def:"The person met in your content isn't the person met on your website. Personality disappears, the voice flattens into generic corporate copy.",
+   test:(t,ctx)=>{
+     const corp=["solutions","leverage","synergy","cutting-edge","world-class","best-in-class","empower","seamless","robust","holistic approach","industry-leading","end-to-end"];
+     const hits=corp.filter(w=>t.includes(w));
+     const personal=(t.match(/\bi\b|\bi'|\bmy\b|\bme\b/g)||[]).length;
+     const you=(t.match(/\byou\b|\byour\b/g)||[]).length;
+     if(hits.length>=2) return {sev:hits.length>=4?3:2,ev:`Corporate filler detected: "${hits.slice(0,3).join('", "')}"`};
+     if(personal<2 && you<3 && ctx.words>60) return {sev:2,ev:"Almost no personal voice ('I / my') and little direct address ('you')."};
+     return null;
+   },
+   fix:"Write it the way you'd say it out loud to one person. Keep the voice from your content on the page."},
+
+  {n:2,name:"The Authority Gap",stars:5,
+   def:"Your experience is obvious once someone knows you — but the page doesn't make it obvious fast enough. You're under-selling yourself.",
+   test:(t)=>{
+     const cred=["years","clients","featured","founder","published","award","trusted by","helped","worked with","case study","results","certified"];
+     const hits=cred.filter(w=>t.includes(w)).length;
+     if(hits===0) return {sev:3,ev:"No visible credibility markers (years, client counts, features, track record)."};
+     if(hits===1) return {sev:2,ev:"Only a single authority signal — easy for a skeptic to overlook."};
+     return null;
+   },
+   fix:"Surface one concrete authority proof in the first screen: a number, a name, a recognizable result."},
+
+  {n:3,name:"The Clarity Gap",stars:3,
+   def:"You clearly know what you do. Within the first few seconds, visitors may not — usually from abstract language, too many services, or no positioning.",
+   test:(t,ctx)=>{
+     const abstract=["transform your life","unlock your potential","next level","reach your goals","live your best","holistic","synergy","empower you to"];
+     const hits=abstract.filter(w=>t.includes(w));
+     const opening=ctx.first120;
+     const vague=hits.length>=1 && !/\b(coach|consult|copywrit|design|market|therap|advisor|strateg|agency|course|program|help(s|ed)? .{0,30}(get|build|grow|launch|land))\b/i.test(opening);
+     if(vague) return {sev:2,ev:`Opens abstract ("${hits[0]}") without naming the concrete thing you do.`};
+     if(ctx.serviceCount>=4) return {sev:2,ev:`~${ctx.serviceCount} distinct offers/services referenced — positioning is diffuse.`};
+     return null;
+   },
+   fix:"In the first line, name who you help and what changes — in plain, concrete words."},
+
+  {n:4,name:"The Belief Gap",stars:5,
+   def:"Your website explains your offer. It doesn't help buyers believe it. Explanation and belief are very different jobs.",
+   test:(t)=>{
+     const believe=["because","which means","the reason","here's why","that's how","proven","study","science","data","without","even if","the difference is"];
+     const hits=believe.filter(w=>t.includes(w)).length;
+     if(hits===0) return {sev:3,ev:"Claims are stated but never justified — no 'because', 'which means', or mechanism."};
+     if(hits<=1) return {sev:2,ev:"Very little belief-building — the offer is described more than it's made credible."};
+     return null;
+   },
+   fix:"For every claim, answer the silent 'why should I believe that?' — mechanism, reason, or evidence."},
+
+  {n:5,name:"The Emotion Gap",stars:3,
+   def:"Your website tells me what happens. It doesn't help me feel why it matters. Built for brands selling transformation.",
+   test:(t,ctx)=>{
+     const emotion=["feel","tired of","frustrat","stuck","overwhelm","dream","fear","worry","finally","imagine","exhaust","stressed","confiden","relief","proud"];
+     const hits=emotion.filter(w=>t.includes(w)).length;
+     if(hits===0 && ctx.words>60) return {sev:2,ev:"No emotional language — the copy is informational, not felt."};
+     if(hits===1) return {sev:1,ev:"Thin emotional resonance for a transformation offer."};
+     return null;
+   },
+   fix:"Name the feeling before the feature. Show the frustrated 'before' so the outcome lands."},
+
+  {n:6,name:"The Decision Gap",stars:3,
+   def:"Your website gives information. It doesn't make the next step feel safe. Critical for high-ticket offers.",
+   test:(t)=>{
+     const safety=["guarantee","risk-free","no obligation","cancel anytime","refund","no pressure","free call","what to expect","no commitment","money-back"];
+     const cta=/\b(book|apply|schedule|buy|enroll|get started|join|sign up)\b/i.test(t);
+     const hits=safety.filter(w=>t.includes(w)).length;
+     if(cta && hits===0) return {sev:2,ev:"There's an ask, but nothing that makes saying yes feel safe (guarantee, what-to-expect, no-pressure)."};
+     return null;
+   },
+   fix:"Reduce the felt risk of the next click: preview what happens, add reassurance, lower the stakes."},
+
+  {n:7,name:"The Proof Gap",stars:4,
+   def:"You make strong claims. The evidence arrives too late — or never.",
+   test:(t,ctx)=>{
+     const claim=["best","#1","guaranteed","proven","results","transform","fastest","only","leading","10x","double","triple"];
+     const proof=["testimonial","review","\"","case study","client","%","increased","generated","rated","screenshot","before and after"];
+     const claims=claim.filter(w=>t.includes(w)).length;
+     const proofs=proof.filter(w=>t.includes(w)).length;
+     if(claims>=2 && proofs===0) return {sev:3,ev:`Strong claims present, zero supporting evidence in the copy.`};
+     if(claims>=1 && proofs>0 && ctx.proofPos>0.6) return {sev:2,ev:"Proof exists but arrives late — after the reader has already decided."};
+     return null;
+   },
+   fix:"Move at least one piece of proof up beside the claim it supports — not to the bottom of the page."},
+
+  {n:8,name:"The Buyer Gap",stars:3,
+   def:"The website speaks to the customer you wish you had, not the one who's actually arriving. The visitor is skeptical; the copy assumes excitement.",
+   test:(t,ctx)=>{
+     const hype=["amazing","incredible","game-changer","revolutionary","!!!","!!","life-changing","insane","mind-blowing","unbelievable"];
+     const hits=hype.filter(w=>t.includes(w)).length;
+     const bangs=(t.match(/!/g)||[]).length;
+     if((hits>=2 || bangs>=4) && ctx.stage>=3) return {sev:3,ev:`Excited/hype tone (${hits} hype words, ${bangs} exclamation marks) aimed at a skeptical Stage ${ctx.stage} buyer.`};
+     if(hits>=2) return {sev:2,ev:"Copy assumes an already-excited reader."};
+     return null;
+   },
+   fix:"Meet the skeptic where they are. Acknowledge doubt before you raise the temperature."},
+
+  {n:9,name:"The Timing Gap",stars:3,
+   def:"The problem isn't what you're saying — it's when. CTA before trust. Benefits before empathy. Features before understanding.",
+   test:(t,ctx)=>{
+     if(ctx.ctaPos>=0 && ctx.ctaPos<0.33) return {sev:3,ev:`First call-to-action appears at ${Math.round(ctx.ctaPos*100)}% of the page — before trust is built.`};
+     if(ctx.empathyPos>=0 && ctx.benefitPos>=0 && ctx.benefitPos<ctx.empathyPos) return {sev:2,ev:"Benefits arrive before any empathy — you're selling before you've understood."};
+     return null;
+   },
+   fix:"Reorder for the reader's readiness: understanding → empathy → belief → ask."},
+
+  {n:10,name:"The Confidence Gap",stars:3,
+   def:"You ask buyers to feel confident before helping them overcome uncertainty.",
+   test:(t)=>{
+     const ask=/\b(you got this|take the leap|invest in yourself|commit|are you ready|it's time|decide today|stop waiting)\b/i.test(t);
+     const doubt=["what if","not sure","wondering","hesitat","maybe you've tried","i know you","you might be thinking","objection","worried that"];
+     const dhits=doubt.filter(w=>t.includes(w)).length;
+     if(ask && dhits===0) return {sev:2,ev:"Copy pushes the reader to commit without first addressing their uncertainty."};
+     return null;
+   },
+   fix:"Handle the doubt out loud first; confidence is a result of that, not a demand."},
+
+  {n:11,name:"The Differentiation Gap",stars:3,
+   def:"After reading, I understand what you do. I'm not sure I understand why you.",
+   test:(t)=>{
+     const diff=["unlike","the difference","only one who","what makes","my approach","instead of","most coaches","most consultants","i don't","not another","rather than"];
+     const hits=diff.filter(w=>t.includes(w)).length;
+     if(hits===0) return {sev:2,ev:"No contrast with alternatives — nothing answers 'why you and not someone else?'"};
+     return null;
+   },
+   fix:"State plainly what you do differently — and what you deliberately don't do."},
+
+  {n:12,name:"The Journey Gap",stars:4,
+   def:"Every page works. Together they don't tell one story. Built for funnels.",
+   test:(t,ctx)=>{
+     if(ctx.sections>=3){
+       const themes=ctx.themeSpread;
+       if(themes>=4) return {sev:2,ev:`${ctx.sections} distinct sections pulling in ~${themes} directions — the throughline is hard to trace.`};
+     }
+     return null;
+   },
+   fix:"Pick one narrative promise and make every section a beat in that single story."},
+
+  {n:13,name:"The Friction Gap",stars:3,
+   def:"Nothing is obviously wrong. There are just too many tiny moments where buyers hesitate.",
+   test:(t,ctx)=>{
+     const jargon=(t.match(/\b\w{13,}\b/g)||[]).length;
+     const longSent=ctx.avgSentence>28;
+     if(longSent && jargon>=3) return {sev:2,ev:`Long sentences (avg ${Math.round(ctx.avgSentence)} words) plus ${jargon} very long words create cumulative friction.`};
+     if(ctx.avgSentence>32) return {sev:2,ev:`Sentences average ${Math.round(ctx.avgSentence)} words — heavy reading load.`};
+     return null;
+   },
+   fix:"Cut sentence length, remove jargon, and delete any word the reader must slow down for."},
+
+  {n:14,name:"The Premature Ask",stars:5,
+   def:"The page moves to a booking CTA before doing any belief-building. A skeptic reads that as revenue-before-relationship.",
+   test:(t,ctx)=>{
+     const bookEarly=/\b(book (a )?call|schedule (a )?call|apply now|book (your )?call|book a discovery)\b/i.test(ctx.first200);
+     if(bookEarly) return {sev:3,ev:'"Book a call"-style ask appears in the opening — before naming the transformation or handling an objection.'};
+     return null;
+   },
+   fix:"Earn the ask. Name the transformation and defuse one objection before you request the call."},
+
+  {n:15,name:"The Sophistication Mismatch",stars:4,
+   def:"Stage-1 copy — big transformation promises — for a Stage-4 audience that's already heard those promises broken twice.",
+   test:(t,ctx)=>{
+     const bigPromise=["transform your life","change your life","10x","overnight","secret","effortless","guaranteed results","financial freedom","limitless","unlimited","dream life","6-figure","7-figure","six-figure"];
+     const hits=bigPromise.filter(w=>t.includes(w));
+     if(hits.length>=1 && ctx.stage>=3) return {sev:ctx.stage===4?3:2,ev:`Stage-1 promise language ("${hits[0]}") aimed at a Stage-${ctx.stage} audience that's heard it before.`};
+     return null;
+   },
+   fix:"Trade the promise for proof and specificity — the jaded buyer trusts evidence, not adjectives."},
+
+  {n:16,name:"The Curriculum Trap",stars:4,
+   def:"The program page leads with modules and deliverables — answering 'what will I do?' before 'what will change for me?'",
+   test:(t,ctx)=>{
+     const curric=/\b(module|modules|week 1|lifetime access|weekly calls|curriculum|lessons|videos|worksheets|bonuses|what's included)\b/i;
+     const outcome=/\b(so that|you'll be able|the result|by the end|walk away|transform|outcome|so you can)\b/i;
+     const early=curric.test(ctx.first200);
+     if(early && !outcome.test(ctx.first200)) return {sev:2,ev:"Opens with curriculum/deliverables before establishing the outcome the buyer actually wants."};
+     return null;
+   },
+   fix:"Lead with the outcome the buyer will believe in; reveal the curriculum only once they care how."},
+
+  {n:17,name:"The Trust Cliff",stars:4,
+   def:"The page starts warm and personal, then shifts register at pricing/CTA into formal sales language — a jarring tonal break.",
+   test:(t,ctx)=>{
+     if(!ctx.tailText) return null;
+     const warmHead=(ctx.headText.match(/\bi\b|\bmy\b|\byou\b|\byour\b|\bwe\b/gi)||[]).length;
+     const corpTail=["investment","enrollment","secure your spot","limited spots","act now","pricing","payment plan","terms","non-refundable","checkout"];
+     const tailCorp=corpTail.filter(w=>ctx.tailText.includes(w)).length;
+     const tailPersonal=(ctx.tailText.match(/\bi\b|\bmy\b/gi)||[]).length;
+     if(warmHead>=4 && tailCorp>=2 && tailPersonal<=1) return {sev:3,ev:"Warm, personal opening → formal 'investment / secure your spot' register at the close. The voice breaks exactly at the decision moment."};
+     return null;
+   },
+   fix:"Keep the same human voice through pricing. Don't hand the closing section to a brochure."}
+];
+
+/* ============================================================
+   CONTEXT BUILDER
+   ============================================================ */
+function buildContext(raw, stage){
+  const t = raw.toLowerCase();
+  const words = (raw.trim().match(/\S+/g)||[]).length;
+  const len = raw.length || 1;
+  const first120 = t.slice(0, Math.min(400,len));
+  const first200 = t.slice(0, Math.floor(len*0.28));
+  const headText = t.slice(0, Math.floor(len*0.35));
+  const tailText = len>400 ? t.slice(Math.floor(len*0.7)) : "";
+  // positions (0..1) of key signals
+  const posOf = (re)=>{const m=t.search(re); return m<0?-1:m/len;};
+  const ctaPos = posOf(/\b(book|apply|schedule|buy now|enroll|get started|join now|sign up|start now|claim)\b/);
+  const empathyPos = posOf(/\b(tired of|frustrat|stuck|overwhelm|struggl|i know|you've tried|been there)\b/);
+  const benefitPos = posOf(/\b(you'?ll get|benefit|results|you can|imagine|achieve|outcome)\b/);
+  const proofPos = posOf(/\b(testimonial|review|case study|"|client|rated|verified)\b/);
+  // sentence stats
+  const sents = raw.split(/[.!?]+/).map(s=>s.trim()).filter(Boolean);
+  const avgSentence = sents.length? words/sents.length : words;
+  // sections & services
+  const sections = raw.split(/\n\s*\n/).filter(s=>s.trim().length>20).length || 1;
+  const serviceCount = (t.match(/\b(coaching|consulting|strategy|design|copywriting|branding|marketing|course|workshop|audit|retainer|program|masterclass|1:1|group)\b/g)||[]).length;
+  // theme spread — rough diversity of topics
+  const themeWords = ["price","story","module","testimonial","guarantee","book","transform","feature","team","mission","refund","bonus"];
+  const themeSpread = themeWords.filter(w=>t.includes(w)).length;
+  return {raw,t,words,len,first120,first200,headText,tailText,ctaPos,empathyPos,benefitPos,proofPos,avgSentence,sections,serviceCount,themeSpread,stage};
+}
+
+/* ============================================================
+   ANALYZE
+   ============================================================ */
+function analyze(){
+  const raw = document.getElementById('copyInput').value.trim();
+  const brand = document.getElementById('brandName').value.trim() || "Untitled page";
+  const stage = parseInt(document.querySelector('#stageSeg .chip.active').dataset.stage);
+  if(raw.length<40){ flashInput(); return; }
+  const ctx = buildContext(raw, stage);
+  const findings = [];
+  GAPS.forEach(g=>{
+    const r = g.test(ctx.t, ctx);
+    if(r) findings.push({...g, sev:r.sev, ev:r.ev});
+  });
+  findings.sort((a,b)=> b.sev - a.sev || b.stars - a.stars);
+  render(findings, ctx, brand, stage);
+}
+
+/* ---------- scoring ---------- */
+function scoreOf(findings){
+  // start at 100, subtract weighted severity
+  let penalty = 0;
+  findings.forEach(f=> penalty += (f.sev*f.sev) * (f.stars>=5?1.5:f.stars>=4?1.2:1));
+  const score = Math.max(8, Math.round(100 - penalty*3.4));
+  return score;
+}
+function leakEstimate(score){
+  // lower score => more leak
+  const leak = Math.round((100-score)*0.42 + 6);
+  return Math.min(74, leak);
+}
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+function render(findings, ctx, brand, stage){
+  document.getElementById('emptyState').style.display='none';
+  const report = document.getElementById('report');
+  report.style.display='block';
+  const score = scoreOf(findings);
+  const leak = leakEstimate(score);
+  const crit = findings.filter(f=>f.sev===3).length;
+  const mod = findings.filter(f=>f.sev===2).length;
+  const light = findings.filter(f=>f.sev===1).length;
+  const clean = 17 - findings.length;
+
+  let verdict, vtext;
+  if(score>=82){verdict="Trust largely intact.";vtext=`${brand} reads coherently. A few refinements below will tighten the funnel, but nothing is bleeding buyers.`;}
+  else if(score>=60){verdict="Trust is leaking at the seams.";vtext=`${brand} works in parts, but a skeptical Stage-${stage} buyer hits several moments of hesitation before they're ready to act.`;}
+  else if(score>=38){verdict="The page is under-earning its ask.";vtext=`${brand} is asking for belief it hasn't built yet. The gaps below stack — fix the critical ones first.`;}
+  else{verdict="This funnel is losing most of who arrives.";vtext=`${brand} is speaking past a skeptical buyer. Multiple structural trust gaps are firing at once.`;}
+
+  const circ = 2*Math.PI*66;
+  const off = circ*(1 - score/100);
+  const gaugeColor = score>=82?'#8fbf9e':score>=60?'#e0b85e':'#e6836f';
+
+  let html = `
+  <div class="score-hero">
+    <div class="gauge">
+      <svg width="150" height="150" viewBox="0 0 150 150">
+        <circle cx="75" cy="75" r="66" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="10"/>
+        <circle cx="75" cy="75" r="66" fill="none" stroke="${gaugeColor}" stroke-width="10" stroke-linecap="round"
+          stroke-dasharray="${circ}" stroke-dashoffset="${circ}" id="gaugeArc"/>
+      </svg>
+      <div class="val"><b id="scoreNum">0</b><span>TRUST SCORE</span></div>
+    </div>
+    <div>
+      <h3 class="display">${verdict}</h3>
+      <p>${vtext}</p>
+      <div class="leak">EST. VISITORS LOST TO THESE GAPS <b>~${leak}%</b></div>
+    </div>
+  </div>
+
+  <div class="summary-bar">
+    <span class="pill crit"><b>${crit}</b>critical</span>
+    <span class="pill mod"><b>${mod}</b>moderate</span>
+    <span class="pill clean"><b>${light}</b>minor</span>
+    <span class="pill clean"><b>${clean}</b>clear of 17</span>
+    <span class="pill"><b>${ctx.words}</b>words read · Stage ${stage}</span>
+  </div>`;
+
+  if(findings.length===0){
+    html += `<div class="empty">No trust gaps detected against the Protocol. This copy holds together — re-run with more of the funnel to stress-test the journey.</div>`;
+  } else {
+    html += `<div class="gap-grid">`;
+    findings.forEach(f=>{
+      const label = f.sev===3?'Critical':f.sev===2?'Moderate':'Minor';
+      html += `
+      <div class="gcard" data-sev="${f.sev}">
+        <div class="gtop">
+          <div>
+            <span class="num">GAP ${String(f.n).padStart(2,'0')}<span class="stars">${'★'.repeat(f.stars)}</span></span>
+            <h4>${f.name}</h4>
+          </div>
+          <span class="sev-badge" data-s="${f.sev}">${label}</span>
+        </div>
+        <div class="diag">${f.def}</div>
+        <div class="found">🔎 <b>Detected:</b> ${f.ev}</div>
+        <div class="fix"><span class="lab">Protocol fix</span>${f.fix}</div>
+      </div>`;
+    });
+    html += `</div>`;
+  }
+
+  report.innerHTML = html;
+  // animate gauge + score number
+  requestAnimationFrame(()=>{
+    const arc=document.getElementById('gaugeArc');
+    if(arc){arc.style.transition='stroke-dashoffset 1.1s cubic-bezier(.6,0,.2,1)';arc.style.strokeDashoffset=off;}
+    animateNumber(document.getElementById('scoreNum'),score,1100);
+  });
+  // stagger reveal cards
+  const cards=[...report.querySelectorAll('.gcard')];
+  cards.forEach((c,i)=> setTimeout(()=>c.classList.add('in'), 120 + i*70));
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function animateNumber(el,to,dur){
+  if(!el)return;const start=performance.now();
+  function step(now){const p=Math.min(1,(now-start)/dur);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step);}
+  requestAnimationFrame(step);
+}
+
+/* ============================================================
+   UI WIRING
+   ============================================================ */
+const input=document.getElementById('copyInput');
+const wc=document.getElementById('wordCount');
+input.addEventListener('input',()=>{const w=(input.value.trim().match(/\S+/g)||[]).length;wc.textContent=w+' word'+(w===1?'':'s');});
+
+document.getElementById('stageSeg').addEventListener('click',e=>{
+  const c=e.target.closest('.chip');if(!c)return;
+  document.querySelectorAll('#stageSeg .chip').forEach(x=>x.classList.remove('active'));
+  c.classList.add('active');
+});
+
+document.getElementById('runBtn').addEventListener('click',analyze);
+document.getElementById('clearBtn').addEventListener('click',()=>{
+  input.value='';document.getElementById('brandName').value='';wc.textContent='0 words';
+  document.getElementById('report').style.display='none';
+  document.getElementById('emptyState').style.display='block';
+});
+
+function flashInput(){
+  input.style.borderColor='var(--accent)';input.focus();
+  input.placeholder='Paste at least a few sentences of website copy to analyze...';
+  setTimeout(()=>input.style.borderColor='',1200);
+}
+
+/* ---------- samples ---------- */
+const SAMPLES={
+  coach:{name:"Nova Coaching — Homepage",stage:"4",text:`Ready to transform your life? Book a call today and unlock your unlimited potential.\n\nWe are a world-class, best-in-class coaching solution that empowers you to reach your goals through our holistic approach and cutting-edge, industry-leading methodology.\n\nOur amazing, life-changing program is incredible!! You will get results guaranteed. This is a game-changer!!\n\nApply now to secure your spot. Limited spots available. Enrollment closing soon.\n\nInvestment: contact us for pricing. Payment plans available. Non-refundable.`},
+  program:{name:"Momentum Program — Sales Page",stage:"4",text:`Hi, I'm Dana. For years I struggled to grow my business and felt completely overwhelmed and stuck. I know exactly how tired you are of trying things that don't work. I've been there.\n\nHere's what's inside the program:\n\nModule 1: Foundations. Module 2: Systems. Twelve modules total, weekly calls, and lifetime access. Plus bonuses and worksheets.\n\nYou got this. It's time to invest in yourself and take the leap.\n\nSecure your spot now. This is a serious investment. Limited enrollment. Act now. Non-refundable payment.`}
+};
+document.querySelectorAll('[data-sample]').forEach(a=>{
+  a.addEventListener('click',()=>{
+    const s=SAMPLES[a.dataset.sample];
+    document.getElementById('brandName').value=s.name;
+    input.value=s.text;input.dispatchEvent(new Event('input'));
+    document.querySelectorAll('#stageSeg .chip').forEach(x=>x.classList.toggle('active',x.dataset.stage===s.stage));
+    analyze();
+  });
+});
+
+/* ---------- protocol reference render ---------- */
+const refGrid=document.getElementById('refGrid');
+refGrid.innerHTML=GAPS.map(g=>`
+  <div class="ref">
+    <div class="rn">GAP ${String(g.n).padStart(2,'0')} <span class="stars">${'★'.repeat(g.stars)}</span></div>
+    <h4>${g.name}</h4>
+    <p>${g.def}</p>
+  </div>`).join('');
+
+/* ---------- scroll reveal ---------- */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
