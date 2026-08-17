@@ -35,6 +35,7 @@
       font-family: var(--sans);
       font-size: 16px;
       line-height: 1.65;
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
     body.menu-open { overflow: hidden; }
@@ -901,29 +902,70 @@
     }
 
     @media (max-width: 620px) {
+      :root { --gutter: 1rem; }
+      .site-header { padding-block: .65rem; }
       .case-label { display: none; }
-      .wordmark__text { display: none; }
-      .hero h1 { font-size: clamp(3.6rem, 18vw, 5.5rem); }
+      .wordmark__text { display: inline; font-size: .58rem; }
+      .index-button { font-size: .62rem; }
+      .hero { padding-top: 7.2rem; padding-bottom: 3.5rem; }
+      .hero h1 { font-size: clamp(3.25rem, 16vw, 4.7rem); line-height: .9; letter-spacing: -.055em; }
+      .hero-intro { margin-top: 1.5rem; font-size: 1.03rem; }
       .hero::after { display: none; }
-      .docket__row { grid-template-columns: 5.2rem 1fr; }
+      .docket { width: calc(100% - .55rem); padding: 1.2rem; box-shadow: 9px 9px 0 rgba(27,58,92,.3); transform: none; }
+      .docket__row { grid-template-columns: 4.8rem 1fr; gap: .55rem; }
+      .challenge { padding-block: 2.7rem; }
+      .challenge blockquote { font-size: 1.75rem; line-height: 1.1; }
+      .case-section { padding-block: 4.6rem; }
+      .section-head { margin-bottom: 2.75rem; }
+      .section-head h2 { font-size: clamp(2.4rem, 12vw, 3.45rem); line-height: 1; }
+      .lead { font-size: 1.08rem; }
       .business-grid, .wants-grid, .scan-list, .lab-grid, .outcome-grid { grid-template-columns: 1fr; }
+      .business-card { padding: 1.4rem 0; }
       .business-card + .business-card { border-left: 0; border-top: 1px solid rgba(10,35,66,.18); }
+      .model-strip { justify-content: flex-start; font-size: .95rem; }
+      .problem-copy .big-line { font-size: 2.45rem; }
+      .calendar { padding: .75rem; box-shadow: 0 14px 35px rgba(10,35,66,.1); transform: none; }
+      .calendar__grid { grid-template-columns: 2.6rem 1fr; gap: .4rem; }
+      .cal-event { padding-inline: .65rem; }
+      .investigation-intro { margin-bottom: 2rem; }
       .gap-note { grid-template-columns: 1fr; gap: .8rem; }
+      .buyer-card { padding: 1.4rem; }
+      .buyer-story .pull-quote { font-size: 2.3rem; }
+      .diagnosis-title { margin-bottom: 3.5rem; }
+      .diagnosis-title h2 { font-size: 3.1rem; }
+      .jobs-before .job { width: 100%; }
+      .journey-role { min-height: 10rem; padding: 1.4rem; }
+      .journey-role h3 { margin-top: 1.8rem; }
       .principle { grid-template-columns: 2rem 1fr; gap: .8rem; }
-      .research-table { display: block; }
-      .research-table thead { display: none; }
-      .research-table tbody, .research-table tr, .research-table td { display: block; width: 100%; }
-      .research-table tr { padding: 1.2rem 0; border-bottom: 1px solid rgba(245,243,238,.12); }
-      .research-table td { padding: .25rem .5rem; border: 0; }
-      .research-table td::before { display: block; margin-bottom: .2rem; color: var(--gold); font-size: .58rem; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
-      .research-table td:first-child::before { content: "What I noticed"; }
-      .research-table td:last-child::before { content: "What it suggested"; margin-top: .65rem; }
-      .journey-role { min-height: 11rem; }
-      .lab-card, .lab-card:last-child { grid-column: auto; min-height: 20rem; }
-      .outcome { min-height: 14rem; border-top: 1px solid rgba(201,162,75,.45); }
+      .funnel__icon { width: 5.4rem; height: 5.4rem; }
+      .stage-table { display: block; width: 100%; overflow-x: auto; }
+      .build-intro { margin-top: 0; }
+      .build-list { gap: 4.5rem; }
+      .copy-window { box-shadow: 0 16px 40px rgba(10,35,66,.1); }
+      .copy-window__chrome { padding-inline: .7rem; }
+      .copy-window__chrome > span:last-child { max-width: 12rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .copy-window__body { min-height: 22rem; padding: 2rem 1.25rem; }
+      .copy-window h3 { font-size: 2.25rem; }
+      .application-copy h3 { font-size: 2.45rem; }
+      .form-mock { padding: 1.2rem; }
+      .form-head h4 { font-size: 1.8rem; }
+      .form-question__top { grid-template-columns: 1.7rem 1fr; }
+      .fake-input, .form-purpose { margin-left: 2.3rem; }
+      .lab-card, .lab-card:last-child { grid-column: auto; min-height: 18rem; padding: 1.4rem; }
+      .outcome { min-height: 12rem; border-top: 1px solid rgba(201,162,75,.45); }
       .outcome:first-child { border-top: 0; }
       .outcome + .outcome { border-left: 0; }
-      .footer-inner { flex-direction: column; }
+      .field-note { min-height: 70svh; padding-block: 5rem; }
+      .field-note blockquote { font-size: 2.55rem; }
+      .footer-inner { align-items: flex-start; flex-direction: column; gap: .9rem; }
+    }
+
+    @media (max-width: 380px) {
+      .wordmark__text { display: none; }
+      .hero h1 { font-size: 3.05rem; }
+      .docket__row { grid-template-columns: 4.2rem 1fr; }
+      .copy-window h3 { font-size: 2rem; }
+      .field-note blockquote { font-size: 2.25rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -946,7 +988,7 @@
 
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
-      <a class="wordmark" href="https://www.segunfalade.github.io/home" aria-label="Back to Segun’s Copy Studio">
+      <a class="wordmark" href="../../index.html" aria-label="Back to Segun’s Copy Studio">
         <span class="wordmark__mark">S</span>
         <span class="wordmark__text">Segun’s<br>Copy Studio</span>
       </a>
@@ -1488,5 +1530,5 @@
       }
     })();
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2ca59827e006d07',t:'MTc4Njk4NzIyOA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
