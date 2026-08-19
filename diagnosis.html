@@ -4,9 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Trust Gap Protocol — Diagnostic Platform</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root{
     --ink:#16130f;
@@ -26,7 +23,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    font-family:"Newsreader",Georgia,serif;
+    font-family:Georgia,"Times New Roman",serif;
     background:var(--paper);
     color:var(--ink);
     line-height:1.6;
@@ -34,8 +31,8 @@
     overflow-x:hidden;
   }
   ::selection{background:var(--accent);color:#fff}
-  .mono{font-family:"IBM Plex Mono",monospace}
-  .display{font-family:"Fraunces",serif;font-optical-sizing:auto}
+  .mono{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+  .display{font-family:Georgia,"Times New Roman",serif;font-optical-sizing:auto}
 
   /* ---------- grain / backdrop ---------- */
   body::before{
@@ -54,7 +51,7 @@
   }
   .brand{display:flex;align-items:baseline;gap:12px}
   .brand .mark{
-    font-family:"Fraunces";font-weight:600;font-size:1.15rem;letter-spacing:-.01em;
+    font-family:Georgia,"Times New Roman",serif;font-weight:600;font-size:1.15rem;letter-spacing:-.01em;
   }
   .brand .mark b{color:var(--accent)}
   .brand .tag{font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--sage)}
@@ -82,7 +79,7 @@
   .kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
   .hero h1{
-    font-family:"Fraunces";font-weight:400;font-size:clamp(2.6rem,7vw,5.4rem);
+    font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(2.6rem,7vw,5.4rem);
     line-height:.98;letter-spacing:-.02em;
   }
   .hero h1 em{font-style:italic;color:var(--accent)}
@@ -94,7 +91,7 @@
     border-left:1px solid var(--line);padding-left:clamp(20px,3vw,40px);
   }
   .stat{margin-bottom:26px}
-  .stat .num{font-family:"Fraunces";font-size:clamp(2.2rem,4vw,3rem);line-height:1;color:var(--accent-deep)}
+  .stat .num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.2rem,4vw,3rem);line-height:1;color:var(--accent-deep)}
   .stat .lbl{font-family:"IBM Plex Mono";font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-top:6px}
 
   /* ---------- buttons ---------- */
@@ -113,14 +110,14 @@
   /* ---------- section frame ---------- */
   section.block{position:relative;z-index:2;max-width:1300px;margin:0 auto;padding:clamp(40px,7vw,90px) clamp(18px,4vw,54px)}
   .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:36px;border-bottom:1px solid var(--line);padding-bottom:18px}
-  .sec-head h2{font-family:"Fraunces";font-weight:400;font-size:clamp(1.7rem,3.6vw,2.7rem);letter-spacing:-.01em}
+  .sec-head h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(1.7rem,3.6vw,2.7rem);letter-spacing:-.01em}
   .sec-head .idx{font-family:"IBM Plex Mono";font-size:.72rem;letter-spacing:.2em;color:var(--sage)}
 
   /* ---------- analyzer ---------- */
   .analyzer{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,44px)}
   @media(max-width:900px){.analyzer{grid-template-columns:1fr}}
   .panel{background:#fbf8f1;border:1px solid var(--line);border-radius:4px;padding:clamp(20px,3vw,32px);box-shadow:0 1px 0 #fff inset}
-  .panel h3{font-family:"Fraunces";font-size:1.25rem;font-weight:500;margin-bottom:6px}
+  .panel h3{font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;font-weight:500;margin-bottom:6px}
   .panel p.hint{font-size:.92rem;color:#5b5346;margin-bottom:18px}
   .field-label{font-family:"IBM Plex Mono";font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);display:block;margin:16px 0 7px}
   input[type=text],textarea{
@@ -142,31 +139,23 @@
   .samples{font-family:"IBM Plex Mono";font-size:.68rem}
   .samples a{color:var(--accent-deep);cursor:pointer;text-decoration:underline;text-underline-offset:2px}
 
-  /* ---------- engine toggle ---------- */
-  .engine-toggle{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .etab{text-align:left;cursor:pointer;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:12px 14px;transition:all .22s ease;position:relative;overflow:hidden}
-  .etab::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--accent);transition:width .3s ease}
-  .etab:hover{border-color:var(--accent)}
-  .etab.active{border-color:var(--ink);background:#fbf8f1}
-  .etab.active::after{width:100%}
-  .etab b{display:block;font-family:"Fraunces";font-weight:500;font-size:1rem}
-  .etab small{display:block;font-family:"IBM Plex Mono";font-size:.6rem;letter-spacing:.04em;color:var(--sage);margin-top:3px}
-  .beta{font-family:"IBM Plex Mono";font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;vertical-align:middle;background:var(--accent);color:#fff;padding:2px 5px;border-radius:100px;margin-left:5px}
-  .llm-config{margin-top:14px;padding:14px;background:var(--paper);border:1px dashed var(--line);border-radius:4px;animation:drop .35s ease}
-  @keyframes drop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-  .llm-row{display:flex;gap:12px;flex-wrap:wrap}
-  .llm-row>div:last-child{min-width:160px}
-  select{width:100%;font-family:"Newsreader",serif;font-size:1rem;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:12px 14px;cursor:pointer}
-  select:focus{outline:none;border-color:var(--accent)}
-  .llm-note{font-family:"IBM Plex Mono";font-size:.62rem;color:var(--sage);margin-top:10px;line-height:1.5}
-  .llm-note a{color:var(--accent-deep)}
-  .keystate{font-family:"IBM Plex Mono";font-size:.58rem;letter-spacing:.06em;padding:2px 7px;border-radius:100px;margin-left:6px}
-  .keystate.saved{background:rgba(78,97,82,.16);color:var(--sage)}
-  .source-tag{font-family:"IBM Plex Mono";font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:var(--paper-2);color:#5b5346}
-  .source-tag.claude{background:rgba(184,69,47,.12);color:var(--accent-deep)}
-  .btn.loading{opacity:.75;pointer-events:none}
+  /* ---------- diagnostic configuration ---------- */
+  .config-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:620px){.config-grid{grid-template-columns:1fr}}
+  select{width:100%;font-family:Georgia,"Times New Roman",serif;font-size:1rem;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:12px 14px;cursor:pointer}
+  select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(184,69,47,.12)}
+  .evidence-box{margin-top:18px;border:1px solid var(--line);border-radius:4px;background:rgba(255,255,255,.28)}
+  .evidence-box summary{cursor:pointer;padding:14px 16px;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-deep);list-style:none}
+  .evidence-box summary::-webkit-details-marker{display:none}
+  .evidence-box summary::after{content:"+";float:right;font-size:1rem}
+  .evidence-box[open] summary::after{content:"–"}
+  .evidence-body{padding:0 16px 16px;border-top:1px dashed var(--line)}
+  textarea.evidence-text{min-height:105px;font-size:.93rem;line-height:1.5}
+  .evidence-help{font-size:.82rem;color:#665e51;margin:8px 0 12px}
+  .btn.loading{opacity:.72;pointer-events:none}
   .btn.loading .arw{display:inline-block;animation:spin .8s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
+  .source-tag{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:var(--paper-2);color:#5b5346}
 
   /* ---------- results ---------- */
   #results{position:relative;z-index:2;max-width:1300px;margin:0 auto;padding:0 clamp(18px,4vw,54px) clamp(50px,8vw,110px)}
@@ -180,16 +169,16 @@
   .gauge{position:relative;width:150px;height:150px;margin:0 auto}
   .gauge svg{transform:rotate(-90deg)}
   .gauge .val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-  .gauge .val b{font-family:"Fraunces";font-size:2.6rem;line-height:1}
+  .gauge .val b{font-family:Georgia,"Times New Roman",serif;font-size:2.6rem;line-height:1}
   .gauge .val span{font-family:"IBM Plex Mono";font-size:.6rem;letter-spacing:.18em;opacity:.7;margin-top:4px}
-  .score-hero h3{font-family:"Fraunces";font-weight:400;font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:8px;line-height:1.1}
+  .score-hero h3{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:8px;line-height:1.1}
   .score-hero p{opacity:.82;max-width:52ch}
   .score-hero .leak{margin-top:16px;display:inline-flex;gap:10px;align-items:baseline;font-family:"IBM Plex Mono";font-size:.72rem;letter-spacing:.1em;color:#e9c7bd;border-top:1px solid rgba(255,255,255,.18);padding-top:14px}
-  .score-hero .leak b{font-family:"Fraunces";font-size:1.5rem;color:#fff}
+  .score-hero .leak b{font-family:Georgia,"Times New Roman",serif;font-size:1.5rem;color:#fff}
 
   .summary-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px}
   .pill{font-family:"IBM Plex Mono";font-size:.7rem;letter-spacing:.08em;padding:8px 14px;border-radius:100px;border:1px solid var(--line);background:#fbf8f1}
-  .pill b{font-family:"Fraunces";font-size:1rem;margin-right:6px}
+  .pill b{font-family:Georgia,"Times New Roman",serif;font-size:1rem;margin-right:6px}
   .pill.crit b{color:var(--sev-3)}
   .pill.mod b{color:var(--sev-2)}
   .pill.clean b{color:var(--sev-1)}
@@ -205,7 +194,7 @@
   .gcard[data-sev="2"]::before{background:var(--sev-2)}
   .gcard[data-sev="3"]::before{background:var(--sev-3)}
   .gcard .gtop{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
-  .gcard h4{font-family:"Fraunces";font-weight:500;font-size:1.18rem;line-height:1.15}
+  .gcard h4{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:1.18rem;line-height:1.15}
   .gcard .num{font-family:"IBM Plex Mono";font-size:.66rem;color:var(--sage);letter-spacing:.1em}
   .sev-badge{font-family:"IBM Plex Mono";font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border-radius:100px;white-space:nowrap}
   .sev-badge[data-s="1"]{background:rgba(78,97,82,.14);color:var(--sev-1)}
@@ -231,7 +220,7 @@
   .ref{background:var(--paper);padding:20px;transition:background .25s ease,transform .25s ease;cursor:default}
   .ref:hover{background:#fbf8f1}
   .ref .rn{font-family:"IBM Plex Mono";font-size:.66rem;color:var(--accent);letter-spacing:.1em}
-  .ref h4{font-family:"Fraunces";font-weight:500;font-size:1.08rem;margin:6px 0 8px}
+  .ref h4{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:1.08rem;margin:6px 0 8px}
   .ref p{font-size:.88rem;color:#4b453b}
 
   footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:34px clamp(18px,4vw,54px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:"IBM Plex Mono";font-size:.7rem;letter-spacing:.08em;color:var(--sage)}
@@ -259,8 +248,8 @@
   .savecard[data-band="mid"]::before{background:var(--sev-2)}
   .savecard[data-band="low"]::before{background:var(--sev-3)}
   .savecard .sc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-  .savecard h4{font-family:"Fraunces";font-weight:500;font-size:1.14rem;line-height:1.2;padding-right:4px}
-  .savecard .sc-score{font-family:"Fraunces";font-size:2rem;line-height:1;color:var(--sev-1)}
+  .savecard h4{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:1.14rem;line-height:1.2;padding-right:4px}
+  .savecard .sc-score{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1;color:var(--sev-1)}
   .savecard[data-band="mid"] .sc-score{color:#836619}
   .savecard[data-band="low"] .sc-score{color:var(--sev-3)}
   .savecard .sc-meta{font-family:"IBM Plex Mono";font-size:.64rem;letter-spacing:.08em;color:var(--sage);margin-top:10px;display:flex;gap:12px;flex-wrap:wrap}
@@ -282,6 +271,35 @@
   .toast.show{transform:translateX(-50%) translateY(0)}
   .toast b{color:#e9c7bd}
   .toast a{color:#fff;text-decoration:underline;cursor:pointer}
+
+  .report-eyebrow{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sage)}
+  .report-date{font-size:.62rem;letter-spacing:.1em;color:var(--sage);margin-top:6px}
+  .score-note{margin:-22px 0 28px;padding:10px 14px;border:1px dashed var(--line);background:rgba(255,255,255,.25);font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:.62rem;color:var(--sage)}
+  .score-hero .leak{flex-wrap:wrap}.score-hero .leak span{font-size:.58rem;opacity:.72}
+  .badge-stack{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+  .status-badge{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:100px;white-space:nowrap}
+  .status-badge.confirmed{background:rgba(184,69,47,.14);color:var(--accent-deep)}
+  .status-badge.possible{background:rgba(168,132,44,.16);color:#765a13}
+  .gcard[data-status="possible"]::before{background:var(--gold)}
+  .rule-box{font-size:.82rem;color:#4c453a;border:1px solid var(--line);border-radius:3px;padding:9px 11px;margin-bottom:10px;background:rgba(255,255,255,.25)}
+  .rule-box span{display:block;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);margin-bottom:3px}
+  .evidence-list{display:grid;gap:8px;margin-bottom:12px}
+  .evidence-item{border-left:2px solid var(--accent);padding:7px 10px;background:var(--paper)}
+  .evidence-item>span,.evidence-item small{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:.56rem;letter-spacing:.06em;color:var(--sage)}
+  .evidence-item blockquote{font-style:italic;font-size:.88rem;line-height:1.4;margin:3px 0}
+  .counter{font-size:.82rem;margin:8px 0 12px;border-top:1px dashed var(--line);padding-top:8px}
+  .counter summary{cursor:pointer;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sage)}
+  .counter ul{padding:7px 0 0 18px}
+  .missing-inline,.related-inline{font-size:.79rem;padding:8px 10px;border-radius:3px;margin:8px 0}
+  .missing-inline{background:rgba(168,132,44,.11)}.related-inline{background:rgba(47,72,88,.09)}
+  .boundaries{margin-top:34px;padding:24px;background:var(--paper-2);border:1px solid var(--line);border-radius:5px}
+  .boundaries h3{font-size:1.35rem;font-weight:500}.boundaries>p{color:#5b5346;margin-bottom:15px}
+  .boundary-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+  .boundary-item{background:var(--paper);border:1px solid var(--line);padding:13px;border-radius:3px}
+  .boundary-item>b{font-family:Georgia,"Times New Roman",serif;font-size:.95rem}.boundary-item p{font-size:.82rem;margin:6px 0}.boundary-item small{display:block;color:var(--sage)}
+  .status-mini{display:block;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:.54rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent-deep);margin-top:3px}
+  .consolidated{margin-top:15px;padding-top:12px;border-top:1px dashed var(--line);font-size:.84rem}
+
 </style>
 </head>
 <body>
@@ -311,9 +329,9 @@
     </div>
   </div>
   <div class="hero-side">
-    <div class="stat"><div class="num display">17</div><div class="lbl">Trust gaps detected</div></div>
-    <div class="stat"><div class="num display">~68%</div><div class="lbl">of visitors leave undecided</div></div>
-    <div class="stat"><div class="num display">0s→8s</div><div class="lbl">window to earn belief</div></div>
+    <div class="stat"><div class="num display">17</div><div class="lbl">Evidence-gated diagnostics</div></div>
+    <div class="stat"><div class="num display">4</div><div class="lbl">Core verdict states</div></div>
+    <div class="stat"><div class="num display">0</div><div class="lbl">Forced findings</div></div>
   </div>
 </section>
 
@@ -332,49 +350,93 @@
   <div class="analyzer">
     <div class="panel reveal">
       <h3 class="display">Supply the website content</h3>
-      <p class="hint">Paste the copy in reading order — top of the page first. The more of the funnel you include, the sharper the read.</p>
+      <p class="hint">Paste the copy in reading order — top of the page first. Include the rendered reading order and add comparison evidence when available. The engine will abstain where required inputs are missing.</p>
 
       <label class="field-label">Brand / page name</label>
       <input type="text" id="brandName" placeholder="e.g. Nova Coaching — Homepage" />
 
-      <label class="field-label">Buyer sophistication (Stage)</label>
+      <div class="config-grid">
+        <div>
+          <label class="field-label">Page type</label>
+          <select id="pageType">
+            <option value="homepage">Homepage</option>
+            <option value="service">Service / sales page</option>
+            <option value="program">Programme / course page</option>
+            <option value="funnel">Funnel landing page</option>
+            <option value="contact">Contact page</option>
+            <option value="legal">Legal / policy page</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label">Offer type</label>
+          <select id="offerType">
+            <option value="unknown">Unknown / mixed</option>
+            <option value="transformation">Transformation-led</option>
+            <option value="transactional">Primarily transactional</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label">Traffic temperature</label>
+          <select id="trafficTemp">
+            <option value="unknown">Unknown</option>
+            <option value="cold">Mostly cold</option>
+            <option value="mixed">Mixed</option>
+            <option value="warm">Mostly warm / referred</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label">CTA commitment</label>
+          <select id="ctaLevel">
+            <option value="auto">Detect from copy</option>
+            <option value="low">Low commitment</option>
+            <option value="medium">Medium commitment</option>
+            <option value="high">High commitment</option>
+          </select>
+        </div>
+      </div>
+
+      <label class="field-label">Buyer sophistication — only select when evidence-backed</label>
       <div class="seg" id="stageSeg">
-        <span class="chip" data-stage="1">Stage 1 · New to problem</span>
+        <span class="chip active" data-stage="0">Unknown</span>
+        <span class="chip" data-stage="1">Stage 1 · New</span>
         <span class="chip" data-stage="2">Stage 2 · Comparing</span>
-        <span class="chip active" data-stage="3">Stage 3 · Skeptical</span>
+        <span class="chip" data-stage="3">Stage 3 · Skeptical</span>
         <span class="chip" data-stage="4">Stage 4 · Been burned</span>
       </div>
 
-      <label class="field-label">Analysis engine</label>
-      <div class="engine-toggle" id="engineToggle">
-        <button class="etab active" data-engine="static">
-          <b>Static Protocol</b><small>Instant · offline · rule-based</small>
-        </button>
-        <button class="etab" data-engine="llm">
-          <b>Claude Reading <span class="beta">beta</span></b><small>Deeper · reads like a human</small>
-        </button>
-      </div>
-      <div class="llm-config" id="llmConfig" hidden>
-        <div class="llm-row">
-          <div style="flex:1">
-            <label class="field-label" style="margin-top:0">Anthropic API key <span id="keyState" class="keystate"></span></label>
-            <input type="password" id="apiKey" placeholder="sk-ant-..." autocomplete="off" />
-          </div>
-          <div>
-            <label class="field-label" style="margin-top:0">Model</label>
-            <select id="modelSel">
-              <option value="claude-3-5-sonnet-20241022">Sonnet 3.5 · balanced</option>
-              <option value="claude-3-opus-20240229">Opus 3.0 · sharpest</option>
-              <option value="claude-3-5-haiku-20241022">Haiku 3.5 · fastest</option>
-            </select>
-          </div>
-        </div>
-        <p class="llm-note">Your key is stored only in this browser and sent straight to Anthropic — never to us. <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">Get a key →</a></p>
-      </div>
+      <label class="field-label">Intended audience / offer context <span style="text-transform:none;letter-spacing:0">(optional)</span></label>
+      <input type="text" id="intendedContext" placeholder="e.g. Executive coaching for newly promoted VPs" />
 
       <label class="field-label">Website / funnel copy</label>
       <textarea id="copyInput" placeholder="Paste headline, subhead, body, offer, pricing and CTA copy here — in order..."></textarea>
-      <div class="meta"><span id="wordCount">0 words</span> · in reading order</div>
+      <div class="meta"><span id="wordCount">0 words</span> · in rendered reading order where possible</div>
+
+      <details class="evidence-box">
+        <summary>Add comparison evidence for higher-confidence results</summary>
+        <div class="evidence-body">
+          <p class="evidence-help">Rules abstain when their required comparison material is missing. Paste only evidence relevant to this page.</p>
+
+          <label class="field-label">Reference voice content — Gap 01</label>
+          <textarea class="evidence-text" id="referenceInput" placeholder="Paste at least three representative posts, emails, or transcript excerpts (about 250+ words total)..."></textarea>
+
+          <label class="field-label">Authority inventory — Gap 02</label>
+          <textarea class="evidence-text" id="authorityInput" placeholder="Relevant experience, credentials, outcomes, case studies, published work, methods, testimonials..."></textarea>
+
+          <label class="field-label">Actual-buyer evidence — Gaps 05, 08, 10 & 15</label>
+          <textarea class="evidence-text" id="buyerInput" placeholder="Search intent, interview quotes, sales-call objections, prior attempts, emotional stakes, FAQs, drop-off reasons..."></textarea>
+
+          <label class="field-label">Competitors / alternatives — Gap 11</label>
+          <textarea class="evidence-text" id="competitorInput" placeholder="Paste relevant competitor positioning or describe the alternatives buyers compare..."></textarea>
+
+          <label class="field-label">Additional funnel pages — Gap 12</label>
+          <textarea class="evidence-text" id="funnelInput" placeholder="[PAGE: Booking page]
+Paste page copy...
+
+[PAGE: Confirmation page]
+Paste next page copy..."></textarea>
+        </div>
+      </details>
 
       <div class="row">
         <button class="btn btn-primary" id="runBtn">Analyze for gaps<span class="arw">→</span></button>
@@ -389,14 +451,14 @@
 
     <div class="panel reveal" style="background:var(--paper-2)">
       <h3 class="display">How the engine reads</h3>
-      <p class="hint">It segments your copy into ordered sentences and sections, then reasons about <em>structure and sequence</em> — not lone keywords. Each gap fires only when several independent signals agree, and every finding cites the line it reasoned from plus a confidence score you can sanity-check.</p>
+      <p class="hint">It segments your copy into ordered sentences and sections, then reasons about <em>structure and sequence</em> — not lone keywords. Each diagnostic has an eligibility gate, a threshold, counterevidence, and a specific abstention rule. Confirmed findings cite the supplied lines that triggered them.</p>
       <ol style="list-style:none;counter-reset:s">
-        <li style="counter-increment:s;position:relative;padding:12px 0 12px 42px;border-bottom:1px solid var(--line)"><span class="mono" style="position:absolute;left:0;top:12px;color:var(--accent);font-size:.85rem">01</span><b class="display">Sequence read.</b> Where does the CTA land vs. where belief is built?</li>
-        <li style="counter-increment:s;position:relative;padding:12px 0 12px 42px;border-bottom:1px solid var(--line)"><span class="mono" style="position:absolute;left:0;top:12px;color:var(--accent);font-size:.85rem">02</span><b class="display">Register read.</b> Does the voice hold — or break at pricing?</li>
-        <li style="counter-increment:s;position:relative;padding:12px 0 12px 42px;border-bottom:1px solid var(--line)"><span class="mono" style="position:absolute;left:0;top:12px;color:var(--accent);font-size:.85rem">03</span><b class="display">Evidence read.</b> Are strong claims backed before they're made?</li>
-        <li style="counter-increment:s;position:relative;padding:12px 0 12px 42px"><span class="mono" style="position:absolute;left:0;top:12px;color:var(--accent);font-size:.85rem">04</span><b class="display">Stage match.</b> Is the promise language calibrated to who's arriving?</li>
+        <li style="counter-increment:s;position:relative;padding:12px 0 12px 42px;border-bottom:1px solid var(--line)"><span class="mono" style="position:absolute;left:0;top:12px;color:var(--accent);font-size:.85rem">01</span><b class="display">Eligibility gate.</b> Page type, traffic, commitment and required comparison evidence are checked first.</li>
+        <li style="counter-increment:s;position:relative;padding:12px 0 12px 42px;border-bottom:1px solid var(--line)"><span class="mono" style="position:absolute;left:0;top:12px;color:var(--accent);font-size:.85rem">02</span><b class="display">Evidence pairing.</b> Confirmed findings cite the rule and the supplied lines that triggered it.</li>
+        <li style="counter-increment:s;position:relative;padding:12px 0 12px 42px;border-bottom:1px solid var(--line)"><span class="mono" style="position:absolute;left:0;top:12px;color:var(--accent);font-size:.85rem">03</span><b class="display">Specificity routing.</b> Narrow diagnoses replace duplicate parent labels instead of stacking the same problem.</li>
+        <li style="counter-increment:s;position:relative;padding:12px 0 12px 42px"><span class="mono" style="position:absolute;left:0;top:12px;color:var(--accent);font-size:.85rem">04</span><b class="display">Explicit abstention.</b> Missing evidence returns “insufficient,” not a confident guess or a false clear.</li>
       </ol>
-      <p class="hint" style="margin-top:18px;font-style:italic">Runs entirely in your browser. Nothing you paste leaves the page.</p>
+      <p class="hint" style="margin-top:18px;font-style:italic">Runs entirely in your browser. No API key, external model, or network request is used.</p>
     </div>
   </div>
 </section>
@@ -448,904 +510,664 @@
 
 <footer>
   <span>© <span id="yr"></span> Trust Gap Protocol · Messaging Forensics</span>
-  <span>Built as a static diagnostic · Runs offline in your browser</span>
+  <span>Evidence-gated static diagnostic · Runs offline in your browser</span>
 </footer>
 
 <script>
 /* ============================================================
-   DETECTION ENGINE — v2 (Upgraded)
-   Each detector returns null OR:
-     { sev:1|2|3, conf:0..1, ev:"reasoning", quote:"actual sentence" }
-   A gap fires only when multiple weighted signals agree. 
-   **UPDATED:** Thresholds lowered & dictionaries expanded to prevent false-negatives (clearing bad copy).
+   TRUST GAP PROTOCOL — Evidence-gated static engine v3
+   No external model, API, or network request is used.
    ============================================================ */
 
-/* helper: pick the sentence that best matches a regex/predicate */
-function quoteFor(ctx, matcher){
-  for(const s of ctx.sentences){
-    if(typeof matcher==='function'? matcher(s.low) : matcher.test(s.low)) return s.text.trim();
-  }
-  return null;
+const STATUS = {
+  CONFIRMED: 'confirmed',
+  POSSIBLE: 'possible',
+  CLEAR: 'not_detected',
+  INSUFFICIENT: 'insufficient_evidence',
+  NA: 'not_applicable'
+};
+
+const GAP_META = [
+  {n:1,name:'The Consistency Gap',stars:5,def:"The person met in your content isn't the person met on your website. Personality disappears, and the voice flattens into generic corporate copy.",fix:'Restore the repeated voice traits shown in the reference content; do not merely add casual words.'},
+  {n:2,name:'The Authority Gap',stars:5,def:"Your experience is obvious once someone knows you — but the page doesn't make it obvious fast enough. You're under-selling yourself.",fix:'Move one concrete, relevant authority signal close to the opening claim or offer.'},
+  {n:3,name:'The Clarity Gap',stars:3,def:"You know what you do. Within the first few seconds, visitors may not — usually because of abstraction, competing offers, or missing positioning.",fix:'Make the opening identify the offer, intended buyer, and practical change without requiring inference.'},
+  {n:4,name:'The Belief Gap',stars:5,def:"Your website explains your offer. It doesn't help buyers believe it. Explanation and belief are different jobs.",fix:'Explain the causal bridge: why these activities or this method can plausibly create the stated outcome.'},
+  {n:5,name:'The Emotion Gap',stars:3,def:"Your website tells me what happens. It doesn't help me feel why it matters. Built for brands selling transformation.",fix:'Use verified customer language to connect the functional outcome to its lived emotional stakes.'},
+  {n:6,name:'The Decision Gap',stars:3,def:"Your website gives information. It doesn't make the next step feel safe. Critical for high-ticket offers.",fix:'Explain the commitment, format, purpose, and immediate next step beside the CTA.'},
+  {n:7,name:'The Proof Gap',stars:4,def:'You make strong claims. The evidence arrives too late — or never.',fix:'Connect relevant evidence to each material claim before the commitment point that depends on it.'},
+  {n:8,name:'The Buyer Gap',stars:3,def:"The website speaks to the customer you wish you had, not the one actually arriving. The visitor is skeptical; the copy assumes excitement.",fix:'Rewrite from the documented awareness, skepticism, urgency, and vocabulary of the arriving buyer.'},
+  {n:9,name:'The Timing Gap',stars:3,def:"The problem isn't what you're saying — it's when. Necessary support arrives after the moment that needs it.",fix:'Move the prerequisite information ahead of the claim, interpretation, or decision it supports.'},
+  {n:10,name:'The Confidence Gap',stars:3,def:'You ask buyers to feel confident before helping them overcome uncertainty.',fix:'Address the verified fit, capability, timing, or prior-failure concern before asking for commitment.'},
+  {n:11,name:'The Differentiation Gap',stars:3,def:"After reading, I understand what you do. I'm not sure I understand why you.",fix:'State a specific, credible, buyer-relevant reason to choose this offer over the supplied alternatives.'},
+  {n:12,name:'The Journey Gap',stars:4,def:"Every page works. Together they don't tell one story. Built for funnels.",fix:'Repair the handoffs so each page fulfils the previous CTA and advances the same audience, promise, and offer.'},
+  {n:13,name:'The Friction Gap',stars:3,def:'Nothing is obviously wrong. There are just too many tiny moments where buyers hesitate.',fix:'Remove the identified micro-frictions from the conversion path; do not treat necessary qualification as friction.'},
+  {n:14,name:'The Premature Ask',stars:5,def:'The page moves to a high-commitment CTA before doing enough belief-building.',fix:'Build relevance, value, plausibility, and basic trust before making the dominant high-commitment ask.'},
+  {n:15,name:'The Sophistication Mismatch',stars:4,def:"Stage-1 transformation promises are used for a jaded audience that has already heard or tried them.",fix:'Replace familiar category promises with mechanism, specificity, qualification, and evidence that address prior disappointment.'},
+  {n:16,name:'The Curriculum Trap',stars:4,def:"The program page leads with modules and deliverables — answering ‘what will I do?’ before ‘what will change for me?’",fix:'Establish the starting problem and intended change before presenting modules; connect every module to progress.'},
+  {n:17,name:'The Trust Cliff',stars:4,def:'The page starts warm and personal, then shifts register at pricing or CTA into formal sales language.',fix:'Keep the established human register through pricing and the CTA while remaining concrete about terms.'}
+];
+const BY_NUM = Object.fromEntries(GAP_META.map(g=>[g.n,g]));
+
+const RX = {
+  corporate:/\b(leverage|synerg(?:y|ies)|cutting[- ]edge|world[- ]class|best[- ]in[- ]class|seamless|robust|industry[- ]leading|end[- ]to[- ]end|holistic|optimi[sz]e|streamline|innovative solutions?|impactful|navigate the landscape|value[- ]added|paradigm|ecosystem|scalable solutions?)\b/i,
+  abstract:/\b(unlock (?:your )?potential|next level|reach new heights|elevate|empower(?:ment| you)?|transform your (?:life|future)|thrive|possibilit(?:y|ies)|make an impact|be your best|step into|accelerate your|meaningful change)\b/i,
+  offer:/\b(coach(?:ing)?|consult(?:ant|ing|ancy)?|advis(?:or|ory)|strateg(?:y|ist|ic)|agenc(?:y|ies)|course|program|programme|membership|mastermind|workshop|audit|assessment|therapy|therapist|software|platform|service|training|mentoring|copywriting|branding|design|marketing|accounting|legal|clinic|treatment|photography|development)\b/i,
+  audience:/\b(?:for|help(?:ing|s)?|built for|designed for|work with|support(?:ing)?|serve)\s+(?:busy |new |first[- ]time |experienced |senior |small |growing |ambitious |independent )?([a-z][a-z -]{2,45})/i,
+  outcome:/\b(?:so (?:that )?you can|helps? you|enable(?:s)? you|you(?:'ll| will) (?:be able|have|build|gain|reduce|increase|improve|lead|sell|grow|save|create|launch|move|make)|the result|by the end|walk away with|from .{2,30} to .{2,30}|reduce|increase|improve|save|gain|build|grow|launch|fix|solve)\b/i,
+  vagueOutcome:/\b(transform|breakthrough|success|growth|freedom|confidence|results?|change|impact|potential)\b/i,
+  strongClaim:/\b(?:guaranteed?|proven|the only|best|#1|number one|fastest|10x|double|triple|overnight|effortless(?:ly)?|life[- ]changing|revolutionary|dramatically|instantly|never again|massive results?|financial freedom|six[- ]figure|6[- ]figure|seven[- ]figure|7[- ]figure|unlimited potential|transform your life|explode your|without fail|every time)\b/i,
+  broadPromise:/\b(?:transform your life|change your life|10x|overnight|the secret to|effortless(?:ly)?|guaranteed results?|financial freedom|limitless|unlimited (?:income|potential)|dream life|six[- ]figure|6[- ]figure|seven[- ]figure|7[- ]figure|passive income|blueprint|explode your|massive breakthrough|unlock your potential)\b/i,
+  proof:/\b(?:case stud(?:y|ies)|testimonial|client stor(?:y|ies)|before and after|work samples?|portfolio|verified review|rated \d|featured (?:in|on)|as seen in|published in|research shows|study found|according to|generated \$?|grew from|from \d[\d,.]* to \d[\d,.]*|increased (?:by|from)|reduced (?:by|from)|\d{1,3}\s?%|\$\s?\d|\b\d{2,}\+?\s+(?:clients?|customers?|students?|companies|projects?|leaders?|teams?|years?)\b|“[^”]{12,}”|"[^"]{12,}")/i,
+  authority:/\b(?:(?:\d{1,2}|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|fifteen|twenty|twenty-five|thirty)\+?\s+years|\d{2,}\+?\s+(?:clients?|customers?|leaders?|teams?|projects?|students?)|from \d[\d,.]* to \d[\d,.]*|certified|licensed|accredited|former (?:head|director|vp|vice president|chief|partner)|founder of|published|author of|award(?:ed|[- ]winning)?|featured (?:in|on)|as seen in|speaker at|case stud(?:y|ies)|testimonial|trusted by [A-Z]|worked with [A-Z]|developed the [A-Z][A-Za-z -]+ method)/i,
+  mechanism:/\b(?:works? by|because|the reason|here(?:'s| is) why|that(?:'s| is) how|which means|our method|my method|our approach|my approach|we start by|first we|instead of|rather than|underlying cause|root cause|mechanism|framework|process connects|so that)\b/i,
+  qualification:/\b(?:may not|not for everyone|not a fit|depends on|results vary|requires|works best when|if you are|if you(?:'re| are)|provided that|as long as|limitations?|trade[- ]offs?)\b/i,
+  deliverable:/\b(?:module|week \d|session|weekly call|lesson|worksheet|template|portal|lifetime access|community|slack|discord|assessment|action plan|report|audit|roadmap|deliverable|what(?:'s| is) included|you(?:'ll| will) receive|includes?)\b/i,
+  emotion:/\b(?:feel|felt|tired of|frustrat|stuck|overwhelm|fear|worr(?:y|ied)|exhaust|stress|relief|proud|ashamed|alone|lost|hope|burnout|sick of|hate|despair|anxious|doubt|peace of mind|freedom|confident|in control|pressure|embarrass|resent|uncertain)\b/i,
+  empathy:/\b(?:tired of|frustrat|stuck|overwhelm|struggl|you(?:'ve| have) tried|been there|if you(?:'re| are) like|burnout|guessing|sick of|I understand|I know how|sounds too good|skeptic|hesitant|been burned)\b/i,
+  skeptic:/\b(?:skeptic|doubt|hesitant|cautious|not convinced|sounds too good|been burned|tried before|failed|didn(?:'t|’t| not) work|disappointed|wary|compare|researching|need proof|not ready)\b/i,
+  hype:/\b(?:amazing|incredible|game[- ]changer|revolutionary|life[- ]changing|insane|mind[- ]blowing|unbelievable|epic|magical|massive|explosive|once[- ]in[- ]a[- ]lifetime)\b/i,
+  urgency:/\b(?:act now|don(?:'t|’t) wait|limited spots?|closing soon|last chance|today only|hurry|before it(?:'s| is) too late|secure your spot|decide today|now is the time)\b/i,
+  doubtAck:/\b(?:what if|not sure|wondering|hesitat|maybe you(?:'ve| have) tried|you might be thinking|worried that|been burned|nervous|skeptic|sounds too good|not a fit|who this is for|who this isn(?:'t|’t| is not) for)\b/i,
+  highCTA:/\b(?:book (?:a |your )?(?:call|consultation)|schedule (?:a )?(?:call|consultation)|apply now|start (?:your )?application|enrol(?:l)? now|buy now|purchase|checkout|add to cart|pay now|claim your (?:spot|call)|secure your spot|submit (?:your )?application|request a proposal)\b/i,
+  mediumCTA:/\b(?:join (?:the )?waitlist|download|sign up|subscribe|register|take the assessment|start the assessment|get the guide|request information|contact us|enquire|inquire)\b/i,
+  lowCTA:/\b(?:learn more|view (?:the )?(?:case study|examples|work|details)|see how it works|check availability|read more|explore|see the programme|see the program)\b/i,
+  pricing:/\b(?:price|pricing|investment|payment plan|costs?|fee|\$|£|€|₦|contact us for pricing)\b/i,
+  safetyPurpose:/\b(?:discovery|diagnostic|assessment|see if (?:it(?:'s| is)|we(?:'re| are)) a fit|explore whether|review your|talk through|answer your questions|no pitch)\b/i,
+  safetyFormat:/\b(?:\d{1,3}[- ]minute|minutes?|hour|zoom|phone|video call|in person|calendar|call lasts|session lasts)\b/i,
+  safetyCommitment:/\b(?:no obligation|no commitment|no pressure|free call|free consultation|complimentary|nothing to buy|you decide|cancel anytime|refund|money[- ]back|payment required|deposit)\b/i,
+  safetyAfter:/\b(?:after (?:the|you)|next step|what happens next|you(?:'ll| will) receive|we(?:'ll| will) send|confirmation|hear from us|respond within|follow[- ]up)\b/i,
+  fit:/\b(?:who (?:it(?:'s| is)|this is) for|who (?:it isn(?:'t|’t)|this is not) for|good fit|right for you|qualif(?:y|ied)|eligib|suitable for|ideal for|not for everyone)\b/i,
+  curriculum:/\b(?:module|week \d|lesson \d|curriculum|weekly (?:calls?|coaching)|lifetime access|worksheets?|bonuses|what(?:'s| is) included|inside the (?:program|programme|course|portal)|facebook group|slack channel|discord)\b/i,
+  curriculumOutcome:/\b(?:so that|you(?:'ll| will) be able|the result|by the end|walk away|you(?:'ll| will) (?:feel|have|become|build|create|lead)|so you can|the transformation|the outcome|from .{2,30} to .{2,30})\b/i,
+  diff:/\b(?:unlike|the difference|rather than|instead of|most (?:coaches|consultants|programs|programmes|agencies|courses)|what sets (?:me|us|this) apart|why (?:me|us|choose)|we don(?:'t|’t)|I don(?:'t|’t)|our method|my method|proprietary|specifically for|only for)\b/i,
+  pressure:/\b(?:act now|secure your spot|limited spots?|closing soon|last chance|hurry|don(?:'t|’t) miss|before it(?:'s| is) too late|no excuses|decide today)\b/i,
+  formalSales:/\b(?:investment|enrollment|enrolment|non[- ]refundable|terms and conditions|payment plan|purchase|remit|hereby|the client|applicant|secure your|offer expires)\b/i,
+  warm:/\b(?:I understand|I know|we(?:'ll| will) work together|take your time|no pressure|you decide|let(?:'s| us)|I(?:'m| am) here|we can|you(?:'re| are) not alone|fair enough|honestly)\b/i,
+  pushConfidence:/\b(?:you got this|take the leap|invest in yourself|are you ready|it(?:'s| is) time|decide today|stop waiting|no more excuses|bet on yourself|choose courage|commit today)\b/i
+};
+
+function reCount(text,re){
+  const flags = Array.from(new Set((re.flags+'g').split(''))).join('');
+  return (String(text||'').match(new RegExp(re.source,flags))||[]).length;
 }
-function conf(score){ return Math.max(.35, Math.min(.98, score)); }
+function reTest(text,re){ return new RegExp(re.source,re.flags.replace('g','')).test(String(text||'')); }
+function wordsOf(text){ return (String(text||'').trim().match(/\S+/g)||[]).length; }
+function clamp(n,a,b){ return Math.max(a,Math.min(b,n)); }
+function unique(arr){ return [...new Set(arr)]; }
 
-const GAPS = [
-  {n:1,name:"The Consistency Gap",stars:5,
-   def:"The person met in your content isn't the person met on your website. Personality disappears, the voice flattens into generic corporate copy.",
-   test:(ctx)=>{
-     const corp=["solutions","leverage","synergy","cutting-edge","world-class","best-in-class","seamless","robust","industry-leading","end-to-end","holistic","empower your","best in class","maximize","optimize","streamline","innovative","impactful","navigate the","next level"];
-     const hits=corp.filter(w=>ctx.t.includes(w));
-     const fpRate=ctx.firstPerson/Math.max(1,ctx.words)*100;   // I/my per 100 words
-     
-     // Stricter checking: if they have any generic filler and low personal voice, flag it.
-     if(hits.length>=1 && fpRate<1.8){
-       return {sev:hits.length>=3?3:2, conf:conf(.60+hits.length*.1),
-         ev:`Corporate register (${hits.length} generic phrases like "${hits[0]}") with low personal voice (${fpRate.toFixed(1)} first-person words per 100). Reads written-by-committee.`,
-         quote:quoteFor(ctx, s=>corp.some(w=>s.includes(w)))};
-     }
-     if(hits.length>=3){
-       return {sev:2, conf:conf(.50+hits.length*.08),
-         ev:`Heavy corporate filler (${hits.slice(0,3).map(w=>'"'+w+'"').join(', ')}) flattens personality even though some direct voice exists.`,
-         quote:quoteFor(ctx, s=>corp.some(w=>s.includes(w)))};
-     }
-     return null;
-   },
-   fix:"Write it the way you'd say it out loud to one person. Keep the voice from your content on the page."},
-
-   {n:2,name:"The Authority Gap",stars:5,
-    def:"Your experience is obvious once someone knows you — but the page doesn't make it obvious fast enough. You're under-selling yourself.",
-    test:(ctx)=>{
-      // Expanded regexes for better catch rate
-      const numeric=/\b(\d{1,3}\+?\s?(years|clients|customers|companies|brands|projects|students|millions?|thousands?))|\b\d{2,}[%kx]|\$\d/i;
-      const named=/\b(featured (in|on)|as seen in|founder of|published|award|certified|trusted by|worked with|helped \d|speaker|author|creator)\b/i;
-      const anySignal = numeric.test(ctx.raw) || named.test(ctx.raw) || /\bclients?\b|\byears\b|\bcase stud/i.test(ctx.raw);
-      const inFirstThird = numeric.test(ctx.opening) || named.test(ctx.opening);
-      
-      if(!anySignal){
-        return {sev:3, conf:.85, ev:"No verifiable authority markers anywhere — no numbers, named features, or track record for a skeptic to latch onto.", quote:null};
-      }
-      if((numeric.test(ctx.raw)||named.test(ctx.raw)) && !inFirstThird){
-        return {sev:2, conf:.7, ev:"Credibility exists but sits below the opening third — a scanning visitor may never reach it before deciding.",
-          quote:quoteFor(ctx, s=>numeric.test(s)||named.test(s))};
-      }
-      return null;
-    },
-    fix:"Surface one concrete authority proof in the first screen: a number, a name, a recognizable result."},
-
-   {n:3,name:"The Clarity Gap",stars:3,
-    def:"You clearly know what you do. Within the first few seconds, visitors may not — usually from abstract language, too many services, or no positioning.",
-    test:(ctx)=>{
-      // Expanded jobs and abstract buzzwords
-      const namesWork=/\b(coach|coaching|consult|copywrit|designer?|design|market|therap|advisor|strateg|agency|course|program|mentor|accountant|photograph|develop|attorney|nutrition|fitness|help(s|ed)?\s+\w+\s+(get|build|grow|launch|land|scale|write|sell)|expert|guide|partner|freelance|saas|software)\b/i.test(ctx.opening);
-      const abstract=/\b(transform your life|unlock your potential|next level|reach your goals|live your best|holistic|synergy|elevate|empower you to|reach new heights|unleash|scale your|accelerate your)\b/i;
-      const absHit = abstract.test(ctx.opening);
-      
-      if(!namesWork && absHit){
-        return {sev:3, conf:.8, ev:"The opening leans entirely on abstract language and never names the concrete thing you do — a first-time visitor can't classify you.",
-          quote:quoteFor(ctx, abstract)};
-      }
-      if(!namesWork && ctx.words>40){
-        return {sev:2, conf:.6, ev:"Nothing in the opening states plainly what you do or who it's for — positioning is left for the reader to infer.",
-          quote:ctx.sentences[0]?ctx.sentences[0].text.trim():null};
-      }
-      if(ctx.serviceCount>=4){
-        return {sev:2, conf:.65, ev:`${ctx.serviceCount} distinct services/offers referenced — the breadth blurs what you're actually known for.`, quote:null};
-      }
-      return null;
-    },
-    fix:"In the first line, name who you help and what changes — in plain, concrete words."},
-
-   {n:4,name:"The Belief Gap",stars:5,
-    def:"Your website explains your offer. It doesn't help buyers believe it. Explanation and belief are very different jobs.",
-    test:(ctx)=>{
-      if(ctx.claimCount<1) return null; 
-      const belief=(ctx.t.match(/\b(because|which means|the reason|here'?s why|that'?s how|so that|this works by|proven|backed by|studies?|the science|the data|even if|without having to|the truth is|instead of)\b/g)||[]).length;
-      const ratio = belief/ctx.claimCount;
-      
-      if(belief===0 && ctx.claimCount >= 2){
-        return {sev:3, conf:.8, ev:`${ctx.claimCount} strong claims made, but absolutely zero explanation of WHY they're true — no 'because', mechanism, or evidence to convert claims into belief.`,
-          quote:ctx.claimQuote};
-      }
-      if(ratio<0.5 && ctx.claimCount >= 1){
-        return {sev:2, conf:.6, ev:`Claims outnumber belief-building logic ~${Math.round(ctx.claimCount/Math.max(1,belief))}:1. The offer is asserted more than it's justified.`,
-          quote:ctx.claimQuote};
-      }
-      return null;
-    },
-    fix:"For every claim, answer the silent 'why should I believe that?' — mechanism, reason, or evidence."},
-
-   {n:5,name:"The Emotion Gap",stars:3,
-    def:"Your website tells me what happens. It doesn't help me feel why it matters. Built for brands selling transformation.",
-    test:(ctx)=>{
-      const sellsTransform=/\b(transform|change|breakthrough|results|outcome|growth|freedom|confidence|success|life|future|dream)\b/i.test(ctx.raw);
-      if(!sellsTransform || ctx.words<30) return null;
-      
-      const emo=(ctx.t.match(/\b(feel|felt|tired of|frustrat|stuck|overwhelm|dream|fear|worry|worried|finally|imagine|exhaust|stressed|relief|proud|ashamed|alone|lost|hope|burnout|sick of|hate|despair|anxious|doubt|confident|peace|freedom)\b/g)||[]).length;
-      const emoRate=emo/Math.max(1,ctx.words)*100;
-      
-      if(emo===0){
-        return {sev:2, conf:.7, ev:"Sells transformation but contains no emotional language — it states what happens without letting the reader feel why it matters.", quote:null};
-      }
-      if(emoRate<1.0){ // Increased threshold from 0.6 to 1.0 to catch weak emotion usage
-        return {sev:1, conf:.5, ev:`Only ${emo} emotional cue${emo===1?'':'s'} across ${ctx.words} words — very thin resonance for a transformation offer.`,
-          quote:quoteFor(ctx, /\b(feel|frustrat|stuck|overwhelm|tired of|finally|burnout)\b/)};
-      }
-      return null;
-    },
-    fix:"Name the feeling before the feature. Show the frustrated 'before' so the outcome lands."},
-
-   {n:6,name:"The Decision Gap",stars:3,
-    def:"Your website gives information. It doesn't make the next step feel safe. Critical for high-ticket offers.",
-    test:(ctx)=>{
-      if(!ctx.hasCTA) return null;
-      const safety=(ctx.t.match(/\b(guarantee|risk-free|no obligation|cancel anytime|refund|money-back|no pressure|free (call|consult)|what to expect|no commitment|no strings|your (call|choice)|we\'ll chat|see if it\'s a fit)\b/g)||[]).length;
-      const highTicket=/\b(apply|book a call|discovery call|investment|payment plan|enroll|application|thousands|secure your spot)\b/i.test(ctx.raw);
-      
-      if(safety===0){
-        return {sev: highTicket?3:1, conf: highTicket?.75:.5,
-          ev: highTicket
-            ? "A high-commitment ask (apply / book / invest) with nothing that lowers the felt risk — no guarantee, no what-to-expect, no reassurance."
-            : "There's a call-to-action but nothing that makes clicking feel safe.",
-          quote:quoteFor(ctx, ctx.ctaRe)};
-      }
-      return null;
-    },
-    fix:"Reduce the felt risk of the next click: preview what happens, add reassurance, lower the stakes."},
-
-   {n:7,name:"The Proof Gap",stars:4,
-    def:"You make strong claims. The evidence arrives too late — or never.",
-    test:(ctx)=>{
-      if(ctx.claimCount<1) return null;
-      if(ctx.proofCount===0){
-        return {sev:3, conf:conf(.7+ctx.claimCount*.08),
-          ev:`${ctx.claimCount} strong claims and 0 pieces of concrete evidence (testimonials, numbers, named results). The claims float completely unsupported.`,
-          quote:ctx.claimQuote};
-      }
-      // Tightened distance threshold: proof must arrive much closer to claims now.
-      if(ctx.proofPos>=0 && ctx.claimPos>=0 && ctx.proofPos - ctx.claimPos > 0.20){
-        return {sev:2, conf:.7,
-          ev:`First claim lands at ${Math.round(ctx.claimPos*100)}% but the first proof not until ${Math.round(ctx.proofPos*100)}% — the reader has likely decided before evidence arrives.`,
-          quote:ctx.claimQuote};
-      }
-      if(ctx.proofCount===1 && ctx.claimCount>=3){
-        return {sev:2, conf:.6, ev:`${ctx.claimCount} claims lean on a single proof point — under-evidenced for the number of assertions.`, quote:ctx.claimQuote};
-      }
-      return null;
-    },
-    fix:"Move at least one piece of proof up beside the claim it supports — not to the bottom of the page."},
-
-   {n:8,name:"The Buyer Gap",stars:3,
-    def:"The website speaks to the customer you wish you had, not the one who's actually arriving. The visitor is skeptical; the copy assumes excitement.",
-    test:(ctx)=>{
-      if(ctx.stage<3) return null;
-      const hype=/\b(amazing|incredible|game[- ]?changer|revolutionary|life[- ]?changing|insane|mind[- ]?blowing|unbelievable|epic|magical|massive|explosive)\b/i;
-      const hypeHits=(ctx.t.match(hype)||[]).length + (ctx.t.match(/game[- ]?changer|life[- ]?changing/g)||[]).length;
-      const bangRate=ctx.exclaims/Math.max(1,ctx.sentences.length);
-      const acknowledgesDoubt=/\b(skeptic|been burned|tried before|i know what you'?re thinking|sounds too good|if you'?re like most|wondering|hesitant)\b/i.test(ctx.raw);
-      
-      if(hypeHits>=1 && bangRate>0.15 && !acknowledgesDoubt){
-        return {sev:3, conf:.75, ev:`High-excitement register (${hypeHits} hype words, exclamations everywhere) with no nod to doubt — written for an excited buyer, not the skeptical Stage-${ctx.stage} one arriving.`,
-          quote:quoteFor(ctx, hype)};
-      }
-      if(hypeHits>=2 && !acknowledgesDoubt){
-        return {sev:2, conf:.6, ev:"Tone assumes the reader is already sold; a skeptical arrival gets massive promises but no acknowledgement of their hesitation.",
-          quote:quoteFor(ctx, hype)};
-      }
-      return null;
-    },
-    fix:"Meet the skeptic where they are. Acknowledge doubt before you raise the temperature."},
-
-   {n:9,name:"The Timing Gap",stars:3,
-    def:"The problem isn't what you're saying — it's when. CTA before trust. Benefits before empathy. Features before understanding.",
-    test:(ctx)=>{
-      if(ctx.ctaPos>=0 && ctx.ctaPos<0.40 && (ctx.proofPos<0 || ctx.proofPos>ctx.ctaPos) && (ctx.empathyPos<0 || ctx.empathyPos>ctx.ctaPos)){
-        return {sev:3, conf:.8, ev:`The ask arrives early (${Math.round(ctx.ctaPos*100)}% down) — ahead of any empathy or proof. Right message, wrong moment.`,
-          quote:quoteFor(ctx, ctx.ctaRe)};
-      }
-      if(ctx.empathyPos>=0 && ctx.benefitPos>=0 && ctx.benefitPos+0.1 < ctx.empathyPos){
-        return {sev:2, conf:.65, ev:`Benefits appear (${Math.round(ctx.benefitPos*100)}%) well before any empathy (${Math.round(ctx.empathyPos*100)}%) — selling before understanding.`,
-          quote:quoteFor(ctx, /\b(you'?ll get|imagine|results|benefit)\b/)};
-      }
-      return null;
-    },
-    fix:"Reorder for the reader's readiness: understanding → empathy → belief → ask."},
-
-   {n:10,name:"The Confidence Gap",stars:3,
-    def:"You ask buyers to feel confident before helping them overcome uncertainty.",
-    test:(ctx)=>{
-      const push=/\b(you got this|take the leap|invest in yourself|are you ready|it'?s time|decide today|stop waiting|no more excuses|bet on yourself|commit to|don't wait)\b/i;
-      if(!push.test(ctx.raw)) return null;
-      const addressesDoubt=/\b(what if|not sure|wondering|hesitat|maybe you'?ve tried|i know you|you might be thinking|worried that|been burned|nervous)\b/i.test(ctx.raw);
-      if(!addressesDoubt){
-        return {sev:2, conf:.7, ev:"Copy demands confidence ('take the leap', 'it's time') without first naming or dissolving the reader's underlying uncertainty.",
-          quote:quoteFor(ctx, push)};
-      }
-      return null;
-    },
-    fix:"Handle the doubt out loud first; confidence is a result of that, not a demand."},
-
-   {n:11,name:"The Differentiation Gap",stars:3,
-    def:"After reading, I understand what you do. I'm not sure I understand why you.",
-    test:(ctx)=>{
-      if(ctx.words<60) return null;
-      const diff=/\b(unlike|the difference|only one who|what makes (me|us) different|my approach|instead of|most (coaches|consultants|programs|people|agencies)|i don'?t|not another|rather than|here'?s what sets|why we)\b/i;
-      if(!diff.test(ctx.raw)){
-        return {sev:2, conf:.6, ev:"Across the whole page nothing contrasts you with alternatives — the buyer understands WHAT you do but gets no answer to 'why you?'", quote:null};
-      }
-      return null;
-    },
-    fix:"State plainly what you do differently — and what you deliberately don't do."},
-
-   {n:12,name:"The Journey Gap",stars:4,
-    def:"Every page works. Together they don't tell one story. Built for funnels.",
-    test:(ctx)=>{
-      if(ctx.blocks.length<4) return null;
-      if(ctx.themeSpread>=5 && ctx.topThemeShare<0.30){
-        return {sev:2, conf:.55, ev:`${ctx.blocks.length} sections span ${ctx.themeSpread} different themes with no dominant thread (top theme only ${Math.round(ctx.topThemeShare*100)}% of signals) — each block works but they don't compound into one story.`, quote:null};
-      }
-      return null;
-    },
-    fix:"Pick one narrative promise and make every section a beat in that single story."},
-
-   {n:13,name:"The Friction Gap",stars:3,
-    def:"Nothing is obviously wrong. There are just too many tiny moments where buyers hesitate.",
-    test:(ctx)=>{
-      // Tightened friction triggers: 13+ char words, lower average sentence length trigger
-      const jargon=(ctx.t.match(/\b\w{13,}\b/g)||[]).length;
-      const hedges=(ctx.t.match(/\b(basically|essentially|actually|just|really|very|somewhat|perhaps|maybe|kind of|sort of|in order to|tend to)\b/g)||[]).length;
-      const passive=(ctx.t.match(/\b(is|are|was|were|be|been|being)\s+\w+ed\b/g)||[]).length;
-      let signals=0; const parts=[];
-      if(ctx.avgSentence>20){signals++;parts.push(`long sentences (avg ${Math.round(ctx.avgSentence)} words)`);} // lowered to 20
-      if(jargon>=2){signals++;parts.push(`${jargon} overly long words`);}
-      if(hedges>=2){signals++;parts.push(`${hedges} hedging words`);}
-      if(passive>=2){signals++;parts.push(`${passive} passive constructions`);}
-      
-      if(signals>=1 && (jargon+hedges+passive > 4 || ctx.avgSentence>22)){
-        return {sev: signals>=2?2:1, conf:conf(.5+signals*.15),
-          ev:`Cumulative reading friction from ${parts.join(', ')} — no single flaw, but each adds a micro-hesitation.`,
-          quote:ctx.longestSentence};
-      }
-      return null;
-    },
-    fix:"Cut sentence length, remove jargon, and delete any word the reader must slow down for."},
-
-   {n:14,name:"The Premature Ask",stars:5,
-    def:"The page moves to a booking CTA before doing any belief-building. A skeptic reads that as revenue-before-relationship.",
-    test:(ctx)=>{
-      const bookRe=/\b(book (a |your )?call|schedule (a )?call|apply now|book a discovery|get on a call|claim your (spot|call)|let's talk|grab your|add to cart)\b/i;
-      const askSentence = ctx.sentences.find(s=>bookRe.test(s.low));
-      if(!askSentence) return null;
-      
-      // Removed the 30% bailout. An ask is premature if it happens BEFORE belief/proof, regardless of page position.
-      const beliefBefore = ctx.sentences.some(s=> s.pos < askSentence.pos &&
-        /\b(because|proven|clients?|results|testimonial|what if|tired of|frustrat|the difference|even if|i know|struggl|evidence|case study|%|generated)\b/.test(s.low));
-        
-      if(!beliefBefore){
-        return {sev:3, conf:.85, ev:`A booking/buy ask lands with absolutely no belief-building before it — no transformation validated, no objection met, no reason to trust yet.`,
-          quote:askSentence.text.trim()};
-      }
-      return null;
-    },
-    fix:"Earn the ask. Name the transformation and defuse one objection before you request the call."},
-
-   {n:15,name:"The Sophistication Mismatch",stars:4,
-    def:"Stage-1 copy — big transformation promises — for a jaded audience that's already heard those promises broken twice.",
-    test:(ctx)=>{
-      if(ctx.stage<2) return null; // Flag for anyone beyond stage 1
-      const big=/\b(transform your life|change your life|10x|overnight|the secret to|effortless(ly)?|guaranteed results|financial freedom|limitless|unlimited (income|potential)|dream life|six[- ]?figure|6[- ]?figure|7[- ]?figure|passive income|blueprint|explode your)\b/i;
-      const hits=[...new Set((ctx.raw.match(new RegExp(big.source,'gi'))||[]).map(x=>x.toLowerCase()))];
-      
-      if(hits.length>=1){
-        const underProven = ctx.proofCount<=1;
-        const sev = (ctx.stage>=3 && (hits.length>=2||underProven))?3:2;
-        return {sev, conf:conf(.6+hits.length*.15+(underProven?.1:0)),
-          ev:`Stage-1 promise language (${hits.slice(0,2).map(h=>'"'+h+'"').join(', ')}) aimed at a Stage-${ctx.stage} buyer who's heard it break before${underProven?', with virtually no proof to make it land differently':''}.`,
-          quote:quoteFor(ctx, big)};
-      }
-      return null;
-    },
-    fix:"Trade the promise for proof and specificity — the jaded buyer trusts evidence, not adjectives."},
-
-   {n:16,name:"The Curriculum Trap",stars:4,
-    def:"The program page leads with modules and deliverables — answering 'what will I do?' before 'what will change for me?'",
-    test:(ctx)=>{
-      const curricRe=/\b(module|modules|week 1|lifetime access|weekly (calls|coaching)|curriculum|\d+ lessons|worksheets|the bonuses|what'?s included|inside the (program|course|portal)|facebook group|slack channel|discord)\b/i;
-      const outcomeRe=/\b(so that|you'?ll be able|the result|by the end|walk away|you'?ll (feel|have|become)|so you can|the transformation|the outcome|finally)\b/i;
-      
-      const curricSentence = ctx.sentences.find(s=>curricRe.test(s.low));
-      if(!curricSentence || curricSentence.pos>0.45) return null; 
-      
-      const outcomeBefore = ctx.sentences.some(s=> s.pos <= curricSentence.pos && outcomeRe.test(s.low));
-      if(!outcomeBefore){
-        return {sev:2, conf:.75, ev:`Deliverables (modules / calls / portal access) lead at ${Math.round(curricSentence.pos*100)}% before any outcome is established — it answers 'what will I do?' before 'what will change for me?'`,
-          quote:curricSentence.text.trim()};
-      }
-      return null;
-    },
-    fix:"Lead with the outcome the buyer will believe in; reveal the curriculum only once they care how."},
-
-   {n:17,name:"The Trust Cliff",stars:4,
-    def:"The page starts warm and personal, then shifts register at pricing/CTA into formal sales language — a jarring tonal break.",
-    test:(ctx)=>{
-      if(ctx.blocks.length<2 || ctx.words<60) return null;
-      const warmRe=/\bi\b|\bi'?m\b|\bmy\b|\byou\b|\byour\b|\bwe\b|\blet'?s\b/gi;
-      const coldRe=/\b(investment|enrollment|secure your spot|limited spots|act now|pricing|payment plan|terms|non[- ]?refundable|checkout|purchase|remit|hereby|the client)\b/gi;
-      
-      const headWarm=(ctx.opening.match(warmRe)||[]).length / Math.max(1,ctx.openingWords) * 100;
-      const tailWarm=(ctx.closing.match(warmRe)||[]).length / Math.max(1,ctx.closingWords) * 100;
-      const tailCold=(ctx.closing.match(coldRe)||[]).length;
-      
-      // Much more sensitive cliff detection
-      if(headWarm>=2 && tailCold>=1 && tailWarm < headWarm*0.7){
-        return {sev:3, conf:.75, ev:`Opening reads personal (${headWarm.toFixed(1)} warm words/100) but the closing drops to ${tailWarm.toFixed(1)}/100 and shifts into formal sales register (${tailCold} 'investment/secure' terms) — the voice breaks at the decision moment.`,
-          quote:quoteFor(ctx, coldRe)};
-      }
-      return null;
-    },
-    fix:"Keep the same human voice through pricing. Don't hand the closing section to a brochure."}
- ];
-
-/* ============================================================
-   CONTEXT BUILDER — v2.1
-   Fixes the major tokenizer bug by splitting on newlines AND punctuation.
-   Expands thematic detection tracking.
-   ============================================================ */
-function buildContext(raw, stage){
-  const t = raw.toLowerCase();
-  const words = (raw.trim().match(/\S+/g)||[]).length;
-  const len = raw.length || 1;
-
-  // --- BUGFIX: sentence segmentation now respects newlines as semantic boundaries! ---
-  // Landing pages use line breaks as periods. Without this, a page is one giant string.
-  const rawSents = raw
-      .replace(/([.!?])\s+/g, "$1|SPLIT|")
-      .replace(/\n+/g, "|SPLIT|")
-      .split("|SPLIT|")
-      .map(s => s.trim())
-      .filter(s => s.length > 1);
-
-  const totalChars = rawSents.reduce((a,s)=>a+s.length,0)||1;
+function splitSentences(raw){
+  const chunks=String(raw||'')
+    .replace(/([.!?])\s+/g,'$1|SPLIT|')
+    .replace(/\n+/g,'|SPLIT|')
+    .split('|SPLIT|').map(s=>s.trim()).filter(s=>s.length>1);
+  const total=chunks.reduce((n,s)=>n+s.length,0)||1;
   let acc=0;
-  const sentences = rawSents.map(s=>{
-    const pos = acc/totalChars; acc += s.length;
-    return {text:s, low:s.toLowerCase(), pos, words:(s.match(/\S+/g)||[]).length};
+  return chunks.map((text,index)=>{
+    const pos=acc/total; acc+=text.length;
+    return {text,low:text.toLowerCase(),words:wordsOf(text),pos,index};
   });
-  const avgSentence = sentences.length? words/sentences.length : words;
-  const longestSentence = sentences.reduce((m,s)=> s.words>(m?m.words:0)?s:m, null);
-  const longestSentenceText = longestSentence? longestSentence.text : null;
+}
+function buildDoc(raw){
+  raw=String(raw||'').trim();
+  const sentences=splitSentences(raw);
+  const blocks=raw.split(/\n\s*\n/).map(x=>x.trim()).filter(x=>x.length>8);
+  const wordCount=wordsOf(raw);
+  const openingBlocks=blocks.slice(0,Math.min(2,blocks.length)).join(' ');
+  const opening=openingBlocks || sentences.slice(0,Math.max(1,Math.ceil(sentences.length*.25))).map(s=>s.text).join(' ');
+  const closingBlocks=blocks.slice(-Math.min(2,blocks.length)).join(' ');
+  const closing=closingBlocks || sentences.slice(-Math.max(1,Math.ceil(sentences.length*.25))).map(s=>s.text).join(' ');
+  const avgSentence=sentences.length?wordCount/sentences.length:wordCount;
+  const longest=sentences.reduce((a,b)=>!a||b.words>a.words?b:a,null);
+  return {raw,low:raw.toLowerCase(),words:wordCount,sentences,blocks,opening,closing,avgSentence,longest};
+}
+function firstSentence(doc,re){ return doc.sentences.find(s=>reTest(s.text,re))||null; }
+function sentenceList(doc,re){ return doc.sentences.filter(s=>reTest(s.text,re)); }
+function positionOf(doc,re){ const s=firstSentence(doc,re); return s?s.pos:-1; }
+function sourceEvidence(source,sentence,signal){
+  if(!sentence)return null;
+  const quote=typeof sentence==='string'?sentence:sentence.text;
+  return {source,location:typeof sentence==='string'?'supplied material':`line ${sentence.index+1}`,quote,signal};
+}
+function genericPageEvidence(ctx,signal){
+  const s=ctx.doc.sentences[0]||ctx.doc.longest;
+  return s?sourceEvidence('Website',s,signal):null;
+}
 
-  // --- ordered blocks (paragraphs / double-newline sections) ---
-  const blocks = raw.split(/\n\s*\n/).map(b=>b.trim()).filter(b=>b.length>10); // dropped to 10 for tight copy
-
-  // --- opening / closing register slices (first & last thirds by sentence) ---
-  const third = Math.max(1, Math.round(sentences.length/3));
-  const opening = sentences.slice(0, third).map(s=>s.text).join(' ');
-  const closing = sentences.slice(-third).map(s=>s.text).join(' ');
-  const openingWords=(opening.match(/\S+/g)||[]).length;
-  const closingWords=(closing.match(/\S+/g)||[]).length;
-
-  // --- claims (strong assertions) & proof (concrete evidence) ---
-  const claimRe=/\b(best|#1|number one|guaranteed?|proven|the only|fastest|10x|double|triple|world[- ]class|transform|life[- ]changing|breakthrough|revolutionary|dramatically|instantly|never again|massive|explode|dominate|unleash|blueprint|roadmap|system|completely)\b/i;
-  const proofRe=/(\d{1,3}\s?%|\$\d|\b\d{2,}\+?\s?(clients|customers|students|companies|users|projects|years|ROI)|testimonial|case study|"[^"]{6,}"|“[^”]{6,}”|featured in|as seen in|rated|reviews?\b|verified|increased|generated|grew|from \d+ to \d+|screenshot|video|interview)/i;
-  
-  const claimSents = sentences.filter(s=>claimRe.test(s.low));
-  const proofSents = sentences.filter(s=>proofRe.test(s.low));
-  const claimCount = claimSents.length;
-  const proofCount = proofSents.length;
-  const claimPos = claimSents.length? claimSents[0].pos : -1;
-  const proofPos = proofSents.length? proofSents[0].pos : -1;
-  const claimQuote = claimSents.length? claimSents[0].text.trim() : null;
-
-  // --- CTA detection & position ---
-  const ctaRe=/\b(book (a |your )?call|schedule|apply( now)?|buy( now)?|enroll|get started|join( now)?|sign up|start now|claim (your )?(spot|call)|reserve|checkout|let's talk|let's chat|free consultation|add to cart)\b/i;
-  const ctaSent = sentences.find(s=>ctaRe.test(s.low));
-  const ctaPos = ctaSent? ctaSent.pos : -1;
-  const hasCTA = !!ctaSent;
-
-  // --- empathy & benefit positions ---
-  const empSent = sentences.find(s=>/\b(tired of|frustrat|stuck|overwhelm|struggl|i know (how|what|exactly)|you'?ve tried|been there|if you'?re like|annoying|endless|wasting time|burnout|guessing|sick of)\b/.test(s.low));
-  const benSent = sentences.find(s=>/\b(you'?ll get|you'?ll have|imagine|the results?|you can finally|achieve|the outcome|wake up feeling|able to|free to|without the|save time)\b/.test(s.low));
-  const empathyPos = empSent? empSent.pos : -1;
-  const benefitPos = benSent? benSent.pos : -1;
-
-  // --- voice / register metrics ---
-  const firstPerson=(t.match(/\bi\b|\bi'?m\b|\bi'?ve\b|\bmy\b|\bme\b/g)||[]).length;
-  const exclaims=(raw.match(/!/g)||[]).length;
-
-  // --- services & theme distribution ---
-  const serviceCount = (t.match(/\b(coaching|consulting|strategy|copywriting|branding|marketing|course|workshop|audit|retainer|program|masterclass|mentorship|1:1|group|done[- ]for[- ]you|agency|freelance)\b/g)||[]).length;
-  const themeMap={price:/\b(price|pricing|investment|payment|\$)\b/,story:/\b(story|journey|i started|years ago|my )\b/,offer:/\b(module|program|course|package|includes|deliverable|portal)\b/,proof:/\b(testimonial|client|results|case study|%|ROI)\b/,safety:/\b(guarantee|refund|risk)\b/,cta:/\b(book|apply|enroll|schedule|join|cart)\b/,problem:/\b(tired|stuck|struggl|frustrat|problem|burnout)\b/,vision:/\b(imagine|dream|transform|freedom|future|finally)\b/};
-  const themeCounts=Object.entries(themeMap).map(([k,re])=>[k,(t.match(new RegExp(re.source,'g'))||[]).length]).filter(([,c])=>c>0);
-  const themeSpread=themeCounts.length;
-  const themeTotal=themeCounts.reduce((a,[,c])=>a+c,0)||1;
-  const topThemeShare=themeCounts.length? Math.max(...themeCounts.map(([,c])=>c))/themeTotal : 0;
-
+function metricSet(doc){
+  const w=Math.max(1,doc.words), per=n=>n/w*100;
   return {
-    raw,t,words,len,stage,
-    sentences,avgSentence,longestSentence:longestSentenceText,
-    blocks,
-    opening:opening,closing,openingWords,closingWords,
-    claimCount,proofCount,claimPos,proofPos,claimQuote,
-    ctaRe,ctaPos,hasCTA,
-    empathyPos,benefitPos,
-    firstPerson,exclaims,
-    serviceCount,themeSpread,topThemeShare
+    avg:doc.avgSentence,
+    corporate:per(reCount(doc.raw,RX.corporate)),
+    abstract:per(reCount(doc.raw,RX.abstract)),
+    first:per(reCount(doc.raw,/\b(?:I|I’m|I'm|I’ve|I've|my|me|we|our)\b/i)),
+    contractions:per(reCount(doc.raw,/\b\w+(?:'|’)(?:m|re|ve|ll|d|t|s)\b/i)),
+    direct:per(reCount(doc.raw,/\b(?:I believe|I think|I don(?:'t|’t)|we don(?:'t|’t)|the truth|here(?:'s| is) the problem|most people|stop|must|should|shouldn(?:'t|’t)|won(?:'t|’t))\b/i)),
+    warmth:per(reCount(doc.raw,RX.warm)+reCount(doc.raw,RX.emotion)),
+    story:per(reCount(doc.raw,/\b(?:I remember|I learned|I started|years ago|when I|my client|one day|at first|then I|I used to|we discovered)\b/i)),
+    questions:per((doc.raw.match(/\?/g)||[]).length),
+    exclaims:per((doc.raw.match(/!/g)||[]).length)
   };
 }
 
-/* ============================================================
-   ANALYZE CONTROLLER
-   ============================================================ */
-function runStaticEngine(ctx){
-  const findings = [];
-  GAPS.forEach(g=>{
-    let r=null;
-    try{ r = g.test(ctx); }catch(e){ r=null; }
-    if(r && r.sev){
-      const c = typeof r.conf==='number'? r.conf : 0.6;
-      findings.push({n:g.n,name:g.name,stars:g.stars,def:g.def,fix:g.fix, sev:r.sev, conf:c, ev:r.ev, quote:r.quote||null, source:'static'});
-    }
-  });
-  return findings;
+function claimsOf(doc){ return sentenceList(doc,RX.strongClaim); }
+function proofsOf(doc){ return sentenceList(doc,RX.proof); }
+function ctaInfo(doc,selected){
+  const high=firstSentence(doc,RX.highCTA), med=firstSentence(doc,RX.mediumCTA), low=firstSentence(doc,RX.lowCTA);
+  let level=selected||'auto', sentence=null;
+  if(level==='auto'){
+    if(high){level='high';sentence=high;}
+    else if(med){level='medium';sentence=med;}
+    else if(low){level='low';sentence=low;}
+    else level='none';
+  }else sentence=level==='high'?(high||med||low):level==='medium'?(med||high||low):(low||med||high);
+  return {level,sentence,position:sentence?sentence.pos:-1,high,med,low};
 }
-
-async function analyze(){
-  const raw = document.getElementById('copyInput').value.trim();
-  const brand = document.getElementById('brandName').value.trim() || "Untitled page";
-  const stage = parseInt(document.querySelector('#stageSeg .chip.active').dataset.stage);
-  if(raw.length<40){ flashInput(); return; }
-  const ctx = buildContext(raw, stage);
-  const engine = currentEngine();
-  let findings=[], engineUsed='static';
-
-  if(engine==='llm'){
-    const key=(document.getElementById('apiKey').value||'').trim();
-    if(!key){ showToast('Add your Anthropic API key to use Claude Reading.', false); document.getElementById('apiKey').focus(); return; }
-    setRunning(true);
-    try{
-      findings = await runClaudeEngine(raw, stage, key, document.getElementById('modelSel').value);
-      engineUsed='llm';
-    }catch(err){
-      setRunning(false);
-      showToast('Claude error: '+err.message+' — falling back to Static.', false);
-      findings = runStaticEngine(ctx);
-      engineUsed='static';
-    }
-    setRunning(false);
-  } else {
-    findings = runStaticEngine(ctx);
-  }
-
-  // rank by severity × confidence × strategic weight
-  findings.sort((a,b)=> (b.sev*b.conf) - (a.sev*a.conf) || b.stars - a.stars);
-
-  const record = {
-    id: 'tg_'+Date.now()+'_'+Math.random().toString(36).slice(2,7),
-    brand, stage, words: ctx.words, savedAt: Date.now(),
-    engine: engineUsed,
-    model: engineUsed==='llm'? document.getElementById('modelSel').value : null,
-    score: scoreOf(findings),
-    copy: raw,
-    findings: findings.map(f=>({n:f.n,name:f.name,stars:f.stars,def:f.def,fix:f.fix,sev:f.sev,conf:f.conf,ev:f.ev,quote:f.quote,source:f.source||engineUsed}))
+function countUniqueTerms(text,terms){ return terms.filter(x=>reTest(text,new RegExp('\\b'+x+'\\b','i'))).length; }
+function claritySignals(ctx){
+  const o=ctx.doc.opening;
+  const audienceExplicit=reTest(o,RX.audience);
+  const offerExplicit=reTest(o,RX.offer);
+  const concreteOutcome=reTest(o,RX.outcome) && !(reTest(o,RX.abstract)&&!reTest(o,/\b(?:reduce|increase|save|build|launch|sell|lead|book|hire|revenue|time|cost|team|clients?|customers?)\b/i));
+  const audience=audienceExplicit?2:(reTest(o,/\byou|your\b/i)&&offerExplicit?1:0);
+  const offer=offerExplicit?2:(reTest(o,/\b(?:work together|how I help|what we do|our work)\b/i)?1:0);
+  const outcome=concreteOutcome?2:(reTest(o,RX.vagueOutcome)?1:0);
+  return {audience,offer,outcome,abstract:reCount(o,RX.abstract),opening:o};
+}
+function concernCategories(text){
+  const rules={
+    'previous attempts':/\b(?:tried before|tried .* already|trying .{0,35}(?:did not|didn(?:'t|’t)) work|failed|did not work|didn(?:'t|’t) work|been burned|disappointed|another program|another programme)\b/i,
+    'time or capacity':/\b(?:no time|too busy|capacity|overwhelmed|fit this in|time commitment|schedule)\b/i,
+    'cost or downside':/\b(?:too expensive|afford|budget|cost|waste money|risk|return on investment|ROI)\b/i,
+    'personal capability':/\b(?:can I|able to|not technical|not good at|lack confidence|experience level|skill)\b/i,
+    'fit or context':/\b(?:for someone like me|my industry|my situation|right for me|fit|too early|too late|my stage)\b/i,
+    'support':/\b(?:support|help if|stuck|feedback|accountability|on my own)\b/i
   };
-  saveRecord(record);
-  renderReport(record);
-  resetInputFields();
-  showToast(`Saved "${record.brand}" (${engineUsed==='llm'?'Claude':'Static'}) to your library.`, true);
+  return Object.entries(rules).filter(([,re])=>reTest(text,re)).map(([k])=>k);
+}
+function concernHandled(page,cat){
+  const rules={
+    'previous attempts':/\b(?:if you(?:'ve| have) tried|why previous|different this time|instead of|rather than|root cause|been burned)\b/i,
+    'time or capacity':/\b(?:time commitment|minutes? (?:a|per) (?:day|week)|hours? (?:a|per) week|at your own pace|flexible|schedule|busy)\b/i,
+    'cost or downside':/(?:[$£€₦]\s?\d|\b(?:payment plans?|refund|guarantee|no obligation|ROI|return on investment|cancel anytime|deposit|no payment)\b)/i,
+    'personal capability':/\b(?:no experience|beginner|step[- ]by[- ]step|support|templates?|training provided|you don(?:'t|’t) need)\b/i,
+    'fit or context':RX.fit,
+    'support':/\b(?:support|feedback|office hours|coaching|help desk|accountability|community|questions)\b/i
+  };
+  return reTest(page,rules[cat]);
 }
 
-function currentEngine(){ return document.querySelector('#engineToggle .etab.active').dataset.engine; }
-function setRunning(on){
-  const btn=document.getElementById('runBtn');
-  btn.classList.toggle('loading',on);
-  btn.querySelector('.arw').textContent = on?'↻':'→';
-  btn.childNodes[0].textContent = on? (currentEngine()==='llm'?'Reading with Claude':'Analyzing') : 'Analyze for gaps';
+function result(n,status,opts={}){
+  const g=BY_NUM[n];
+  return {
+    n,name:g.name,stars:g.stars,def:g.def,fix:opts.fix||g.fix,status,
+    sev:opts.sev||0,conf:opts.conf==null?(status===STATUS.CLEAR?.72:.65):opts.conf,
+    rule:opts.rule||'',ev:opts.ev||'',evidence:(opts.evidence||[]).filter(Boolean),
+    counterevidence:(opts.counterevidence||[]).filter(Boolean),missingInputs:opts.missingInputs||[],
+    diagnosticRole:'primary',relatedGaps:[],suppressed:false,suppressedBy:null,tags:opts.tags||[]
+  };
 }
+function clearResult(n,ev,counter=[]){ return result(n,STATUS.CLEAR,{conf:.72,ev,counterevidence:counter}); }
+function insufficient(n,missing,ev){ return result(n,STATUS.INSUFFICIENT,{conf:0,ev,missingInputs:Array.isArray(missing)?missing:[missing]}); }
+function notApplicable(n,ev){ return result(n,STATUS.NA,{conf:1,ev}); }
+function active(r){ return r.status===STATUS.CONFIRMED||r.status===STATUS.POSSIBLE; }
 
-/* ============================================================
-   CLAUDE ENGINE (Phase 2) — BYOK, browser-direct
-   Rewritten prompt ensures Claude is highly critical and stops clearing bad copy.
-   ============================================================ */
-async function runClaudeEngine(copy, stage, apiKey, model){
-  const catalog = GAPS.map(g=>`${g.n}. ${g.name} — ${g.def}`).join('\n');
-  
-  // NEW SYSTEM PROMPT: Forces critical, semantic analysis and prevents leniency.
-  const system = `You are a ruthless, world-class conversion copywriter and messaging forensic expert. Your job is to analyze website/funnel copy for "The Trust Gap Protocol".
-You evaluate copy like a highly skeptical, busy buyer. Most copy is generic, unpersuasive, and full of leaks. DO NOT give the copy the benefit of the doubt. If it relies on abstract buzzwords, makes claims without immediate proof, or asks for a call before earning it—FLAG IT.
-
-Analyze against these 17 specific gaps:
-${catalog}
-
-Buyer sophistication Stage (1=new to problem, 4=highly jaded) is CRITICAL. The buyer stage for this test will be provided by the user. A Stage 3 or 4 buyer will instantly bounce if they see Stage 1 hype ("transform your life", "guaranteed results") without massive, immediate proof.
-
-Rules for rigor:
-1. BE RUTHLESS. If the copy is "okay but not great", it has gaps. Find them. Look for semantic meaning, not just exact keywords.
-2. If there's an ask/CTA before the copy has done the work of building belief and empathy, that is a Premature Ask.
-3. Severity: 1=Minor friction, 2=Moderate leak, 3=Critical bounce-risk.
-4. Confidence: 0.0–1.0, how sure you are based on the text.
-5. "reason": one or two sentences of concrete evidence, citing exactly why this page fails this specific gap.
-6. "fix": one highly actionable sentence.
-7. "quote": For every gap, cite the exact phrase/sentence in the copy. If it's a structural absence (e.g. proof is missing entirely), set "quote" to null.
-
-Return ONLY valid minified JSON in this exact shape. Do not output markdown, fences, or your thought process outside the JSON:
-{"findings":[{"n":<int 1-17>,"severity":<1-3>,"confidence":<0-1>,"reason":"...","quote":"..."|null,"fix":"..."}]}`;
-
-  const user = `Buyer Stage: ${stage}\n\n--- WEBSITE / FUNNEL COPY (in reading order) ---\n${copy}`;
-
-  const res = await fetch("https://api.anthropic.com/v1/messages",{
-    method:"POST",
-    headers:{
-      "content-type":"application/json",
-      "x-api-key":apiKey,
-      "anthropic-version":"2023-06-01",
-      "anthropic-dangerous-direct-browser-access":"true"
-    },
-    body:JSON.stringify({
-      model, max_tokens:2500, system, temperature: 0.1, // Added low temp for strict analytical output
-      messages:[{role:"user",content:user}]
-    })
-  });
-  
-  if(!res.ok){
-    let msg='HTTP '+res.status;
-    try{ const e=await res.json(); if(e.error&&e.error.message) msg=e.error.message; }catch(_){}
-    throw new Error(msg);
+function detect1(ctx){
+  if(ctx.reference.words<250||ctx.reference.blocks.length<3){
+    return insufficient(1,['At least three representative voice samples totalling about 250 words'], 'Consistency cannot be assessed from the website alone.');
   }
-  const data=await res.json();
-  const text=(data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('').trim();
-  const json=parseJSONLoose(text);
-  if(!json||!Array.isArray(json.findings)) throw new Error('unexpected response format');
+  if(ctx.doc.words<100||ctx.doc.blocks.length<2){
+    return insufficient(1,['At least two substantial website sections'], 'The website sample is too short to establish a stable register.');
+  }
+  const a=metricSet(ctx.reference),b=metricSet(ctx.doc),mis=[],aligned=[];
+  const add=(name,why,refRe,siteRe)=>mis.push({name,why,refRe,siteRe});
+  const yes=(name)=>aligned.push(name);
+  if((b.corporate>a.corporate+1.0&&b.corporate>1.2)||(a.contractions>b.contractions+1.5&&a.contractions>1.5)) add('formality','The website is materially more corporate or less conversational.',/\b(?:I|we|you|let(?:'s|’s)|honestly|don(?:'t|’t))\b/i,RX.corporate); else yes('formality');
+  if(Math.abs(a.avg-b.avg)>Math.max(5,a.avg*.42)) add('sentence rhythm',`Average sentence length changes from ${a.avg.toFixed(1)} to ${b.avg.toFixed(1)} words.`,null,null); else yes('sentence rhythm');
+  if(b.abstract>a.abstract+0.8||b.corporate>a.corporate+1.0) add('vocabulary','Concrete or distinctive vocabulary is replaced by abstract/corporate phrasing.',null,RX.abstract); else yes('vocabulary');
+  if(a.direct>.55&&b.direct<a.direct*.45) add('directness','A repeated direct or opinionated stance largely disappears.',/\b(?:I believe|I think|I don(?:'t|’t)|the truth|here(?:'s| is) the problem|must|should)\b/i,null); else yes('directness');
+  if(a.warm>.8&&b.warm<a.warm*.4) add('warmth','Warmth or emotional energy present in the source is materially reduced.',RX.emotion,null); else yes('warmth');
+  if((a.story+a.first)>1.8&&(b.story+b.first)<(a.story+a.first)*.42) add('storytelling and personal detail','Personal perspective and story markers fall sharply on the website.',/\b(?:I remember|I learned|I started|when I|my client|I used to|I|my)\b/i,null); else yes('storytelling and personal detail');
+  const evidence=[];
+  mis.slice(0,4).forEach(m=>{
+    const rs=m.refRe?firstSentence(ctx.reference,m.refRe):(ctx.reference.sentences[0]||null);
+    const ws=m.siteRe?firstSentence(ctx.doc,m.siteRe):(ctx.doc.longest||ctx.doc.sentences[0]);
+    evidence.push(sourceEvidence('Reference content',rs,m.name+' in reference'));
+    evidence.push(sourceEvidence('Website',ws,m.name+' on website'));
+  });
+  const counter=aligned.length?[`Aligned dimensions: ${aligned.join(', ')}.`]:[];
+  if(mis.length>=3) return result(1,STATUS.CONFIRMED,{sev:mis.length>=4?3:2,conf:clamp(.64+mis.length*.06,.64,.9),rule:'At least three comparable voice dimensions mismatch across a multi-section website sample.',ev:`${mis.length} voice dimensions mismatch: ${mis.map(x=>x.name).join(', ')}.`,evidence,counterevidence:counter});
+  if(mis.length===2) return result(1,STATUS.POSSIBLE,{sev:1,conf:.57,rule:'Two dimensions mismatch; the confirmed threshold is three.',ev:`Two voice dimensions differ: ${mis.map(x=>x.name).join(', ')}.`,evidence,counterevidence:counter});
+  return clearResult(1,'Fewer than two material voice mismatches were found in the comparable samples.',counter);
+}
 
-  const byNum={}; GAPS.forEach(g=>byNum[g.n]=g);
-  return json.findings.filter(f=>byNum[f.n]).map(f=>{
-    const g=byNum[f.n];
-    return {
-      n:g.n, name:g.name, stars:g.stars, def:g.def,
-      sev: Math.max(1,Math.min(3, parseInt(f.severity)||2)),
-      conf: Math.max(.35,Math.min(.99, typeof f.confidence==='number'?f.confidence:.7)),
-      ev: (f.reason||'').trim() || 'Identified by Claude.',
-      quote: f.quote && String(f.quote).trim() && String(f.quote).toLowerCase()!=='null'? String(f.quote).trim() : null,
-      fix: (f.fix||g.fix).trim(),
-      source:'llm'
+function detect2(ctx){
+  const pageSignals=sentenceList(ctx.doc,RX.authority),invSignals=sentenceList(ctx.authority,RX.authority);
+  const first=pageSignals[0],early=first&&first.pos<=.34;
+  if(ctx.authority.words>=20&&invSignals.length){
+    if(!pageSignals.length) return result(2,STATUS.CONFIRMED,{sev:3,conf:.88,rule:'Concrete authority exists in the supplied inventory but is absent from the page.',ev:'Relevant experience is available to use, but the website does not surface it.',evidence:[sourceEvidence('Authority inventory',invSignals[0],'available authority'),genericPageEvidence(ctx,'website opening')],counterevidence:[]});
+    if(!early) return result(2,STATUS.CONFIRMED,{sev:2,conf:.81,rule:'Available authority appears only after the opening third.',ev:`The first concrete authority signal appears about ${Math.round(first.pos*100)}% into the supplied copy.`,evidence:[sourceEvidence('Website',first,'late authority'),sourceEvidence('Authority inventory',invSignals[0],'available authority')]});
+    return clearResult(2,'A concrete authority signal appears in the opening third and is supported by the supplied inventory.',[pageSignals[0].text]);
+  }
+  if(!pageSignals.length) return result(2,STATUS.POSSIBLE,{sev:2,conf:.52,rule:'The page contains no detected concrete authority signal, but no authority inventory was supplied.',ev:'Authority presentation appears weak; the platform cannot confirm that stronger experience is available to surface.',evidence:[genericPageEvidence(ctx,'opening reviewed')],missingInputs:['Concrete authority inventory']});
+  if(!early) return result(2,STATUS.POSSIBLE,{sev:1,conf:.56,rule:'Authority is present but appears after the opening; available inventory is unknown.',ev:`The first concrete signal appears about ${Math.round(first.pos*100)}% into the copy.`,evidence:[sourceEvidence('Website',first,'late authority')],missingInputs:['Authority inventory to establish under-selling']});
+  return clearResult(2,'The page supplies an early, concrete authority signal.',[pageSignals[0].text]);
+}
+
+function detect3(ctx){
+  if(['contact','legal'].includes(ctx.pageType)) return notApplicable(3,'This page type is not expected to carry full positioning.');
+  const s=claritySignals(ctx),zeros=['audience','offer','outcome'].filter(k=>s[k]===0);
+  const services=['coaching','consulting','strategy','copywriting','branding','marketing','course','workshop','audit','retainer','program','programme','mastermind','mentorship','agency','software'].filter(x=>new RegExp(`\\b${x}\\b`,'i').test(s.opening));
+  const competing=unique(services).length>=4&&!reTest(s.opening,/\b(?:suite|range|all-in-one|end-to-end|under one|full-service)\b/i);
+  const quote=ctx.doc.sentences[0]||null;
+  if(zeros.length>=2&&s.abstract>0) return result(3,STATUS.CONFIRMED,{sev:3,conf:.84,rule:'At least two essential positioning elements are missing and the opening relies on abstraction.',ev:`The opening does not clearly establish ${zeros.join(' or ')} and uses abstract transformation language.`,evidence:[sourceEvidence('Website opening',quote,'abstract opening')]});
+  if(zeros.length>=2&&ctx.doc.words>=70) return result(3,STATUS.POSSIBLE,{sev:2,conf:.58,rule:'Two essential elements were not detected, but static classification may miss an unusual category expression.',ev:`The opening does not plainly expose ${zeros.join(' or ')}.`,evidence:[sourceEvidence('Website opening',quote,'positioning opening')]});
+  if(zeros.length===1&&(s.abstract>0||competing)) return result(3,STATUS.CONFIRMED,{sev:2,conf:.72,rule:'One essential element is missing alongside abstract language or competing offers.',ev:`${zeros[0]} is not clear${competing?` and ${unique(services).length} equal-weight offer categories compete in the opening`:''}.`,evidence:[sourceEvidence('Website opening',quote,'unclear opening')]});
+  if(s.audience===1&&s.outcome===1&&s.abstract>0) return result(3,STATUS.POSSIBLE,{sev:2,conf:.61,rule:'The offer category is named, but the buyer and outcome remain broad while the opening relies on abstraction.',ev:'A visitor can classify the category but still has to infer who it is specifically for and what practical change it creates.',evidence:[sourceEvidence('Website opening',quote,'broad positioning')]});
+  if(competing) return result(3,STATUS.POSSIBLE,{sev:1,conf:.56,rule:'Four or more offer categories appear before a clear umbrella position.',ev:`The opening references ${unique(services).join(', ')} without a detected umbrella position.`,evidence:[sourceEvidence('Website opening',quote,'competing offers')]});
+  return clearResult(3,'The opening makes enough of the audience, offer, and practical outcome reconstructable without guessing.');
+}
+
+function detect4(ctx){
+  const claims=claimsOf(ctx.doc),deliver=sentenceList(ctx.doc,RX.deliverable),mech=sentenceList(ctx.doc,RX.mechanism),proof=proofsOf(ctx.doc),clarity=claritySignals(ctx);
+  if(!claims.length) return clearResult(4,'No consequential, non-obvious transformation claim was detected.');
+  if(clarity.offer===0) return result(4,STATUS.POSSIBLE,{sev:1,conf:.46,rule:'Belief cannot be fully assessed until the offer is understandable.',ev:'A strong claim is present, but offer clarity limits the plausibility assessment.',evidence:[sourceEvidence('Website',claims[0],'strong claim')],missingInputs:['Clear offer explanation']});
+  if(deliver.length>=1&&!mech.length&&!proof.length) return result(4,STATUS.CONFIRMED,{sev:3,conf:.82,rule:'The page explains activities or deliverables but supplies neither a causal mechanism nor compensating proof.',ev:'The buyer is shown what happens, but not why those activities should create the promised result.',evidence:[sourceEvidence('Website claim',claims[0],'promised outcome'),sourceEvidence('Website deliverable',deliver[0],'activity or deliverable')]});
+  if(deliver.length>=1&&!mech.length) return result(4,STATUS.POSSIBLE,{sev:2,conf:.58,rule:'Activities and claims are present, but the causal bridge is not explicit.',ev:'Some proof may support the promise, but the page does not explain how the work produces the change.',evidence:[sourceEvidence('Website claim',claims[0],'claim'),sourceEvidence('Website deliverable',deliver[0],'activity')],counterevidence:proof.length?[proof[0].text]:[]});
+  return clearResult(4,'The page provides a detected causal explanation or adequate support between the activity and the claim.',mech.length?[mech[0].text]:proof.length?[proof[0].text]:[]);
+}
+
+function detect5(ctx){
+  if(ctx.offerType==='transactional') return notApplicable(5,'The offer was marked primarily transactional rather than transformation-led.');
+  const transform=ctx.offerType==='transformation'||reTest(ctx.doc.raw,/\b(?:transform|breakthrough|life|leadership|career|identity|confidence|freedom|wellbeing|well-being|relationship|health|future|change)\b/i);
+  if(!transform&&ctx.offerType==='unknown') return notApplicable(5,'No transformation-led offer signal was supplied or detected.');
+  const pageEmo=reCount(ctx.doc.raw,RX.emotion),buyerEmo=reCount(ctx.buyer.raw,RX.emotion);
+  if(ctx.buyer.words>=30&&buyerEmo>=2){
+    if(pageEmo===0||pageEmo/Math.max(1,ctx.doc.words)<(buyerEmo/Math.max(1,ctx.buyer.words))*.25){
+      return result(5,STATUS.CONFIRMED,{sev:2,conf:.8,rule:'Verified emotional stakes recur in buyer evidence but are materially absent from the page.',ev:'The page communicates function while omitting emotional consequences present in the customer material.',evidence:[sourceEvidence('Buyer evidence',firstSentence(ctx.buyer,RX.emotion),'verified emotional stake'),genericPageEvidence(ctx,'functional page language')]});
+    }
+    return clearResult(5,'Emotional stakes found in buyer evidence are represented on the page.',[firstSentence(ctx.doc,RX.emotion)?.text].filter(Boolean));
+  }
+  if(pageEmo===0) return result(5,STATUS.POSSIBLE,{sev:1,conf:.48,rule:'A transformation offer contains no detected lived-stakes language, but customer evidence is missing.',ev:'The page appears entirely functional; the platform will not invent the emotion buyers feel.',evidence:[genericPageEvidence(ctx,'functional opening')],missingInputs:['Customer interviews, reviews, or sales-call language showing emotional stakes']});
+  return clearResult(5,'The page contains lived-stakes language; customer evidence would be needed to test whether it is the right emotion.');
+}
+
+function detect6(ctx){
+  const c=ctx.cta;
+  if(c.level==='none') return clearResult(6,'No conversion action was detected, so there is no next-step safety claim to assess.');
+  if(c.level==='low') return clearResult(6,'The detected next step is low commitment and sufficiently self-explanatory.');
+  const zone=ctx.doc.sentences.filter(s=>!c.sentence||Math.abs(s.index-c.sentence.index)<=3).map(s=>s.text).join(' ');
+  const checks=[['purpose',RX.safetyPurpose],['format or time',RX.safetyFormat],['commitment',RX.safetyCommitment],['what happens next',RX.safetyAfter],['fit',RX.fit]];
+  const present=checks.filter(([,re])=>reTest(zone,re)),missing=checks.filter(([,re])=>!reTest(zone,re)).map(([x])=>x);
+  if(c.level==='high'&&present.length<=1) return result(6,STATUS.CONFIRMED,{sev:3,conf:.8,rule:'A high-commitment CTA is missing at least four of five decision-safety categories in its immediate context.',ev:`The CTA does not make ${missing.join(', ')} clear.`,evidence:[sourceEvidence('CTA',c.sentence,'high-commitment action')],counterevidence:present.map(([x])=>`${x} is addressed`)});
+  if((c.level==='high'&&present.length===2)||(c.level==='medium'&&present.length<=1)) return result(6,STATUS.POSSIBLE,{sev:2,conf:.58,rule:'Two or more likely decision-critical details remain unclear near the CTA.',ev:`Potential uncertainty remains around ${missing.join(', ')}.`,evidence:[sourceEvidence('CTA',c.sentence,'conversion action')],counterevidence:present.map(([x])=>`${x} is addressed`)});
+  return clearResult(6,'The CTA zone explains multiple relevant aspects of the next step.',present.map(([x])=>x));
+}
+
+function claimThemes(text){
+  const map={revenue:/\b(?:revenue|sales|income|profit|money|financial)\b/i,time:/\b(?:time|fast|days?|weeks?|months?|speed)\b/i,career:/\b(?:career|promotion|job|leadership|executive)\b/i,health:/\b(?:health|weight|pain|sleep|fitness|wellness)\b/i,growth:/\b(?:grow|growth|scale|clients?|customers?|leads?)\b/i,confidence:/\b(?:confidence|clarity|mindset|fear|doubt)\b/i};
+  return Object.entries(map).filter(([,re])=>reTest(text,re)).map(([k])=>k);
+}
+function detect7(ctx){
+  const claims=claimsOf(ctx.doc),proofs=proofsOf(ctx.doc);
+  if(!claims.length) return clearResult(7,'No material strong claim requiring special substantiation was detected.');
+  const decisionPos=(ctx.cta.level==='high'||ctx.cta.level==='medium')&&ctx.cta.position>=0?ctx.cta.position:1;
+  const before=proofs.filter(p=>p.pos<=decisionPos);
+  if(!proofs.length) return result(7,STATUS.CONFIRMED,{sev:3,conf:clamp(.76+claims.length*.04,.76,.92),rule:'At least one material claim is present and no concrete evidence is detected.',ev:`${claims.length} material claim${claims.length===1?' is':'s are'} unsupported by detected case evidence, results, reviews, or demonstrations.`,evidence:[sourceEvidence('Website claim',claims[0],'strong claim')]});
+  if(!before.length&&decisionPos<1) return result(7,STATUS.CONFIRMED,{sev:3,conf:.86,rule:'Relevant evidence first appears after the high- or medium-commitment point.',ev:'The buyer must act before reaching the page’s evidence.',evidence:[sourceEvidence('Website claim',claims[0],'claim'),sourceEvidence('CTA',ctx.cta.sentence,'commitment point'),sourceEvidence('Website proof',proofs[0],'late evidence')]});
+  const ct=unique(claims.flatMap(x=>claimThemes(x.text))),pt=unique(before.flatMap(x=>claimThemes(x.text)));
+  const overlap=ct.length===0||ct.some(x=>pt.includes(x));
+  if(!overlap) return result(7,STATUS.POSSIBLE,{sev:2,conf:.56,rule:'Evidence exists before the decision, but its topical relevance to the strongest claim is not established.',ev:'The detected evidence may support a different outcome from the one being claimed.',evidence:[sourceEvidence('Website claim',claims[0],'claim'),sourceEvidence('Website proof',before[0],'possibly unmatched proof')]});
+  return clearResult(7,'Concrete evidence appears before the relevant commitment point and shares the claim’s detected outcome theme.',[before[0]?.text].filter(Boolean));
+}
+
+function detect8(ctx){
+  if(ctx.buyer.words<30) return insufficient(8,['Actual-buyer evidence such as search intent, interviews, sales calls, objections, or referral context'],'The arriving buyer cannot be inferred from page copy or a selected stage alone.');
+  const mismatches=[],evidence=[];
+  const buyerSkeptic=reTest(ctx.buyer.raw,RX.skeptic),pageHype=reCount(ctx.doc.raw,RX.hype),ack=reTest(ctx.doc.raw,RX.doubtAck);
+  if(buyerSkeptic&&pageHype>0&&!ack){mismatches.push('skepticism');evidence.push(sourceEvidence('Buyer evidence',firstSentence(ctx.buyer,RX.skeptic),'skeptical buyer state'));evidence.push(sourceEvidence('Website',firstSentence(ctx.doc,RX.hype),'excitement-led assumption'));}
+  const prior=reTest(ctx.buyer.raw,/\b(?:tried before|failed|been burned|disappointed|didn(?:'t|’t) work|another program|another programme)\b/i);
+  if(prior&&reTest(ctx.doc.raw,RX.broadPromise)&&!reTest(ctx.doc.raw,RX.mechanism)){mismatches.push('prior experience');evidence.push(sourceEvidence('Buyer evidence',firstSentence(ctx.buyer,/\b(?:tried before|failed|been burned|disappointed|didn(?:'t|’t) work)\b/i),'prior attempts'));evidence.push(sourceEvidence('Website',firstSentence(ctx.doc,RX.broadPromise),'first-order promise'));}
+  const cautious=reTest(ctx.buyer.raw,/\b(?:cautious|not ready|need time|compare|research|consider|unsure|hesitant)\b/i);
+  if(cautious&&reCount(ctx.doc.raw,RX.urgency)>0){mismatches.push('readiness or urgency');evidence.push(sourceEvidence('Buyer evidence',firstSentence(ctx.buyer,/\b(?:cautious|not ready|need time|compare|research|consider|unsure|hesitant)\b/i),'cautious arrival'));evidence.push(sourceEvidence('Website',firstSentence(ctx.doc,RX.urgency),'urgent assumption'));}
+  const plain=reCount(ctx.buyer.raw,RX.corporate)===0,corp=reCount(ctx.doc.raw,RX.corporate)>=2;
+  if(plain&&corp){mismatches.push('vocabulary');evidence.push(sourceEvidence('Website',firstSentence(ctx.doc,RX.corporate),'corporate vocabulary'));}
+  if(mismatches.length>=2) return result(8,STATUS.CONFIRMED,{sev:3,conf:clamp(.7+mismatches.length*.06,.7,.9),rule:'Actual-buyer evidence and page assumptions differ on at least two dimensions.',ev:`Mismatch detected in ${mismatches.join(', ')}.`,evidence});
+  if(mismatches.length===1) return result(8,STATUS.POSSIBLE,{sev:1,conf:.57,rule:'One buyer-state mismatch is present; confirmation requires two dimensions.',ev:`A possible mismatch appears in ${mismatches[0]}.`,evidence});
+  return clearResult(8,'No material mismatch was detected between the supplied buyer evidence and page assumptions.');
+}
+
+function detect9(ctx){
+  const issues=[],evidence=[];
+  const price=firstSentence(ctx.doc,RX.pricing),fit=firstSentence(ctx.doc,RX.fit),offer=firstSentence(ctx.doc,RX.offer),benefit=firstSentence(ctx.doc,RX.outcome),empathy=firstSentence(ctx.doc,RX.empathy);
+  if(price&&offer&&price.pos+.12<offer.pos){issues.push('pricing appears before the offer is established');evidence.push(sourceEvidence('Website',price,'early pricing'));evidence.push(sourceEvidence('Website',offer,'later offer explanation'));}
+  if(price&&fit&&price.pos+.12<fit.pos){issues.push('pricing appears before fit guidance');evidence.push(sourceEvidence('Website',price,'early pricing'));evidence.push(sourceEvidence('Website',fit,'later fit guidance'));}
+  if(benefit&&empathy&&ctx.buyer.words>=30&&reTest(ctx.buyer.raw,RX.empathy)&&benefit.pos+.18<empathy.pos){issues.push('benefits appear before verified buyer context is acknowledged');evidence.push(sourceEvidence('Website',benefit,'early benefit'));evidence.push(sourceEvidence('Website',empathy,'later empathy'));}
+  if(issues.length>=2) return result(9,STATUS.CONFIRMED,{sev:2,conf:.76,rule:'At least two prerequisite messages exist but arrive materially after the content they support.',ev:issues.join('; ')+'.',evidence});
+  if(issues.length===1) return result(9,STATUS.POSSIBLE,{sev:1,conf:.55,rule:'One supported sequencing dependency appears reversed.',ev:issues[0]+'.',evidence});
+  return clearResult(9,'No general sequencing reversal was detected. Specific CTA, proof, curriculum, and tone timing are assessed separately.');
+}
+
+function detect10(ctx){
+  if(ctx.buyer.words<30) return insufficient(10,['Documented buyer objections or uncertainty from interviews, sales calls, FAQs, or drop-off research'],'Confidence concerns should not be invented from the page.');
+  if(!ctx.cta.sentence||ctx.cta.level==='low') return clearResult(10,'No medium- or high-commitment request was detected.');
+  const cats=concernCategories(ctx.buyer.raw),unhandled=cats.filter(c=>!concernHandled(ctx.doc.raw,c));
+  const evidence=unhandled.map(c=>sourceEvidence('Buyer evidence',ctx.buyer.sentences.find(s=>concernCategories(s.text).includes(c)),c+' concern')).filter(Boolean);
+  if(unhandled.length>=2) return result(10,STATUS.CONFIRMED,{sev:2,conf:.82,rule:'At least two recurring, documented fit/capability concerns remain unresolved before commitment.',ev:`The page does not address ${unhandled.join(' or ')}.`,evidence:[...evidence,sourceEvidence('CTA',ctx.cta.sentence,'commitment request')]});
+  if(unhandled.length===1) return result(10,STATUS.POSSIBLE,{sev:1,conf:.58,rule:'One documented buyer uncertainty remains unaddressed.',ev:`The page may ask for commitment before resolving ${unhandled[0]}.`,evidence:[...evidence,sourceEvidence('CTA',ctx.cta.sentence,'commitment request')]});
+  if(cats.length===0) return insufficient(10,['Buyer evidence that states fit, capability, timing, cost, support, or prior-failure concerns'],'The supplied buyer material does not establish a confidence concern to test.');
+  return clearResult(10,'The page addresses the documented confidence concerns found in the supplied buyer material.',cats);
+}
+
+const STOP=new Set('the a an and or but if then of to for from in on at by with as is are was were be been being this that these those it its you your we our i my they their what how why who will can could should would do does did not no'.split(' '));
+function contentTokens(text){return new Set((String(text).toLowerCase().match(/[a-z][a-z-]{3,}/g)||[]).filter(x=>!STOP.has(x)));}
+function jaccard(a,b){let both=0;a.forEach(x=>{if(b.has(x))both++;});const all=new Set([...a,...b]).size;return all?both/all:0;}
+function detect11(ctx){
+  const clarity=claritySignals(ctx);
+  if(clarity.offer===0) return result(11,STATUS.POSSIBLE,{sev:1,conf:.42,rule:'Differentiation cannot be reliably judged until the offer category is clear.',ev:'The page does not yet pass the offer-clarity prerequisite.',missingInputs:['Clear offer category']});
+  const meaningfulDiff=reTest(ctx.doc.raw,RX.diff);
+  if(ctx.competitors.words<50){
+    if(!meaningfulDiff) return result(11,STATUS.POSSIBLE,{sev:1,conf:.5,rule:'No meaningful contrast is detected, but no comparison set was supplied.',ev:'The page is understandable but does not visibly answer why this option over an alternative.',evidence:[genericPageEvidence(ctx,'clear but uncontrasted offer')],missingInputs:['Competitor or alternative copy, lost-deal reasons, or customer choice evidence']});
+    return clearResult(11,'The page states a detected method, contrast, or deliberate difference; no comparison set was supplied to stress-test it.');
+  }
+  const overlap=jaccard(contentTokens(ctx.doc.raw),contentTokens(ctx.competitors.raw));
+  if(!meaningfulDiff&&overlap>=.12) return result(11,STATUS.CONFIRMED,{sev:2,conf:clamp(.66+overlap,.66,.84),rule:'The offer is clear, overlaps materially with supplied alternatives, and contains no meaningful contrast.',ev:`The page shares ${Math.round(overlap*100)}% of its substantive vocabulary with the supplied alternative set without explaining a buyer-relevant difference.`,evidence:[genericPageEvidence(ctx,'page positioning'),sourceEvidence('Alternatives',ctx.competitors.sentences[0],'comparison set')]});
+  if(!meaningfulDiff) return result(11,STATUS.POSSIBLE,{sev:1,conf:.54,rule:'No explicit buyer-relevant difference is detected despite a supplied alternative set.',ev:'Static similarity is inconclusive, but the page does not provide a clear reason to choose.',evidence:[genericPageEvidence(ctx,'page positioning')]});
+  return clearResult(11,'A specific contrast or method is present and a supplied alternative set was available for comparison.');
+}
+
+function parseFunnel(raw){
+  const text=String(raw||'').trim();
+  if(!text)return [];
+  const re=/^\s*\[PAGE:\s*([^\]]+)\]\s*$/gim,marks=[...text.matchAll(re)];
+  if(!marks.length) return [{name:'Additional funnel material',doc:buildDoc(text)}];
+  return marks.map((m,i)=>{
+    const start=m.index+m[0].length,end=i+1<marks.length?marks[i+1].index:text.length;
+    return {name:m[1].trim(),doc:buildDoc(text.slice(start,end).trim())};
+  }).filter(p=>p.doc.words>5);
+}
+function audienceTags(text){
+  const map={beginner:/\b(?:beginner|new to|first[- ]time|just starting)\b/i,advanced:/\b(?:advanced|experienced|seasoned|senior|established)\b/i,individual:/\b(?:individual|freelancer|solo|solopreneur|founder)\b/i,team:/\b(?:teams?|enterprise|organisation|organization|companies|company-wide)\b/i,consumer:/\b(?:your life|personal|family|homeowner|patient)\b/i,business:/\b(?:business|B2B|revenue|clients?|company|companies)\b/i};
+  return Object.entries(map).filter(([,re])=>reTest(text,re)).map(([k])=>k);
+}
+function detect12(ctx){
+  const extras=ctx.funnelPages;
+  if(!extras.length) return insufficient(12,['At least one additional funnel page labelled [PAGE: Name]'],'A cross-page journey cannot be assessed from one page.');
+  const pages=[{name:'Current page',doc:ctx.doc},...extras];
+  if(pages.length<2) return insufficient(12,['At least two pages in the intended path'],'A page handoff is required.');
+  const issues=[],evidence=[];
+  for(let i=0;i<pages.length-1;i++){
+    const a=pages[i],b=pages[i+1],ta=audienceTags(a.doc.raw),tb=audienceTags(b.doc.raw);
+    const contradictions=(ta.includes('beginner')&&tb.includes('advanced'))||(ta.includes('advanced')&&tb.includes('beginner'))||(ta.includes('individual')&&tb.includes('team'))||(ta.includes('consumer')&&tb.includes('business'));
+    const overlap=jaccard(contentTokens(a.doc.raw),contentTokens(b.doc.raw));
+    const lastCTA=[...a.doc.sentences].reverse().find(s=>reTest(s.text,RX.highCTA)||reTest(s.text,RX.mediumCTA)||reTest(s.text,RX.lowCTA));
+    const destMismatch=lastCTA&&reTest(lastCTA.text,/\b(?:book|schedule)\b/i)&&!reTest(b.doc.raw,/\b(?:book|schedule|calendar|call|consultation|appointment|form)\b/i);
+    if(contradictions||destMismatch){
+      issues.push(`${a.name} → ${b.name}`);
+      evidence.push(sourceEvidence(a.name,lastCTA||a.doc.sentences[0],contradictions?'audience before handoff':'CTA expectation'));
+      evidence.push(sourceEvidence(b.name,b.doc.sentences[0],contradictions?'audience after handoff':'destination opening'));
+    }else if(overlap<.035&&pages.length===2){
+      issues.push(`${a.name} → ${b.name} has very low message continuity`);
+      evidence.push(sourceEvidence(a.name,a.doc.sentences[0],'source-page promise'));
+      evidence.push(sourceEvidence(b.name,b.doc.sentences[0],'destination-page opening'));
+    }
+  }
+  if(issues.length>=2) return result(12,STATUS.CONFIRMED,{sev:3,conf:.8,rule:'At least two material page handoffs contradict audience or fail the preceding CTA expectation.',ev:`Broken handoffs: ${issues.join('; ')}.`,evidence});
+  if(issues.length===1) return result(12,STATUS.POSSIBLE,{sev:2,conf:.56,rule:'One material or low-continuity handoff was detected; confirmation requires two.',ev:`Possible break at ${issues[0]}.`,evidence});
+  return clearResult(12,'The supplied page handoffs maintain detected audience and CTA continuity.');
+}
+
+function detect13(ctx){
+  const issues=[],evidence=[];
+  const add=(label,s)=>{issues.push(label);if(s)evidence.push(sourceEvidence('Website',s,label));};
+  if(ctx.doc.avgSentence>27)add(`dense sentences averaging ${Math.round(ctx.doc.avgSentence)} words`,ctx.doc.longest);
+  if(reCount(ctx.doc.raw,RX.corporate)>=3)add('repeated corporate or specialist filler',firstSentence(ctx.doc,RX.corporate));
+  const vague=firstSentence(ctx.doc,/\b(?:click here|submit|continue|learn more|send)\b/i);if(vague)add('a vague action label',vague);
+  const labels=['call','consultation','session','assessment','strategy session'].filter(x=>new RegExp(`\\b${x}\\b`,'i').test(ctx.doc.raw));if(unique(labels).length>=3)add('multiple labels for what may be the same next step',ctx.cta.sentence);
+  if(reTest(ctx.doc.raw,/\bcontact us for pricing\b/i)&&ctx.cta.level==='high')add('hidden price expectation before a high-commitment action',firstSentence(ctx.doc,/\bcontact us for pricing\b/i));
+  const acronym=(ctx.doc.raw.match(/\b[A-Z]{3,6}\b/g)||[]);if(unique(acronym).length>=3)add(`${unique(acronym).length} unexplained acronyms`,ctx.doc.sentences.find(s=>/[A-Z]{3,6}/.test(s.text)));
+  const ctaTypes=[ctx.cta.high&&'high',ctx.cta.med&&'medium',ctx.cta.low&&'low'].filter(Boolean);if(ctaTypes.length===3)add('three competing commitment levels',ctx.cta.sentence);
+  const decisionHeavy=issues.some(x=>/next step|action label|price expectation|commitment/.test(x));
+  if(issues.length>=3) return result(13,STATUS.CONFIRMED,{sev:2,conf:.72,rule:'At least three independent micro-friction points occur on the same supplied path.',ev:`Likely friction points: ${issues.join('; ')}.`,evidence,tags:decisionHeavy?['decision-heavy']:[]});
+  if(issues.length===2) return result(13,STATUS.POSSIBLE,{sev:1,conf:.52,rule:'Two micro-friction points were found; the confirmed threshold is three.',ev:`Possible cumulative friction from ${issues.join(' and ')}.`,evidence,tags:decisionHeavy?['decision-heavy']:[]});
+  return clearResult(13,'Fewer than two independent micro-friction points were detected.');
+}
+
+function detect14(ctx){
+  const c=ctx.cta;
+  if(c.level!=='high'||!c.sentence) return notApplicable(14,'No dominant high-commitment CTA was supplied or detected.');
+  const before=ctx.doc.sentences.filter(s=>s.pos<c.position).map(s=>s.text).join(' ');
+  const foundations=[];
+  if(reTest(before,RX.audience)&&reTest(before,RX.offer))foundations.push('relevance');
+  if(reTest(before,RX.outcome)||reTest(before,RX.vagueOutcome))foundations.push('value');
+  if(reTest(before,RX.mechanism))foundations.push('plausibility');
+  if(reTest(before,RX.proof)||reTest(before,RX.authority))foundations.push('proof or authority');
+  if(reTest(before,RX.empathy)||reTest(before,RX.doubtAck))foundations.push('empathy or objection recognition');
+  const lowAlternative=!!c.low;
+  const missing=['relevance','value','plausibility','proof or authority','empathy or objection recognition'].filter(x=>!foundations.includes(x));
+  const evidence=[sourceEvidence('CTA',c.sentence,'high-commitment request')];
+  if(foundations.length<3&&['cold','mixed'].includes(ctx.traffic)) return result(14,STATUS.CONFIRMED,{sev:3,conf:.86,rule:'A cold or mixed audience meets a high-commitment CTA before three minimum trust foundations are present.',ev:`Only ${foundations.length} of 5 trust foundations appear before the ask; missing ${missing.join(', ')}.`,evidence,counterevidence:[...foundations.map(x=>`${x} appears before the CTA`),lowAlternative?'A low-commitment route also exists':null].filter(Boolean)});
+  if(foundations.length<3&&ctx.traffic==='unknown') return result(14,STATUS.POSSIBLE,{sev:2,conf:.56,rule:'The high-commitment CTA appears before enough trust foundations, but traffic temperature is unknown.',ev:`Only ${foundations.length} of 5 trust foundations appear before the ask.`,evidence,missingInputs:['Traffic temperature or referral context'],counterevidence:lowAlternative?['A low-commitment route also exists']:[]});
+  if(foundations.length<2&&ctx.traffic==='warm') return result(14,STATUS.POSSIBLE,{sev:1,conf:.45,rule:'Even a warm visitor sees almost no trust foundation before the high-commitment ask.',ev:'Referral warmth may compensate, but the page itself under-supports the ask.',evidence,counterevidence:['Traffic was marked warm']});
+  return clearResult(14,'At least three trust foundations appear before the high-commitment CTA, or the route is appropriately low risk.',foundations);
+}
+
+function detect15(ctx){
+  const prior=ctx.buyer.words>=30&&reTest(ctx.buyer.raw,/\b(?:tried before|trying .{0,35}(?:did not|didn(?:'t|’t)) work|completed .{0,25}(?:course|program|programme)|failed|been burned|disappointed|heard it before|another program|another programme|did not work|didn(?:'t|’t) work|compared|used several|third|second time)\b/i);
+  if(ctx.stage<3&&!prior) return notApplicable(15,'The buyer was not established as a sophisticated or previously disappointed category buyer.');
+  if(ctx.buyer.words<30||!prior) return insufficient(15,['Buyer evidence showing prior category exposure, comparison, or failed attempts'],'A selected stage alone does not prove sophistication.');
+  const big=sentenceList(ctx.doc,RX.broadPromise),supports=[reTest(ctx.doc.raw,RX.mechanism),proofsOf(ctx.doc).length>0,reTest(ctx.doc.raw,RX.qualification)].filter(Boolean).length;
+  if(big.length>=2&&supports<=1) return result(15,STATUS.CONFIRMED,{sev:3,conf:.86,rule:'A documented experienced/jaded buyer receives at least two familiar broad promises with no more than one sophistication support.',ev:`${big.length} first-order promises are used without enough mechanism, qualification, or evidence.`,evidence:[sourceEvidence('Buyer evidence',firstSentence(ctx.buyer,/\b(?:tried before|failed|been burned|disappointed|heard it before|didn(?:'t|’t) work)\b/i),'prior exposure'),...big.slice(0,2).map(x=>sourceEvidence('Website',x,'broad promise'))]});
+  if(big.length>=1&&supports===0) return result(15,STATUS.POSSIBLE,{sev:2,conf:.6,rule:'A familiar broad promise is used for a documented sophisticated buyer without sophistication support.',ev:'The claim may repeat a promise this buyer has already heard.',evidence:[sourceEvidence('Buyer evidence',firstSentence(ctx.buyer,/\b(?:tried before|failed|been burned|disappointed|heard it before|didn(?:'t|’t) work)\b/i),'prior exposure'),sourceEvidence('Website',big[0],'broad promise')]});
+  return clearResult(15,'The page uses detected mechanism, qualification, or proof appropriate to the documented buyer sophistication.');
+}
+
+function detect16(ctx){
+  const cur=firstSentence(ctx.doc,RX.curriculum);
+  if(ctx.pageType!=='program'&&!cur) return notApplicable(16,'This is not a supplied or detected programme/course page.');
+  if(!cur) return clearResult(16,'No curriculum-led offer section was detected.');
+  const before=ctx.doc.sentences.filter(s=>s.pos<=cur.pos).map(s=>s.text).join(' ');
+  const outcome=reTest(before,RX.curriculumOutcome),problem=reTest(before,RX.empathy),mechanism=reTest(before,RX.mechanism);
+  if(cur.pos<=.45&&!outcome) return result(16,STATUS.CONFIRMED,{sev:2,conf:.84,rule:'Curriculum appears in the first 45% before a clear intended change.',ev:`Modules or deliverables begin about ${Math.round(cur.pos*100)}% into the page before the outcome is established.`,evidence:[sourceEvidence('Website',cur,'early curriculum')]});
+  if(cur.pos<=.45&&outcome&&!problem&&!mechanism) return result(16,STATUS.POSSIBLE,{sev:1,conf:.55,rule:'An outcome is named, but curriculum arrives before starting context or causal rationale.',ev:'The buyer sees what is included before why this sequence matters.',evidence:[sourceEvidence('Website',cur,'early curriculum')]});
+  return clearResult(16,'A meaningful outcome is established before the curriculum or the curriculum appears later in the decision sequence.');
+}
+
+function detect17(ctx){
+  const zoneStart=ctx.doc.sentences.find(s=>reTest(s.text,RX.pricing)||reTest(s.text,RX.highCTA));
+  if(!zoneStart) return notApplicable(17,'No pricing or high-commitment conversion zone was detected.');
+  const pre=ctx.doc.sentences.filter(s=>s.index<zoneStart.index).map(s=>s.text).join(' '),tail=ctx.doc.sentences.filter(s=>s.index>=zoneStart.index).map(s=>s.text).join(' ');
+  if(wordsOf(pre)<40||wordsOf(tail)<12) return insufficient(17,['At least 40 words before and 12 words in the pricing/CTA zone'],'There is not enough text on both sides of the conversion point to compare register.');
+  const a=metricSet(buildDoc(pre)),b=metricSet(buildDoc(tail)),shifts=[];
+  if(a.first>=2&&b.first<a.first*.55)shifts.push('personal pronouns fall sharply');
+  if(a.contractions>=1&&b.contractions<a.contractions*.3)shifts.push('conversational contractions disappear');
+  if(reCount(tail,RX.pressure)>=2&&reCount(pre,RX.pressure)===0)shifts.push('pressure language appears abruptly');
+  if(reCount(tail,RX.formalSales)>=2&&reCount(pre,RX.formalSales)===0)shifts.push('formal sales terminology appears abruptly');
+  if(reCount(pre,RX.warm)>=1&&reCount(tail,RX.warm)===0)shifts.push('warm relational language disappears');
+  if((tail.match(/!/g)||[]).length>=(pre.match(/!/g)||[]).length+2)shifts.push('punctuation intensity rises sharply');
+  const evidence=[sourceEvidence('Earlier page',buildDoc(pre).sentences.slice(-1)[0]||buildDoc(pre).sentences[0],'established register'),sourceEvidence('Pricing/CTA zone',buildDoc(tail).sentences[0],'conversion register')];
+  if(shifts.length>=3) return result(17,STATUS.CONFIRMED,{sev:3,conf:clamp(.68+shifts.length*.05,.68,.9),rule:'At least three register dimensions shift materially at pricing or CTA.',ev:`The conversion zone changes register: ${shifts.join('; ')}.`,evidence});
+  if(shifts.length===2) return result(17,STATUS.POSSIBLE,{sev:1,conf:.55,rule:'Two register dimensions shift; confirmation requires three.',ev:`Possible tonal break: ${shifts.join('; ')}.`,evidence});
+  return clearResult(17,'Fewer than two material register shifts were detected at pricing or CTA.');
+}
+
+const DETECTORS={1:detect1,2:detect2,3:detect3,4:detect4,5:detect5,6:detect6,7:detect7,8:detect8,9:detect9,10:detect10,11:detect11,12:detect12,13:detect13,14:detect14,15:detect15,16:detect16,17:detect17};
+
+function suppressBroad(results,specificNum,broadNum,reason,condition=true){
+  const s=results.find(x=>x.n===specificNum),b=results.find(x=>x.n===broadNum);
+  if(condition&&s&&b&&active(s)&&active(b)){
+    b.suppressed=true;b.suppressedBy=specificNum;b.diagnosticRole='related';
+    s.relatedGaps.push({n:broadNum,name:b.name,relationship:reason});
+  }
+}
+function consolidate(results){
+  suppressBroad(results,14,9,'Premature Ask is the specific timing diagnosis.');
+  suppressBroad(results,16,9,'Curriculum Trap is the specific sequencing diagnosis.');
+  suppressBroad(results,15,8,'Sophistication Mismatch is the specific buyer-state diagnosis.');
+  const friction=results.find(x=>x.n===13);
+  suppressBroad(results,6,13,'Decision Gap explains the next-step friction.',friction&&friction.tags.includes('decision-heavy'));
+  return results;
+}
+
+function buildContextFromUI(){
+  const raw=document.getElementById('copyInput').value.trim();
+  const stage=parseInt(document.querySelector('#stageSeg .chip.active')?.dataset.stage||'0',10);
+  const ctx={
+    raw,doc:buildDoc(raw),stage,
+    pageType:document.getElementById('pageType').value,
+    offerType:document.getElementById('offerType').value,
+    traffic:document.getElementById('trafficTemp').value,
+    intended:document.getElementById('intendedContext').value.trim(),
+    reference:buildDoc(document.getElementById('referenceInput').value),
+    authority:buildDoc(document.getElementById('authorityInput').value),
+    buyer:buildDoc(document.getElementById('buyerInput').value),
+    competitors:buildDoc(document.getElementById('competitorInput').value),
+    funnelPages:parseFunnel(document.getElementById('funnelInput').value)
+  };
+  ctx.cta=ctaInfo(ctx.doc,document.getElementById('ctaLevel').value);
+  return ctx;
+}
+
+function runProtocol(ctx){
+  const results=GAP_META.map(g=>{
+    try{return DETECTORS[g.n](ctx);}catch(err){
+      console.error('Gap '+g.n,err);
+      return insufficient(g.n,['A valid input pattern for this diagnostic'],`This rule could not complete: ${err.message}`);
+    }
+  });
+  return consolidate(results);
+}
+
+function scoreOf(results){
+  const assessed=results.filter(r=>![STATUS.INSUFFICIENT,STATUS.NA].includes(r.status));
+  if(!assessed.length)return null;
+  let penalty=0;
+  assessed.forEach(r=>{
+    if(r.suppressed)return;
+    if(r.status===STATUS.CONFIRMED)penalty+=(r.sev/3)*r.conf;
+    else if(r.status===STATUS.POSSIBLE)penalty+=(r.sev/3)*r.conf*.45;
+  });
+  return clamp(Math.round(100-(penalty/assessed.length)*100),0,100);
+}
+function coverageOf(results){return results.filter(r=>![STATUS.INSUFFICIENT,STATUS.NA].includes(r.status)).length;}
+
+function analyze(){
+  const ctx=buildContextFromUI(),brand=document.getElementById('brandName').value.trim()||'Untitled page';
+  if(ctx.raw.length<60){flashInput();return;}
+  setRunning(true);
+  window.setTimeout(()=>{
+    const results=runProtocol(ctx),score=scoreOf(results);
+    const record={
+      id:'tg3_'+Date.now()+'_'+Math.random().toString(36).slice(2,7),brand,stage:ctx.stage,words:ctx.doc.words,savedAt:Date.now(),
+      engine:'evidence_protocol',score,coverage:coverageOf(results),copy:ctx.raw,settings:{pageType:ctx.pageType,offerType:ctx.offerType,traffic:ctx.traffic,ctaLevel:ctx.cta.level},results
     };
-  });
+    saveRecord(record);renderReport(record);setRunning(false);
+    showToast(`Saved “${record.brand}” to your library.`,true);
+  },80);
 }
-function parseJSONLoose(s){
-  try{ return JSON.parse(s); }catch(_){}
-  const a=s.indexOf('{'), b=s.lastIndexOf('}');
-  if(a>=0&&b>a){ try{ return JSON.parse(s.slice(a,b+1)); }catch(_){} }
-  return null;
-}
-
-/* ---------- scoring ---------- */
-function scoreOf(findings){
-  // penalty scales with severity², strategic weight, AND detector confidence
-  let penalty = 0;
-  findings.forEach(f=>{
-    const c = typeof f.conf==='number'? f.conf : 0.6;
-    penalty += (f.sev*f.sev) * (f.stars>=5?1.5:f.stars>=4?1.2:1) * c;
-  });
-  return Math.max(8, Math.round(100 - penalty*3.6));
-}
-function leakEstimate(score){
-  // lower score => more leak
-  const leak = Math.round((100-score)*0.42 + 6);
-  return Math.min(74, leak);
+function setRunning(on){
+  const btn=document.getElementById('runBtn');btn.classList.toggle('loading',on);
+  btn.querySelector('.arw').textContent=on?'↻':'→';
+  btn.childNodes[0].textContent=on?'Applying evidence rules':'Analyze for gaps';
 }
 
-/* ============================================================
-   RENDER
-   ============================================================ */
+function statusLabel(s){return ({confirmed:'Confirmed',possible:'Possible',not_detected:'Not detected',insufficient_evidence:'Insufficient evidence',not_applicable:'Not applicable'})[s]||s;}
+function severityLabel(n){return n===3?'High':n===2?'Medium':'Low';}
+
 function renderReport(record){
-  const findings = record.findings;
-  const brand = record.brand, stage = record.stage;
+  const results=record.results||[],visible=results.filter(r=>active(r)&&!r.suppressed),score=record.score;
+  const confirmed=visible.filter(r=>r.status===STATUS.CONFIRMED).length,possible=visible.filter(r=>r.status===STATUS.POSSIBLE).length;
+  const insufficientCount=results.filter(r=>r.status===STATUS.INSUFFICIENT).length,naCount=results.filter(r=>r.status===STATUS.NA).length,clearCount=results.filter(r=>r.status===STATUS.CLEAR).length;
+  const consolidated=results.filter(r=>r.suppressed);
   document.getElementById('emptyState').style.display='none';
-  const report = document.getElementById('report');
-  report.style.display='block';
-  const score = record.score;
-  const leak = leakEstimate(score);
-  const crit = findings.filter(f=>f.sev===3).length;
-  const mod = findings.filter(f=>f.sev===2).length;
-  const light = findings.filter(f=>f.sev===1).length;
-  const clean = 17 - findings.length;
-  const savedStr = new Date(record.savedAt).toLocaleString([], {month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit'});
-
-  let verdict, vtext;
-  if(score>=82){verdict="Trust largely intact.";vtext=`${brand} reads coherently. A few refinements below will tighten the funnel, but nothing is bleeding buyers.`;}
-  else if(score>=60){verdict="Trust is leaking at the seams.";vtext=`${brand} works in parts, but a skeptical Stage-${stage} buyer hits several moments of hesitation before they're ready to act.`;}
-  else if(score>=38){verdict="The page is under-earning its ask.";vtext=`${brand} is asking for belief it hasn't built yet. The gaps below stack — fix the critical ones first.`;}
-  else{verdict="This funnel is losing most of who arrives.";vtext=`${brand} is speaking past a skeptical buyer. Multiple structural trust gaps are firing at once.`;}
-
-  const circ = 2*Math.PI*66;
-  const off = circ*(1 - score/100);
-  const gaugeColor = score>=82?'#8fbf9e':score>=60?'#e0b85e':'#e6836f';
-
-  let html = `
+  const report=document.getElementById('report');report.style.display='block';
+  const savedStr=new Date(record.savedAt).toLocaleString([], {month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit'});
+  let verdict,vtext;
+  if(confirmed===0&&possible===0){verdict='No supported gap was detected.';vtext=`${record.brand} passed the rules that had enough evidence to run. Missing-input diagnostics are not counted as clear.`;}
+  else if(confirmed===0){verdict='Review the possible gaps.';vtext=`The platform found borderline signals but not enough evidence for a confirmed diagnosis.`;}
+  else if(confirmed<=2){verdict='A small number of supported gaps need attention.';vtext=`Fix the confirmed findings first, then review the possible findings and counterevidence.`;}
+  else{verdict='Several supported trust gaps are stacking.';vtext=`The report consolidates overlapping labels so the same underlying problem is not counted repeatedly.`;}
+  const displayScore=score==null?'—':score,circ=2*Math.PI*66,off=score==null?circ:circ*(1-score/100),gaugeColor=score==null?'#8a8172':score>=82?'#8fbf9e':score>=60?'#e0b85e':'#e6836f';
+  let html=`
   <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;margin-bottom:18px">
-    <div>
-      <div class="mono" style="font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sage)">Report for</div>
-      <div class="display" style="font-size:1.5rem">${escapeHtml(brand)}</div>
-    </div>
-    <div style="text-align:right">
-      <div class="source-tag ${record.engine==='llm'?'claude':''}">${record.engine==='llm'?'Claude reading · '+ (record.model||'') : 'Static protocol'}</div>
-      <div class="mono" style="font-size:.62rem;letter-spacing:.1em;color:var(--sage);margin-top:6px">Saved ${savedStr}</div>
-    </div>
+    <div><div class="mono report-eyebrow">Report for</div><div class="display" style="font-size:1.5rem">${escapeHtml(record.brand)}</div></div>
+    <div style="text-align:right"><div class="source-tag">Evidence-gated protocol</div><div class="mono report-date">Saved ${savedStr}</div></div>
   </div>
   <div class="score-hero">
-    <div class="gauge">
-      <svg width="150" height="150" viewBox="0 0 150 150">
-        <circle cx="75" cy="75" r="66" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="10"/>
-        <circle cx="75" cy="75" r="66" fill="none" stroke="${gaugeColor}" stroke-width="10" stroke-linecap="round"
-          stroke-dasharray="${circ}" stroke-dashoffset="${circ}" id="gaugeArc"/>
-      </svg>
-      <div class="val"><b id="scoreNum">0</b><span>TRUST SCORE</span></div>
-    </div>
-    <div>
-      <h3 class="display">${verdict}</h3>
-      <p>${vtext}</p>
-      <div class="leak">EST. VISITORS LOST TO THESE GAPS <b>~${leak}%</b></div>
-    </div>
+    <div class="gauge"><svg width="150" height="150" viewBox="0 0 150 150"><circle cx="75" cy="75" r="66" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="10"/><circle cx="75" cy="75" r="66" fill="none" stroke="${gaugeColor}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${circ}" id="gaugeArc"/></svg><div class="val"><b id="scoreNum">${score==null?'—':'0'}</b><span>PROTOCOL SCORE</span></div></div>
+    <div><h3 class="display">${verdict}</h3><p>${vtext}</p><div class="leak">ASSESSMENT COVERAGE <b>${record.coverage??coverageOf(results)}/17</b><span>Eligible rules only</span></div></div>
   </div>
-
+  <div class="score-note">The protocol score is a diagnostic index, not a conversion-rate or revenue forecast. Strategic stars do not determine finding severity.</div>
   <div class="summary-bar">
-    <span class="pill crit"><b>${crit}</b>critical</span>
-    <span class="pill mod"><b>${mod}</b>moderate</span>
-    <span class="pill clean"><b>${light}</b>minor</span>
-    <span class="pill clean"><b>${clean}</b>clear of 17</span>
-    <span class="pill"><b>${record.words}</b>words read · Stage ${stage}</span>
+    <span class="pill crit"><b>${confirmed}</b>confirmed</span><span class="pill mod"><b>${possible}</b>possible</span><span class="pill clean"><b>${clearCount}</b>not detected</span><span class="pill"><b>${insufficientCount}</b>need evidence</span><span class="pill"><b>${naCount}</b>not applicable</span><span class="pill"><b>${record.words}</b>words read</span>
   </div>`;
-
-  if(findings.length===0){
-    html += `<div class="empty">No trust gaps detected against the Protocol. This copy holds together — re-run with more of the funnel to stress-test the journey.</div>`;
-  } else {
-    html += `<div class="gap-grid">`;
-    findings.forEach(f=>{
-      const label = f.sev===3?'Critical':f.sev===2?'Moderate':'Minor';
-      const cpct = Math.round((f.conf||0.6)*100);
-      const clabel = cpct>=75?'High confidence':cpct>=55?'Moderate confidence':'Worth a look';
-      const quoteBlock = f.quote
-        ? `<div class="evquote">“${escapeHtml(f.quote.length>220?f.quote.slice(0,217)+'…':f.quote)}”</div>`
-        : `<div class="evquote none">No single line to cite — this is a whole-page pattern (absence or sequencing).</div>`;
-      html += `
-      <div class="gcard" data-sev="${f.sev}">
-        <div class="gtop">
-          <div>
-            <span class="num">GAP ${String(f.n).padStart(2,'0')}<span class="stars">${'★'.repeat(f.stars)}</span></span>
-            <h4>${f.name}</h4>
-          </div>
-          <span class="sev-badge" data-s="${f.sev}">${label}</span>
-        </div>
-        ${f.source==='llm'?'<span class="source-tag claude" style="margin-bottom:10px;display:inline-block">Claude</span>':''}
-        <div class="diag">${f.def}</div>
-        <div class="found">🔎 <b>Why this fired:</b> ${f.ev}</div>
-        ${quoteBlock}
-        <div class="confrow">
-          <span class="conflab">${clabel}</span>
-          <span class="confbar"><i style="width:${cpct}%"></i></span>
-          <span class="confpct">${cpct}%</span>
-        </div>
-        <div class="fix"><span class="lab">Protocol fix</span>${f.fix}</div>
-      </div>`;
+  if(!visible.length){html+=`<div class="empty">No confirmed or possible gap met its evidence threshold. Review assessment boundaries below before treating the page as clear.</div>`;}
+  else{
+    html+='<div class="gap-grid">';
+    visible.forEach(r=>{
+      const cpct=Math.round((r.conf||.5)*100),clabel=cpct>=75?'High confidence':cpct>=55?'Moderate confidence':'Borderline';
+      const evHtml=r.evidence.length?`<div class="evidence-list">${r.evidence.map(e=>`<div class="evidence-item"><span>${escapeHtml(e.source)} · ${escapeHtml(e.location||'')}</span><blockquote>“${escapeHtml((e.quote||'').length>240?e.quote.slice(0,237)+'…':e.quote||'')}”</blockquote><small>${escapeHtml(e.signal||'')}</small></div>`).join('')}</div>`:`<div class="evquote none">This finding is based on a documented absence or structural rule; no single line carries it alone.</div>`;
+      const counter=r.counterevidence.length?`<details class="counter"><summary>Counterevidence considered</summary><ul>${r.counterevidence.map(x=>`<li>${escapeHtml(typeof x==='string'?x:JSON.stringify(x))}</li>`).join('')}</ul></details>`:'';
+      const missing=r.missingInputs.length?`<div class="missing-inline"><b>Would strengthen this:</b> ${r.missingInputs.map(escapeHtml).join('; ')}</div>`:'';
+      const related=r.relatedGaps.length?`<div class="related-inline"><b>Related pattern consolidated:</b> ${r.relatedGaps.map(x=>`GAP ${String(x.n).padStart(2,'0')} ${escapeHtml(x.name)}`).join(', ')}</div>`:'';
+      html+=`<article class="gcard" data-sev="${r.sev}" data-status="${r.status}"><div class="gtop"><div><span class="num">GAP ${String(r.n).padStart(2,'0')}<span class="stars">${'★'.repeat(r.stars)}</span></span><h4>${escapeHtml(r.name)}</h4></div><div class="badge-stack"><span class="status-badge ${r.status}">${statusLabel(r.status)}</span><span class="sev-badge" data-s="${r.sev}">${severityLabel(r.sev)}</span></div></div><div class="diag">${escapeHtml(r.def)}</div><div class="rule-box"><span>Rule triggered</span>${escapeHtml(r.rule)}</div><div class="found">🔎 <b>Finding:</b> ${escapeHtml(r.ev)}</div>${evHtml}${counter}${missing}${related}<div class="confrow"><span class="conflab">${clabel}</span><span class="confbar"><i style="width:${cpct}%"></i></span><span class="confpct">${cpct}%</span></div><div class="fix"><span class="lab">Protocol fix</span>${escapeHtml(r.fix)}</div></article>`;
     });
-    html += `</div>`;
+    html+='</div>';
   }
-
-  report.innerHTML = html;
-  requestAnimationFrame(()=>{
-    const arc=document.getElementById('gaugeArc');
-    if(arc){arc.style.transition='stroke-dashoffset 1.1s cubic-bezier(.6,0,.2,1)';arc.style.strokeDashoffset=off;}
-    animateNumber(document.getElementById('scoreNum'),score,1100);
-  });
-  const bars=[...report.querySelectorAll('.confbar i')].map(b=>{const w=b.style.width;b.style.width='0%';return [b,w];});
-  const cards=[...report.querySelectorAll('.gcard')];
-  cards.forEach((c,i)=> setTimeout(()=>c.classList.add('in'), 120 + i*70));
-  setTimeout(()=> bars.forEach(([b,w])=> b.style.width=w), 400);
+  const boundaries=results.filter(r=>r.status===STATUS.INSUFFICIENT||r.status===STATUS.NA);
+  html+=`<section class="boundaries"><h3 class="display">Assessment boundaries</h3><p>These rules abstained instead of guessing.</p>${boundaries.length?`<div class="boundary-grid">${boundaries.map(r=>`<div class="boundary-item"><b>GAP ${String(r.n).padStart(2,'0')} · ${escapeHtml(r.name)}</b><span class="status-mini">${statusLabel(r.status)}</span><p>${escapeHtml(r.ev)}</p>${r.missingInputs.length?`<small>Needed: ${r.missingInputs.map(escapeHtml).join('; ')}</small>`:''}</div>`).join('')}</div>`:'<p class="mono">All rules had enough context or were assessed.</p>'}${consolidated.length?`<div class="consolidated"><b>Duplicate labels consolidated:</b> ${consolidated.map(r=>`GAP ${String(r.n).padStart(2,'0')} under GAP ${String(r.suppressedBy).padStart(2,'0')}`).join('; ')}.</div>`:''}</section>`;
+  report.innerHTML=html;
+  requestAnimationFrame(()=>{const arc=document.getElementById('gaugeArc');if(arc){arc.style.transition='stroke-dashoffset 1.1s cubic-bezier(.6,0,.2,1)';arc.style.strokeDashoffset=off;}if(score!=null)animateNumber(document.getElementById('scoreNum'),score,900);});
+  const bars=[...report.querySelectorAll('.confbar i')].map(b=>{const w=b.style.width;b.style.width='0%';return[b,w];});
+  [...report.querySelectorAll('.gcard')].forEach((c,i)=>setTimeout(()=>c.classList.add('in'),100+i*55));setTimeout(()=>bars.forEach(([b,w])=>b.style.width=w),350);
   document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
 }
+function animateNumber(el,to,dur){if(!el)return;const start=performance.now();function step(now){const p=Math.min(1,(now-start)/dur);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
+function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
-function animateNumber(el,to,dur){
-  if(!el)return;const start=performance.now();
-  function step(now){const p=Math.min(1,(now-start)/dur);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step);}
-  requestAnimationFrame(step);
-}
-
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-
-/* ============================================================
-   PERSISTENCE — saved diagnostics (localStorage)
-   ============================================================ */
-const STORE_KEY='trustgap_saved_v1';
-function loadAll(){
-  try{ return JSON.parse(localStorage.getItem(STORE_KEY)||'[]'); }
-  catch(e){ return []; }
-}
-function persist(arr){
-  try{ localStorage.setItem(STORE_KEY, JSON.stringify(arr)); }
-  catch(e){ showToast('Storage full — could not save. Delete older diagnostics.', false); }
-}
-function saveRecord(rec){
-  const arr=loadAll();
-  arr.unshift(rec);            // newest first
-  persist(arr);
-  renderLibrary();
-}
-function deleteRecord(id){
-  let arr=loadAll().filter(r=>r.id!==id);
-  persist(arr);
-  renderLibrary();
-}
-function getRecord(id){ return loadAll().find(r=>r.id===id); }
-
-function bandOf(score){ return score>=70?'high':score>=45?'mid':'low'; }
-
+const STORE_KEY='trustgap_saved_v3';
+function loadAll(){try{return JSON.parse(localStorage.getItem(STORE_KEY)||'[]');}catch(e){return[];}}
+function persist(arr){try{localStorage.setItem(STORE_KEY,JSON.stringify(arr));}catch(e){showToast('Storage full — delete older diagnostics.',false);}}
+function saveRecord(rec){const arr=loadAll();arr.unshift(rec);persist(arr);renderLibrary();}
+function deleteRecord(id){persist(loadAll().filter(r=>r.id!==id));renderLibrary();}
+function getRecord(id){return loadAll().find(r=>r.id===id);}
+function bandOf(score){if(score==null)return'mid';return score>=80?'high':score>=60?'mid':'low';}
 function renderLibrary(){
-  const arr=loadAll();
-  const grid=document.getElementById('libraryGrid');
-  const q=(document.getElementById('librarySearch').value||'').toLowerCase().trim();
-  const filtered=q? arr.filter(r=>r.brand.toLowerCase().includes(q)) : arr;
-
-  document.getElementById('libraryCount').textContent = arr.length+' saved';
-  const navc=document.getElementById('navCount');
-  if(navc) navc.textContent = arr.length? '('+arr.length+')' : '';
-
-  if(arr.length===0){
-    grid.innerHTML='<div class="lib-empty">No saved diagnostics yet. Run one above — every diagnostic you run is stored here automatically.</div>';
-    return;
-  }
-  if(filtered.length===0){
-    grid.innerHTML='<div class="lib-empty">No saved brands match "'+escapeHtml(q)+'".</div>';
-    return;
-  }
-  grid.innerHTML = filtered.map(r=>{
-    const crit=r.findings.filter(f=>f.sev===3).length;
-    const total=r.findings.length;
-    const date=new Date(r.savedAt).toLocaleDateString([], {month:'short',day:'numeric',year:'numeric'});
-    return `
-    <div class="savecard" data-band="${bandOf(r.score)}" data-id="${r.id}">
-      <div class="sc-top">
-        <h4>${escapeHtml(r.brand)}</h4>
-        <div style="text-align:right"><div class="sc-score">${r.score}</div><div class="mono" style="font-size:.55rem;letter-spacing:.14em;color:var(--sage)">SCORE</div></div>
-      </div>
-      <div class="sc-tags">
-        ${crit? `<span class="sc-tag c">${crit} critical</span>`:''}
-        <span class="sc-tag">${total} gap${total===1?'':'s'} found</span>
-        <span class="sc-tag">Stage ${r.stage}</span>
-        <span class="sc-tag ${r.engine==='llm'?'c':''}">${r.engine==='llm'?'Claude':'Static'}</span>
-      </div>
-      <div class="sc-meta"><span>📄 ${r.words} words</span><span>🗓 ${date}</span></div>
-      <div class="sc-actions">
-        <button class="sc-btn view" data-id="${r.id}">Open report</button>
-        <button class="sc-btn del" data-id="${r.id}">Delete</button>
-      </div>
-    </div>`;
-  }).join('');
+  const arr=loadAll(),grid=document.getElementById('libraryGrid'),q=(document.getElementById('librarySearch').value||'').toLowerCase().trim(),filtered=q?arr.filter(r=>r.brand.toLowerCase().includes(q)):arr;
+  document.getElementById('libraryCount').textContent=arr.length+' saved';const navc=document.getElementById('navCount');if(navc)navc.textContent=arr.length?'('+arr.length+')':'';
+  if(!arr.length){grid.innerHTML='<div class="lib-empty">No saved diagnostics yet. Each report is stored only in this browser.</div>';return;}
+  if(!filtered.length){grid.innerHTML='<div class="lib-empty">No saved brands match “'+escapeHtml(q)+'”.</div>';return;}
+  grid.innerHTML=filtered.map(r=>{const visible=(r.results||[]).filter(x=>active(x)&&!x.suppressed),confirmed=visible.filter(x=>x.status===STATUS.CONFIRMED).length,date=new Date(r.savedAt).toLocaleDateString([], {month:'short',day:'numeric',year:'numeric'});return `<div class="savecard" data-band="${bandOf(r.score)}" data-id="${r.id}"><div class="sc-top"><h4>${escapeHtml(r.brand)}</h4><div style="text-align:right"><div class="sc-score">${r.score==null?'—':r.score}</div><div class="mono" style="font-size:.55rem;letter-spacing:.14em;color:var(--sage)">PROTOCOL</div></div></div><div class="sc-tags">${confirmed?`<span class="sc-tag c">${confirmed} confirmed</span>`:''}<span class="sc-tag">${visible.length} shown</span><span class="sc-tag">${r.coverage??coverageOf(r.results||[])}/17 assessed</span></div><div class="sc-meta"><span>📄 ${r.words} words</span><span>🗓 ${date}</span></div><div class="sc-actions"><button class="sc-btn view" data-id="${r.id}">Open report</button><button class="sc-btn del" data-id="${r.id}">Delete</button></div></div>`;}).join('');
 }
-
-function openSaved(id){
-  const rec=getRecord(id);
-  if(!rec) return;
-  renderReport(rec);
-}
+function openSaved(id){const rec=getRecord(id);if(rec)renderReport(rec);}
 
 function resetInputFields(){
-  input.value='';
-  document.getElementById('brandName').value='';
-  wc.textContent='0 words';
-  document.querySelectorAll('#stageSeg .chip').forEach(x=>x.classList.toggle('active',x.dataset.stage==='3'));
+  ['brandName','intendedContext','copyInput','referenceInput','authorityInput','buyerInput','competitorInput','funnelInput'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('pageType').value='homepage';document.getElementById('offerType').value='unknown';document.getElementById('trafficTemp').value='unknown';document.getElementById('ctaLevel').value='auto';
+  document.querySelectorAll('#stageSeg .chip').forEach(x=>x.classList.toggle('active',x.dataset.stage==='0'));document.getElementById('wordCount').textContent='0 words';
 }
+let toastEl,toastTimer;
+function showToast(msg,withLink){if(!toastEl){toastEl=document.createElement('div');toastEl.className='toast';document.body.appendChild(toastEl);}toastEl.innerHTML=`<span>✓ ${escapeHtml(msg)}</span>`+(withLink?' <a id="toastLink">View library →</a>':'');toastEl.classList.add('show');const link=document.getElementById('toastLink');if(link)link.onclick=()=>document.getElementById('library').scrollIntoView({behavior:'smooth'});clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.classList.remove('show'),4200);}
 
-/* ---------- toast ---------- */
-let toastEl, toastTimer;
-function showToast(msg, withLink){
-  if(!toastEl){ toastEl=document.createElement('div'); toastEl.className='toast'; document.body.appendChild(toastEl); }
-  toastEl.innerHTML = `<span>✓ ${escapeHtml(msg)}</span>` + (withLink? ` <a id="toastLink">View library →</a>`:'');
-  toastEl.classList.add('show');
-  const link=document.getElementById('toastLink');
-  if(link) link.onclick=()=>{ document.getElementById('library').scrollIntoView({behavior:'smooth'}); };
-  clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>toastEl.classList.remove('show'), 4200);
-}
-
-/* ============================================================
-   UI WIRING
-   ============================================================ */
-const input=document.getElementById('copyInput');
-const wc=document.getElementById('wordCount');
-input.addEventListener('input',()=>{const w=(input.value.trim().match(/\S+/g)||[]).length;wc.textContent=w+' word'+(w===1?'':'s');});
-
-document.getElementById('stageSeg').addEventListener('click',e=>{
-  const c=e.target.closest('.chip');if(!c)return;
-  document.querySelectorAll('#stageSeg .chip').forEach(x=>x.classList.remove('active'));
-  c.classList.add('active');
-});
-
-document.getElementById('runBtn').addEventListener('click',()=>{analyze();});
-document.getElementById('clearBtn').addEventListener('click',resetInputFields);
-
-/* ---------- engine toggle + BYOK key persistence ---------- */
-const KEY_STORE='trustgap_anthropic_key', MODEL_STORE='trustgap_model';
-document.getElementById('engineToggle').addEventListener('click',e=>{
-  const tab=e.target.closest('.etab'); if(!tab) return;
-  document.querySelectorAll('#engineToggle .etab').forEach(x=>x.classList.remove('active'));
-  tab.classList.add('active');
-  document.getElementById('llmConfig').hidden = tab.dataset.engine!=='llm';
-});
-const apiKeyEl=document.getElementById('apiKey');
-const modelSel=document.getElementById('modelSel');
-const keyState=document.getElementById('keyState');
-function refreshKeyState(){
-  const has=(apiKeyEl.value||'').trim().length>10;
-  keyState.textContent = has?'saved in this browser':'';
-  keyState.className = 'keystate'+(has?' saved':'');
-}
-(function(){
-  const k=localStorage.getItem(KEY_STORE); if(k){ apiKeyEl.value=k; }
-  const m=localStorage.getItem(MODEL_STORE); if(m){ modelSel.value=m; }
-  refreshKeyState();
-})();
-apiKeyEl.addEventListener('input',()=>{
-  const v=apiKeyEl.value.trim();
-  if(v) localStorage.setItem(KEY_STORE,v); else localStorage.removeItem(KEY_STORE);
-  refreshKeyState();
-});
-modelSel.addEventListener('change',()=>localStorage.setItem(MODEL_STORE,modelSel.value));
-
-document.getElementById('libraryGrid').addEventListener('click',e=>{
-  const del=e.target.closest('.sc-btn.del');
-  const view=e.target.closest('.sc-btn.view');
-  const card=e.target.closest('.savecard');
-  if(del){
-    e.stopPropagation();
-    const rec=getRecord(del.dataset.id);
-    if(rec && confirm(`Delete the saved diagnostic for "${rec.brand}"? This can't be undone.`)) deleteRecord(del.dataset.id);
-    return;
-  }
-  if(view){ openSaved(view.dataset.id); return; }
-  if(card){ openSaved(card.dataset.id); }
-});
+const input=document.getElementById('copyInput'),wc=document.getElementById('wordCount');
+input.addEventListener('input',()=>{const w=wordsOf(input.value);wc.textContent=w+' word'+(w===1?'':'s');});
+document.getElementById('stageSeg').addEventListener('click',e=>{const c=e.target.closest('.chip');if(!c)return;document.querySelectorAll('#stageSeg .chip').forEach(x=>x.classList.remove('active'));c.classList.add('active');});
+document.getElementById('runBtn').addEventListener('click',analyze);document.getElementById('clearBtn').addEventListener('click',resetInputFields);
+document.getElementById('libraryGrid').addEventListener('click',e=>{const del=e.target.closest('.sc-btn.del'),view=e.target.closest('.sc-btn.view'),card=e.target.closest('.savecard');if(del){e.stopPropagation();const rec=getRecord(del.dataset.id);if(rec&&confirm(`Delete the saved diagnostic for “${rec.brand}”? This cannot be undone.`))deleteRecord(del.dataset.id);return;}if(view){openSaved(view.dataset.id);return;}if(card)openSaved(card.dataset.id);});
 document.getElementById('librarySearch').addEventListener('input',renderLibrary);
+function flashInput(){input.style.borderColor='var(--accent)';input.focus();input.placeholder='Paste at least a few sentences of website copy to analyze...';setTimeout(()=>input.style.borderColor='',1200);}
 
-function flashInput(){
-  input.style.borderColor='var(--accent)';input.focus();
-  input.placeholder='Paste at least a few sentences of website copy to analyze...';
-  setTimeout(()=>input.style.borderColor='',1200);
-}
-
-/* ---------- samples ---------- */
 const SAMPLES={
-  coach:{name:"Nova Coaching — Homepage",stage:"4",text:`Ready to transform your life? Book a call today and unlock your unlimited potential.\n\nWe are a world-class, best-in-class coaching solution that empowers you to reach your goals through our holistic approach and cutting-edge, industry-leading methodology.\n\nOur amazing, life-changing program is incredible!! You will get results guaranteed. This is a game-changer!!\n\nApply now to secure your spot. Limited spots available. Enrollment closing soon.\n\nInvestment: contact us for pricing. Payment plans available. Non-refundable.`},
-   program:{name:"Momentum Program — Sales Page",stage:"4",text:`Hi, I'm Dana. For years I struggled to grow my business and felt completely overwhelmed and stuck. I know exactly how tired you are of trying things that don't work. I've been there.\n\nHere's what's inside the program:\n\nModule 1: Foundations. Module 2: Systems. Twelve modules total, weekly calls, and lifetime access. Plus bonuses and worksheets.\n\nYou got this. It's time to invest in yourself and take the leap.\n\nSecure your spot now. This is a serious investment. Limited enrollment. Act now. Non-refundable payment.`},
-  clean:{name:"Riverstone Consulting — Homepage",stage:"3",text:`If you're like most founders I work with, you've already tried three growth agencies and you're skeptical this will be any different. Fair.\n\nI'm Marcus. For the last eleven years I've helped B2B founders fix the leaks in their sales process — most recently taking a SaaS client from 40 to 210 qualified demos a month.\n\nHere's why that works: most agencies optimize ads. I rebuild the conversation between your first touch and your first call, because that's where the real drop-off happens. That's the difference — and it's why my clients stay an average of two years.\n\n"Marcus found the gap two consultants missed. Revenue up 60% in a quarter." — Priya N., founder\n\nWhen you're ready, book a 30-minute call. No pitch, no pressure — if I can't see a clear opportunity in your funnel, I'll tell you on the call. You leave with a plan either way.`}
+  coach:{name:'Nova Coaching — Homepage',pageType:'homepage',offerType:'transformation',traffic:'cold',stage:'4',cta:'auto',text:`Ready to transform your life? Book a call today and unlock your unlimited potential.\n\nWe are a world-class coaching solution that empowers you to reach your goals through our holistic, cutting-edge methodology.\n\nOur amazing, life-changing program is incredible. You will get guaranteed results.\n\nApply now to secure your spot. Limited spots available. Enrollment closing soon.\n\nInvestment: contact us for pricing. Payment plans available. Non-refundable.`,buyer:`Prospects usually arrive after trying at least two coaching programmes that did not work. They are skeptical, cautious about cost, and need proof that this will be different. Many say they are not ready to book a sales call until they understand the method.`},
+  program:{name:'Momentum Programme — Sales Page',pageType:'program',offerType:'transformation',traffic:'mixed',stage:'4',cta:'high',text:`Hi, I'm Dana. For years I struggled to grow my business and felt completely overwhelmed and stuck. I know exactly how tired you are of trying things that don't work.\n\nHere's what's inside the programme:\n\nModule 1: Foundations. Module 2: Systems. Twelve modules total, weekly calls, lifetime access, bonuses and worksheets.\n\nYou got this. It's time to invest in yourself and take the leap.\n\nSecure your spot now. This is a serious investment. Limited enrollment. Act now. Non-refundable payment.`,buyer:`Buyers have usually completed one or two business courses before arriving. They worry about time, whether the programme fits their stage, and what support they receive if they get stuck. Several describe being disappointed by generic modules.`},
+  clean:{name:'Riverstone Consulting — Homepage',pageType:'homepage',offerType:'transformation',traffic:'cold',stage:'3',cta:'high',text:`If you're like most B2B founders I work with, you've already tried three growth agencies and you're skeptical this will be different. Fair.\n\nI'm Marcus. For eleven years I've helped B2B founders repair sales-process leaks — most recently taking a SaaS client from 40 to 210 qualified demos a month.\n\nMost agencies optimize ads. I rebuild the conversation between first touch and first call because that is where the real drop-off happens. Clients stay an average of two years.\n\n“Marcus found the gap two consultants missed. Revenue rose 60% in a quarter.” — Priya N., founder\n\nWhen you're ready, book a 30-minute diagnostic call. No pitch and no obligation. We will review your funnel, see if there is a fit, and I will send a short action summary afterward.`,buyer:`Founders usually arrive after working with other agencies. They are skeptical and want evidence, a clear explanation of the method, and reassurance that the diagnostic call is not a disguised pressure pitch.`}
 };
-document.querySelectorAll('[data-sample]').forEach(a=>{
-  a.addEventListener('click',()=>{
-    const s=SAMPLES[a.dataset.sample];
-    document.getElementById('brandName').value=s.name;
-    input.value=s.text;input.dispatchEvent(new Event('input'));
-    document.querySelectorAll('#stageSeg .chip').forEach(x=>x.classList.toggle('active',x.dataset.stage===s.stage));
-    document.querySelectorAll('#engineToggle .etab').forEach(x=>x.classList.toggle('active',x.dataset.engine==='static'));
-    document.getElementById('llmConfig').hidden=true;
-    analyze();
-  });
-});
+document.querySelectorAll('[data-sample]').forEach(a=>a.addEventListener('click',()=>{const s=SAMPLES[a.dataset.sample];resetInputFields();document.getElementById('brandName').value=s.name;document.getElementById('pageType').value=s.pageType;document.getElementById('offerType').value=s.offerType;document.getElementById('trafficTemp').value=s.traffic;document.getElementById('ctaLevel').value=s.cta;input.value=s.text;document.getElementById('buyerInput').value=s.buyer;input.dispatchEvent(new Event('input'));document.querySelectorAll('#stageSeg .chip').forEach(x=>x.classList.toggle('active',x.dataset.stage===s.stage));analyze();}));
 
-/* ---------- protocol reference render ---------- */
 const refGrid=document.getElementById('refGrid');
-refGrid.innerHTML=GAPS.map(g=>`
-  <div class="ref">
-    <div class="rn">GAP ${String(g.n).padStart(2,'0')} <span class="stars">${'★'.repeat(g.stars)}</span></div>
-    <h4>${g.name}</h4>
-    <p>${g.def}</p>
-  </div>`).join('');
+refGrid.innerHTML=GAP_META.map(g=>`<div class="ref"><div class="rn">GAP ${String(g.n).padStart(2,'0')} <span class="stars">${'★'.repeat(g.stars)}</span></div><h4>${g.name}</h4><p>${g.def}</p></div>`).join('');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.getElementById('yr').textContent=new Date().getFullYear();renderLibrary();
 
-/* ---------- scroll reveal ---------- */
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-document.getElementById('yr').textContent=new Date().getFullYear();
-
-/* ---------- boot: hydrate saved library ---------- */
-renderLibrary();
 </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2d76af01e69e247',t:'MTc4NzEyNDI1Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
