@@ -117,6 +117,23 @@
       text-transform: uppercase;
       opacity: .72;
     }
+    .home-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.25rem;
+      padding: .48rem .75rem;
+      color: var(--navy);
+      border: 1px solid rgba(36,56,74,.28);
+      text-decoration: none;
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      transition: color .2s ease, background .2s ease;
+    }
+    .home-button:hover,
+    .home-button:focus-visible { color: var(--ivory); background: var(--navy); }
     .index-button {
       display: inline-flex;
       align-items: center;
@@ -1148,9 +1165,11 @@
     @media (max-width: 620px) {
       :root { --gutter: 1rem; }
       .site-header { padding-block: .65rem; }
+      .header-inner { gap: .5rem; }
       .case-label { display: none; }
       .wordmark__text { display: inline; font-size: .58rem; }
-      .index-button { font-size: .62rem; }
+      .home-button { margin-left: auto; padding: .42rem .58rem; font-size: .55rem; }
+      .index-button { gap: .4rem; padding-left: .35rem; font-size: .59rem; }
       .hero { padding-top: 6.8rem; padding-bottom: 3.5rem; }
       .report-strip { grid-template-columns: 1fr; margin-bottom: 2.5rem; }
       .report-strip span { padding: .55rem 0; }
@@ -1235,11 +1254,12 @@
 
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
-      <a class="wordmark" href="../../index.html" aria-label="Back to Segun’s Copy Studio">
+      <a class="wordmark" href="https://segunfalade.github.io/home/" aria-label="Go to the Segun’s Copy Studio homepage">
         <span class="wordmark__mark">S</span>
         <span class="wordmark__text">Segun’s<br>Copy Studio</span>
       </a>
       <span class="case-label">The Buyer’s Republic · State 01</span>
+      <a class="home-button" href="https://segunfalade.github.io/home/" aria-label="Back to the Segun’s Copy Studio homepage">← Homepage</a>
       <button class="index-button" id="indexOpen" type="button" aria-expanded="false" aria-controls="caseIndex">
         Case index <span class="index-button__lines" aria-hidden="true"></span>
       </button>
@@ -1719,7 +1739,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner"><span>The Buyer’s Republic · State 01 · Qualification</span><span><a href="../../index.html#work">← Return to the Republic</a> &nbsp;·&nbsp; <a href="#case-file">Return to top ↑</a></span></div>
+    <div class="footer-inner"><span>The Buyer’s Republic · State 01 · Qualification</span><span><a href="https://segunfalade.github.io/home/">← Homepage</a> &nbsp;·&nbsp; <a href="https://segunfalade.github.io/home/#work">The Buyer’s Republic</a> &nbsp;·&nbsp; <a href="#case-file">Return to top ↑</a></span></div>
   </footer>
 
   <script>
@@ -1782,5 +1802,5 @@
       }
     })();
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2da53abf9adb8be',t:'MTc4NzE1NDc2MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
