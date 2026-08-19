@@ -117,6 +117,23 @@
       text-transform: uppercase;
       opacity: .72;
     }
+    .home-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.25rem;
+      padding: .48rem .75rem;
+      color: var(--navy);
+      border: 1px solid rgba(36,56,74,.28);
+      text-decoration: none;
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      transition: color .2s ease, background .2s ease;
+    }
+    .home-button:hover,
+    .home-button:focus-visible { color: var(--ivory); background: var(--navy); }
     .index-button {
       display: inline-flex;
       align-items: center;
@@ -876,6 +893,250 @@
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
+    /* ──────────────────────────────────────────────────────
+       DIAGNOSTIC REPORT THEME
+       A restrained analysis environment, distinct from the
+       portfolio homepage. Colour is reserved for evidence,
+       annotations and the copy artifacts themselves.
+       ────────────────────────────────────────────────────── */
+    :root {
+      --navy: #24384A;
+      --gold: #A9823E;
+      --slate: #DCE0E1;
+      --bronze: #80652F;
+      --ink: #20272C;
+      --charcoal: #596168;
+      --steel: #C4C1B8;
+      --ivory: #F2F0EA;
+      --ivory-deep: #E7E4DC;
+      --max: 1120px;
+    }
+    body {
+      color: var(--ink);
+      background: #E8E6E0;
+      font-size: 15.5px;
+    }
+    .progress__bar { background: var(--bronze); box-shadow: none; }
+    .site-header,
+    .site-header.scrolled {
+      color: var(--navy);
+      background: rgba(242,240,234,.96);
+      border-bottom: 1px solid rgba(36,56,74,.16);
+      box-shadow: none;
+      backdrop-filter: blur(12px);
+    }
+    .wordmark__mark { color: var(--navy); border-color: var(--navy); }
+    .case-label { color: var(--charcoal); border-left-color: var(--steel); opacity: 1; }
+    .index-button { color: var(--navy); }
+    .case-index { background: #24313C; box-shadow: -20px 0 55px rgba(24,34,42,.18); }
+    .case-index__head p,
+    .case-index a span:first-child { color: #C5A565; }
+
+    .hero {
+      min-height: auto;
+      display: block;
+      padding: 8.3rem var(--gutter) 5.6rem;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(36,56,74,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(36,56,74,.035) 1px, transparent 1px),
+        var(--ivory);
+      background-size: 40px 40px;
+      border-bottom: 1px solid var(--steel);
+    }
+    .hero::before { display: none; }
+    .hero::after {
+      content: "DIAGNOSTIC  /  BR-Q-001";
+      right: -4.5rem;
+      bottom: 9rem;
+      color: rgba(36,56,74,.22);
+    }
+    .report-strip {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto 3.6rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--navy);
+      border-bottom: 1px solid var(--steel);
+    }
+    .report-strip span {
+      padding: .7rem 1rem .7rem 0;
+      color: var(--charcoal);
+      font-size: .61rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .report-strip span + span { padding-left: 1rem; border-left: 1px solid var(--steel); }
+    .report-strip strong { color: var(--navy); font-weight: 900; }
+    .hero-grid { align-items: start; grid-template-columns: minmax(0, 1.35fr) minmax(290px, .58fr); }
+    .hero .eyebrow { color: var(--bronze); }
+    .hero h1 {
+      max-width: 760px;
+      color: var(--navy);
+      font-size: clamp(3.7rem, 7.4vw, 6.4rem);
+      line-height: .91;
+    }
+    .hero h1 em { color: var(--bronze); }
+    .hero-intro { max-width: 650px; color: var(--charcoal); }
+    .hero__scroll { color: var(--navy); }
+    .hero__scroll span { color: var(--bronze); border-color: var(--bronze); }
+    .docket {
+      padding: 1.4rem;
+      color: var(--ink);
+      background: rgba(231,228,220,.72);
+      border: 1px solid var(--steel);
+      box-shadow: none;
+    }
+    .docket::before { content: "CASE PARAMETERS"; color: var(--bronze); background: var(--ivory); }
+    .docket__row { border-bottom-color: rgba(36,56,74,.12); }
+    .docket dt { color: var(--charcoal); }
+    .docket dd { color: var(--ink); }
+    .docket .investment { color: var(--bronze); }
+
+    .challenge {
+      padding: 2.5rem var(--gutter);
+      color: var(--ink);
+      background: #DEDCD5;
+      border-bottom: 1px solid var(--steel);
+    }
+    .challenge__inner { grid-template-columns: .28fr 1.3fr; }
+    .challenge__label { color: var(--bronze); }
+    .challenge blockquote { max-width: 850px; font-size: clamp(1.65rem, 3.3vw, 2.8rem); line-height: 1.13; }
+
+    .case-section,
+    .case-section--navy,
+    .case-section--slate {
+      padding-block: clamp(4.8rem, 8vw, 7rem);
+      color: var(--ink);
+      background: var(--ivory);
+      border-top: 1px solid rgba(36,56,74,.12);
+    }
+    .case-section--navy { background: #ECEAE4; }
+    .case-section--slate { background: #E4E4DF; }
+    .section-head { margin-bottom: clamp(2.8rem, 5vw, 4.5rem); }
+    .section-number,
+    .case-section--navy .section-number,
+    .case-section--slate .section-number,
+    .section-kicker,
+    .case-section--navy .section-kicker,
+    .case-section--slate .section-kicker { color: var(--bronze); }
+    .section-head h2,
+    .case-section--navy .section-head h2,
+    .case-section--slate .section-head h2 { color: var(--navy); font-size: clamp(2.45rem, 5vw, 4.45rem); }
+    .lead,
+    .case-section--navy .lead,
+    .case-section--slate .lead { color: var(--charcoal); font-size: clamp(1.08rem, 1.8vw, 1.35rem); }
+
+    .business-grid { border-color: var(--steel); }
+    .business-card + .business-card { border-color: var(--steel); }
+    .business-card__label { color: var(--bronze); }
+    .business-card h3 { color: var(--navy); }
+    .business-card p { color: var(--charcoal); }
+    .model-strip { color: var(--navy); }
+    .problem-copy .big-line,
+    .problem-copy .question { color: var(--navy); }
+    .calendar { background: #E5E2DA; box-shadow: 0 12px 30px rgba(36,56,74,.08); transform: none; }
+    .calendar__note { color: var(--bronze); }
+
+    .investigation-intro h3 { color: var(--navy); }
+    .scan-list li { color: var(--charcoal); border-bottom-color: var(--steel); }
+    .scan-list li::before { color: var(--bronze); }
+    .research-table th { color: var(--bronze); border-bottom-color: var(--bronze); }
+    .research-table td,
+    .research-table td:first-child { color: var(--charcoal); border-bottom-color: var(--steel); }
+    .research-table td:first-child { color: var(--ink); }
+    .gap-note { border-top-color: var(--bronze); }
+    .gap-note__label,
+    .gap-note strong { color: var(--bronze); }
+
+    .buyer-card {
+      color: var(--ink);
+      background: #E2E0D9;
+      border: 1px solid var(--steel);
+      box-shadow: none;
+    }
+    .buyer-monogram { color: var(--bronze); border-color: var(--bronze); }
+    .buyer-card__label { color: var(--bronze); }
+    .buyer-card__row { border-top-color: var(--steel); }
+    .buyer-card dt { color: var(--charcoal); }
+    .buyer-story .pull-quote { color: var(--navy); }
+    .objections { color: var(--ink); background: #D9DCDB; border-left: 2px solid var(--bronze); }
+    .objections h4 { color: var(--bronze); }
+
+    .diagnosis-title span,
+    .redistribute-label,
+    .overload { color: var(--bronze); }
+    .diagnosis-title h2 { color: var(--navy); }
+    .jobs-before { color: var(--charcoal); }
+    .jobs-before .job { border-color: var(--steel); background: rgba(242,240,234,.58); }
+    .jobs-before .arrow { color: var(--bronze); }
+    .overload { border-top-color: var(--bronze); }
+    .journey-roles { background: var(--steel); border-color: var(--steel); }
+    .journey-role { color: var(--ink); background: #F0EEE8; }
+    .journey-role__num { color: var(--bronze); }
+    .journey-role h3 { color: var(--navy); }
+    .journey-role p { color: var(--charcoal); }
+
+    .principles { border-top-color: var(--steel); }
+    .principle { border-bottom-color: var(--steel); }
+    .principle h3 { color: var(--navy); }
+    .principle p { color: var(--charcoal); }
+    .funnel__icon { color: var(--bronze); border-color: var(--bronze); }
+    .funnel__stage p { color: var(--ink); }
+    .funnel__arrow { color: var(--bronze); }
+    .stage-table th { color: var(--bronze); border-bottom-color: var(--bronze); }
+    .stage-table td { color: var(--charcoal); border-bottom-color: var(--steel); }
+    .stage-table td:first-child { color: var(--navy); }
+
+    .build-intro,
+    .copy-note p { color: var(--charcoal); }
+    .copy-note h4 { color: var(--navy); }
+    .copy-note__number { color: var(--bronze); }
+    .copy-window { box-shadow: 0 16px 36px rgba(36,56,74,.1); }
+    .application-copy h3 { color: var(--navy); }
+    .application-copy p { color: var(--charcoal); }
+    .application-copy strong { color: var(--bronze); }
+    .form-mock { background: #E9E6DF; border: 1px solid var(--steel); }
+
+    .lab-card { min-height: 22rem; border-color: var(--steel); }
+    .lab-card:hover { color: var(--ink); background: #E7E4DD; border-color: var(--steel); transform: none; }
+    .lab-card:hover::after { color: rgba(36,56,74,.035); }
+    .lab-card__label,
+    .lab-card:hover .lab-card__label { color: var(--bronze); }
+    .lab-card h3,
+    .lab-card:hover h3 { color: var(--navy); }
+    .lab-card p,
+    .lab-card:hover p { color: var(--charcoal); }
+    .choice,
+    .lab-card:hover .choice { color: var(--navy); }
+    .lab-card:hover .choice span:nth-child(2) { color: var(--bronze); }
+
+    .outcome-grid { border-color: var(--steel); }
+    .outcome + .outcome { border-left-color: var(--steel); }
+    .outcome__num { color: var(--bronze); }
+    .outcome h3 { color: var(--navy); }
+    .outcome p { color: var(--charcoal); }
+    .spec-disclaimer { color: var(--charcoal); }
+
+    .field-note {
+      min-height: 58svh;
+      justify-items: start;
+      color: var(--ink);
+      background: #DDDAD2;
+      border-top: 3px solid var(--navy);
+      text-align: left;
+    }
+    .field-note::before,
+    .field-note::after { display: none; }
+    .field-note__inner { max-width: 900px; margin-inline: auto; }
+    .field-note__label { color: var(--bronze); }
+    .field-note blockquote { color: var(--navy); font-size: clamp(2.4rem, 5vw, 4.5rem); line-height: 1.03; }
+    .field-note p { color: var(--charcoal); }
+    .site-footer { color: rgba(242,240,234,.68); background: #24313C; }
+    .footer-inner a { color: #C5A565; }
+
     @media (max-width: 900px) {
       .hero-grid, .challenge__inner, .section-head, .problem-layout, .investigation-intro, .buyer-grid, .application-layout { grid-template-columns: 1fr; }
       .hero { min-height: auto; }
@@ -897,21 +1158,26 @@
       .lab-grid { grid-template-columns: 1fr 1fr; }
       .lab-card:last-child { grid-column: 1 / -1; }
       .outcome-grid { grid-template-columns: 1fr 1fr; }
-      .outcome:nth-child(3) { border-left: 0; border-top: 1px solid rgba(201,162,75,.45); }
-      .outcome:nth-child(4) { border-top: 1px solid rgba(201,162,75,.45); }
+      .outcome:nth-child(3) { border-left: 0; border-top: 1px solid var(--steel); }
+      .outcome:nth-child(4) { border-top: 1px solid var(--steel); }
     }
 
     @media (max-width: 620px) {
       :root { --gutter: 1rem; }
       .site-header { padding-block: .65rem; }
+      .header-inner { gap: .5rem; }
       .case-label { display: none; }
       .wordmark__text { display: inline; font-size: .58rem; }
-      .index-button { font-size: .62rem; }
-      .hero { padding-top: 7.2rem; padding-bottom: 3.5rem; }
+      .home-button { margin-left: auto; padding: .42rem .58rem; font-size: .55rem; }
+      .index-button { gap: .4rem; padding-left: .35rem; font-size: .59rem; }
+      .hero { padding-top: 6.8rem; padding-bottom: 3.5rem; }
+      .report-strip { grid-template-columns: 1fr; margin-bottom: 2.5rem; }
+      .report-strip span { padding: .55rem 0; }
+      .report-strip span + span { padding-left: 0; border-top: 1px solid var(--steel); border-left: 0; }
       .hero h1 { font-size: clamp(3.25rem, 16vw, 4.7rem); line-height: .9; letter-spacing: -.055em; }
       .hero-intro { margin-top: 1.5rem; font-size: 1.03rem; }
       .hero::after { display: none; }
-      .docket { width: calc(100% - .55rem); padding: 1.2rem; box-shadow: 9px 9px 0 rgba(27,58,92,.3); transform: none; }
+      .docket { width: 100%; padding: 1.2rem; box-shadow: none; transform: none; }
       .docket__row { grid-template-columns: 4.8rem 1fr; gap: .55rem; }
       .challenge { padding-block: 2.7rem; }
       .challenge blockquote { font-size: 1.75rem; line-height: 1.1; }
@@ -952,7 +1218,7 @@
       .form-question__top { grid-template-columns: 1.7rem 1fr; }
       .fake-input, .form-purpose { margin-left: 2.3rem; }
       .lab-card, .lab-card:last-child { grid-column: auto; min-height: 18rem; padding: 1.4rem; }
-      .outcome { min-height: 12rem; border-top: 1px solid rgba(201,162,75,.45); }
+      .outcome { min-height: 12rem; border-top: 1px solid var(--steel); }
       .outcome:first-child { border-top: 0; }
       .outcome + .outcome { border-left: 0; }
       .field-note { min-height: 70svh; padding-block: 5rem; }
@@ -988,11 +1254,12 @@
 
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
-      <a class="wordmark" href="../../index.html" aria-label="Back to Segun’s Copy Studio">
+      <a class="wordmark" href="https://segunfalade.github.io/home/" aria-label="Go to the Segun’s Copy Studio homepage">
         <span class="wordmark__mark">S</span>
         <span class="wordmark__text">Segun’s<br>Copy Studio</span>
       </a>
       <span class="case-label">The Buyer’s Republic · State 01</span>
+      <a class="home-button" href="https://segunfalade.github.io/home/" aria-label="Back to the Segun’s Copy Studio homepage">← Homepage</a>
       <button class="index-button" id="indexOpen" type="button" aria-expanded="false" aria-controls="caseIndex">
         Case index <span class="index-button__lines" aria-hidden="true"></span>
       </button>
@@ -1024,6 +1291,11 @@
 
   <main>
     <section class="hero" id="case-file" data-section="00">
+      <div class="report-strip" aria-label="Report details">
+        <span><strong>Document:</strong> Strategic diagnostic</span>
+        <span><strong>File:</strong> BR-Q-001</span>
+        <span><strong>Status:</strong> Speculative case study</span>
+      </div>
       <div class="hero-grid">
         <div>
           <p class="eyebrow">The Buyer’s Republic · State 01 · Qualification</p>
@@ -1467,7 +1739,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner"><span>The Buyer’s Republic · State 01 · Qualification</span><span><a href="../../index.html#work">← Return to the Republic</a> &nbsp;·&nbsp; <a href="#case-file">Return to top ↑</a></span></div>
+    <div class="footer-inner"><span>The Buyer’s Republic · State 01 · Qualification</span><span><a href="https://segunfalade.github.io/home/">← Homepage</a> &nbsp;·&nbsp; <a href="https://segunfalade.github.io/home/#work">The Buyer’s Republic</a> &nbsp;·&nbsp; <a href="#case-file">Return to top ↑</a></span></div>
   </footer>
 
   <script>
@@ -1530,5 +1802,5 @@
       }
     })();
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2da53abf9adb8be',t:'MTc4NzE1NDc2MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
