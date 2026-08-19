@@ -1,0 +1,1137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0A2342">
+  <meta name="description" content="Segun Falade is a copy strategist for brands selling outcomes, not objects. Explore strategic copy case studies, The Almost Customer publication and services.">
+  <title>Segun Falade — Copy Strategist for Brands Selling Outcomes, Not Objects</title>
+  <style>
+    :root {
+      --navy: #0A2342;
+      --gold: #C9A24B;
+      --slate: #1B3A5C;
+      --bronze: #8A6A2F;
+      --ink: #0D0D0D;
+      --charcoal: #4B4B4B;
+      --steel: #B0B3B8;
+      --ivory: #F5F3EE;
+      --ivory-deep: #E9E5DB;
+      --ivory-dark: #DDD7C9;
+      --serif: "Iowan Old Style", Baskerville, "Times New Roman", serif;
+      --sans: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      --max: 1240px;
+      --gutter: clamp(1.25rem, 4.5vw, 4.75rem);
+      --shadow: 0 28px 80px rgba(10, 35, 66, .13);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--ivory);
+      font-family: var(--sans);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.menu-open { overflow: hidden; }
+    ::selection { color: var(--ivory); background: var(--bronze); }
+    a { color: inherit; }
+    button, input, textarea, select { font: inherit; }
+    button { color: inherit; }
+    svg { display: block; max-width: 100%; }
+    [id] { scroll-margin-top: 6rem; }
+
+    .skip-link {
+      position: fixed;
+      top: .75rem;
+      left: .75rem;
+      z-index: 999;
+      padding: .7rem 1rem;
+      color: var(--ivory);
+      background: var(--navy);
+      transform: translateY(-180%);
+      transition: transform .2s ease;
+    }
+    .skip-link:focus { transform: none; }
+
+    .progress {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 150;
+      height: 3px;
+      pointer-events: none;
+    }
+    .progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: var(--gold);
+      box-shadow: 0 0 14px rgba(201,162,75,.5);
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 3px 0 auto;
+      z-index: 120;
+      padding: .9rem var(--gutter);
+      color: var(--navy);
+      transition: background .25s ease, box-shadow .25s ease;
+    }
+    .site-header.scrolled {
+      background: rgba(245,243,238,.94);
+      box-shadow: 0 1px 0 rgba(10,35,66,.12);
+      backdrop-filter: blur(16px);
+    }
+    .header-inner {
+      max-width: var(--max);
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem;
+      text-decoration: none;
+    }
+    .brand__seal {
+      display: block;
+      width: 2.55rem;
+      height: 2.55rem;
+      overflow: hidden;
+      background: #050505;
+      border: 1px solid rgba(201,162,75,.55);
+    }
+    .brand__seal img { width: 100%; height: 100%; object-fit: cover; }
+    .brand__name {
+      color: var(--navy);
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      line-height: 1.05;
+    }
+    .brand__name small {
+      display: block;
+      margin-top: .2rem;
+      color: var(--charcoal);
+      font-family: var(--sans);
+      font-size: .54rem;
+      font-weight: 750;
+      letter-spacing: .055em;
+      text-transform: none;
+    }
+    .desktop-nav { display: flex; align-items: center; gap: clamp(1rem, 2.4vw, 2.25rem); }
+    .desktop-nav a {
+      position: relative;
+      color: var(--navy);
+      text-decoration: none;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .desktop-nav a:not(.nav-cta)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -.45rem;
+      left: 0;
+      height: 1px;
+      background: var(--bronze);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .2s ease;
+    }
+    .desktop-nav a:hover::after, .desktop-nav a.active::after { transform: scaleX(1); transform-origin: left; }
+    .nav-cta { padding: .75rem 1rem; color: var(--ivory) !important; background: var(--navy); }
+    .menu-button {
+      display: none;
+      width: 2.7rem;
+      height: 2.7rem;
+      padding: .7rem;
+      border: 1px solid rgba(10,35,66,.2);
+      background: transparent;
+      cursor: pointer;
+    }
+    .menu-button span, .menu-button::before, .menu-button::after {
+      content: "";
+      display: block;
+      height: 1px;
+      margin: 4px 0;
+      background: var(--navy);
+      transition: transform .2s ease, opacity .2s ease;
+    }
+    .menu-button.open span { opacity: 0; }
+    .menu-button.open::before { transform: translateY(5px) rotate(45deg); }
+    .menu-button.open::after { transform: translateY(-5px) rotate(-45deg); }
+    .mobile-nav {
+      position: fixed;
+      inset: 0;
+      z-index: 110;
+      padding: 7rem var(--gutter) 3rem;
+      color: var(--ivory);
+      background: var(--navy);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease;
+    }
+    .mobile-nav.open { opacity: 1; pointer-events: auto; }
+    .mobile-nav ol { margin: 0; padding: 0; list-style: none; }
+    .mobile-nav a {
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      padding: .75rem 0;
+      color: var(--ivory);
+      border-bottom: 1px solid rgba(245,243,238,.12);
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 7vw, 2.6rem);
+      text-decoration: none;
+    }
+    .mobile-nav a span { color: var(--gold); font-family: var(--sans); font-size: .65rem; letter-spacing: .12em; }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      overflow: hidden;
+      padding: clamp(8.5rem, 16vh, 12rem) var(--gutter) clamp(4rem, 9vh, 7rem);
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(rgba(10,35,66,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,35,66,.035) 1px, transparent 1px),
+        var(--ivory);
+      background-size: 72px 72px;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 42rem;
+      height: 42rem;
+      right: -14rem;
+      top: -19rem;
+      border: 1px solid rgba(138,106,47,.18);
+      border-radius: 50%;
+      box-shadow: 0 0 0 5rem rgba(138,106,47,.025), 0 0 0 10rem rgba(138,106,47,.018);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: var(--max);
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(300px, .58fr);
+      gap: clamp(3rem, 8vw, 8rem);
+      align-items: end;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      margin: 0 0 1.25rem;
+      color: var(--bronze);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .17em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 2.5rem; height: 1px; background: currentColor; }
+    .hero h1 {
+      max-width: 920px;
+      margin: 0;
+      color: var(--navy);
+      font-family: var(--serif);
+      font-size: clamp(3.8rem, 8.2vw, 7.6rem);
+      font-weight: 500;
+      letter-spacing: -.06em;
+      line-height: .9;
+    }
+    .hero h1 strong,
+    .hero h1 em,
+    .hero h1 span { display: block; }
+    .hero h1 strong { font-weight: 700; }
+    .hero h1 em { color: var(--bronze); font-weight: 400; }
+    .hero h1 span { margin-top: .38em; font-family: var(--sans); font-size: .31em; font-weight: 800; letter-spacing: .04em; line-height: 1.2; text-transform: uppercase; }
+    .hero-lead {
+      max-width: 710px;
+      margin: 2rem 0 0;
+      color: var(--charcoal);
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      line-height: 1.5;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.2rem; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .65rem;
+      min-height: 3.15rem;
+      padding: .8rem 1.2rem;
+      border: 1px solid var(--navy);
+      color: var(--ivory);
+      background: var(--navy);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color .2s ease, background .2s ease, transform .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button--ghost { color: var(--navy); background: transparent; }
+    .button--ghost:hover { color: var(--ivory); background: var(--navy); }
+    .button--gold { color: var(--navy); background: var(--gold); border-color: var(--gold); }
+    .button--gold:hover { background: var(--ivory); border-color: var(--ivory); }
+    .country-brief {
+      position: relative;
+      padding: 1.5rem;
+      color: var(--ivory);
+      background: var(--navy);
+      box-shadow: 22px 22px 0 var(--ivory-deep);
+    }
+    .country-brief::before {
+      content: "STUDIO BRIEF";
+      position: absolute;
+      top: -.65rem;
+      left: 1rem;
+      padding: .12rem .45rem;
+      color: var(--gold);
+      background: var(--navy);
+      font-size: .58rem;
+      font-weight: 900;
+      letter-spacing: .15em;
+    }
+    .country-brief__seal {
+      display: block;
+      width: 8rem;
+      height: 7.1rem;
+      margin: 0 auto 1.5rem;
+      overflow: hidden;
+      border: 1px solid rgba(201,162,75,.55);
+      background: #050505;
+    }
+    .country-brief__seal img { width: 100%; height: 100%; object-fit: cover; }
+    .brief-row {
+      display: grid;
+      grid-template-columns: 5rem 1fr;
+      gap: .8rem;
+      padding: .72rem 0;
+      border-top: 1px solid rgba(245,243,238,.13);
+    }
+    .brief-row span { color: rgba(245,243,238,.45); font-size: .59rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    .brief-row strong { font-family: var(--serif); font-size: .95rem; font-weight: 500; line-height: 1.3; }
+    .hero-coordinates {
+      position: absolute;
+      right: var(--gutter);
+      bottom: 1.4rem;
+      color: rgba(10,35,66,.42);
+      font-size: .58rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .manifesto-strip { padding: clamp(2.5rem, 5vw, 4.5rem) var(--gutter); color: var(--navy); background: var(--gold); }
+    .manifesto-inner {
+      max-width: var(--max);
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: .33fr 1.25fr;
+      gap: clamp(2rem, 7vw, 7rem);
+      align-items: start;
+    }
+    .manifesto-inner p:first-child { margin: .45rem 0 0; font-size: .65rem; font-weight: 900; letter-spacing: .17em; text-transform: uppercase; }
+    .manifesto-inner blockquote { margin: 0; font-family: var(--serif); font-size: clamp(1.9rem, 4.5vw, 4rem); letter-spacing: -.04em; line-height: 1.05; }
+
+    .section { padding: clamp(5.5rem, 10vw, 9.5rem) var(--gutter); }
+    .section--navy { color: var(--ivory); background: var(--navy); }
+    .section--slate { color: var(--ivory); background: var(--slate); }
+    .section--line { border-top: 1px solid rgba(10,35,66,.14); }
+    .section-inner { max-width: var(--max); margin-inline: auto; }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(120px, .3fr) minmax(0, 1.4fr);
+      gap: clamp(2rem, 7vw, 7rem);
+      align-items: start;
+      margin-bottom: clamp(3.5rem, 7vw, 6rem);
+    }
+    .section-index {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      color: var(--bronze);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .section-index::after { content: ""; flex: 1; max-width: 4rem; height: 1px; background: currentColor; opacity: .55; }
+    .section--navy .section-index, .section--slate .section-index { color: var(--gold); }
+    .section-label { margin: 0 0 .65rem; color: var(--bronze); font-size: .65rem; font-weight: 900; letter-spacing: .17em; text-transform: uppercase; }
+    .section--navy .section-label, .section--slate .section-label { color: var(--gold); }
+    .section-head h2 {
+      max-width: 900px;
+      margin: 0;
+      color: var(--navy);
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 6.5vw, 5.8rem);
+      font-weight: 500;
+      letter-spacing: -.06em;
+      line-height: .96;
+    }
+    .section--navy .section-head h2, .section--slate .section-head h2 { color: var(--ivory); }
+    .section-lead { max-width: 760px; margin: 1.2rem 0 0; color: var(--charcoal); font-family: var(--serif); font-size: clamp(1.12rem, 2vw, 1.4rem); }
+    .section--navy .section-lead, .section--slate .section-lead { color: rgba(245,243,238,.68); }
+    .content-offset { margin-left: calc((100% + clamp(2rem, 7vw, 7rem)) * .205); }
+
+    .map-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(270px, .55fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: center;
+    }
+    .country-map {
+      position: relative;
+      padding: clamp(1rem, 3vw, 2.2rem);
+      border: 1px solid rgba(201,162,75,.36);
+      background: rgba(27,58,92,.36);
+      overflow: hidden;
+    }
+    .country-map::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .1;
+      background-image: radial-gradient(var(--gold) .7px, transparent .7px);
+      background-size: 16px 16px;
+      pointer-events: none;
+    }
+    .map-svg { position: relative; width: 100%; height: auto; }
+    .map-svg .contour { fill: none; stroke: rgba(201,162,75,.12); stroke-width: 1; }
+    .map-svg .state { stroke: var(--gold); stroke-width: 2; vector-effect: non-scaling-stroke; transition: fill .25s ease, opacity .25s ease; }
+    .map-svg .state--active { fill: var(--gold); }
+    .map-svg .state--future { fill: rgba(10,35,66,.74); }
+    .map-svg a:hover .state--active, .map-svg a:focus .state--active { fill: var(--ivory); }
+    .map-svg .state-group:hover .state--future { fill: rgba(201,162,75,.15); }
+    .map-svg .state-number { fill: var(--gold); font: 800 13px var(--sans); letter-spacing: 2px; pointer-events: none; }
+    .map-svg .state-name { fill: var(--ivory); font: 700 18px var(--serif); pointer-events: none; }
+    .map-svg a .state-number, .map-svg a .state-name { fill: var(--navy); }
+    .map-svg .future-label { fill: rgba(245,243,238,.42); font: 700 10px var(--sans); letter-spacing: 1.2px; pointer-events: none; }
+    .map-key { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.25rem; color: rgba(245,243,238,.55); font-size: .61rem; letter-spacing: .12em; text-transform: uppercase; }
+    .map-key span { display: inline-flex; align-items: center; gap: .45rem; }
+    .map-key i { display: block; width: .65rem; height: .65rem; border: 1px solid var(--gold); }
+    .map-key span:first-child i { background: var(--gold); }
+    .mobile-map-list { display: none; }
+    .mobile-map-state {
+      display: grid;
+      grid-template-columns: 2.4rem 1fr auto;
+      gap: .75rem;
+      align-items: center;
+      padding: 1rem 0;
+      color: rgba(245,243,238,.62);
+      border-bottom: 1px solid rgba(245,243,238,.12);
+      text-decoration: none;
+    }
+    .mobile-map-state:first-child { color: var(--navy); background: var(--gold); margin: -.25rem -.75rem .35rem; padding-inline: .75rem; border: 0; }
+    .mobile-map-state__num { font-size: .62rem; font-weight: 900; letter-spacing: .12em; }
+    .mobile-map-state strong { color: inherit; font-family: var(--serif); font-size: 1.15rem; font-weight: 500; }
+    .mobile-map-state small { color: inherit; font-size: .55rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+    .map-feature { padding: 1.8rem; border-top: 1px solid var(--gold); border-bottom: 1px solid rgba(245,243,238,.16); }
+    .map-feature__tag { color: var(--gold); font-size: .62rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .map-feature h3 { margin: 2.5rem 0 .8rem; font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 500; letter-spacing: -.04em; line-height: 1; }
+    .map-feature p { margin: 0 0 1.5rem; color: rgba(245,243,238,.65); }
+    .text-link { display: inline-flex; align-items: center; gap: .6rem; color: var(--gold); font-size: .65rem; font-weight: 900; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; }
+    .text-link span { transition: transform .2s ease; }
+    .text-link:hover span { transform: translateX(4px); }
+
+    .laws-intro { display: grid; grid-template-columns: .65fr 1.35fr; gap: clamp(2rem, 7vw, 7rem); margin-bottom: 3rem; }
+    .laws-intro h3 { margin: 0; color: var(--navy); font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 500; letter-spacing: -.04em; line-height: 1; }
+    .laws-intro p { max-width: 670px; margin: 0; color: var(--charcoal); }
+    .laws { counter-reset: laws; border-top: 1px solid rgba(10,35,66,.16); }
+    .law {
+      counter-increment: laws;
+      display: grid;
+      grid-template-columns: .18fr 1fr;
+      gap: 1rem;
+      padding: clamp(2rem, 4.5vw, 3.5rem) 0;
+      border-bottom: 1px solid rgba(10,35,66,.16);
+    }
+    .law::before { content: "0" counter(laws); color: var(--bronze); font-family: var(--serif); font-size: 1.3rem; }
+    .law blockquote { max-width: 900px; margin: 0; color: var(--navy); font-family: var(--serif); font-size: clamp(1.6rem, 3.5vw, 2.8rem); letter-spacing: -.035em; line-height: 1.15; }
+
+    .work-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(330px, .72fr);
+      gap: 1px;
+      background: rgba(201,162,75,.42);
+      border: 1px solid rgba(201,162,75,.42);
+    }
+    .featured-case {
+      position: relative;
+      min-height: 35rem;
+      padding: clamp(1.6rem, 3.5vw, 2.7rem);
+      display: flex;
+      flex-direction: column;
+      color: var(--ivory);
+      background: var(--navy);
+      overflow: hidden;
+      text-decoration: none;
+      transition: background .25s ease;
+    }
+    .featured-case::after {
+      content: "01";
+      position: absolute;
+      right: -1.2rem;
+      bottom: -4.2rem;
+      color: rgba(245,243,238,.035);
+      font-family: var(--serif);
+      font-size: clamp(11rem, 20vw, 17rem);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .featured-case:hover { background: #102D4D; }
+    .featured-case__top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--gold);
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .featured-case__status { padding: .25rem .55rem; border: 1px solid rgba(201,162,75,.55); }
+    .featured-case__body { position: relative; z-index: 1; max-width: 750px; margin-top: auto; }
+    .featured-case__question { max-width: 570px; margin: 0 0 1.25rem; color: var(--gold); font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .featured-case h3 { margin: 0 0 1rem; font-family: var(--serif); font-size: clamp(2.8rem, 5.6vw, 5.3rem); font-weight: 500; letter-spacing: -.055em; line-height: .94; }
+    .featured-case__body > p:not(.featured-case__question) { max-width: 650px; margin: 0; color: rgba(245,243,238,.68); font-family: var(--serif); font-size: 1.12rem; }
+    .featured-case__meta { display: flex; flex-wrap: wrap; gap: .7rem 1.2rem; margin-top: 1.6rem; color: rgba(245,243,238,.5); font-size: .58rem; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
+    .featured-case__body > strong { display: inline-block; margin-top: 2rem; color: var(--gold); font-size: .66rem; letter-spacing: .13em; text-transform: uppercase; }
+    .file-register { background: var(--slate); }
+    .file-register__head,
+    .file-row {
+      display: grid;
+      grid-template-columns: 2.5rem 1fr auto;
+      gap: .8rem;
+      align-items: center;
+    }
+    .file-register__head { grid-template-columns: 1fr auto; padding: 1rem 1.25rem; color: var(--gold); background: var(--navy); font-size: .6rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    .file-row { min-height: 6.15rem; padding: 1rem 1.25rem; color: var(--ivory); border-bottom: 1px solid rgba(245,243,238,.12); text-decoration: none; }
+    .file-row:last-child { border-bottom: 0; }
+    .file-row__num { color: var(--gold); font-size: .65rem; font-weight: 900; }
+    .file-row strong { display: block; font-family: var(--serif); font-size: 1.18rem; font-weight: 500; }
+    .file-row small { display: block; margin-top: .2rem; color: rgba(245,243,238,.5); font-size: .64rem; line-height: 1.35; }
+    .file-row em { color: rgba(245,243,238,.46); font-size: .54rem; font-style: normal; font-weight: 900; letter-spacing: .1em; text-align: right; text-transform: uppercase; }
+    .file-row--open { background: rgba(201,162,75,.09); transition: background .2s ease; }
+    .file-row--open:hover { background: rgba(201,162,75,.16); }
+    .file-row--open em { color: var(--gold); }
+
+    .case-method-list {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      margin-top: 3rem;
+      padding: 0;
+      border-top: 1px solid rgba(10,35,66,.18);
+      border-bottom: 1px solid rgba(10,35,66,.18);
+      list-style: none;
+    }
+    .case-method-list li { min-height: 13rem; padding: 1.2rem .9rem; border-right: 1px solid rgba(10,35,66,.14); }
+    .case-method-list li:last-child { border-right: 0; }
+    .case-method-list span { display: block; color: var(--bronze); font-size: .62rem; font-weight: 900; }
+    .case-method-list strong { display: block; margin-top: 3.2rem; color: var(--navy); font-family: var(--serif); font-size: 1.05rem; font-weight: 500; }
+    .case-method-list small { display: block; margin-top: .5rem; color: var(--charcoal); font-size: .68rem; line-height: 1.4; }
+
+    .state-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+    .state-card {
+      position: relative;
+      min-height: 25rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      color: var(--navy);
+      border: 1px solid rgba(10,35,66,.18);
+      overflow: hidden;
+      text-decoration: none;
+    }
+    .state-card--featured { grid-column: 1 / -1; min-height: 33rem; color: var(--ivory); background: var(--navy); border-color: var(--navy); }
+    .state-card::after {
+      content: attr(data-state);
+      position: absolute;
+      right: -1.5rem;
+      bottom: -4rem;
+      color: rgba(10,35,66,.035);
+      font-family: var(--serif);
+      font-size: clamp(9rem, 20vw, 16rem);
+      font-weight: 700;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .state-card--featured::after { color: rgba(245,243,238,.035); }
+    .state-card__top { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .state-card__number { color: var(--bronze); font-size: .65rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .state-card--featured .state-card__number { color: var(--gold); }
+    .state-card__status { padding: .25rem .5rem; color: var(--charcoal); border: 1px solid var(--steel); font-size: .55rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    .state-card--featured .state-card__status { color: var(--gold); border-color: rgba(201,162,75,.55); }
+    .state-card__body { position: relative; z-index: 1; margin-top: auto; }
+    .state-card h3 { max-width: 730px; margin: 0 0 .8rem; font-family: var(--serif); font-size: clamp(2rem, 4.5vw, 4.7rem); font-weight: 500; letter-spacing: -.05em; line-height: .97; }
+    .state-card:not(.state-card--featured) h3 { font-size: clamp(1.75rem, 3vw, 2.6rem); }
+    .state-card__problem { max-width: 710px; margin: 0; color: var(--charcoal); }
+    .state-card--featured .state-card__problem { color: rgba(245,243,238,.68); font-family: var(--serif); font-size: clamp(1.05rem, 2vw, 1.3rem); }
+    .state-card__meta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; color: var(--gold); font-size: .59rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    .state-card__enter { display: inline-flex; align-items: center; gap: .65rem; margin-top: 2rem; color: var(--gold); font-size: .66rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    .state-card--featured { transition: transform .25s ease, box-shadow .25s ease; }
+    .state-card--featured:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .states-note { margin: 1.5rem 0 0; color: var(--charcoal); font-size: .72rem; text-align: right; }
+
+    .notes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,162,75,.38); border: 1px solid rgba(201,162,75,.38); }
+    .note-card {
+      min-height: 25rem;
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      background: var(--slate);
+      transition: background .25s ease;
+    }
+    .note-card:hover { background: var(--navy); }
+    .note-card__meta { display: flex; justify-content: space-between; color: var(--gold); font-size: .6rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    .note-card blockquote { margin: auto 0 1.5rem; color: var(--ivory); font-family: var(--serif); font-size: clamp(1.4rem, 2.8vw, 2.2rem); letter-spacing: -.03em; line-height: 1.15; }
+    .note-card p { margin: 0; color: rgba(245,243,238,.52); font-size: .77rem; }
+
+    .services { border-top: 1px solid rgba(10,35,66,.16); }
+    .service {
+      display: grid;
+      grid-template-columns: .13fr .4fr .72fr;
+      gap: clamp(1rem, 4vw, 4rem);
+      padding: clamp(2.2rem, 5vw, 4.2rem) 0;
+      border-bottom: 1px solid rgba(10,35,66,.16);
+      align-items: start;
+    }
+    .service__num { color: var(--bronze); font-family: var(--serif); font-size: 1.3rem; }
+    .service h3 { margin: 0; color: var(--navy); font-family: var(--serif); font-size: clamp(1.8rem, 3.8vw, 3rem); font-weight: 500; letter-spacing: -.04em; line-height: 1; }
+    .service__copy > p { margin: 0 0 1rem; color: var(--charcoal); }
+    .deliverables { display: flex; flex-wrap: wrap; gap: .55rem; margin: 0; padding: 0; list-style: none; }
+    .deliverables li { padding: .32rem .55rem; color: var(--navy); border: 1px solid rgba(10,35,66,.2); font-size: .62rem; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
+
+    .process-line { display: grid; grid-template-columns: repeat(6, 1fr); border-top: 1px solid rgba(201,162,75,.5); }
+    .process-step { min-height: 18rem; padding: 1.4rem 1.1rem; border-right: 1px solid rgba(245,243,238,.12); }
+    .process-step:last-child { border-right: 0; }
+    .process-step__num { color: var(--gold); font-size: .62rem; font-weight: 900; letter-spacing: .14em; }
+    .process-step h3 { margin: 4rem 0 .7rem; font-family: var(--serif); font-size: clamp(1.35rem, 2.6vw, 2rem); font-weight: 500; }
+    .process-step p { margin: 0; color: rgba(245,243,238,.57); font-size: .78rem; }
+    .process-sum { max-width: 740px; margin: 2.5rem 0 0 auto; padding-left: 1.5rem; color: rgba(245,243,238,.68); border-left: 1px solid var(--gold); font-family: var(--serif); font-size: 1.2rem; }
+
+    .studio-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(3rem, 8vw, 8rem); align-items: start; }
+    .studio-seal {
+      position: sticky;
+      top: 8rem;
+      display: block;
+      width: min(100%, 23rem);
+      overflow: hidden;
+      background: #050505;
+      border: 1px solid rgba(201,162,75,.55);
+      box-shadow: var(--shadow);
+    }
+    .studio-seal img { display: block; width: 100%; height: auto; }
+    .studio-copy h3 { max-width: 780px; margin: 0 0 1.5rem; color: var(--navy); font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 4.5rem); font-weight: 500; letter-spacing: -.05em; line-height: 1; }
+    .studio-copy > p { max-width: 720px; color: var(--charcoal); font-size: 1.02rem; }
+    .studio-beliefs { margin-top: 2.5rem; border-top: 1px solid rgba(10,35,66,.16); }
+    .studio-belief { display: grid; grid-template-columns: 2rem 1fr; gap: .8rem; padding: 1.1rem 0; border-bottom: 1px solid rgba(10,35,66,.16); }
+    .studio-belief span { color: var(--bronze); font-size: .65rem; font-weight: 900; }
+    .studio-belief p { margin: 0; color: var(--navy); font-family: var(--serif); font-size: 1.1rem; }
+
+    .contact {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(6rem, 12vw, 11rem) var(--gutter);
+      color: var(--ivory);
+      background: var(--navy);
+    }
+    .contact::before {
+      content: "";
+      position: absolute;
+      width: 34rem;
+      height: 34rem;
+      right: -15rem;
+      bottom: -18rem;
+      border: 1px solid rgba(201,162,75,.2);
+      border-radius: 50%;
+      box-shadow: 0 0 0 5rem rgba(201,162,75,.025), 0 0 0 10rem rgba(201,162,75,.018);
+    }
+    .contact-inner { position: relative; z-index: 1; max-width: var(--max); margin-inline: auto; }
+    .contact-head { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 7vw, 7rem); margin-bottom: 4rem; }
+    .contact h2 { margin: 0; font-family: var(--serif); font-size: clamp(3.3rem, 7vw, 6.5rem); font-weight: 500; letter-spacing: -.06em; line-height: .92; }
+    .contact-head__copy { align-self: end; }
+    .contact-head__copy p { max-width: 540px; margin: 0; color: rgba(245,243,238,.67); font-family: var(--serif); font-size: 1.2rem; }
+    .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .field { display: grid; gap: .45rem; }
+    .field--wide { grid-column: 1 / -1; }
+    .field label { color: var(--gold); font-size: .61rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    .field input, .field textarea, .field select {
+      width: 100%;
+      padding: 1rem 0;
+      color: var(--ivory);
+      border: 0;
+      border-bottom: 1px solid rgba(245,243,238,.3);
+      border-radius: 0;
+      outline: none;
+      background: transparent;
+    }
+    .field input:focus, .field textarea:focus, .field select:focus { border-bottom-color: var(--gold); }
+    .field textarea { min-height: 7rem; resize: vertical; }
+    .field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--gold) 50%), linear-gradient(135deg, var(--gold) 50%, transparent 50%); background-position: calc(100% - 12px) 50%, calc(100% - 7px) 50%; background-size: 5px 5px; background-repeat: no-repeat; }
+    .field select option { color: var(--ink); background: var(--ivory); }
+    .form-action { grid-column: 1 / -1; display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 1rem; }
+    .form-note { margin: 0; color: rgba(245,243,238,.45); font-size: .65rem; }
+    .form-status { display: none; color: var(--gold); font-size: .75rem; }
+    .form-status.visible { display: block; }
+
+    .site-footer { padding: 2.2rem var(--gutter); color: rgba(245,243,238,.58); background: #071A31; }
+    .footer-inner { max-width: var(--max); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .footer-brand { color: var(--ivory); font-family: var(--serif); }
+    .footer-meta { display: flex; gap: 1.5rem; font-size: .6rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .footer-meta a { color: var(--gold); text-decoration: none; }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 980px) {
+      .desktop-nav { display: none; }
+      .menu-button { display: block; }
+      .menu-button.open { position: relative; z-index: 130; border-color: rgba(245,243,238,.25); }
+      .menu-button.open span, .menu-button.open::before, .menu-button.open::after { background: var(--ivory); }
+      .hero-inner, .section-head, .map-layout, .laws-intro, .studio-layout, .contact-head, .work-layout { grid-template-columns: 1fr; }
+      .case-method-list { grid-template-columns: repeat(4, 1fr); }
+      .case-method-list li:nth-child(4) { border-right: 0; }
+      .case-method-list li:nth-child(-n+4) { border-bottom: 1px solid rgba(10,35,66,.14); }
+      .hero { min-height: auto; }
+      .country-brief { max-width: 620px; }
+      .content-offset { margin-left: 0; }
+      .section-head { gap: 1.5rem; }
+      .section-index::after { max-width: none; }
+      .process-line { grid-template-columns: repeat(3, 1fr); }
+      .process-step:nth-child(3) { border-right: 0; }
+      .process-step:nth-child(-n+3) { border-bottom: 1px solid rgba(245,243,238,.12); }
+      .studio-seal { position: static; width: min(20rem, 80vw); }
+    }
+
+    @media (max-width: 720px) {
+      :root { --gutter: 1rem; }
+      .site-header { padding-block: .65rem; }
+      .brand__name { font-size: .96rem; }
+      .hero { padding-top: 7.25rem; padding-bottom: 4rem; background-size: 48px 48px; }
+      .hero-inner { gap: 3.5rem; }
+      .hero h1 { font-size: clamp(3.25rem, 15.5vw, 4.8rem); line-height: .91; letter-spacing: -.055em; }
+      .hero-lead { margin-top: 1.5rem; font-size: 1.06rem; }
+      .hero-actions { display: grid; grid-template-columns: 1fr; }
+      .hero-actions .button { width: 100%; }
+      .hero-coordinates { display: none; }
+      .country-brief { width: calc(100% - .7rem); padding: 1.25rem; box-shadow: 10px 10px 0 var(--ivory-deep); }
+      .country-brief__seal { width: 5.6rem; height: 5.6rem; font-size: 2rem; }
+      .manifesto-strip { padding-block: 2.75rem; }
+      .manifesto-inner, .state-grid, .notes-grid, .contact-form { grid-template-columns: 1fr; }
+      .manifesto-inner { gap: 1rem; }
+      .manifesto-inner blockquote { font-size: 1.7rem; line-height: 1.12; }
+      .section { padding-block: 4.75rem; }
+      .section-head { margin-bottom: 2.75rem; }
+      .section-head h2 { font-size: clamp(2.45rem, 12vw, 3.55rem); line-height: 1; }
+      .section-lead { font-size: 1.04rem; }
+      .country-map { padding: 1rem; }
+      .map-svg, .map-key { display: none; }
+      .mobile-map-list { position: relative; display: grid; }
+      .map-feature { padding: 1.5rem 0; }
+      .map-feature h3 { margin-top: 1.6rem; }
+      .featured-case { min-height: 29rem; padding: 1.35rem; }
+      .featured-case__top { align-items: flex-start; flex-direction: column; gap: .65rem; }
+      .featured-case h3 { font-size: 3rem; }
+      .file-row { grid-template-columns: 2rem 1fr; min-height: 6.8rem; padding-inline: 1rem; }
+      .file-row em { grid-column: 2; text-align: left; }
+      .case-method-list { grid-template-columns: 1fr 1fr; }
+      .case-method-list li,
+      .case-method-list li:nth-child(4) { min-height: 10rem; border-right: 1px solid rgba(10,35,66,.14); border-bottom: 1px solid rgba(10,35,66,.14); }
+      .case-method-list li:nth-child(even) { border-right: 0; }
+      .case-method-list li:last-child { border-bottom: 0; }
+      .case-method-list strong { margin-top: 2rem; }
+      .laws-intro { gap: 1rem; margin-bottom: 2rem; }
+      .law { grid-template-columns: 2rem 1fr; }
+      .law blockquote { font-size: 1.45rem; }
+      .state-card { min-height: 18rem; padding: 1.35rem; }
+      .state-card--featured { grid-column: auto; min-height: 25rem; }
+      .state-card__top { align-items: flex-start; flex-direction: column; gap: .65rem; }
+      .state-card h3 { font-size: 2.4rem; }
+      .state-card:not(.state-card--featured) h3 { font-size: 1.9rem; }
+      .state-card__meta { gap: .55rem 1rem; }
+      .states-note { text-align: left; }
+      .notes-grid { gap: 1px; }
+      .note-card { min-height: 18rem; padding: 1.4rem; }
+      .note-card__meta { align-items: flex-start; flex-direction: column; gap: .35rem; }
+      .note-card blockquote { font-size: 1.55rem; }
+      .service { grid-template-columns: 2rem 1fr; gap: .8rem; }
+      .service h3 { font-size: 2rem; }
+      .service__copy { grid-column: 2; }
+      .process-line { grid-template-columns: 1fr 1fr; }
+      .process-step { min-height: 14rem; }
+      .process-step:nth-child(3) { border-right: 1px solid rgba(245,243,238,.12); }
+      .process-step:nth-child(even) { border-right: 0; }
+      .process-step:nth-child(-n+4) { border-bottom: 1px solid rgba(245,243,238,.12); }
+      .studio-seal { width: min(16rem, 75vw); margin-inline: auto; }
+      .studio-copy h3 { font-size: 2.35rem; }
+      .contact { padding-block: 5rem; }
+      .contact-head { gap: 1.4rem; margin-bottom: 3rem; }
+      .contact h2 { font-size: clamp(2.8rem, 13vw, 4rem); }
+      .field--wide, .form-action { grid-column: auto; }
+      .form-action { align-items: stretch; flex-direction: column; }
+      .form-action .button { width: 100%; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .brand__name small { display: none; }
+      .brand__seal { width: 2.2rem; height: 2.2rem; }
+      .brief-row { grid-template-columns: 4.5rem 1fr; }
+      .featured-case h3 { font-size: 2.55rem; }
+      .case-method-list { grid-template-columns: 1fr; }
+      .case-method-list li,
+      .case-method-list li:nth-child(4),
+      .case-method-list li:nth-child(even) { min-height: auto; padding-block: 1.25rem; border-right: 0; border-bottom: 1px solid rgba(10,35,66,.14); }
+      .case-method-list li:last-child { border-bottom: 0; }
+      .case-method-list strong { margin-top: 1rem; }
+      .process-line { grid-template-columns: 1fr; }
+      .process-step, .process-step:nth-child(3) { min-height: auto; border-right: 0; border-bottom: 1px solid rgba(245,243,238,.12); }
+      .process-step h3 { margin-top: 1.75rem; }
+      .process-step:last-child { border-bottom: 0; }
+      .studio-belief { grid-template-columns: 1.6rem 1fr; }
+      .footer-meta { flex-direction: column; gap: .6rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media print {
+      .site-header, .mobile-nav, .progress, .hero-actions, .contact-form { display: none !important; }
+      .hero { min-height: auto; padding-top: 3rem; }
+      .section, .manifesto-strip, .contact { break-inside: avoid; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="Segun Falade home">
+        <span class="brand__seal"><img src="./my-logo-mark.jpg" alt=""></span>
+        <span class="brand__name">Segun Falade<small>copy strategist for brands selling outcomes, not objects</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#work">Work</a>
+        <a href="#publication">Publication</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </nav>
+      <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open navigation"><span></span></button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <ol>
+      <li><a href="#home"><span>00</span>Home</a></li>
+      <li><a href="#work"><span>01</span>Work</a></li>
+      <li><a href="#publication"><span>02</span>Publication</a></li>
+      <li><a href="#services"><span>03</span>Services</a></li>
+      <li><a href="#about"><span>04</span>About</a></li>
+      <li><a href="#contact"><span>05</span>Contact</a></li>
+    </ol>
+  </nav>
+
+  <main id="main">
+    <section class="hero" id="home" data-nav="home">
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">Copy strategist for brands selling outcomes, not objects</p>
+          <h1><strong>When buyers hesitate,</strong> <em>I find out why</em> <span>— then close the gap</span></h1>
+          <p class="hero-lead">A promise-based offer can’t be tested before it’s bought. That gap is where doubt lives, and where most messaging goes quiet or speaks unconvincingly. I build the copy that dispels the doubts, so the right buyer stops stalling and decides.</p>
+          <div class="hero-actions">
+            <a class="button" href="#work">Explore the work <span aria-hidden="true">↓</span></a>
+            <a class="button button--ghost" href="#contact">Bring me a problem <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <aside class="country-brief" aria-label="Studio positioning summary">
+          <div class="country-brief__seal"><img src="./my-logo-lockup.jpg" alt="Segun Falade monogram and name"></div>
+          <div class="brief-row"><span>Focus</span><strong>Buyer uncertainty</strong></div>
+          <div class="brief-row"><span>Method</span><strong>Research · strategy · copy</strong></div>
+          <div class="brief-row"><span>Built for</span><strong>High-consideration decisions</strong></div>
+          <div class="brief-row"><span>Outcome</span><strong>Confident action</strong></div>
+        </aside>
+      </div>
+      <span class="hero-coordinates">Independent copy strategy practice · research, strategy and copy</span>
+    </section>
+
+    <aside class="manifesto-strip" aria-label="Studio manifesto">
+      <div class="manifesto-inner">
+        <p>How the work is organised</p>
+        <blockquote>The portfolio is organised around buyer problems — not industries, asset types or disconnected writing samples.</blockquote>
+      </div>
+    </aside>
+
+    <section class="section section--navy" id="work" data-nav="work">
+      <div class="section-inner">
+        <header class="section-head reveal">
+          <div class="section-index">01</div>
+          <div>
+            <p class="section-label">Selected Work</p>
+            <h2>Strategic copy case studies.</h2>
+            <p class="section-lead">Projects showing how I investigate buyer problems, diagnose messaging friction and build the copy solution. The portfolio is organised by the decision problem—not by industry.</p>
+          </div>
+        </header>
+
+        <div class="work-layout reveal">
+          <a class="featured-case" href="./work/qualification/">
+            <div class="featured-case__top">
+              <span>Case File 01 · Qualification</span>
+              <span class="featured-case__status">Published</span>
+            </div>
+            <div class="featured-case__body">
+              <p class="featured-case__question">How do you qualify serious prospects before the discovery call?</p>
+              <h3>The Call Before the Call</h3>
+              <p>A qualification-led sales funnel for a $5,000 career reinvention programme—built to improve buyer readiness before the sales conversation.</p>
+              <div class="featured-case__meta"><span>Career coaching</span><span>Sales page</span><span>Qualification funnel</span></div>
+              <strong>Read the case study →</strong>
+            </div>
+          </a>
+
+          <aside class="file-register" aria-label="Case study index">
+            <div class="file-register__head"><span>Case study index</span><span>Status</span></div>
+            <a class="file-row file-row--open" href="./work/qualification/"><span class="file-row__num">01</span><span><strong>Qualification</strong><small>Serious prospects before the call</small></span><em>Published</em></a>
+            <div class="file-row"><span class="file-row__num">02</span><span><strong>Trust</strong><small>Carrying confidence through the journey</small></span><em>In development</em></div>
+            <div class="file-row"><span class="file-row__num">03</span><span><strong>Clarity</strong><small>Making a complex offer usable</small></span><em>Planned</em></div>
+            <div class="file-row"><span class="file-row__num">04</span><span><strong>Differentiation</strong><small>Escaping the comparison trap</small></span><em>Planned</em></div>
+            <div class="file-row"><span class="file-row__num">05</span><span><strong>Commitment</strong><small>Resolving final-mile hesitation</small></span><em>Planned</em></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="case-method">
+      <div class="section-inner">
+        <div class="laws-intro reveal">
+          <h3>Inside every case file</h3>
+          <p>The project format stays consistent so visitors can see more than the finished copy. Each case study documents the business problem, what the investigation uncovered, the strategic decisions and the reasoning behind the build.</p>
+        </div>
+        <ol class="case-method-list content-offset reveal">
+          <li><span>01</span><strong>Problem</strong><small>What is not working?</small></li>
+          <li><span>02</span><strong>Investigation</strong><small>What did the evidence show?</small></li>
+          <li><span>03</span><strong>Diagnosis</strong><small>What is really causing it?</small></li>
+          <li><span>04</span><strong>Strategy</strong><small>What should change?</small></li>
+          <li><span>05</span><strong>Build</strong><small>How does the solution work?</small></li>
+          <li><span>06</span><strong>Reasoning</strong><small>Why these copy decisions?</small></li>
+          <li><span>07</span><strong>Outcome</strong><small>What should improve?</small></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--slate" id="publication" data-nav="publication">
+      <div class="section-inner">
+        <header class="section-head reveal">
+          <div class="section-index">02</div>
+          <div>
+            <p class="section-label">Publication · By Segun Falade</p>
+            <h2>The Almost Customer.</h2>
+            <p class="section-lead">A publication about the people who nearly buy — and what their hesitation can teach us about trust, proof and decision-making.</p>
+          </div>
+        </header>
+
+        <div class="notes-grid reveal">
+          <article class="note-card"><div class="note-card__meta"><span>The Almost Customer · 001</span><span>Trust</span></div><blockquote>Your buyer is not always skeptical of your product. They may be skeptical of their own decision to buy it.</blockquote><p>Observation · 2 minute read</p></article>
+          <article class="note-card"><div class="note-card__meta"><span>The Almost Customer · 002</span><span>Proof</span></div><blockquote>A testimonial does not automatically create trust. The right testimonial resolves the right doubt.</blockquote><p>Observation · 3 minute read</p></article>
+          <article class="note-card"><div class="note-card__meta"><span>The Almost Customer · 003</span><span>Fit</span></div><blockquote>Your sales page should not convince everyone. It should help the right buyer recognise themselves.</blockquote><p>Observation · 2 minute read</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services" data-nav="services">
+      <div class="section-inner">
+        <header class="section-head reveal">
+          <div class="section-index">03</div>
+          <div>
+            <p class="section-label">Services</p>
+            <h2>Strategy first. Copy with a job to do.</h2>
+            <p class="section-lead">Three ways to bring me into your business—from finding the message to rebuilding the journey around it.</p>
+          </div>
+        </header>
+
+        <div class="services content-offset">
+          <article class="service reveal">
+            <span class="service__num">01</span><h3>The Message Map</h3>
+            <div class="service__copy"><p>For strong offers that are difficult to explain, position or distinguish. We find the clearest route from what the business does to why the right buyer should care.</p><ul class="deliverables"><li>Positioning</li><li>Value proposition</li><li>Buyer objections</li><li>Message hierarchy</li></ul></div>
+          </article>
+          <article class="service reveal">
+            <span class="service__num">02</span><h3>The Trust Journey</h3>
+            <div class="service__copy"><p>For brands attracting attention but losing confidence somewhere between first impression and final decision. We locate the trust gaps and redesign what each step needs to communicate.</p><ul class="deliverables"><li>Journey analysis</li><li>Trust gaps</li><li>Friction points</li><li>Funnel messaging</li></ul></div>
+          </article>
+          <article class="service reveal">
+            <span class="service__num">03</span><h3>The Copy System</h3>
+            <div class="service__copy"><p>For teams ready to turn a clear strategy into connected conversion assets — so the same persuasive logic survives across pages, forms and follow-up.</p><ul class="deliverables"><li>Website copy</li><li>Sales pages</li><li>Email sequences</li><li>Landing pages</li></ul></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--navy" id="process">
+      <div class="section-inner">
+        <header class="section-head reveal">
+          <div class="section-index">04</div>
+          <div>
+            <p class="section-label">Process</p>
+            <h2>How I investigate a buyer.</h2>
+            <p class="section-lead">Copy is the final visible layer. Before that comes a structured investigation into what the buyer sees, believes, questions and needs in order to move.</p>
+          </div>
+        </header>
+
+        <div class="process-line reveal">
+          <article class="process-step"><span class="process-step__num">01</span><h3>Observe</h3><p>What is the buyer actually seeing and experiencing?</p></article>
+          <article class="process-step"><span class="process-step__num">02</span><h3>Question</h3><p>Where does uncertainty begin to collect?</p></article>
+          <article class="process-step"><span class="process-step__num">03</span><h3>Diagnose</h3><p>What is really causing confidence to break?</p></article>
+          <article class="process-step"><span class="process-step__num">04</span><h3>Reframe</h3><p>What must the brand help the buyer see differently?</p></article>
+          <article class="process-step"><span class="process-step__num">05</span><h3>Build</h3><p>Turn the strategic route into useful copy.</p></article>
+          <article class="process-step"><span class="process-step__num">06</span><h3>Test</h3><p>Watch what changes, then sharpen the route.</p></article>
+        </div>
+        <p class="process-sum reveal">The deliverable may be a page. The work is understanding the decision that page has to make easier.</p>
+      </div>
+    </section>
+
+    <section class="section" id="about" data-nav="about">
+      <div class="section-inner">
+        <header class="section-head reveal">
+          <div class="section-index">05</div>
+          <div>
+            <p class="section-label">About · Segun Falade</p>
+            <h2>The thinking behind the work.</h2>
+          </div>
+        </header>
+
+        <div class="studio-layout content-offset">
+          <div class="studio-seal reveal"><img src="./my-logo-lockup.jpg" alt="Segun Falade logo"></div>
+          <div class="studio-copy reveal">
+            <h3>My work is built around one question: what does this buyer need in order to feel confident moving forward?</h3>
+            <p>I work on the message between genuine value and buyer action — especially when the offer is high-consideration, the audience is skeptical, or the decision requires more trust than a clever headline can create.</p>
+            <p>That means I do not treat copy as decoration or verbal polish. I treat it as decision infrastructure: a sequence of useful messages designed to reduce uncertainty, establish fit and make the next step easier to take.</p>
+            <div class="studio-beliefs">
+              <div class="studio-belief"><span>01</span><p>Clarity is not simplification for its own sake. It is making the right complexity usable.</p></div>
+              <div class="studio-belief"><span>02</span><p>Specificity creates more trust than volume.</p></div>
+              <div class="studio-belief"><span>03</span><p>Every important copy choice should have a reason behind it.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" data-nav="contact">
+      <div class="contact-inner">
+        <div class="contact-head reveal">
+          <div><p class="eyebrow" style="color:var(--gold)">Contact</p><h2>Are we dealing with the same problem?</h2></div>
+          <div class="contact-head__copy"><p>If you are selling something genuinely valuable to buyers who need to trust you before they buy, tell me where the journey is getting stuck.</p></div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+          <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" placeholder="How should I address you?" required></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required></div>
+          <div class="field"><label for="company">Company / brand</label><input id="company" name="company" placeholder="Where are you working?" required></div>
+          <div class="field"><label for="problem">Closest problem</label><select id="problem" name="problem" required><option value="">Choose the closest problem</option><option>Our message is unclear</option><option>Buyers do not trust the journey</option><option>The offer is hard to explain</option><option>We look like every alternative</option><option>Buyers hesitate at commitment</option><option>Something else</option></select></div>
+          <div class="field field--wide"><label for="brief">What is happening?</label><textarea id="brief" name="brief" placeholder="Tell me what buyers are doing, where they stop, and what you wish happened instead." required></textarea></div>
+          <div class="form-action"><button class="button button--gold" type="submit">Send the field brief →</button><p class="form-note">Inquiry route will be connected before launch.</p><p class="form-status" id="formStatus" role="status">The route is staged. Your brief has not been sent yet.</p></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-brand">Segun Falade</span>
+      <div class="footer-meta"><a href="#work">Selected Work</a><a href="#publication">The Almost Customer</a><a href="#home">Return to top ↑</a></div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const header = document.getElementById('siteHeader');
+      const progress = document.getElementById('progressBar');
+      const menuButton = document.getElementById('menuButton');
+      const mobileNav = document.getElementById('mobileNav');
+      const revealItems = [...document.querySelectorAll('.reveal')];
+      const navLinks = [...document.querySelectorAll('.desktop-nav a:not(.nav-cta)')];
+      const navSections = [...document.querySelectorAll('[data-nav]')];
+      const form = document.getElementById('contactForm');
+      const formStatus = document.getElementById('formStatus');
+
+      function onScroll() {
+        const y = window.scrollY;
+        const height = document.documentElement.scrollHeight - window.innerHeight;
+        header.classList.toggle('scrolled', y > 40);
+        progress.style.width = `${height > 0 ? (y / height) * 100 : 0}%`;
+      }
+
+      function setMenu(open) {
+        menuButton.classList.toggle('open', open);
+        mobileNav.classList.toggle('open', open);
+        document.body.classList.toggle('menu-open', open);
+        menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      }
+
+      menuButton.addEventListener('click', () => setMenu(!mobileNav.classList.contains('open')));
+      mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+      document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        formStatus.classList.add('visible');
+      });
+
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .1 });
+        revealItems.forEach(item => revealObserver.observe(item));
+
+        const navObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const key = entry.target.dataset.nav;
+              navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${key}`));
+            }
+          });
+        }, { rootMargin: '-40% 0px -52% 0px', threshold: 0 });
+        navSections.forEach(section => navObserver.observe(section));
+      } else {
+        revealItems.forEach(item => item.classList.add('visible'));
+      }
+    })();
+  </script>
+</body>
+</html>
