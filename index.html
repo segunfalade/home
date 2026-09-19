@@ -197,11 +197,11 @@
 
     .hero {
       position: relative;
-      min-height: 100svh;
+      min-height: auto;
       overflow: hidden;
-      padding: clamp(8.5rem, 16vh, 12rem) var(--gutter) clamp(4rem, 9vh, 7rem);
+      padding: 7rem var(--gutter) 5rem;
       display: grid;
-      align-items: center;
+      align-items: start;
       background:
         linear-gradient(rgba(10,35,66,.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(10,35,66,.035) 1px, transparent 1px),
@@ -228,7 +228,7 @@
       display: grid;
       grid-template-columns: minmax(0, 1.35fr) minmax(300px, .58fr);
       gap: clamp(3rem, 8vw, 8rem);
-      align-items: end;
+      align-items: start;
     }
     .eyebrow {
       display: flex;
@@ -338,7 +338,7 @@
     }
     .hero-portrait {
       position: relative;
-      width: min(100%, 27rem);
+      width: min(100%, 25rem);
       margin: 0;
       justify-self: end;
       background: var(--navy);
@@ -348,9 +348,9 @@
     .hero-portrait img {
       display: block;
       width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      object-position: center 34%;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
     }
     .hero-portrait figcaption {
       display: flex;
@@ -755,7 +755,7 @@
       :root { --gutter: 1rem; }
       .site-header { padding-block: .65rem; }
       .brand__name { font-size: .96rem; }
-      .hero { padding-top: 7.25rem; padding-bottom: 4rem; background-size: 48px 48px; }
+      .hero { padding-top: 5.8rem; padding-bottom: 4rem; background-size: 48px 48px; }
       .hero-inner { gap: 3.5rem; }
       .hero h1 { font-size: clamp(2.75rem, 12.5vw, 3.7rem); line-height: .98; letter-spacing: -.045em; }
       .hero-lead { margin-top: 1.5rem; font-size: 1.06rem; }
@@ -903,7 +903,7 @@
 
 
         <figure class="hero-portrait">
-          <img src="./segun-portrait.jpg" alt="Portrait of Segun Falade" width="1200" height="1200">
+          <img src="https://segunfalade.github.io/home/segun.png" alt="Portrait of Segun Falade" width="2000" height="2000" decoding="async" fetchpriority="high">
           <figcaption><span>Segun Falade</span><small>Copy strategist</small></figcaption>
         </figure>
       </div>
@@ -1158,5 +1158,5 @@
       }
     })();
   </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3daece33e50ed05',t:'MTc4OTg0NTM5MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
