@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0A2342">
-  <meta name="description" content="Segun Falade is a copy strategist for brands selling outcomes, not objects. Explore strategic copy case studies, The Almost Customer publication and services.">
-  <title>Segun Falade — Copy Strategist for Brands Selling Outcomes, Not Objects</title>
+  <meta name="description" content="Segun Falade is a copy strategist for executive and leadership coaches, writing copy that makes high-trust transformation offers easier to understand, believe and buy.">
+  <title>Segun Falade — Copy Strategist for Executive and Leadership Coaches</title>
   <style>
     :root {
       --navy: #0A2342;
@@ -244,21 +244,19 @@
     }
     .eyebrow::before { content: ""; width: 2.5rem; height: 1px; background: currentColor; }
     .hero h1 {
-      max-width: 920px;
+      max-width: 900px;
       margin: 0;
       color: var(--navy);
       font-family: var(--serif);
-      font-size: clamp(3.8rem, 8.2vw, 7.6rem);
+      font-size: clamp(3.35rem, 5.8vw, 5.55rem);
       font-weight: 500;
-      letter-spacing: -.06em;
-      line-height: .9;
+      letter-spacing: -.052em;
+      line-height: .96;
     }
     .hero h1 strong,
-    .hero h1 em,
-    .hero h1 span { display: block; }
-    .hero h1 strong { font-weight: 700; }
-    .hero h1 em { color: var(--bronze); font-weight: 400; }
-    .hero h1 span { margin-top: .38em; font-family: var(--sans); font-size: .31em; font-weight: 800; letter-spacing: .04em; line-height: 1.2; text-transform: uppercase; }
+    .hero h1 em { display: block; }
+    .hero h1 strong { font-weight: 650; }
+    .hero h1 em { margin-top: .12em; color: var(--bronze); font-weight: 400; }
     .hero-lead {
       max-width: 710px;
       margin: 2rem 0 0;
@@ -338,6 +336,33 @@
       letter-spacing: .16em;
       text-transform: uppercase;
     }
+    .hero-portrait {
+      position: relative;
+      width: min(100%, 27rem);
+      margin: 0;
+      justify-self: end;
+      background: var(--navy);
+      border: 1px solid rgba(138,106,47,.42);
+      box-shadow: 20px 20px 0 var(--ivory-deep);
+    }
+    .hero-portrait img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 34%;
+    }
+    .hero-portrait figcaption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .8rem 1rem;
+      color: var(--ivory);
+      border-top: 1px solid rgba(201,162,75,.35);
+    }
+    .hero-portrait figcaption span { color: var(--gold); font-family: var(--serif); font-size: 1rem; }
+    .hero-portrait figcaption small { color: rgba(245,243,238,.56); font-size: .55rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 
     .manifesto-strip { padding: clamp(2.5rem, 5vw, 4.5rem) var(--gutter); color: var(--navy); background: var(--gold); }
     .manifesto-inner {
@@ -715,6 +740,7 @@
       .case-method-list li:nth-child(4) { border-right: 0; }
       .case-method-list li:nth-child(-n+4) { border-bottom: 1px solid rgba(10,35,66,.14); }
       .hero { min-height: auto; }
+      .hero-portrait { justify-self: start; width: min(100%, 32rem); }
       .country-brief { max-width: 620px; }
       .content-offset { margin-left: 0; }
       .section-head { gap: 1.5rem; }
@@ -731,11 +757,13 @@
       .brand__name { font-size: .96rem; }
       .hero { padding-top: 7.25rem; padding-bottom: 4rem; background-size: 48px 48px; }
       .hero-inner { gap: 3.5rem; }
-      .hero h1 { font-size: clamp(3.25rem, 15.5vw, 4.8rem); line-height: .91; letter-spacing: -.055em; }
+      .hero h1 { font-size: clamp(2.75rem, 12.5vw, 3.7rem); line-height: .98; letter-spacing: -.045em; }
       .hero-lead { margin-top: 1.5rem; font-size: 1.06rem; }
       .hero-actions { display: grid; grid-template-columns: 1fr; }
       .hero-actions .button { width: 100%; }
       .hero-coordinates { display: none; }
+      .hero-portrait { width: calc(100% - .65rem); max-width: 30rem; box-shadow: 10px 10px 0 var(--ivory-deep); }
+      .hero-portrait figcaption { align-items: flex-start; flex-direction: column; gap: .15rem; }
       .country-brief { width: calc(100% - .7rem); padding: 1.25rem; box-shadow: 10px 10px 0 var(--ivory-deep); }
       .country-brief__seal { width: 5.6rem; height: 5.6rem; font-size: 2rem; }
       .manifesto-strip { padding-block: 2.75rem; }
@@ -836,7 +864,7 @@
     <div class="header-inner">
       <a class="brand" href="#home" aria-label="Segun Falade home">
         <span class="brand__seal"><img src="./my-logo-mark.jpg" alt=""></span>
-        <span class="brand__name">Segun Falade<small>copy strategist for brands selling outcomes, not objects</small></span>
+        <span class="brand__name">Segun Falade<small>copy strategist for executive and leadership coaches</small></span>
       </a>
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="#home">Home</a>
@@ -865,24 +893,21 @@
     <section class="hero" id="home" data-nav="home">
       <div class="hero-inner">
         <div>
-          <p class="eyebrow">Copy strategist for brands selling outcomes, not objects</p>
-          <h1><strong>When buyers hesitate,</strong> <em>I find out why</em> <span>— then close the gap</span></h1>
-          <p class="hero-lead">A promise-based offer can’t be tested before it’s bought. That gap is where doubt lives, and where most messaging goes quiet or speaks unconvincingly. I build the copy that dispels the doubts, so the right buyer stops stalling and decides.</p>
+          <p class="eyebrow">Copy strategist for executive and leadership coaches</p>
+          <h1><strong>There’s a reason leaders and execs second-guess your coaching.</strong> <em>I find it, and fix it for good.</em></h1>
+          <p class="hero-lead">Transformation can’t be held or tried before someone buys it, which makes the value easy to doubt and easy to miss. I write the copy that makes it undeniable.</p>
           <div class="hero-actions">
-            <a class="button" href="#work">Explore the work <span aria-hidden="true">↓</span></a>
-            <a class="button button--ghost" href="#contact">Bring me a problem <span aria-hidden="true">→</span></a>
+            <a class="button" href="#work">Explore My Work <span aria-hidden="true">↓</span></a>
           </div>
         </div>
 
-        <aside class="country-brief" aria-label="Studio positioning summary">
-          <div class="country-brief__seal"><img src="./my-logo-lockup.jpg" alt="Segun Falade monogram and name"></div>
-          <div class="brief-row"><span>Focus</span><strong>Buyer uncertainty</strong></div>
-          <div class="brief-row"><span>Method</span><strong>Research · strategy · copy</strong></div>
-          <div class="brief-row"><span>Built for</span><strong>High-consideration decisions</strong></div>
-          <div class="brief-row"><span>Outcome</span><strong>Confident action</strong></div>
-        </aside>
+
+        <figure class="hero-portrait">
+          <img src="./segun-portrait.jpg" alt="Portrait of Segun Falade" width="1200" height="1200">
+          <figcaption><span>Segun Falade</span><small>Copy strategist</small></figcaption>
+        </figure>
       </div>
-      <span class="hero-coordinates">Independent copy strategy practice · research, strategy and copy</span>
+      <span class="hero-coordinates">Executive and leadership coaching · messaging, trust and conversion</span>
     </section>
 
     <aside class="manifesto-strip" aria-label="Studio manifesto">
@@ -1133,5 +1158,5 @@
       }
     })();
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3daece33e50ed05',t:'MTc4OTg0NTM5MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
