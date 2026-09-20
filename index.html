@@ -492,9 +492,41 @@
     .law::before { content: "0" counter(laws); color: var(--bronze); font-family: var(--serif); font-size: 1.3rem; }
     .law blockquote { max-width: 900px; margin: 0; color: var(--navy); font-family: var(--serif); font-size: clamp(1.6rem, 3.5vw, 2.8rem); letter-spacing: -.035em; line-height: 1.15; }
 
+    .what-i-do { background: var(--ivory-deep); border-top: 1px solid rgba(10,35,66,.12); }
+    .service-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(10,35,66,.17);
+      border: 1px solid rgba(10,35,66,.17);
+    }
+    .service-card {
+      min-height: 21rem;
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      background: var(--ivory);
+      transition: color .22s ease, background .22s ease;
+    }
+    .service-card__number { color: var(--bronze); font-size: .64rem; font-weight: 900; letter-spacing: .14em; }
+    .service-card h3 {
+      margin: auto 0 1rem;
+      color: var(--navy);
+      font-family: var(--serif);
+      font-size: clamp(1.55rem, 2.8vw, 2.3rem);
+      font-weight: 500;
+      letter-spacing: -.035em;
+      line-height: 1.05;
+    }
+    .service-card p { margin: 0; color: var(--charcoal); font-size: .9rem; }
+    .service-card:hover { color: var(--ivory); background: var(--navy); }
+    .service-card:hover .service-card__number { color: var(--gold); }
+    .service-card:hover h3 { color: var(--ivory); }
+    .service-card:hover p { color: rgba(245,243,238,.68); }
+
     .work-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(330px, .72fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1px;
       background: rgba(201,162,75,.42);
       border: 1px solid rgba(201,162,75,.42);
@@ -512,7 +544,7 @@
       transition: background .25s ease;
     }
     .featured-case::after {
-      content: "01";
+      content: attr(data-case);
       position: absolute;
       right: -1.2rem;
       bottom: -4.2rem;
@@ -523,6 +555,10 @@
       line-height: 1;
     }
     .featured-case:hover { background: #102D4D; }
+    .featured-case--secondary { background: var(--slate); }
+    .featured-case--secondary:hover { background: #14314E; }
+    .featured-case--tertiary { background: #354856; }
+    .featured-case--tertiary:hover { background: #293E4E; }
     .featured-case__top {
       position: relative;
       z-index: 1;
@@ -539,7 +575,7 @@
     .featured-case__status { padding: .25rem .55rem; border: 1px solid rgba(201,162,75,.55); }
     .featured-case__body { position: relative; z-index: 1; max-width: 750px; margin-top: auto; }
     .featured-case__question { max-width: 570px; margin: 0 0 1.25rem; color: var(--gold); font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-    .featured-case h3 { margin: 0 0 1rem; font-family: var(--serif); font-size: clamp(2.8rem, 5.6vw, 5.3rem); font-weight: 500; letter-spacing: -.055em; line-height: .94; }
+    .featured-case h3 { margin: 0 0 1rem; font-family: var(--serif); font-size: clamp(2.1rem, 3vw, 3.5rem); font-weight: 500; letter-spacing: -.05em; line-height: .98; }
     .featured-case__body > p:not(.featured-case__question) { max-width: 650px; margin: 0; color: rgba(245,243,238,.68); font-family: var(--serif); font-size: 1.12rem; }
     .featured-case__meta { display: flex; flex-wrap: wrap; gap: .7rem 1.2rem; margin-top: 1.6rem; color: rgba(245,243,238,.5); font-size: .58rem; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
     .featured-case__body > strong { display: inline-block; margin-top: 2rem; color: var(--gold); font-size: .66rem; letter-spacing: .13em; text-transform: uppercase; }
@@ -564,7 +600,7 @@
 
     .case-method-list {
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       margin-top: 3rem;
       padding: 0;
       border-top: 1px solid rgba(10,35,66,.18);
@@ -619,19 +655,23 @@
     .state-card--featured:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
     .states-note { margin: 1.5rem 0 0; color: var(--charcoal); font-size: .72rem; text-align: right; }
 
-    .notes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,162,75,.38); border: 1px solid rgba(201,162,75,.38); }
+    .notes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(201,162,75,.38); border: 1px solid rgba(201,162,75,.38); }
     .note-card {
-      min-height: 25rem;
-      padding: 1.8rem;
+      min-height: 33rem;
+      padding: clamp(1.4rem, 3vw, 2rem);
       display: flex;
       flex-direction: column;
       background: var(--slate);
       transition: background .25s ease;
     }
     .note-card:hover { background: var(--navy); }
-    .note-card__meta { display: flex; justify-content: space-between; color: var(--gold); font-size: .6rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
-    .note-card blockquote { margin: auto 0 1.5rem; color: var(--ivory); font-family: var(--serif); font-size: clamp(1.4rem, 2.8vw, 2.2rem); letter-spacing: -.03em; line-height: 1.15; }
-    .note-card p { margin: 0; color: rgba(245,243,238,.52); font-size: .77rem; }
+    .note-card__meta { display: flex; justify-content: space-between; gap: 1rem; color: var(--gold); font-size: .6rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    .note-card h3 { margin: 3.5rem 0 1.4rem; color: var(--ivory); font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.65rem); font-weight: 500; letter-spacing: -.035em; line-height: 1.05; }
+    .post-preview { display: grid; gap: .85rem; }
+    .post-preview p { margin: 0; color: rgba(245,243,238,.68); font-size: .88rem; line-height: 1.58; }
+    .post-preview strong { color: var(--ivory); }
+    .post-preview .post-ellipsis { color: var(--gold); font-family: var(--serif); font-size: 1.7rem; line-height: 1; }
+    .publication-action { display: flex; justify-content: flex-end; margin-top: 2rem; }
 
     .services { border-top: 1px solid rgba(10,35,66,.16); }
     .service {
@@ -735,11 +775,13 @@
       .menu-button { display: block; }
       .menu-button.open { position: relative; z-index: 130; border-color: rgba(245,243,238,.25); }
       .menu-button.open span, .menu-button.open::before, .menu-button.open::after { background: var(--ivory); }
-      .hero-inner, .section-head, .map-layout, .laws-intro, .studio-layout, .contact-head, .work-layout { grid-template-columns: 1fr; }
+      .hero-inner, .section-head, .map-layout, .laws-intro, .studio-layout, .contact-head { grid-template-columns: 1fr; }
+      .work-layout { grid-template-columns: repeat(2, 1fr); }
+      .work-layout .featured-case:last-child { grid-column: 1 / -1; }
       .case-method-list { grid-template-columns: repeat(4, 1fr); }
       .case-method-list li:nth-child(4) { border-right: 0; }
-      .case-method-list li:nth-child(-n+4) { border-bottom: 1px solid rgba(10,35,66,.14); }
       .hero { min-height: auto; }
+      .service-card-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-portrait { justify-self: start; width: min(100%, 32rem); }
       .country-brief { max-width: 620px; }
       .content-offset { margin-left: 0; }
@@ -767,7 +809,9 @@
       .country-brief { width: calc(100% - .7rem); padding: 1.25rem; box-shadow: 10px 10px 0 var(--ivory-deep); }
       .country-brief__seal { width: 5.6rem; height: 5.6rem; font-size: 2rem; }
       .manifesto-strip { padding-block: 2.75rem; }
-      .manifesto-inner, .state-grid, .notes-grid, .contact-form { grid-template-columns: 1fr; }
+      .manifesto-inner, .state-grid, .notes-grid, .contact-form, .service-card-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 16rem; padding: 1.35rem; }
+      .service-card h3 { margin-top: 3rem; }
       .manifesto-inner { gap: 1rem; }
       .manifesto-inner blockquote { font-size: 1.7rem; line-height: 1.12; }
       .section { padding-block: 4.75rem; }
@@ -779,6 +823,8 @@
       .mobile-map-list { position: relative; display: grid; }
       .map-feature { padding: 1.5rem 0; }
       .map-feature h3 { margin-top: 1.6rem; }
+      .work-layout { grid-template-columns: 1fr; }
+      .work-layout .featured-case:last-child { grid-column: auto; }
       .featured-case { min-height: 29rem; padding: 1.35rem; }
       .featured-case__top { align-items: flex-start; flex-direction: column; gap: .65rem; }
       .featured-case h3 { font-size: 3rem; }
@@ -803,7 +849,9 @@
       .notes-grid { gap: 1px; }
       .note-card { min-height: 18rem; padding: 1.4rem; }
       .note-card__meta { align-items: flex-start; flex-direction: column; gap: .35rem; }
-      .note-card blockquote { font-size: 1.55rem; }
+      .note-card h3 { margin-top: 2.2rem; }
+      .publication-action { justify-content: stretch; }
+      .publication-action .button { width: 100%; }
       .service { grid-template-columns: 2rem 1fr; gap: .8rem; }
       .service h3 { font-size: 2rem; }
       .service__copy { grid-column: 2; }
@@ -868,9 +916,9 @@
       </a>
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="#home">Home</a>
+        <a href="#services">Services</a>
         <a href="#work">Work</a>
         <a href="#publication">Publication</a>
-        <a href="#services">Services</a>
         <a href="#about">About</a>
         <a class="nav-cta" href="#contact">Contact</a>
       </nav>
@@ -881,9 +929,9 @@
   <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
     <ol>
       <li><a href="#home"><span>00</span>Home</a></li>
-      <li><a href="#work"><span>01</span>Work</a></li>
-      <li><a href="#publication"><span>02</span>Publication</a></li>
-      <li><a href="#services"><span>03</span>Services</a></li>
+      <li><a href="#services"><span>01</span>Services</a></li>
+      <li><a href="#work"><span>02</span>Work</a></li>
+      <li><a href="#publication"><span>03</span>Publication</a></li>
       <li><a href="#about"><span>04</span>About</a></li>
       <li><a href="#contact"><span>05</span>Contact</a></li>
     </ol>
@@ -895,7 +943,7 @@
         <div>
           <p class="eyebrow">Copy strategist for executive and leadership coaches</p>
           <h1><strong>There’s a reason leaders and execs second-guess your coaching.</strong> <em>I find it, and fix it for good.</em></h1>
-          <p class="hero-lead">Selling transformation is difficult because your clients can’t experience the value before they buy. I turn your expertise, approach, and outcomes into messaging that makes that value easier to see, understand, and trust.</p>
+          <p class="hero-lead">Transformation can’t be held or tried before someone buys it, which makes the value easy to doubt and easy to miss. I write the copy that makes it undeniable.</p>
           <div class="hero-actions">
             <a class="button" href="#work">Explore My Work <span aria-hidden="true">↓</span></a>
           </div>
@@ -910,17 +958,56 @@
       <span class="hero-coordinates">Executive and leadership coaching · messaging, trust and conversion</span>
     </section>
 
-    <aside class="manifesto-strip" aria-label="Studio manifesto">
-      <div class="manifesto-inner">
-        <p>How the work is organised</p>
-        <blockquote>The portfolio is organised around buyer problems — not industries, asset types or disconnected writing samples.</blockquote>
+    <section class="section what-i-do" id="services" data-nav="services">
+      <div class="section-inner">
+        <header class="section-head reveal">
+          <div class="section-index">01</div>
+          <div>
+            <p class="section-label">Services</p>
+            <h2>What I Do.</h2>
+            <p class="section-lead">Strategy and copy for coaches whose transformation has to be understood and trusted before it can be experienced.</p>
+          </div>
+        </header>
+
+        <div class="service-card-grid content-offset">
+          <article class="service-card reveal">
+            <span class="service-card__number">01</span>
+            <h3>Brand Positioning</h3>
+            <p>Find the specific reason skeptical buyers hesitate on you, and build a position that closes it before they ever ask.</p>
+          </article>
+          <article class="service-card reveal">
+            <span class="service-card__number">02</span>
+            <h3>Website Messaging</h3>
+            <p>Homepage and core page copy that replaces claims with proof, so buyers stop guessing whether you’re worth the risk.</p>
+          </article>
+          <article class="service-card reveal">
+            <span class="service-card__number">03</span>
+            <h3>Landing Pages</h3>
+            <p>Pages built to carry a single belief across the finish line, from the first line down to the offer.</p>
+          </article>
+          <article class="service-card reveal">
+            <span class="service-card__number">04</span>
+            <h3>Email Copywriting</h3>
+            <p>Sequences that build trust in the inbox the way your best sales conversation would, without you having to be on every call.</p>
+          </article>
+          <article class="service-card reveal">
+            <span class="service-card__number">05</span>
+            <h3>Trust Journey Mapping</h3>
+            <p>Every path a buyer takes to a “yes” has a point where doubt takes over instead. I find that point, and rebuild the copy around it.</p>
+          </article>
+          <article class="service-card reveal">
+            <span class="service-card__number">06</span>
+            <h3>List Building</h3>
+            <p>Lead magnets and mini offers designed to earn an email address the same way your paid offer earns a client—with a real, specific promise, not a giveaway.</p>
+          </article>
+        </div>
       </div>
-    </aside>
+    </section>
 
     <section class="section section--navy" id="work" data-nav="work">
       <div class="section-inner">
         <header class="section-head reveal">
-          <div class="section-index">01</div>
+          <div class="section-index">02</div>
           <div>
             <p class="section-label">Selected Work</p>
             <h2>Strategic copy case studies.</h2>
@@ -929,28 +1016,47 @@
         </header>
 
         <div class="work-layout reveal">
-          <a class="featured-case" href="./work/qualification/">
+          <a class="featured-case" data-case="01" href="./work/qualification/">
             <div class="featured-case__top">
-              <span>Case File 01 · Qualification</span>
-              <span class="featured-case__status">Published</span>
+              <span>Case Study 01 · Qualification</span>
+              <span class="featured-case__status">Spec project</span>
             </div>
             <div class="featured-case__body">
               <p class="featured-case__question">How do you qualify serious prospects before the discovery call?</p>
               <h3>The Call Before the Call</h3>
-              <p>A qualification-led sales funnel for a $5,000 career reinvention programme—built to improve buyer readiness before the sales conversation.</p>
-              <div class="featured-case__meta"><span>Career coaching</span><span>Sales page</span><span>Qualification funnel</span></div>
+              <p>A qualification-led sales journey for a $5,000 career reinvention programme—built to improve buyer readiness before the sales conversation.</p>
+              <div class="featured-case__meta"><span>Career coaching</span><span>Sales page</span><span>Application funnel</span></div>
               <strong>Read the case study →</strong>
             </div>
           </a>
 
-          <aside class="file-register" aria-label="Case study index">
-            <div class="file-register__head"><span>Case study index</span><span>Status</span></div>
-            <a class="file-row file-row--open" href="./work/qualification/"><span class="file-row__num">01</span><span><strong>Qualification</strong><small>Serious prospects before the call</small></span><em>Published</em></a>
-            <div class="file-row"><span class="file-row__num">02</span><span><strong>Trust</strong><small>Carrying confidence through the journey</small></span><em>In development</em></div>
-            <div class="file-row"><span class="file-row__num">03</span><span><strong>Clarity</strong><small>Making a complex offer usable</small></span><em>Planned</em></div>
-            <div class="file-row"><span class="file-row__num">04</span><span><strong>Differentiation</strong><small>Escaping the comparison trap</small></span><em>Planned</em></div>
-            <div class="file-row"><span class="file-row__num">05</span><span><strong>Commitment</strong><small>Resolving final-mile hesitation</small></span><em>Planned</em></div>
-          </aside>
+          <a class="featured-case featured-case--secondary" data-case="02" href="./work/trainopedia/">
+            <div class="featured-case__top">
+              <span>Case Study 02 · Positioning</span>
+              <span class="featured-case__status">Client project</span>
+            </div>
+            <div class="featured-case__body">
+              <p class="featured-case__question">How do you turn interest into sign-ups when the product’s value is not landing clearly?</p>
+              <h3>Trainopedia: From Interest to Sign-Up</h3>
+              <p>Positioning, website messaging and email copy that clarified the platform’s value and helped users move toward registration.</p>
+              <div class="featured-case__meta"><span>Brand positioning</span><span>Website messaging</span><span>10× sign-ups</span></div>
+              <strong>Read the case study →</strong>
+            </div>
+          </a>
+
+          <a class="featured-case featured-case--tertiary" data-case="03" href="./work/farmkonnect/">
+            <div class="featured-case__top">
+              <span>Case Study 03 · Nurture</span>
+              <span class="featured-case__status">Client project</span>
+            </div>
+            <div class="featured-case__body">
+              <p class="featured-case__question">What happens when audience interest has no consistent system to land in?</p>
+              <h3>FarmKonnect: Building the Follow-Up System</h3>
+              <p>An email marketing, lead-generation and messaging feedback system built to nurture interest and maintain trust.</p>
+              <div class="featured-case__meta"><span>Email strategy</span><span>Lead generation</span><span>300+ leads</span></div>
+              <strong>Read the case study →</strong>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -958,17 +1064,14 @@
     <section class="section" id="case-method">
       <div class="section-inner">
         <div class="laws-intro reveal">
-          <h3>Inside every case file</h3>
-          <p>The project format stays consistent so visitors can see more than the finished copy. Each case study documents the business problem, what the investigation uncovered, the strategic decisions and the reasoning behind the build.</p>
+          <h3>Inside every case study</h3>
+          <p>Each project follows the same concise structure, so visitors can understand the problem, my role, how I approached the solution and what changed as a result.</p>
         </div>
         <ol class="case-method-list content-offset reveal">
-          <li><span>01</span><strong>Problem</strong><small>What is not working?</small></li>
-          <li><span>02</span><strong>Investigation</strong><small>What did the evidence show?</small></li>
-          <li><span>03</span><strong>Diagnosis</strong><small>What is really causing it?</small></li>
-          <li><span>04</span><strong>Strategy</strong><small>What should change?</small></li>
-          <li><span>05</span><strong>Build</strong><small>How does the solution work?</small></li>
-          <li><span>06</span><strong>Reasoning</strong><small>Why these copy decisions?</small></li>
-          <li><span>07</span><strong>Outcome</strong><small>What should improve?</small></li>
+          <li><span>01</span><strong>Why I was brought on</strong><small>The business problem and the friction behind it.</small></li>
+          <li><span>02</span><strong>What I did</strong><small>My role and the intervention I made.</small></li>
+          <li><span>03</span><strong>Solution process</strong><small>The strategic and copy decisions behind the work.</small></li>
+          <li><span>04</span><strong>Results</strong><small>The measured impact—or intended outcome for spec work.</small></li>
         </ol>
       </div>
     </section>
@@ -976,46 +1079,75 @@
     <section class="section section--slate" id="publication" data-nav="publication">
       <div class="section-inner">
         <header class="section-head reveal">
-          <div class="section-index">02</div>
+          <div class="section-index">03</div>
           <div>
-            <p class="section-label">Publication · By Segun Falade</p>
-            <h2>The Almost Customer.</h2>
-            <p class="section-lead">A publication about the people who nearly buy — and what their hesitation can teach us about trust, proof and decision-making.</p>
+            <p class="section-label">Writing · By Segun Falade</p>
+            <h2>Publication.</h2>
+            <p class="section-lead">Notes on skeptical buyers, positioning, trust and the messaging choices that make an offer easier to believe.</p>
           </div>
         </header>
 
         <div class="notes-grid reveal">
-          <article class="note-card"><div class="note-card__meta"><span>The Almost Customer · 001</span><span>Trust</span></div><blockquote>Your buyer is not always skeptical of your product. They may be skeptical of their own decision to buy it.</blockquote><p>Observation · 2 minute read</p></article>
-          <article class="note-card"><div class="note-card__meta"><span>The Almost Customer · 002</span><span>Proof</span></div><blockquote>A testimonial does not automatically create trust. The right testimonial resolves the right doubt.</blockquote><p>Observation · 3 minute read</p></article>
-          <article class="note-card"><div class="note-card__meta"><span>The Almost Customer · 003</span><span>Fit</span></div><blockquote>Your sales page should not convince everyone. It should help the right buyer recognise themselves.</blockquote><p>Observation · 2 minute read</p></article>
+          <article class="note-card">
+            <div class="note-card__meta"><span>Post 01</span><span>Buyer psychology</span></div>
+            <h3>The Skeptics</h3>
+            <div class="post-preview">
+              <p>Most brands are fighting to the death over the easiest 20% of the market.</p>
+              <p>They want the optimists. The early adopters. Those who are easy to convince. But they are ignoring the more profitable, loyal segment of the market:</p>
+              <p><strong>The Skeptics.</strong></p>
+              <p>Every market has them in abundance. They are the buyers most brands quietly give up on.</p>
+              <p>The ones who have been promised transformation before and didn’t get it. Who arrive with their arms crossed and their guard already up. Who read every word on your page looking for the thing that doesn’t add up.</p>
+              <p class="post-ellipsis">...</p>
+            </div>
+          </article>
+
+          <article class="note-card">
+            <div class="note-card__meta"><span>Post 02</span><span>AI and differentiation</span></div>
+            <h3>What AI Does to Your Business</h3>
+            <div class="post-preview">
+              <p>Took me a while but now I know what AI does to your business.</p>
+              <p>First off, I agree that AI provides some value. It speeds things up. Gets you unstuck when you’re pressed for time. It helps in its own way and I won’t pretend it doesn’t.</p>
+              <p>But hidden inside the solution it provides… is the bigger harm it causes.</p>
+              <p>The obvious one is the noise problem. AI has given everyone something to say, including those who really have NOTHING to say about your industry.</p>
+              <p>The feed is crowded with content that looks polished, sounds confident, and means nothing. And if you’re drawing from the same source as thousands of others?</p>
+              <p>Your content starts to look like the thousands of others. You get categorised. Ignored. You become just part of the background.</p>
+              <p class="post-ellipsis">...</p>
+            </div>
+          </article>
+
+          <article class="note-card">
+            <div class="note-card__meta"><span>Post 03</span><span>Positioning</span></div>
+            <h3>Who This Is Not For</h3>
+            <div class="post-preview">
+              <p>Telling a buyer your product isn’t for them is the most counterintuitive sales move you’ll ever make. It’s also one of the most effective.</p>
+              <p>Most brands write their hero section to appeal to everyone. Maximum reach. No caveat that might cost a lead. No limitation that might shrink the audience.</p>
+              <p>And in trying to speak to everyone, they say nothing specific enough to convince anyone.</p>
+              <p>The hero section becomes a display of confidence. And burned buyers have learned to regard those as noise.</p>
+              <p>But pay attention to what happens when you lead with this statement:</p>
+              <p><strong>“Who this is not for.”</strong></p>
+              <p class="post-ellipsis">...</p>
+            </div>
+          </article>
+
+          <article class="note-card">
+            <div class="note-card__meta"><span>Post 04</span><span>Buyer psychology</span></div>
+            <h3>New, But Not Too New</h3>
+            <div class="post-preview">
+              <p>Your buyer wants something different. But not too different.</p>
+              <p>Humans are strange creatures.</p>
+              <p>We crave novelty. New things excite us: new experiences, new ideas, new solutions to old problems. This is why unboxing videos work. Why product launches create genuine anticipation. Why we’re drawn to things we haven’t seen before.</p>
+              <p>And yet.</p>
+              <p>We don’t actually accept what’s too new.</p>
+              <p>We want something different from our last experience, but still similar enough to feel safe. We want what’s attractive, but if it’s too attractive it raises suspicion. We want something better, but if it’s too different from what we know, we freeze.</p>
+              <p>New, but not too new. Different, but familiar. Better, but recognizable.</p>
+              <p>This is the paradox most brands have to deal with. But some have cracked it.</p>
+              <p class="post-ellipsis">...</p>
+            </div>
+          </article>
         </div>
-      </div>
-    </section>
 
-    <section class="section" id="services" data-nav="services">
-      <div class="section-inner">
-        <header class="section-head reveal">
-          <div class="section-index">03</div>
-          <div>
-            <p class="section-label">Services</p>
-            <h2>Strategy first. Copy with a job to do.</h2>
-            <p class="section-lead">Three ways to bring me into your business—from finding the message to rebuilding the journey around it.</p>
-          </div>
-        </header>
-
-        <div class="services content-offset">
-          <article class="service reveal">
-            <span class="service__num">01</span><h3>The Message Map</h3>
-            <div class="service__copy"><p>For strong offers that are difficult to explain, position or distinguish. We find the clearest route from what the business does to why the right buyer should care.</p><ul class="deliverables"><li>Positioning</li><li>Value proposition</li><li>Buyer objections</li><li>Message hierarchy</li></ul></div>
-          </article>
-          <article class="service reveal">
-            <span class="service__num">02</span><h3>The Trust Journey</h3>
-            <div class="service__copy"><p>For brands attracting attention but losing confidence somewhere between first impression and final decision. We locate the trust gaps and redesign what each step needs to communicate.</p><ul class="deliverables"><li>Journey analysis</li><li>Trust gaps</li><li>Friction points</li><li>Funnel messaging</li></ul></div>
-          </article>
-          <article class="service reveal">
-            <span class="service__num">03</span><h3>The Copy System</h3>
-            <div class="service__copy"><p>For teams ready to turn a clear strategy into connected conversion assets — so the same persuasive logic survives across pages, forms and follow-up.</p><ul class="deliverables"><li>Website copy</li><li>Sales pages</li><li>Email sequences</li><li>Landing pages</li></ul></div>
-          </article>
+        <div class="publication-action reveal">
+          <a class="button button--gold" href="https://www.linkedin.com/in/segunfaladey/" target="_blank" rel="noopener noreferrer">View More Posts →</a>
         </div>
       </div>
     </section>
@@ -1091,7 +1223,7 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <span class="footer-brand">Segun Falade</span>
-      <div class="footer-meta"><a href="#work">Selected Work</a><a href="#publication">The Almost Customer</a><a href="#home">Return to top ↑</a></div>
+      <div class="footer-meta"><a href="#work">Selected Work</a><a href="#publication">Publication</a><a href="#home">Return to top ↑</a></div>
     </div>
   </footer>
 
@@ -1158,5 +1290,5 @@
       }
     })();
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3e1ba7e7c915925',t:'MTc4OTkxNjcyOA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
